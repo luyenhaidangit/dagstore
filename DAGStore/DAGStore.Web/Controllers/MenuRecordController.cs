@@ -26,7 +26,40 @@ namespace DAGStore.Web.Controllers
             return Json(listMenuRecord, JsonRequestBehavior.AllowGet);
         }
 
-        
+        public JsonResult GetByID(int id)
+        {
+            var menuRecord = _menuRecordService.GetByID(id);
+
+            return Json(menuRecord, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult Create(MenuRecord menuRecord)
+        {
+            _menuRecordService.Add(menuRecord);
+            _menuRecordService.SaveChanges();
+
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPut]
+        public JsonResult Update(MenuRecord menuRecord)
+        {
+            var dbMenuRecord = _menuRecordService.GetByID(menuRecord.ID);
+            _menuRecordService.Update(dbMenuRecord);
+            _menuRecordService.SaveChanges();
+
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpDelete]
+        public JsonResult Delete(int id)
+        {
+            bool oldMenuRecord = _menuRecordService.Delete(id);
+            _menuRecordService.SaveChanges();
+
+            return Json(oldMenuRecord, JsonRequestBehavior.AllowGet);
+        }
 
     }
 }

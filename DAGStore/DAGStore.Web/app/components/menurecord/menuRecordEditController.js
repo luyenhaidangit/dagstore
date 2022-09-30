@@ -8,7 +8,8 @@ function menuRecordEditController($scope,apiService,notificationService,$state,$
         
     }
 
-    function loadMenuRecordDetail(){
+    function loadMenuRecordDetail() {
+       
         apiService.get("/menurecord/getbyid/"+$stateParams.id,null,function(result){
             $scope.menuRecord = result.data;
         },function(error){
