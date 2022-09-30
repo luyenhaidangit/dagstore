@@ -1,0 +1,28 @@
+@import url("reset.css");
+@import url("common.css");
+@import url("component-client.css");
+
+.error-noti{
+    padding: 60px 0;
+}
+
+.error-noti > img{
+    height: 400px;
+}
+
+.list-link-handle__item-text{
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.list-link-handle__item > a {
+    line-height: 40px;
+    height: 40px;
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.list-link-handle__item > a > img{
+    height: 20px;
+}

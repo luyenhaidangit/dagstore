@@ -1,0 +1,36 @@
+.header-profile-user {
+    background-color: unset;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+ }
+
+button[disabled]{
+    cursor: no-drop;
+}
+
+form[role="form"] span {
+    color: red;
+    margin-top: 6px;
+    display: block;
+}
+
+.dt-buttons span {
+    display: flex;
+    align-items: center;
+}
+
+div.dt-button-collection.fixed {
+    top: 150% !important;
+    left: 45% !important;
+}
+
+.swal2-title{
+    font-size: 22px !important;
+}
+
+.swal2-styled {
+    padding: 8px 16px !important;
+    font-size: 15px !important;
+}
+
+
+

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/Content/client/img/resource/favicon-dagstore.ico" type="image/x-icon">
+    <!-- fontawesome font -->
+    @Styles.Render("~/Content/client/font/font-awesome-pro-5/css/all.min.css")
+    <!-- swiper css -->
+    @Styles.Render("~/Content/lib/swiper-8.3.2/package/swiper-bundle.min.css")
+    <!-- bootstrap css -->
+    @Styles.Render("~/Content/lib/bootstrap-5.2.0-dist/css/bootstrap.min.css")
+    <!-- css -->
+    @RenderSection("css", required: false)
+</head>
+
+<body>
+    <div id="root">
+        <!-- begin: header-topbar -->
+        @RenderPage("~/Views/Shared/Partials/HeaderTopbar.cshtml")
+        <!-- end: header-topbar -->
+        <!-- begin: header -->
+        @RenderPage("~/Views/Shared/Partials/Header.cshtml")
+        <!-- end: header -->
+        <!-- begin: content -->
+        @RenderBody()
+        <!-- end: content -->
+        <!-- begin: footer -->
+        @RenderPage("~/Views/Shared/Partials/Footer.cshtml")
+        <!-- end: footer -->
+        <!-- begin: copyright -->
+        @RenderPage("~/Views/Shared/Partials/Copyright.cshtml")
+        <!-- end: copyright -->
+        @*<link href="~/Content/lib/bootstrap-5.2.0-dist/js/bootstrap.bundle.js" rel="stylesheet" />*@
+    </div>
+
+    <!-- bootstrap js -->
+    @Scripts.Render("~/Content/lib/bootstrap-5.2.0-dist/js/bootstrap.bundle.min.js")
+    <!-- swiper js -->
+    @Scripts.Render("~/Content/lib/jquery-3.6.0/jquery-3.6.0.min.js")
+    @Scripts.Render("~/Content/lib/swiper-8.3.2/package/swiper-bundle.min.js")
+    @Scripts.Render("~/Content/client/js/carousel.js")
+    <!-- script -->
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

@@ -1,0 +1,332 @@
+/* begin: carousel */
+.slide-img-core{
+    width: 100%;
+    height: 200px;
+    object-position: center;
+    border-radius: 12px;
+}
+
+.slide-button-next-core,
+.slide-button-prev-core{
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    width: 44px;
+    background: #fff !important;
+    opacity: .7;
+    border-radius: 100% !important;
+    filter: drop-shadow(0 4px 7px rgba(0,0,0,.15));
+    transform: translateY(0);
+    box-shadow: 6px 0 4px rgb(0 0 0 / 5%), 4px 0 4px rgb(0 0 0 / 9%);
+    z-index: 50;
+}
+
+.slide-button-next-core > i,
+.slide-button-prev-core > i{
+    color: #000;
+    font-size: 20px;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after{
+    display: none;
+}
+
+.carousel-button-next-core,
+.carousel-button-prev-core{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    opacity: .4;
+    width: 32px;
+    height: 60px;
+}
+
+.swiper:hover .swiper-button-prev,
+.swiper:hover .swiper-button-next{
+    opacity: 1;
+}
+
+.carousel-button-next-core > i,
+.carousel-button-prev-core > i{
+    color: #333;
+    font-size: 22px;
+}
+/* end: carousel */
+
+/* begin: button */
+.read-more__btn-lg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 12px auto 16px;
+    padding: 14px 16px;
+    background-color: #fff;
+    border-radius: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #333;
+    gap: 8px;
+    line-height: 16px;
+    text-align: center;
+    width: 340px;
+}
+
+.read-more__btn-lg:hover{
+    color: #000;
+}
+/* end: button */
+
+/* begin: product */
+.product-item-core{
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 12px;
+    height: 100%;
+    min-height: 440px;
+}
+
+.product-item-core__label{
+    margin-bottom: 12px;
+    min-height: 20px;
+}
+
+.product-item-core__img{
+    height: 220px;
+    margin-bottom: 8px;
+}
+
+.product-item-core__img > img{
+    width: 100%;
+    max-height: 100%;
+}
+
+.product-item-core:hover > a > .product-item-core__img > img{
+    transform: translateY(-4px);
+}
+
+.product-item-core:hover > a > .product-item-core__title{
+    color: #288ad6;
+}
+
+.product-item-core__title{
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 4px;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-item-core__order-online,
+.product-item-core__gift{
+    display: block;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.product-item-core__price{
+    color: #d0021c;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.product-item-core__price-percent-discount{
+    color: #eb5757;
+    background: #fff0e9;
+    border-radius: 8px;
+    padding: 6px;
+    margin-left: 12px;
+    font-size: 12px;
+}
+
+.product-item-core__vote{
+    color: #999;
+    font-size: 14px;
+}
+
+.product-item-core__vote > b,
+.product-item-core__vote > i{
+    color: #fb6e2e;
+    display: inline-block;
+}
+
+.product-item-core__vote > i{
+    margin: 0 8px 0 4px;
+}
+/* end: product */
+
+/* begin: carousel */
+
+/* end: carousel */
+
+/* begin: label */
+.lalel-product-core{
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 4px;
+    margin-right: 8px;
+    line-height: 12px;
+    padding: 6px;
+    overflow: hidden;
+}
+
+.label-product-round-core{
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 0;
+    overflow: hidden;
+    max-width: 100%;
+    margin-right: 8px;
+    padding-right: 12px;
+}
+
+.label-product-round-core > img{
+    float: left;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    max-width: 20px;
+}
+
+.label-product-round-core > span{
+    color: #fff;
+    font-size: 10px;
+    line-height: 20px;
+    margin-left: 2px;
+    overflow: hidden;
+    padding: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.label-vnpay{
+    background: linear-gradient(to right,#3bacf0,#1b6dc1);
+}
+
+.label-xiaomi{
+    background: linear-gradient(to right,#faab08,#d42611);
+}
+
+.label-sale-sock{
+    background: linear-gradient(to right,#e91f63,#db2663);
+}
+
+.label-sale-sock-weekend{
+    background: linear-gradient(to right,#faab08,#d42611);
+}
+
+.label-insurance{
+    background: linear-gradient(to right,#3bacf0,#1b6dc1);
+}
+
+.label-installment{
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.label-preorder{
+    background-color: #e91e63;
+    color: #fff;
+}
+/* end: label */
+
+/* begin: title */
+.home-categories__title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-categories__title > strong{
+    display: block;
+    padding: 16px 20px;
+    color: #333;
+    font-size: 22px;
+    line-height: 36px;
+    text-transform: uppercase;
+    overflow: hidden;
+}
+
+.home-categories__title > a{
+    display: block;
+    padding: 16px 20px;
+    color: #555;
+    font-size: 16px;
+    line-height: 36px;
+    text-transform: uppercase;
+    overflow: hidden;
+}
+/* end: title */
+
+/* begin: icon */
+
+/* end: icon */
+
+/* begin: color */
+.bg-main{
+    background-color: #ffd400;
+}
+
+/* end: color */
+
+/* begin: font-size */
+.fz-40{
+    font-size: 40px;
+}
+/* end: size */
+
+/* begin: container */
+
+@media only screen and (max-width: 768px) {
+
+    .container-md{
+        padding: 0;
+    }
+}
+
+/* end: container */
+
+/* tab */
+.product-preview-tab.tab-item-core{
+    display: flex;
+    flex-direction: column;
+    width: 56px;
+}
+
+.product-preview-tab .thumb-tab-item{
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.product-preview-tab.active .thumb-tab-item{
+    border: 1px solid #fb6e2e;
+}
+
+.product-preview-tab .title-tab-item{
+    margin-top: 4px;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.bg-yellow {
+    background-color: #FFD400;
+}
+
+
+/* text */
+.text-sm {
+    font-size: 0.75rem;
+}
+
+.btn.btn-orange {
+    background-color: #fb6e2e;
+    color: #fefefe;
+}
+
+.bg-secondary {
+    background-color: #e8e8e8;
+}
