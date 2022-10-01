@@ -1,5 +1,5 @@
 // Register App
-var app = angular.module('DAGStore', ['DAGStore.menurecord','DAGStore.common']);
+var app = angular.module('DAGStore', ['DAGStore.menurecord','DAGStore.product','DAGStore.common']);
 
 // Config app
 app.config(function($stateProvider, $urlRouterProvider){

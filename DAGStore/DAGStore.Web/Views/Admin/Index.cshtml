@@ -314,7 +314,7 @@
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="layouts-light-sidebar.html"><i class="far fa-sitemap"></i>Loại sản phẩm</a></li>
-                                <li><a href="layouts-compact-sidebar.html"><i class="fas fa-cubes"></i>Sản phẩm</a></li>
+                                <li><a ui-sref="product"><i class="fas fa-cubes"></i>Sản phẩm</a></li>
                                 <li><a href="layouts-compact-sidebar.html"><i class="far fa-building"></i>Nhà cung cấp</a></li>
                                 <li><a href="layouts-compact-sidebar.html"><i class="far fa-star-half"></i>Đánh giá sản phẩm</a></li>
                                 <li><a href="layouts-compact-sidebar.html"><i class="fas fa-tags"></i>Tag sản phẩm</a></li>
@@ -813,10 +813,13 @@
     <script src="/assets/libs/toastr/build/toastr.min.js"></script>
     <!-- Sweet Alerts js -->
     <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Ckeditor -->
+    <script src="~/assets/libs/ckeditor/ckeditor.js"></script>
+    <script src="~/assets/libs/ckfinder/ckfinder.js"></script>
 
     <!-- App Angular -->
     <script src="/assets/libs/angular.js/angular.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
+
 
     <script src="/assets/libs/angular-datatables/angular-datatables.min.js"></script>
     <script src="/assets/libs/angular-datatables/jquery.dataTables.min.js"></script>
@@ -829,12 +832,16 @@
     <script src="/app/shared/filters/statusFilter.js"></script>
     <script src="/app/shared/services/apiService.js"></script>
     <script src="/app/shared/services/dataTableService.js"></script>
+    <script src="~/app/shared/services/ckeditorService.js"></script>
     <script src="/app/app.js"></script>
     <script src="/app/components/home/homeController.js"></script>
     <script src="/app/components/menurecord/menuRecord.module.js"></script>
     <script src="/app/components/menurecord/menuRecordListController.js"></script>
     <script src="/app/components/menurecord/menuRecordAddController.js"></script>
     <script src="/app/components/menurecord/menuRecordEditController.js"></script>
-
+    <script src="~/app/components/product/product.module.js"></script>
+    <script src="~/app/components/product/productListController.js"></script>
+    <script src="~/app/components/product/productAddController.js"></script>
+    <script src="~/app/components/product/productEditController.js"></script>
 </body>
 </html>

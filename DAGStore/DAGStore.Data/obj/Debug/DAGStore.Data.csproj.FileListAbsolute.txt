@@ -10,6 +10,7 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\bin\Debug\EntityFram
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\bin\Debug\EntityFramework.SqlServer.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.csproj.AssemblyReference.cache
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.CreateTableMenuRecordAndMenuItemRecord.resources
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddTableProductOrderAndOrderItem.resources
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.csproj.GenerateResource.cache
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.csproj.CoreCompileInputs.cache
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.csproj.CopyComplete

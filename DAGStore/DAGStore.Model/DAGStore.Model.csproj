@@ -51,6 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\OrderItem.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\MenuItemRecord.cs" />
     <Compile Include="Models\MenuRecord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

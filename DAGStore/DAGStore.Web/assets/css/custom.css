@@ -7,10 +7,17 @@ button[disabled]{
     cursor: no-drop;
 }
 
-form[role="form"] span {
+.text-valid {
     color: red;
     margin-top: 6px;
     display: block;
+}
+
+
+form[role="form"] span {
+    /*color: red;
+    margin-top: 6px;
+    display: block;*/
 }
 
 .dt-buttons span {
