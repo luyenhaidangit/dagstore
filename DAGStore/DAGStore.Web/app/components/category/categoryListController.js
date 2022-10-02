@@ -7,7 +7,7 @@ function categoryListController($scope, apiService, dataTableService, notificati
 
     $scope.categorys = [];
 
-    $scope.deletecategory = deletecategory;
+    $scope.DeleteCategory = DeleteCategory;
 
     $scope.getItems = function getItems() {
         apiService.get("/category/getall", null, function (result) {
@@ -21,7 +21,7 @@ function categoryListController($scope, apiService, dataTableService, notificati
         })
     };
 
-    function deletecategory(e, id) {
+    function DeleteCategory(e, id) {
         //let x = $("tbody tr");
         //let y = x.children("td:nth-child(1)");
 
@@ -37,7 +37,6 @@ function categoryListController($scope, apiService, dataTableService, notificati
                         id: id
                     }
                 }
-
                 apiService.del("/category/delete", config, function (success) {
                     notificationService.displaySuccess("Xóa thành công bản ghi!");
 
@@ -49,12 +48,8 @@ function categoryListController($scope, apiService, dataTableService, notificati
                 })
 
                 alertService.alertDeleteSuccess();
-
-
             }
         });
-
-
 
     }
     $scope.getItems();

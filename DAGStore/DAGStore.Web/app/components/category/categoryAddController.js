@@ -24,13 +24,10 @@ function categoryAddController($scope, apiService, notificationService, $state, 
         if (status === true) {
             var finder = new CKFinder();
             finder.selectActionFunction = function (fileUrl) {
-
                 $scope.category.PicturePath = fileUrl;
-             /*   $("img[name=picturepath]").attr("src", $scope.category.PicturePath);*/
                 $scope.statusChooseAvatar = true;
                 $scope.$apply();
             }
-
             finder.popup();
         }
         if (status === false) {

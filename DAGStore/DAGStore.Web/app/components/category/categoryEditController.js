@@ -11,6 +11,16 @@ function categoryEditController($scope, apiService, notificationService, $state,
     ckeditorService.createDefaultCkeditor("DAGStoreTextArea");
 
     $scope.ChooseImage = ChooseImage;
+
+    // Load parent category
+    $scope.categorys = [];
+    $scope.getItems = function getItems() {
+        apiService.get("/category/getall", null, function (result) {
+            $scope.categorys = result.data;
+        }, function (error) {
+            console.log("Get data fail");
+        })
+    };
     // Choose Image Avatar
     function ChooseImage(status) {
         if (status === true) {
@@ -52,5 +62,6 @@ function categoryEditController($scope, apiService, notificationService, $state,
         });
     }
 
+    $scope.getItems();
     LoadCategoryDetail();
 }
