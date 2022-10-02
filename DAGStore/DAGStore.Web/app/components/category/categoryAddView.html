@@ -22,7 +22,6 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                
                 <form class="form-horizontal" novalidate name="formAddCategory" role="form" ng-submit="AddCategory()">
                     <!-- Name -->
                     <div class="form-group row">
@@ -40,13 +39,14 @@
                         <div class="col-md-10">
 
                             <div class="ui dropdown fluid search selection">
-                                <input ng-model="category.ParentCategoryID" type="hidden" name="type" value="0">
+                                <input ng-model="category.ParentCategoryID" type="hidden" name="parentcategoryid" value="0">
                                 <i class="dropdown icon"></i>
                                 <div class="default text">-- Trống --</div>
                                 <div class="menu">
                                     <div ng-repeat="item in categorys" class="item" data-value="{{item.ID}}">{{item.Name}}</div>
                                 </div>
-                            </div>    
+                            </div>   
+                            
                         </div>
                     </div>
 

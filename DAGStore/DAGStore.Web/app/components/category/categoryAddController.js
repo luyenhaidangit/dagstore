@@ -4,21 +4,9 @@ category.controller('categoryAddController', categoryAddController);
 
 // Controller
 function categoryAddController($scope, apiService, notificationService, $state, ckeditorService) {
-    $scope.statusChooseAvatar = false;
-
-    $scope.ChooseImage = ChooseImage;
-
-    // Load parent category
-    $scope.categorys = [];
-    $scope.getItems = function getItems() {
-        apiService.get("/category/getall", null, function (result) {
-            $scope.categorys = result.data;  
-        }, function (error) {
-            console.log("Get data fail");
-        })
-    };
-
     // Choose Image Avatar
+    $scope.statusChooseAvatar = false;
+    $scope.ChooseImage = ChooseImage;
     function ChooseImage(status) {
         console.log($scope.categorys)
         if (status === true) {
@@ -37,6 +25,18 @@ function categoryAddController($scope, apiService, notificationService, $state, 
         }
     }
 
+    // Load Parent Category
+    $scope.categorys = [];
+    $scope.getItems = function getItems() {
+        apiService.get("/category/getall", null, function (result) {
+            $scope.categorys = result.data;  
+        }, function (error) {
+            console.log("Get data fail");
+        })
+    };
+
+    
+
     ckeditorService.createDefaultCkeditor("DAGStoreTextArea");
 
     $scope.category = {
@@ -45,7 +45,9 @@ function categoryAddController($scope, apiService, notificationService, $state, 
 
     $scope.AddCategory = AddCategory;
     function AddCategory() {
+        $scope.category.ParentCategoryID = document.getElementsByName("parentcategoryid")[0].value;
         $scope.category.Description = CKEDITOR.instances['DAGStoreTextArea'].getData();
+        
         apiService.post("/category/create", $scope.category, function (result) {
             console.log($scope.category);
             notificationService.displaySuccess("Thêm thông tin thành công!");
