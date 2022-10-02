@@ -75,6 +75,10 @@
 .read-more__btn-lg:hover{
     color: #000;
 }
+
+.read-more__btn-lg.btn-outline-primary:hover {
+    color: #fff;
+}
 /* end: button */
 
 /* begin: product */
