@@ -45,8 +45,8 @@ namespace DAGStore.Web.Controllers
         [HttpPut]
         public JsonResult Update(MenuRecord menuRecord)
         {
-            var dbMenuRecord = _menuRecordService.GetByID(menuRecord.ID);
-            _menuRecordService.Update(dbMenuRecord);
+            
+            _menuRecordService.Update(menuRecord);
             _menuRecordService.SaveChanges();
 
             return Json(true, JsonRequestBehavior.AllowGet);

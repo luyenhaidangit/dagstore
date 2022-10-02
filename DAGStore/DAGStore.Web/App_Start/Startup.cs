@@ -12,7 +12,9 @@ using System.Web.Http;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using DAGStore.Data;
-
+using DotNetOpenAuth.OAuth;
+using DAGStore.Model.Models;
+using Autofac.Features.ResolveAnything;
 
 [assembly: OwinStartup(typeof(DAGStore.Web.App_Start.Startup))]
 
@@ -36,6 +38,9 @@ namespace DAGStore.Web.App_Start
             builder.RegisterType<DbFactory>().As<IDbFactory>().InstancePerRequest();
 
             builder.RegisterType<DAGStoreDbContext>().AsSelf().InstancePerRequest();
+            builder.RegisterType<SecuritySettings>().As<SecuritySettings>();
+            //builder.RegisterType<Category>().AsSelf().As<DAGStoreDbContext>().InstancePerLifetimeScope();
+            builder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
 
             // Repositories
             builder.RegisterAssemblyTypes(typeof(MenuRecordRepository).Assembly)

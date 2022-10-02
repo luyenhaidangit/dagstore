@@ -17,6 +17,7 @@ namespace DAGStore.Data
         }
 
         public DbSet<MenuRecord> MenuRecord { get; set; }
+        public DbSet<Category> Category { get; set; }
         public DbSet<MenuItemRecord> MenuItemRecord { get; set; }
         public DbSet<Product> Product { get; set; }
         public DbSet<Order> Order { get; set; }

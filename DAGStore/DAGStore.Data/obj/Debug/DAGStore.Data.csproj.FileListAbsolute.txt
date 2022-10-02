@@ -9,10 +9,12 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\bin\Debug\DAGStore.M
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\bin\Debug\EntityFramework.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\bin\Debug\EntityFramework.SqlServer.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.csproj.AssemblyReference.cache
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.CreateTableMenuRecordAndMenuItemRecord.resources
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddTableProductOrderAndOrderItem.resources
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.csproj.GenerateResource.cache
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.csproj.CoreCompileInputs.cache
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.csproj.CopyComplete
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.pdb
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.Rebuild.resources
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.csproj.GenerateResource.cache
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddColumnNameTableCategory.resources
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AlterColumnTableCategory.resources
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AlterCategory.resources

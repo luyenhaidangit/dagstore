@@ -15,6 +15,10 @@ namespace DAGStore.Model.Models
         [MaxLength(500)]
         public string Name { get; set; }
 
+        [ForeignKey("Category")]
+        public int CategoryID { get; set; }
+        public Category Category { get; set; }
+
         [MaxLength(4000)]
         public string PicturePath { get; set; }
 

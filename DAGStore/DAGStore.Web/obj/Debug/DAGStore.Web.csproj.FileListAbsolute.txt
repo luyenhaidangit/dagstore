@@ -140,3 +140,7 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\obj\Debug\DAGStore.We
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\obj\Debug\DAGStore.Web.csproj.CopyComplete
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\obj\Debug\DAGStore.Web.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\obj\Debug\DAGStore.Web.pdb
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DotNetOpenAuth.Core.dll
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DotNetOpenAuth.OAuth.dll
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DotNetOpenAuth.Core.xml
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DotNetOpenAuth.OAuth.xml
