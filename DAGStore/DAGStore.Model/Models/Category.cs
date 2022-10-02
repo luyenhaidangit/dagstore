@@ -44,13 +44,5 @@ namespace DAGStore.Model.Models
 
         [Required]
         public int DisplayOrder { get; set; }
-
-        [Required]
-        public DateTime CreateOn { get; set; }
-
-        [Required]
-        public DateTime UpdateOn { get; set; }
-
-        public string Products { get; set; }
     }
 }

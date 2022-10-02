@@ -75,6 +75,14 @@
     <Compile Include="Migrations\202210020512065_Alter-Category.designer.cs">
       <DependentUpon>202210020512065_Alter-Category.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210020519213_Alter-Table-Category.cs" />
+    <Compile Include="Migrations\202210020519213_Alter-Table-Category.designer.cs">
+      <DependentUpon>202210020519213_Alter-Table-Category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210020619144_Drop-Column-Data-Table-Category.cs" />
+    <Compile Include="Migrations\202210020619144_Drop-Column-Data-Table-Category.designer.cs">
+      <DependentUpon>202210020619144_Drop-Column-Data-Table-Category.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
@@ -106,6 +114,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202210020512065_Alter-Category.resx">
       <DependentUpon>202210020512065_Alter-Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210020519213_Alter-Table-Category.resx">
+      <DependentUpon>202210020519213_Alter-Table-Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210020619144_Drop-Column-Data-Table-Category.resx">
+      <DependentUpon>202210020619144_Drop-Column-Data-Table-Category.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

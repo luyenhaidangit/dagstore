@@ -43,9 +43,7 @@ function categoryAddController($scope, apiService, notificationService, $state, 
     ckeditorService.createDefaultCkeditor("DAGStoreTextArea");
 
     $scope.category = {
-        DisplayOrder: -1,
-        CreateOn: new Date().toJSON().slice(0, 10),
-        UpdateOn: new Date().toJSON().slice(0, 10),
+        DisplayOrder: -1,  
     }
 
     $scope.AddCategory = AddCategory;

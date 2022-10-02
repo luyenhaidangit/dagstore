@@ -5,7 +5,7 @@ category.controller('categoryEditController', categoryEditController);
 // Controller
 function categoryEditController($scope, apiService, notificationService, $state, $stateParams, ckeditorService) {
     $scope.category = {
-
+        
     }
     $scope.statusChooseAvatar = true;
     ckeditorService.createDefaultCkeditor("DAGStoreTextArea");
