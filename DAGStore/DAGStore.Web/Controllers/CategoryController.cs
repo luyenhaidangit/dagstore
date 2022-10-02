@@ -12,12 +12,20 @@ namespace DAGStore.Web.Controllers
 {
     public class CategoryController : Controller
     {
+        
+
         ICategoryService _categoryService;
 
         public CategoryController(ICategoryService categoryService)
         {
             this._categoryService = categoryService;
         }
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         // GET: category
         public JsonResult GetAll()
         {

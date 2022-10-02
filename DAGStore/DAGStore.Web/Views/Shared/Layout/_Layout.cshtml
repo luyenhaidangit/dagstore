@@ -24,22 +24,15 @@
         <span class="loader"></span>
     </div>
     <div id="root">
-        <!-- begin: header-topbar -->
-        @RenderPage("~/Views/Shared/Partials/HeaderTopbar.cshtml")
-        <!-- end: header-topbar -->
         <!-- begin: header -->
-        @RenderPage("~/Views/Shared/Partials/Header.cshtml")
+        @{Html.RenderAction("Header", "Home");}
         <!-- end: header -->
         <!-- begin: content -->
         @RenderBody()
         <!-- end: content -->
         <!-- begin: footer -->
-        @RenderPage("~/Views/Shared/Partials/Footer.cshtml")
+        @{Html.RenderAction("Footer", "Home");}
         <!-- end: footer -->
-        <!-- begin: copyright -->
-        @RenderPage("~/Views/Shared/Partials/Copyright.cshtml")
-        <!-- end: copyright -->
-        @*<link href="~/Content/lib/bootstrap-5.2.0-dist/js/bootstrap.bundle.js" rel="stylesheet" />*@
     </div>
 
     <!-- bootstrap js -->
@@ -56,7 +49,7 @@
             $(document).ready(function () {
 
                 $(this).scrollTop(0);
-                $(".se-pre-con").fadeOut(2500);//The time it take
+                $(".se-pre-con").fadeOut(4000);//The time it take
             });
 
             window.onbeforeunload = function () {

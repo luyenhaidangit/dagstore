@@ -3345,6 +3345,7 @@
     <Content Include="Content\client\img\resource\logo-dagstore-small.png" />
     <Content Include="Content\client\img\resource\logo-dagstore.png" />
     <Content Include="Content\client\img\resource\logoBHX.png" />
+    <Content Include="Content\client\img\resource\fit-utehy.gif" />
     <Content Include="Content\client\js\carousel.js" />
     <Content Include="Content\client\js\product.js" />
     <Content Include="Content\lib\bootstrap-5.2.0-dist\css\bootstrap-grid.css" />
@@ -6296,7 +6297,7 @@
     <Content Include="Views\Shared\Layout\_LayoutAdmin.cshtml" />
     <Content Include="Views\Shared\Partials\BigBanner.cshtml" />
     <Content Include="Views\Shared\Partials\Copyright.cshtml" />
-    <Content Include="Views\Shared\Partials\Footer.cshtml" />
+    <Content Include="Views\Shared\Partials\Footer1.cshtml" />
     <Content Include="Views\Shared\Partials\Header.cshtml" />
     <Content Include="Views\Shared\Partials\HeaderTopbar.cshtml" />
     <Content Include="Views\Shared\Partials\_Footer.cshtml" />
@@ -6307,6 +6308,9 @@
     <Content Include="Views\Shared\Partials\_Script.cshtml" />
     <Content Include="Views\Shared\Partials\_Topbar.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\Partials\Footer.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Shared\Header.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

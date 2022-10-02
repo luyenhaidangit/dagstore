@@ -31,9 +31,25 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Tên sản phẩm</label>
                         <div class="col-md-10">
-                            <input ng-model="product.Name" name="name" ng-maxlength="500" required class="form-control" type="text" value="" >
+                            <input ng-model="product.Name" name="name" ng-maxlength="500" required class="form-control" type="text" value="">
                             <span class="text-valid" ng-show="formAddProduct.name.$error.required && formAddProduct.name.$touched">Tên sản phẩm không được để trống!</span>
                             <span class="text-valid" ng-show="formAddProduct.name.$error.maxlength">Tên sản phẩm không được quá 500 ký tự!</span>
+                        </div>
+                    </div>
+
+                    <!-- CategoryID -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Mục loại sản phẩm cha</label>
+                        <div class="col-md-10">
+
+                            <div class="ui dropdown fluid search selection">
+                                <input ng-model="category.ParentCategoryID" type="hidden" name="type" value="0">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">-- Trống --</div>
+                                <div class="menu">
+                                    <div ng-repeat="item in categorys" class="item" data-value="{{item.ID}}">{{item.Name}}</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -55,7 +71,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Mô tả ngắn</label>
                         <div class="col-md-10">
-                            <input ng-model="product.ShortDescription" name="shortdescription" ng-maxlength="500" required class="form-control" type="text" value="" >
+                            <input ng-model="product.ShortDescription" name="shortdescription" ng-maxlength="500" required class="form-control" type="text" value="">
                         </div>
                     </div>
 
@@ -180,7 +196,7 @@
                     <div class="form-group row mt-4">
                         <label for="example-text-input" class="col-md-2 col-form-label">MetaKeywords</label>
                         <div class="col-md-10">
-                            <input ng-model="product.MetaKeywords" name="metakeywords" class="form-control" type="text" value="" >
+                            <input ng-model="product.MetaKeywords" name="metakeywords" class="form-control" type="text" value="">
                         </div>
                     </div>
 
@@ -188,7 +204,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">MetaDescription</label>
                         <div class="col-md-10">
-                            <input ng-model="product.MetaDescription" name="metadescription" class="form-control" type="text" value="" >
+                            <input ng-model="product.MetaDescription" name="metadescription" class="form-control" type="text" value="">
                         </div>
                     </div>
 
@@ -196,7 +212,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">MetaTitle</label>
                         <div class="col-md-10">
-                            <input ng-model="product.MetaTitle" name="metatitle" class="form-control" type="text" value="" >
+                            <input ng-model="product.MetaTitle" name="metatitle" class="form-control" type="text" value="">
                         </div>
                     </div>
 
@@ -204,7 +220,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Alias</label>
                         <div class="col-md-10">
-                            <input ng-model="product.Alias" name="alias" class="form-control" type="text" value="" >
+                            <input ng-model="product.Alias" name="alias" class="form-control" type="text" value="">
                         </div>
                     </div>
 
