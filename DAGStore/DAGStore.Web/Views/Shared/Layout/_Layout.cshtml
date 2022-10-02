@@ -20,6 +20,9 @@
 </head>
 
 <body>
+    <div class="se-pre-con">
+        <span class="loader"></span>
+    </div>
     <div id="root">
         <!-- begin: header-topbar -->
         @RenderPage("~/Views/Shared/Partials/HeaderTopbar.cshtml")
@@ -47,6 +50,20 @@
     @Scripts.Render("~/Content/client/js/carousel.js")
     <!-- script -->
     @RenderSection("scripts", required: false)
+    <script>
+        $(function () {
+            // loading Effect
+            $(document).ready(function () {
+
+                $(this).scrollTop(0);
+                $(".se-pre-con").fadeOut(2500);//The time it take
+            });
+
+            window.onbeforeunload = function () {
+                window.scrollTo(0, 0);
+            };
+        });
+    </script>
 </body>
 
 </html>
