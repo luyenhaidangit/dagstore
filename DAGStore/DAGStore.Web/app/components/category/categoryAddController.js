@@ -4,6 +4,22 @@ category.controller('categoryAddController', categoryAddController);
 
 // Controller
 function categoryAddController($scope, apiService, notificationService, $state, ckeditorService) {
+    // Default Value
+    $scope.category = {
+        DisplayOrder: -1,
+    }
+
+    // Load Parent Category
+    $scope.categorys = [];
+    $scope.getItems = function getItems() {
+        apiService.get("/category/getall", null, function (result) {
+            $scope.categorys = result.data;
+        }, function (error) {
+            console.log("Get data fail");
+        })
+    };
+    $scope.getItems();
+
     // Choose Image Avatar
     $scope.statusChooseAvatar = false;
     $scope.ChooseImage = ChooseImage;
@@ -25,29 +41,17 @@ function categoryAddController($scope, apiService, notificationService, $state, 
         }
     }
 
-    // Load Parent Category
-    $scope.categorys = [];
-    $scope.getItems = function getItems() {
-        apiService.get("/category/getall", null, function (result) {
-            $scope.categorys = result.data;  
-        }, function (error) {
-            console.log("Get data fail");
-        })
-    };
-
-    
-
+    // Register Description TextArea
     ckeditorService.createDefaultCkeditor("DAGStoreTextArea");
 
-    $scope.category = {
-        DisplayOrder: -1,  
-    }
-
+    // Submit Add
     $scope.AddCategory = AddCategory;
     function AddCategory() {
+        // Set Value
         $scope.category.ParentCategoryID = document.getElementsByName("parentcategoryid")[0].value;
         $scope.category.Description = CKEDITOR.instances['DAGStoreTextArea'].getData();
-        
+
+        // Add Value
         apiService.post("/category/create", $scope.category, function (result) {
             console.log($scope.category);
             notificationService.displaySuccess("Thêm thông tin thành công!");
@@ -58,6 +62,4 @@ function categoryAddController($scope, apiService, notificationService, $state, 
             console.log($scope.category);
         });
     }
-
-    $scope.getItems();
 }

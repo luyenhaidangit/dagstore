@@ -5,33 +5,28 @@ category.controller('categoryListController', categoryListController);
 // Controller
 function categoryListController($scope, apiService, dataTableService, notificationService, alertService) {
 
+    // Get Data
     $scope.categorys = [];
-
-    $scope.DeleteCategory = DeleteCategory;
-
-    $scope.getItems = function getItems() {
+    $scope.getItems = getItems;
+    function getItems() {
         apiService.get("/category/getall", null, function (result) {
-            
-            $scope.categorys = result.data;
 
+            $scope.categorys = result.data;
             dataTableService.createDataTable("DAGStoreDatatable");
+            
             console.log($scope.categorys);
         }, function (error) {
             console.log("Get data fail");
         })
     };
+    $scope.getItems();
 
+    // Delete Object
+    $scope.DeleteCategory = DeleteCategory;
     function DeleteCategory(e, id) {
-        //let x = $("tbody tr");
-        //let y = x.children("td:nth-child(1)");
-
-        //for (let i = 0; i < x.length; i++) {
-        //    console.log(y);
-        //}
         console.log($(e.currentTarget).parents('tr').index());
         alertService.alertSubmitDelete().then((result) => {
             if (result.isConfirmed) {
-
                 var config = {
                     params: {
                         id: id
@@ -50,9 +45,5 @@ function categoryListController($scope, apiService, dataTableService, notificati
                 alertService.alertDeleteSuccess();
             }
         });
-
     }
-    $scope.getItems();
-
-
 }
