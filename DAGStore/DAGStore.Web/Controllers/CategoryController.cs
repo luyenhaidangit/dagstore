@@ -41,6 +41,13 @@ namespace DAGStore.Web.Controllers
             return Json(category, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult GetCategoryShowOnHomePage()
+        {
+            var categorys = _categoryService.GetCategoryShowOnHomePage();
+
+            return Json(categorys, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public JsonResult Create(Category category)
         {

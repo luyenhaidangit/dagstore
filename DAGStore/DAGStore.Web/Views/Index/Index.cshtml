@@ -620,11 +620,10 @@
     <script src="/Content/lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
     <script>
         $(window).on('load', function () {
-            $('#preloader-active').delay(1500).hide();
+            $('#preloader-active').delay(1500).fadeOut("slow");
             $('body').delay(450).css({
                 'overflow': 'visible'
             });
-            
         });
     </script>
     <!-- bootstrap js -->
@@ -636,7 +635,9 @@
     <script src="~/assets/libs/angular.js/angular.js"></script>
     <script src="/assets/libs/angular-ui-router/angular-ui-router.js"></script>
     <script src="~/app/shared/modules/DAGStore.common.js"></script>
+    <script src="~/app/shared/services/apiService.js"></script>
     <script src="~/app/app.js"></script>
+    <script src="~/app/components/index/index.module.js"></script>
     <script src="~/app/components/index/indexController.js"></script>
 </body>
 

@@ -3,9 +3,9 @@
 (function (app) {
     app.factory('apiService', apiService);
 
-    apiService.$inject = ['$http','notificationService'];
+    apiService.$inject = ['$http'];
 
-    function apiService($http,notificationService) {
+    function apiService($http) {
         return {
             get: get,
             post:post,
@@ -19,7 +19,7 @@
             }, function (error) {
                 console.log(error.status)
                 if (error.status === 401) {
-                    notificationService.displayError('Authenticate is required.');
+                    
                 }
                 else if (failure != null) {
                     failure(error);
@@ -33,7 +33,7 @@
             }, function (error) {
                 console.log(error.status)
                 if (error.status === 401) {
-                    notificationService.displayError('Authenticate is required.');
+                   
                 }
                 else if (failure != null) {
                     failure(error);
@@ -47,7 +47,7 @@
                 success(result);
             }, function (error) {
                 if(error.status===401){
-                    notificationService.displayError("Đăng nhập không hợp lệ!");
+                    
                 }else if(failure!=null){
                     failure(error);
                 }
@@ -61,7 +61,7 @@
             }, function (error) {
                 console.log(error.status)
                 if (error.status === 401) {
-                    notificationService.displayError('Đăng nhập không hợp lệ!');
+                    
                 }
                 else if (failure != null) {
                     failure(error);

@@ -261,6 +261,7 @@
     <Content Include="app\components\home\homeView.html" />
     <Content Include="app\components\index\indexController.js" />
     <Content Include="app\components\index\indexView.html" />
+    <Content Include="app\components\index\index.module.js" />
     <Content Include="app\components\info\info.html" />
     <Content Include="app\components\menurecord\menuRecord.module.js" />
     <Content Include="app\components\menurecord\menuRecordAddController.js" />
@@ -3277,6 +3278,7 @@
     <Content Include="Content\client\font\nazox-icon\fonts\fa-solid-900.svg" />
     <Content Include="Content\client\font\nazox-icon\fonts\remixicon.svg" />
     <Content Include="Content\client\font\nazox-icon\fonts\remixicon.symbol.svg" />
+    <Content Include="Content\client\img\resource\preload.gif" />
     <Content Include="Content\client\img\resource\favicon-dagstore.ico" />
     <Content Include="Content\client\img\avatar\ban-phim-128x129.png" />
     <Content Include="Content\client\img\avatar\Camerawebcam-128x129-1.png" />
@@ -3465,6 +3467,7 @@
     <Content Include="Content\client\img\resource\logo-dagstore.png" />
     <Content Include="Content\client\img\resource\logoBHX.png" />
     <Content Include="Content\client\img\resource\fit-utehy.gif" />
+    <Content Include="Content\client\img\resource\fit-utehy.png" />
     <Content Include="Content\client\js\carousel.js" />
     <Content Include="Content\client\js\product.js" />
     <Content Include="Content\lib\bootstrap-5.2.0-dist\css\bootstrap-grid.css" />

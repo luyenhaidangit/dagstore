@@ -2,6 +2,7 @@
 using DAGStore.Data.Repositories;
 using DAGStore.Model.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DAGStore.Service
 {
@@ -14,6 +15,8 @@ namespace DAGStore.Service
         bool Delete(int id);
 
         IEnumerable<Category> GetAll();
+
+        IEnumerable<Category> GetCategoryShowOnHomePage();
 
         Category GetByID(int id);
 
@@ -31,6 +34,21 @@ namespace DAGStore.Service
             this._unitOfWork = unitOfWork;
         }
 
+        public IEnumerable<Category> GetAll()
+        {
+            return _categoryRepository.GetAll();
+        }
+
+        public IEnumerable<Category> GetCategoryShowOnHomePage()
+        {
+            var categories = _categoryRepository.GetAll().ToList();
+            var list = (from t in categories
+                        where t.Published == true && t.ShowOnHomePage == true
+                        orderby t.DisplayOrder descending
+                        select t).Take(10);
+            return list;
+        }
+
         public bool Add(Category Category)
         {
             return _categoryRepository.Add(Category);
@@ -39,11 +57,6 @@ namespace DAGStore.Service
         public bool Delete(int id)
         {
             return _categoryRepository.Delete(id);
-        }
-
-        public IEnumerable<Category> GetAll()
-        {
-            return _categoryRepository.GetAll();
         }
 
         public Category GetByID(int id)
