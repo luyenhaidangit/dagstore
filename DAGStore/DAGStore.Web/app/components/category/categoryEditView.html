@@ -6,7 +6,7 @@
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">DAGStore</a></li>
+                    <li class="breadcrumb-item"><a ui-sref="home">DAGStore</a></li>
                     <li class="breadcrumb-item"><a ui-sref="category">Quản lý loại loại sản phẩm</a></li>
                     <li class="breadcrumb-item active"><a ui-sref="category-add"></a>Thêm mới</li>
                 </ol>
@@ -24,6 +24,7 @@
             <div class="card-body">
 
                 <form class="form-horizontal" novalidate name="formEditCategory" role="form" ng-submit="UpdateCategory()">
+                    <p>{{category.ParentCategoryID}}</p>
                     <!-- Name -->
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Tên loại sản phẩm</label>
@@ -38,11 +39,10 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Mục loại sản phẩm cha</label>
                         <div class="col-md-10">
-
                             <div class="ui dropdown fluid search selection">
                                 <input ng-model="category.ParentCategoryID" type="hidden" name="type" value="{{category.ParentCategoryID}}">
                                 <i class="dropdown icon"></i>
-                                <div class="default text">-- Trống --</div>
+                                <div class="default text">{{parentCategory.Name}}</div>
                                 <div class="menu">
                                     <div ng-repeat="item in categorys" class="item" data-value="{{item.ID}}">{{item.Name}}</div>
                                 </div>

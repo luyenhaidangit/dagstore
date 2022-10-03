@@ -4,23 +4,42 @@ category.controller('categoryEditController', categoryEditController);
 
 // Controller
 function categoryEditController($scope, apiService, notificationService, $state, $stateParams, ckeditorService) {
+
+    // Load Category Detail
     $scope.category = {
-        
     }
+    $scope.LoadCategoryDetail = LoadCategoryDetail;
+    function LoadCategoryDetail() {
+        apiService.get("/category/getbyid/" + $stateParams.id, null, function (result) {
+            $scope.category = result.data;
+            /*console.log($scope.category);*/
+        }, function (error) {
+            notificationService.displaySuccess("Không thể tải dữ liệu");
+        })
+    }
+    $scope.LoadCategoryDetail();
+
+    // Load Parent Category
+    $scope.parentCategory = {};
+    $scope.categorys = [];
+    $scope.getItems = getItems;
+    function getItems() {
+        apiService.get("/category/getall", null, function (result) {
+            $scope.categorys = result.data.filter(x => x.ID !== $scope.category.ID);
+            $scope.parentCategory = $scope.categorys.filter(x => x.ID === $scope.category.ParentCategoryID)[0];
+        }, function (error) {
+            console.log("Get data fail");
+        })
+    };
+    $scope.getItems();
+
+    
     $scope.statusChooseAvatar = true;
     ckeditorService.createDefaultCkeditor("DAGStoreTextArea");
 
     $scope.ChooseImage = ChooseImage;
 
-    // Load parent category
-    $scope.categorys = [];
-    $scope.getItems = function getItems() {
-        apiService.get("/category/getall", null, function (result) {
-            $scope.categorys = result.data;
-        }, function (error) {
-            console.log("Get data fail");
-        })
-    };
+    
     // Choose Image Avatar
     function ChooseImage(status) {
         if (status === true) {
@@ -41,18 +60,11 @@ function categoryEditController($scope, apiService, notificationService, $state,
         }
     }
 
-    function LoadCategoryDetail() {
-        console.log("ok")
-        apiService.get("/category/getbyid/" + $stateParams.id, null, function (result) {
-            $scope.category = result.data;
-        }, function (error) {
-            notificationService.displaySuccess("Không thể tải dữ liệu");
-        })
-    }
+    
 
     $scope.UpdateCategory = UpdateCategory;
     function UpdateCategory() {
-        
+        console.log($scope.parentCategory);
         apiService.put("/category/update", $scope.category, function (result) {
             notificationService.displaySuccess("Cập nhật thông tin thành công!");
             $state.go("category");
@@ -62,6 +74,6 @@ function categoryEditController($scope, apiService, notificationService, $state,
         });
     }
 
-    $scope.getItems();
+    
     LoadCategoryDetail();
 }
