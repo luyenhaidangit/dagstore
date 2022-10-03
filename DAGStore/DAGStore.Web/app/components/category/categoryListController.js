@@ -26,8 +26,6 @@ function categoryListController($scope, apiService, dataTableService, notificati
     function DeleteCategory(e, id) {
         console.log($(e.currentTarget).parents('tr').index());
         alertService.alertSubmitDelete().then((result) => {
-            //console.log($("#DAGStoreDatatable").DataTable().page.info().length);
-            //console.log($("#DAGStoreDatatable").DataTable().page.info().page);
             if (result.isConfirmed) {
                 var config = {
                     params: {
@@ -44,7 +42,6 @@ function categoryListController($scope, apiService, dataTableService, notificati
                     $("#DAGStoreDatatable").DataTable().row(index).remove().draw();
                
                 }, function (error) {
-                   /* console.log(id);*/
                     console.log("Xóa không thành công!")
                 })
 
