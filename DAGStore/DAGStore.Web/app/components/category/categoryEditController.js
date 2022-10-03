@@ -33,14 +33,9 @@ function categoryEditController($scope, apiService, notificationService, $state,
     };
     $scope.getItems();
 
-    
-    $scope.statusChooseAvatar = true;
-    ckeditorService.createDefaultCkeditor("DAGStoreTextArea");
-
-    $scope.ChooseImage = ChooseImage;
-
-    
     // Choose Image Avatar
+    $scope.statusChooseAvatar = true;
+    $scope.ChooseImage = ChooseImage;
     function ChooseImage(status) {
         if (status === true) {
             var finder = new CKFinder();
@@ -60,8 +55,10 @@ function categoryEditController($scope, apiService, notificationService, $state,
         }
     }
 
-    
+    // Register Description TextArea
+    ckeditorService.createDefaultCkeditor("DAGStoreTextArea");
 
+    // Submit Edit
     $scope.UpdateCategory = UpdateCategory;
     function UpdateCategory() {
         console.log($scope.parentCategory);
@@ -73,7 +70,4 @@ function categoryEditController($scope, apiService, notificationService, $state,
             console.log($scope.category)
         });
     }
-
-    
-    LoadCategoryDetail();
 }
