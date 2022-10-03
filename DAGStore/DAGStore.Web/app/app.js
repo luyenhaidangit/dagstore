@@ -22,6 +22,23 @@ app.config(function($stateProvider, $urlRouterProvider){
     }];
     states.forEach((state) => $stateProvider.state(state));
     $urlRouterProvider.otherwise('/home');
-    });
+});
 
+// Register App Home
+var app = angular.module('DAGStoreHome', ['DAGStore.common']);
+
+// Config App Home
+app.config(function ($stateProvider, $urlRouterProvider) {
+    // Config Router
+    var states = [
+        {
+            name: 'index',
+            url: '/index',
+            templateUrl: '/app/components/index/indexView.html',
+            controller: "indexController",
+        },
+        ];
+    states.forEach((state) => $stateProvider.state(state));
+    $urlRouterProvider.otherwise('/index');
+});
 
