@@ -61,7 +61,11 @@ function categoryEditController($scope, apiService, notificationService, $state,
     // Submit Edit
     $scope.UpdateCategory = UpdateCategory;
     function UpdateCategory() {
-        console.log($scope.parentCategory);
+        // Set Value
+        $scope.category.ParentCategoryID = document.getElementsByName("parentcategoryid")[0].value;
+        $scope.category.Description = CKEDITOR.instances['DAGStoreTextArea'].getData();
+
+        // Edit Value
         apiService.put("/category/update", $scope.category, function (result) {
             notificationService.displaySuccess("Cập nhật thông tin thành công!");
             $state.go("category");
