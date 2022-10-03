@@ -26,6 +26,8 @@ function categoryListController($scope, apiService, dataTableService, notificati
     function DeleteCategory(e, id) {
         console.log($(e.currentTarget).parents('tr').index());
         alertService.alertSubmitDelete().then((result) => {
+            //console.log($("#DAGStoreDatatable").DataTable().page.info().length);
+            //console.log($("#DAGStoreDatatable").DataTable().page.info().page);
             if (result.isConfirmed) {
                 var config = {
                     params: {
@@ -34,11 +36,15 @@ function categoryListController($scope, apiService, dataTableService, notificati
                 }
                 apiService.del("/category/delete", config, function (success) {
                     notificationService.displaySuccess("Xóa thành công bản ghi!");
-
-                    $("#DAGStoreDatatable").DataTable().row($(e.currentTarget).parents('tr').index()).remove().draw();
+                    let pageIndex = $("#DAGStoreDatatable").DataTable().page.info().page;
+                    let recordOfPage = $("#DAGStoreDatatable").DataTable().page.info().length;
+                    let recordIndexOfPage = $(e.currentTarget).parents('tr').index();
+                    let index = pageIndex * recordOfPage + recordIndexOfPage;
+                    console.log($(e.currentTarget).parents('tr').index());
+                    $("#DAGStoreDatatable").DataTable().row(index).remove().draw();
                
                 }, function (error) {
-                    console.log(id);
+                   /* console.log(id);*/
                     console.log("Xóa không thành công!")
                 })
 
