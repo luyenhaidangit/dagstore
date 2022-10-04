@@ -277,6 +277,9 @@
     <Content Include="app\components\product\productAddView.html" />
     <Content Include="app\components\product\productListController.js" />
     <Content Include="app\components\product\productListView.html" />
+    <Content Include="app\shared\directives\main-navigation\main-navigationController.js" />
+    <Content Include="app\shared\directives\main-navigation\main-navigationView.html" />
+    <Content Include="app\shared\directives\main-navigation\main-navigationDirective.js" />
     <Content Include="app\shared\filters\statusFilter.js" />
     <Content Include="app\shared\modules\DAGStore.common.js" />
     <Content Include="app\shared\services\alertService.js" />

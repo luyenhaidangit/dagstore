@@ -1,0 +1,11 @@
+﻿
+    <div class="container">
+        <ul class="nav main-nav">
+            <li class="nav-item main-nav__item" ng-repeat="item in categorysShowOnHomePage">
+                <a href="/page/client/categories/categories.html" class="main-nav__item-link">
+                    <i><img ng-show="{{item.PicturePath}}" src="{{item.PicturePath}}" alt="{{item.Name}}"></i>
+                    <span class="">{{item.Name}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
