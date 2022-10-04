@@ -48,6 +48,13 @@ namespace DAGStore.Web.Controllers
             return Json(categorys, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult GetListChildCategory(int id)
+        {
+            var categorys = _categoryService.GetListChildCategory(id);
+
+            return Json(categorys, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public JsonResult Create(Category category)
         {

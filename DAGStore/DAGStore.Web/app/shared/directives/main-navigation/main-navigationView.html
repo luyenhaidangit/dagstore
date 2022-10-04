@@ -1,11 +1,35 @@
 ﻿
     <div class="container">
         <ul class="nav main-nav">
-            <li class="nav-item main-nav__item" ng-repeat="item in categorysShowOnHomePage">
+            <!--<li ng-repeat="item in categorysShowOnHomePage" class="nav-item main-nav__item">
+        <a href="/page/client/categories/categories.html" class="main-nav__item-link">
+            <i><img ng-show="{{item.PicturePath}}" src="{{item.PicturePath}}" alt="{{item.Name}}"></i>
+            <span class="">{{item.Name}}</span>
+        </a>
+    </li>-->
+
+            <li ng-repeat="item in categorysShowOnHomePage" class="nav-item main-nav__item">
                 <a href="/page/client/categories/categories.html" class="main-nav__item-link">
-                    <i><img ng-show="{{item.PicturePath}}" src="{{item.PicturePath}}" alt="{{item.Name}}"></i>
+                    <i><img  src="{{item.PicturePath}}"></i>
                     <span class="">{{item.Name}}</span>
+                    
                 </a>
+               
             </li>
+
+            <!--<li class="nav-item main-nav__item dropdown-toggle single-column">
+        <a href="/page/client/categories/categories.html" class="main-nav__item-link">
+            <i><img src="./assets/img/ico/icon-pc-96x96.png" alt=""></i>
+            <span class="">PC, máy in</span>
+        </a>
+        <div class="main-sub-nav">
+            <div class="main-sub-nav__item">
+                <a href="/page/client/categories/categories.html"><h3>Máy in</h3></a>
+                <a href="/page/client/categories/categories.html"><h3>Mực in</h3></a>
+                <a href="/page/client/categories/categories.html"><h3>Màn hình máy tính</h3></a>
+                <a href="/page/client/categories/categories.html"><h3>Máy tính để bàn</h3></a>
+            </div>
+        </div>
+    </li>-->
         </ul>
     </div>

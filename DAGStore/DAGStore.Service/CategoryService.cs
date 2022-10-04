@@ -18,6 +18,8 @@ namespace DAGStore.Service
 
         IEnumerable<Category> GetCategoryShowOnHomePage();
 
+        IEnumerable<Category> GetListChildCategory(int id);
+
         Category GetByID(int id);
 
         void SaveChanges();
@@ -43,9 +45,19 @@ namespace DAGStore.Service
         {
             var categories = _categoryRepository.GetAll().ToList();
             var list = (from t in categories
-                        where t.Published == true && t.ShowOnHomePage == true
+                        where t.Published == true && t.ShowOnHomePage == true && t.ParentCategoryID == 0
                         orderby t.DisplayOrder descending
                         select t).Take(10);
+            return list;
+        }
+
+        public IEnumerable<Category> GetListChildCategory(int id)
+        {
+            var categories = _categoryRepository.GetAll().ToList();
+            var list = (from t in categories
+                        where t.ParentCategoryID == id
+                        orderby t.DisplayOrder descending
+                        select t);
             return list;
         }
 
