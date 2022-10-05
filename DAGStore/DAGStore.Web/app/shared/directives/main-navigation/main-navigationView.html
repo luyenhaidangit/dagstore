@@ -1,35 +1,20 @@
 ﻿
-    <div class="container">
-        <ul class="nav main-nav">
-            <!--<li ng-repeat="item in categorysShowOnHomePage" class="nav-item main-nav__item">
-        <a href="/page/client/categories/categories.html" class="main-nav__item-link">
-            <i><img ng-show="{{item.PicturePath}}" src="{{item.PicturePath}}" alt="{{item.Name}}"></i>
-            <span class="">{{item.Name}}</span>
-        </a>
-    </li>-->
+<div class="container">
 
-            <li ng-repeat="item in categorysShowOnHomePage" class="nav-item main-nav__item">
-                <a href="/page/client/categories/categories.html" class="main-nav__item-link">
-                    <i><img  src="{{item.PicturePath}}"></i>
-                    <span class="">{{item.Name}}</span>
-                    
-                </a>
-               
-            </li>
-
-            <!--<li class="nav-item main-nav__item dropdown-toggle single-column">
-        <a href="/page/client/categories/categories.html" class="main-nav__item-link">
-            <i><img src="./assets/img/ico/icon-pc-96x96.png" alt=""></i>
-            <span class="">PC, máy in</span>
-        </a>
-        <div class="main-sub-nav">
-            <div class="main-sub-nav__item">
-                <a href="/page/client/categories/categories.html"><h3>Máy in</h3></a>
-                <a href="/page/client/categories/categories.html"><h3>Mực in</h3></a>
-                <a href="/page/client/categories/categories.html"><h3>Màn hình máy tính</h3></a>
-                <a href="/page/client/categories/categories.html"><h3>Máy tính để bàn</h3></a>
+    <ul class="nav main-nav">
+        <li ng-repeat="menu in SiteMenu | filter:{ParentCategoryID : 0, Published: true,ShowOnHomePage: true} | limitTo: 10 | orderBy: '-DisplayOrder'" ng-class="(SiteMenu | filter:{ParentCategoryID : menu.ID}).length > 0?'nav-item main-nav__item dropdown-toggle single-column':'nav-item main-nav__item'">
+            <a href="#" class="main-nav__item-link">
+                <i><img src="{{menu.PicturePath}}" alt=""></i>
+                <span class="">{{menu.Name}}</span>
+            </a>
+            <!-- We will create submenu only when available -->
+            <div class="main-sub-nav" ng-if="(SiteMenu | filter:{ParentCategoryID : menu.ID}).length > 0">
+                <div class="main-sub-nav__item">
+                    <a ng-repeat="menu in SiteMenu | filter:{ParentCategoryID : menu.ID}">
+                        <h3>{{menu.Name}}</h3>
+                    </a>
+                </div>
             </div>
-        </div>
-    </li>-->
-        </ul>
-    </div>
+        </li>
+    </ul>
+</div>

@@ -16,12 +16,6 @@ app.config(function($stateProvider, $urlRouterProvider){
       controller: "homeController",
     },
     {
-        name: 'homework',
-        url: '/homework',
-        templateUrl: '/app/components/homework/homeworkView.html',
-        controller: "homeworkController",
-    },
-    {
       name: 'error',
       url: '/error',
       templateUrl: '/app/components/error/errorView.html'
