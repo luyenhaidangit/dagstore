@@ -22,12 +22,6 @@ function productListController($scope, apiService, dataTableService, notificatio
     };
 
     function deleteProduct(e, id) {
-        //let x = $("tbody tr");
-        //let y = x.children("td:nth-child(1)");
-
-        //for (let i = 0; i < x.length; i++) {
-        //    console.log(y);
-        //}
         console.log($(e.currentTarget).parents('tr').index());
         alertService.alertSubmitDelete().then((result) => {
             if (result.isConfirmed) {
@@ -37,20 +31,18 @@ function productListController($scope, apiService, dataTableService, notificatio
                         id: id
                     }
                 }
-
                 apiService.del("/product/delete", config, function (success) {
                     notificationService.displaySuccess("Xóa thành công bản ghi!");
-
-                    $("#DAGStoreDatatable").DataTable().row($(e.currentTarget).parents('tr').index()).remove().draw();
-               
+                    let pageIndex = $("#DAGStoreDatatable").DataTable().page.info().page;
+                    let recordOfPage = $("#DAGStoreDatatable").DataTable().page.info().length;
+                    let recordIndexOfPage = $(e.currentTarget).parents('tr').index();
+                    let index = pageIndex * recordOfPage + recordIndexOfPage;
+                    console.log($(e.currentTarget).parents('tr').index());
+                    $("#DAGStoreDatatable").DataTable().row(index).remove().draw();
                 }, function (error) {
-                    console.log(id);
                     console.log("Xóa không thành công!")
                 })
-
                 alertService.alertDeleteSuccess();
-
-
             }
         });
 
