@@ -4,16 +4,28 @@ product.controller('productAddController', productAddController);
 
 // Controller
 function productAddController($scope, apiService, notificationService, $state, ckeditorService) {
-    $scope.statusChooseAvatar = false;
-    $scope.ChooseImage = ChooseImage;
+    // Init
     $scope.product = {
         CreateOn: new Date().toJSON().slice(0, 10),
         UpdateOn: new Date().toJSON().slice(0, 10),
     }
 
-    ckeditorService.createDefaultCkeditor("DAGStoreTextArea");
+    // Load List Category
+    $scope.categorys = [];
+    $scope.GetCategorys = GetCategorys;
+    function GetCategorys() {
+        apiService.get("/category/getall", null, function (result) {
+            $scope.categorys = result.data;
+            console.log($scope.categorys);
+        }, function (error) {
+            console.log("Get data fail");
+        })
+    };
+    $scope.GetCategorys();
 
-    // Choose Image Avatar
+    // Choose Image Product
+    $scope.statusChooseAvatar = false;
+    $scope.ChooseImage = ChooseImage;
     function ChooseImage(status) {
         if (status === true) {
             var finder = new CKFinder();
@@ -33,21 +45,21 @@ function productAddController($scope, apiService, notificationService, $state, c
         }
     }
 
+    // Resiger Ckeditor
+    ckeditorService.createDefaultCkeditor("DAGStoreTextArea");
+
+    // Submit Add Product
     $scope.AddProduct = AddProduct;
     function AddProduct() {
-        console.log("ok")
+        $scope.product.CategoryID = document.getElementsByName("categoryid")[0].value;
         $scope.product.Content = CKEDITOR.instances['DAGStoreTextArea'].getData();
+        console.log($scope.product);
         apiService.post("/product/create", $scope.product, function (result) {
-
             notificationService.displaySuccess("Thêm thông tin thành công!");
-
-
             $state.go("product");
         }, function (error) {
             notificationService.displaySuccess("Thêm mới không thành công!");
             console.log($scope.product.Name);
         });
     }
-
-
 }
