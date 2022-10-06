@@ -6,6 +6,7 @@ product.controller('productAddController', productAddController);
 function productAddController($scope, apiService, notificationService, $state, ckeditorService) {
     // Init
     $scope.product = {
+        DisplayOrder: -1,
         CreateOn: new Date().toJSON().slice(0, 10),
         UpdateOn: new Date().toJSON().slice(0, 10),
     }

@@ -11,13 +11,28 @@
         }
     })
 
-    app.filter("existDataFilter",function(){
-        return function(input){
-            if(input===null){
+    app.filter("existDataFilter", function () {
+        return function (input) {
+            if (input === null) {
                 return "---";
-            }else{
+            } else {
                 return input;
             }
         }
-    })
+    });
+
+    app.filter("formatJsonDate", function () {
+        return function (input) {
+
+            function convert(str) {
+                var date = new Date(str),
+                    mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+                    day = ("0" + date.getDate()).slice(-2);
+                 return [date.getFullYear(), mnth, day].join("-");
+                /*return [day, mnth, date.getFullYear()].join("-");*/
+            }
+
+            return convert(new Date(parseInt(input.substr(6))));
+        }
+    });
 })(angular.module('DAGStore.common'));

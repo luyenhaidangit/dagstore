@@ -43,10 +43,9 @@ namespace DAGStore.Web.Controllers
         }
 
         [HttpPut]
-        public JsonResult Update(Product menuRecord)
+        public JsonResult Update(Product product)
         {
-            var dbProduct = _productService.GetByID(menuRecord.ID);
-            _productService.Update(dbProduct);
+            _productService.Update(product);
             _productService.SaveChanges();
 
             return Json(true, JsonRequestBehavior.AllowGet);

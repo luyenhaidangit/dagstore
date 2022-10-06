@@ -114,8 +114,8 @@
                     <div class="form-group row">
                         <label for="example-number-input" class="col-md-2 col-form-label">Độ ưu tiên</label>
                         <div class="col-md-10">
-                            <input ng-model="product.DisplayOrder" required name="displayorder" class="form-control" type="number" value="0" id="example-number-input">
-                            <span ng-show="formAddProduct.displayorder.$error.required && formAddProduct.displayorder.$touched">Giá sản phẩm!</span>
+                            <input ng-model="product.DisplayOrder" required name="displayorder" class="form-control" type="number" id="example-number-input">
+                            <span class="text-valid" ng-show="formAddProduct.displayorder.$error.required && formAddProduct.displayorder.$touched">Độ ưu tiên sản phẩm không được để trống</span>
                         </div>
                     </div>
 
@@ -130,7 +130,7 @@
                         <label for="example-number-input" class="col-md-2 col-form-label">Giá thực tế</label>
                         <div class="col-md-10">
                             <input ng-model="product.Price" required name="price" class="form-control" type="number" value="0" id="example-number-input">
-                            <span ng-show="formAddProduct.price.$error.required && formAddProduct.price.$touched">Giá sản phẩm không được để trống!</span>
+                            <span class="text-valid" ng-show="formAddProduct.price.$error.required && formAddProduct.price.$touched">Giá sản phẩm không được để trống, nhập lại!</span>
                         </div>
                     </div>
 
@@ -139,7 +139,7 @@
                         <label for="example-number-input" class="col-md-2 col-form-label">Giá gốc</label>
                         <div class="col-md-10">
                             <input ng-model="product.OldPrice" required name="oldprice" class="form-control" type="number" value="0" id="example-number-input">
-                            <span ng-show="formAddProduct.oldprice.$error.required && formAddProduct.oldprice.$touched">Giá sản phẩm!</span>
+                            <span class="text-valid" ng-show="formAddProduct.oldprice.$error.required && formAddProduct.oldprice.$touched">Giá gốc sản phẩm không được để trống, thử lại!</span>
                         </div>
                     </div>
 
@@ -148,7 +148,7 @@
                         <label for="example-number-input" class="col-md-2 col-form-label">Số lượng</label>
                         <div class="col-md-10">
                             <input ng-model="product.StockQuantity" required name="stockquantity" class="form-control" type="number" value="0" id="example-number-input">
-                            <span ng-show="formAddProduct.stockquantity.$error.required && formAddProduct.stockquantity.$touched">Giá sản phẩm không được để trống!</span>
+                            <span class="text-valid" ng-show="formAddProduct.stockquantity.$error.required && formAddProduct.stockquantity.$touched">Số lượng sản phẩm không được để trống, thử lại!</span>
                         </div>
                     </div>
 
@@ -239,7 +239,4 @@
     $(".ui.dropdown").dropdown({
 
     });
-
-    /*$('.ui.dropdown').dropdown('set selected', 0);*/
-
 </script>
