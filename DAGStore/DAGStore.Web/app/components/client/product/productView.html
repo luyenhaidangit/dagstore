@@ -5,13 +5,13 @@
     <div class="container py-2">
         <!-- begin: breadcumbb -->
         <ol class="breadcrumb mb-2">
-            <li class="breadcrumb-item"><a href="/page/client/categories/categories.html">Điện thoại</a></li>
+            <li class="breadcrumb-item"><a href="/page/client/categories/categories.html">{{category.Name}}</a></li>
             <li class="breadcrumb-item active">Điện thoại Oppo</li>
         </ol>
         <!-- end: breadcrumb -->
         <!-- begin: intro-product -->
         <div class="intro-product d-flex align-items-center pb-2 border-bottom flex-wrap">
-            <strong class="product-title d-block d-md-inline-block mw-100">Điện thoại OPPO Reno8 Z 5G</strong>
+            <strong class="product-title d-block d-md-inline-block mw-100">{{category.Name}} {{product.Name}}</strong>
             <a href="#" class="product-rate d-flex align-items-center mx-3 flex-wrap">
                 <div class="small-ratings d-flex gap-1">
                     <i class="fa fa-star rating-color"></i>
@@ -804,7 +804,7 @@
                             <div class="product-item-core__text">Giá tại <a href="#">Hà Nội<i class="fas fa-caret-down"></i></a></div>
                             <div class="product-item-core__row">
                                 <strong class="product-item-core__price me-2">
-                                    <span>40.990.000₫</span>
+                                    <span>{{product.Price | formatCurrencyVND}}</span>
                                 </strong>
                                 <div class="product-item-core__label">
                                     <span class="lalel-product-core label-installment">Trả góp 0%</span>
@@ -866,7 +866,7 @@
                                         <div class="mb-3">
                                             <input class="form-check-input rounded-circle" type="checkbox" value="" id="flexCheckDefault">
                                             <label class="form-check-label d-flex align-items-center" for="flexCheckDefault">
-                                                <img src="/assets/img/banner-ads/eximbank.jpg" class="" alt="" height="18px">
+                                                <img src="/Content/client/img/banner-ads/eximbank.jpg" class="" alt="" height="18px">
                                                 <small class="ms-2 text-dark">
                                                     Giảm <strong>500.000đ</strong> sản phẩm từ 3Tr
                                                 </small>
@@ -989,7 +989,7 @@
                         <div class="card mb-3">
 
                             <div class="card-body">
-                                <h5>Đánh giá điện thoại Oppo Reno 8</h5>
+                                <h5>Đánh giá {{category.Name}} {{product.Name}}</h5>
                                 <div class="product-item-core__text">
 
                                     <div class="small-ratings d-flex gap-1 align-items-center">

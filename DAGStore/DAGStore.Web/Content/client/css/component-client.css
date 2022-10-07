@@ -860,7 +860,7 @@
 }
 
 .footer__certify > a > i{
-    background-image: url("~/Content/client/img/resource/icon_common@2x.png");
+    background-image: url("/Content/client/img/resource/icon_common@2x.png");
     background-repeat: no-repeat;
     display: inline-block;
     line-height: 30px;
