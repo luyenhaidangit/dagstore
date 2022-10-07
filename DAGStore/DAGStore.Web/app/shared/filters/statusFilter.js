@@ -35,4 +35,10 @@
             return convert(new Date(parseInt(input.substr(6))));
         }
     });
+
+    app.filter("formatCurrencyVND", function () {
+        return function (input) {
+            return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(input);
+        }
+    });
 })(angular.module('DAGStore.common'));

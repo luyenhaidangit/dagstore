@@ -16,7 +16,7 @@
     <!-- swiper css -->
     <link rel="stylesheet" href="~/Content/lib/swiper-8.3.2/package/swiper-bundle.min.css">
     <!-- animate css -->
-    <link rel="stylesheet" href="~/assets/libs/animate.css-main/animate.css">
+    <!--<link rel="stylesheet" href="~/assets/libs/animate.css-main/animate.css">-->
     <!-- css -->
     <link rel="stylesheet" href="~/Content/client/css/index.css">
     
@@ -71,7 +71,7 @@
             <div class="header__top">
                 <div class="container">
                     <!-- begin: logo -->
-                    <a href="/index.html" class="header__logo">
+                    <a href="" ui-sref="index" class="header__logo">
                         <img src="~/Content/client/img/resource/logo-dagstore.png" alt="Logo Dagstore">
                         <img src="~/Content/client/img/resource/logo-dagstore-small.png" alt="Logo Dagstore Small">
                     </a>
@@ -495,6 +495,7 @@
     <script src="~/assets/libs/angular.js/angular.js"></script>
     <script src="/assets/libs/angular-ui-router/angular-ui-router.js"></script>
     <script src="~/app/shared/modules/DAGStore.common.js"></script>
+    <script src="~/app/shared/filters/statusFilter.js"></script>
     <script src="~/app/shared/services/apiService.js"></script>
     <script src="~/app/shared/directives/main-navigation/main-navigationDirective.js"></script>
     <script src="~/app/shared/directives/main-navigation/main-navigationController.js"></script>>
@@ -503,6 +504,8 @@
     <script src="~/app/components/index/indexController.js"></script>
     <script src="~/app/components/client/category/category.module.js"></script>
     <script src="~/app/components/client/category/categoryController.js"></script>
+    <script src="~/app/components/client/product/product.module.js"></script>
+    <script src="~/app/components/client/product/productController.js"></script>
 </body>
 
 </html>

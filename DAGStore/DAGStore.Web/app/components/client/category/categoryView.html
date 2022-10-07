@@ -262,7 +262,7 @@
                 <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-2 g-3">
                     <div ng-repeat="item in products" class="col">
                         <div class="product-item-core border">
-                            <a href="/Product/Index">
+                            <a href ui-sref="product({id:item.ID})">
                                 <div class="product-item-core__label">
                                     <span class="lalel-product-core label-preorder">Đặt trước đến 25/08</span>
                                     <span class="lalel-product-core label-installment">Trả góp 0%</span>
@@ -281,7 +281,7 @@
                                 </span>
 
                                 <strong class="product-item-core__price">
-                                    <span>{{item.Price}}₫</span>
+                                    <span>{{item.Price | formatCurrencyVND }}</span>
                                 </strong>
 
                                 <div class="product-item-core__gift">

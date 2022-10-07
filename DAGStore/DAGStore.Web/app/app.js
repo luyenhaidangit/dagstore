@@ -28,6 +28,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 var app = angular.module('DAGStoreHome', [
     'DAGStoreHome.index',
     'DAGStoreHome.category',
+    'DAGStoreHome.product',
     'DAGStore.common']);
 
 // Config App Home
