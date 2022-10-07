@@ -3,9 +3,7 @@ var category = angular.module('DAGStoreHome.category');
 category.controller('categoryController', categoryController);
 
 // Controller
-function categoryController($scope, apiService, $stateParams) {
-
-    console.log("okslf")
+function categoryController($scope, apiService, $stateParams, $filter) {
     // Load Category Detail
     $scope.category = {
     }
@@ -13,10 +11,23 @@ function categoryController($scope, apiService, $stateParams) {
     function LoadCategoryDetail() {
         apiService.get("/category/getbyid/" + $stateParams.id, null, function (result) {
             $scope.category = result.data;
-            /*console.log($scope.category);*/
         }, function (error) {
             notificationService.displaySuccess("Không thể tải dữ liệu");
         })
     }
     $scope.LoadCategoryDetail();
+
+    // Load List Product Of Category
+    $scope.products = [];
+    $scope.GetProductsOfCategory = GetProductsOfCategory;
+    function GetProductsOfCategory() {
+        apiService.get("/product/getall", null, function (result) {
+            $scope.products = result.data;
+            $scope.products = $filter('filter')($scope.products, { CategoryID: $stateParams.id })
+            console.log($scope.products);
+        }, function (error) {
+            console.log("Get data fail");
+        })
+    };
+    $scope.GetProductsOfCategory();
 }
