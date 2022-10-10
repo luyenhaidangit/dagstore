@@ -23,7 +23,22 @@ function mainNavigationController($scope, apiService) {
 
 
 
+    // Get Data
+    $scope.SiteMenu1 = [];
+    $scope.getItems1 = getItems1;
+    function getItems1() {
+        apiService.get("/cart/create", 6, function (result) {
 
+            $scope.SiteMenu1 = result.data;
+
+            console.log($scope.SiteMenu1);
+
+
+        }, function (error) {
+            console.log("Get data fail");
+        })
+    };
+    $scope.getItems1();
 
 
 

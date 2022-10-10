@@ -318,6 +318,25 @@
     font-size: 20px;
 }
 
+.header__cart-icon {
+    position: relative;
+}
+
+.header__cart-icon > span {
+        background-color: #dd1c1a;
+        position: absolute;
+        border-radius: 50%;
+        color: #fff;
+        display: inline-block;
+        font-size: 10px;
+        line-height: 12px;
+        left: 8px;
+        height: 12px;
+        text-align: center;
+        top: 0;
+        width: 12px;
+    }
+
 .header__cart > span{
     font-size: 12px;
     font-weight: bold;
