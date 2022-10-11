@@ -7,15 +7,12 @@ function productController($scope, apiService, $stateParams, $filter, $window) {
     // Load Product Detail
     $scope.product = {
     }
-    $scope.category = {
-    }
-
+    $scope.category =
     apiService.get("/product/getbyid/" + $stateParams.id, null, function (result) {
         $scope.product = result.data;
         $scope.product.CreateOn = $filter('formatJsonDate')($scope.product.CreateOn);
         apiService.get("/category/getbyid/" + $scope.product.CategoryID, null, function (resultCategory) {
             $scope.category = resultCategory.data;
-            console.log($scope.category);
         }, function (error) {
             console.log("Không thể tải dữ liệu");
             
@@ -25,39 +22,25 @@ function productController($scope, apiService, $stateParams, $filter, $window) {
     })
 
     // Add Session Product Cart
-    var getValue = function () {
-        return $window.sessionStorage.length;
-    }
-
-    var getData = function () {
-        var json = [];
-        $.each($window.sessionStorage, function (i, v) {
-            json.push(angular.fromJson(v));
-        });
-        return json;
-    }
-
-    $scope.testSession = testSession;
-    function testSession() {
-        let carts = $window.sessionStorage.getItem("cart") ?
-            JSON.parse($window.sessionStorage.getItem("cart")) : [];
-        console.log(carts);
-    }
-    $scope.testSession();
-
-    $scope.images = getData();
-    $scope.count = getValue();
-
-    $scope.addItem = function (id) {
-        var image = document.getElementById('img' + id);
-        json = {
-            id: id,
-            img: image.src
+    $scope.AddSessionProductCart = AddSessionProductCart;
+    function AddSessionProductCart(id) {
+        
+        var config = {
+            params: {
+                id: id
+            }
         }
-        $window.sessionStorage.setItem(id, JSON.stringify(json));
-        $scope.count = getValue();
-        $scope.images = getData();
-    }
+        console.log(config.params)
+        apiService.post("/cart/create", config.params, function (result) {
+            console.log(config);
+           /* notificationService.displaySuccess("Thêm thông tin thành công!");*/
 
+           /* $state.go("category");*/
+        }, function (error) {
+           /* notificationService.displaySuccess("Thêm mới không thành công!");*/
+           /* console.log($scope.category);*/
+        });
+    }
+    
     
 }
