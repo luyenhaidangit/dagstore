@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Product.cs" />

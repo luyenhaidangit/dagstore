@@ -232,6 +232,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -250,6 +251,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\components\admin\brand\brand.module.js" />
+    <Content Include="app\components\admin\brand\brandAddController.js" />
+    <Content Include="app\components\admin\brand\brandAddView.html" />
+    <Content Include="app\components\admin\brand\brandEditController.js" />
+    <Content Include="app\components\admin\brand\brandEditView.html" />
+    <Content Include="app\components\admin\brand\brandListController.js" />
+    <Content Include="app\components\admin\brand\brandListView.html" />
     <Content Include="app\components\category\category.module.js" />
     <Content Include="app\components\category\categoryAddController.js" />
     <Content Include="app\components\category\categoryAddView.html" />
@@ -257,6 +265,9 @@
     <Content Include="app\components\category\categoryEditView.html" />
     <Content Include="app\components\category\categoryListController.js" />
     <Content Include="app\components\category\categoryListView.html" />
+    <Content Include="app\components\client\cart\cart.module.js" />
+    <Content Include="app\components\client\cart\cartController.js" />
+    <Content Include="app\components\client\cart\cartView.html" />
     <Content Include="app\components\client\category\category.module.js" />
     <Content Include="app\components\client\category\categoryController.js" />
     <Content Include="app\components\client\category\categoryView.html" />
@@ -3097,6 +3108,7 @@
     <Content Include="Content\admin\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-uk-mill-en.js" />
     <Content Include="Content\client\css\app.css" />
     <Content Include="Content\client\css\app.min.css" />
+    <Content Include="Content\client\css\cart.css" />
     <Content Include="Content\client\css\common.css" />
     <Content Include="Content\client\css\component-client.css" />
     <Content Include="Content\client\css\dashboard.css" />
@@ -6507,6 +6519,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\client\ico\" />
     <Folder Include="Upload\" />
+    <Folder Include="Views\Brand\" />
     <Folder Include="Views\MenuRecord\" />
     <Folder Include="Views\Product\" />
   </ItemGroup>

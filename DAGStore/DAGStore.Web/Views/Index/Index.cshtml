@@ -14,13 +14,14 @@
     <!-- bootstrap css -->
     <link rel="stylesheet" href="~/Content/lib/bootstrap-5.2.0-dist/css/bootstrap.min.css">
     <link href="~/assets/libs/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/assets/libs/toastr/build/toastr.min.css">
     <!-- swiper css -->
     <link rel="stylesheet" href="~/Content/lib/swiper-8.3.2/package/swiper-bundle.min.css">
     <!-- animate css -->
     <!--<link rel="stylesheet" href="~/assets/libs/animate.css-main/animate.css">-->
     <!-- css -->
     <link rel="stylesheet" href="~/Content/client/css/index.css">
-    
+
 </head>
 
 <body ng-app="DAGStoreHome">
@@ -192,7 +193,7 @@
                     </a>
                     <!-- end: history order -->
                     <!-- begin: header cart -->
-                    <a href="/page/client/customer/cart.html" class="header__cart btn">
+                    <a ui-sref="cart" href="/page/client/customer/cart.html" class="header__cart btn">
                         <div class="header__cart-icon">
                             <i class="far fa-shopping-cart"></i>
                             <span class="cart-number has-cart">2</span>
@@ -491,17 +492,21 @@
     <!-- bootstrap js -->
     <script src="/Content/lib/bootstrap-5.2.0-dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/assets/libs/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js"></script>
+
     <!-- swiper js -->
     <script src="/Content/lib/swiper-8.3.2/package/swiper-bundle.min.js"></script>
     <script src="/Content/client/js/carousel.js"></script>
+    <!-- toastr plugin -->
+    <script src="/assets/libs/toastr/build/toastr.min.js"></script>
     <!-- App Angularjs -->
     <script src="~/assets/libs/angular.js/angular.js"></script>
     <script src="/assets/libs/angular-ui-router/angular-ui-router.js"></script>
     <script src="~/app/shared/modules/DAGStore.common.js"></script>
     <script src="~/app/shared/filters/statusFilter.js"></script>
     <script src="~/app/shared/services/apiService.js"></script>
+    <script src="~/app/shared/services/notificationService.js"></script>
     <script src="~/app/shared/directives/main-navigation/main-navigationDirective.js"></script>
-    <script src="~/app/shared/directives/main-navigation/main-navigationController.js"></script>>
+    <script src="~/app/shared/directives/main-navigation/main-navigationController.js"></script>
     <script src="~/app/app.js"></script>
     <script src="~/app/components/index/index.module.js"></script>
     <script src="~/app/components/index/indexController.js"></script>
@@ -509,6 +514,9 @@
     <script src="~/app/components/client/category/categoryController.js"></script>
     <script src="~/app/components/client/product/product.module.js"></script>
     <script src="~/app/components/client/product/productController.js"></script>
+    <script src="~/app/components/client/cart/cart.module.js"></script>
+    <script src="~/app/components/client/cart/cartController.js"></script>
+    
 </body>
 
 </html>

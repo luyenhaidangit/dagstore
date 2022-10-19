@@ -3,7 +3,7 @@ var product = angular.module('DAGStoreHome.product');
 product.controller('productController', productController);
 
 // Controller
-function productController($scope, apiService, $stateParams, $filter, $window) {
+function productController($scope, apiService, $stateParams, $filter, notificationService,$state) {
     // Load Product Detail
     $scope.product = {
     }
@@ -33,8 +33,8 @@ function productController($scope, apiService, $stateParams, $filter, $window) {
         console.log(config.params)
         apiService.post("/cart/create", config.params, function (result) {
             console.log(config);
-           /* notificationService.displaySuccess("Thêm thông tin thành công!");*/
-
+            notificationService.displaySuccess("Sản phẩm đã được thêm vào giỏ hàng!");
+            $state.go("cart");
            /* $state.go("category");*/
         }, function (error) {
            /* notificationService.displaySuccess("Thêm mới không thành công!");*/

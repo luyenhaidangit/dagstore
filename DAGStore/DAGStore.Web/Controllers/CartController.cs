@@ -49,7 +49,6 @@ namespace DAGStore.Web.Controllers
                 newItem.Quantity = 1;
                 cart.Add(newItem);
             }
-            
             Session["SessionCart"] = cart;
             return Json("OK",JsonRequestBehavior.AllowGet);
         }

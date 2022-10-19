@@ -13,6 +13,7 @@ function productListController($scope, apiService, dataTableService, notificatio
         apiService.get("/product/getall", null, function (result) {
 
             $scope.products = result.data;
+            /*$scope.products.Price = $filter('formatCurrencyVND')($scope.product.Price);*/
 
             dataTableService.createDataTable("DAGStoreDatatable");
 

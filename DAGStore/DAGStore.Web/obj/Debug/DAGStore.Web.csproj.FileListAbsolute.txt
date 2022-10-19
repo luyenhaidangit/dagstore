@@ -1,6 +1,3 @@
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.AspNet.Identity.Core.dll
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.Security.Cookies.dll
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Net.Http.Formatting.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DAGStore.Web.dll.config
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DAGStore.Web.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DAGStore.Web.pdb
@@ -61,14 +58,18 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\CKFinder.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DAGStore.Data.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DAGStore.Model.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DAGStore.Service.dll
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DotNetOpenAuth.Core.dll
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DotNetOpenAuth.OAuth.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\EntityFramework.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\EntityFramework.SqlServer.dll
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.AspNet.Identity.Core.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.AspNet.Identity.Owin.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Bcl.AsyncInterfaces.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.Security.Cookies.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.Security.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.Security.Facebook.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.Security.Google.dll
@@ -103,6 +104,8 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DAGStore.Service.
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Autofac.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Autofac.Integration.Mvc.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Autofac.Integration.WebApi.xml
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DotNetOpenAuth.Core.xml
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DotNetOpenAuth.OAuth.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Bcl.AsyncInterfaces.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Buffers.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Diagnostics.DiagnosticSource.xml
@@ -118,6 +121,7 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Web.WebPag
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Web.WebPages.Deployment.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Web.WebPages.Razor.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Antlr3.Runtime.pdb
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Net.Http.Formatting.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Web.Http.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Web.Http.WebHost.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\EntityFramework.xml
@@ -140,7 +144,3 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\obj\Debug\DAGStore.We
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\obj\Debug\DAGStore.Web.csproj.CopyComplete
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\obj\Debug\DAGStore.Web.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\obj\Debug\DAGStore.Web.pdb
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DotNetOpenAuth.Core.dll
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DotNetOpenAuth.OAuth.dll
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DotNetOpenAuth.Core.xml
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DotNetOpenAuth.OAuth.xml

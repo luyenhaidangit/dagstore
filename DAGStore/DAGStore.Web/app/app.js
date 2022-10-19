@@ -1,5 +1,6 @@
 // Register App
 var app = angular.module('DAGStore', [
+    'DAGStore.brand',
     'DAGStore.menurecord',
     'DAGStore.category',
     'DAGStore.product',
@@ -29,6 +30,7 @@ var app = angular.module('DAGStoreHome', [
     'DAGStoreHome.index',
     'DAGStoreHome.category',
     'DAGStoreHome.product',
+    'DAGStoreHome.cart',
     'DAGStore.common']);
 
 // Config App Home

@@ -53,9 +53,36 @@
                         { extend: 'pdf', className: 'btn btn-outline-light waves-effect d-block w-100 text-left', text: '<i class="fas fa-file-pdf mr-2"></i>PDF' },      
                     ],  
                 });
-                table.buttons()
-                    .container()
-                    .appendTo(".group-btn-export")
+                //table.buttons()
+                //    .container()
+                //    .appendTo(".group-btn-export")
+
+                $('li.toggle-vis').on('click', function (e) {
+                    
+
+                    // Get the column API object
+                    var column = table.column($(this).attr('data-column'));
+
+                    // Toggle the visibility
+                    column.visible(!column.visible());
+
+                    $(this).children("input").is(":checked") ? $(this).children("input").prop('checked', false) : $(this).children("input").prop('checked', true);
+                    
+                });
+
+                //$('li.toggle-vis input').on('click', function (e) {
+
+                //    /*e.preventDefault();*/
+
+                //     /*Get the column API object*/
+                //    var column = table.column($(this).attr('data-column'));
+
+                //     /*Toggle the visibility*/
+                //    column.visible(!column.visible());
+
+                //    $(this).is(":checked") ? $(this).prop('checked', false) : $(this).prop('checked', true);
+
+                //});
             });
         }
     }

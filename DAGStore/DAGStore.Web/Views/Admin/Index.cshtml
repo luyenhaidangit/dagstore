@@ -320,6 +320,7 @@
                                 <span>Danh mục</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
+                                <li><a ui-sref="brand"><i class="fas fa-copyright"></i>Hãng sản phẩm</a></li>
                                 <li><a ui-sref="category"><i class="far fa-sitemap"></i>Loại sản phẩm</a></li>
                                 <li><a ui-sref="product"><i class="fas fa-cubes"></i>Sản phẩm</a></li>
                                 <li><a href="layouts-compact-sidebar.html"><i class="far fa-building"></i>Nhà cung cấp</a></li>
@@ -845,6 +846,13 @@
     <script src="~/app/shared/services/ckeditorService.js"></script>
     <script src="/app/app.js"></script>
     <script src="/app/components/home/homeController.js"></script>
+    <!-- Brand -->
+    <script src="~/app/components/admin/brand/brand.module.js"></script>
+    <script src="~/app/components/admin/brand/brandListController.js"></script>
+    <script src="~/app/components/admin/brand/brandAddController.js"></script>
+    <script src="~/app/components/admin/brand/brandInfoController.js"></script>
+    <script src="~/app/components/admin/brand/brandEditController.js"></script>
+    <!-- MenuRecord -->
     <script src="/app/components/menurecord/menuRecord.module.js"></script>
     <script src="/app/components/menurecord/menuRecordListController.js"></script>
     <script src="/app/components/menurecord/menuRecordAddController.js"></script>
@@ -858,12 +866,12 @@
     <script src="~/app/components/product/productAddController.js"></script>
     <script src="~/app/components/product/productEditController.js"></script>
     <script>
-        //$(document).ready(function () {
-        //    $("select option[value='? undefined:undefined ?']").remove();
-        //});
-        //$(document).load(function () {
-        //    $("select option[value='? undefined:undefined ?']").remove();
-        //});
+                                    //$(document).ready(function () {
+                                    //    $("select option[value='? undefined:undefined ?']").remove();
+                                    //});
+                                    //$(document).load(function () {
+                                    //    $("select option[value='? undefined:undefined ?']").remove();
+                                    //});
     </script>
 </body>
 </html>

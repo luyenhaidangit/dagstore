@@ -1,0 +1,112 @@
+﻿<!-- css -->
+<link rel="stylesheet" href="/Content/client/css/cart.css">
+
+
+<!-- begin: content -->
+<div class="content">
+    <div class="container-sm d-flex justify-content-center">
+        <div class="loading-cart d-flex flex-column py-2">
+            <div class="loading-cart__top w-100">
+                <div class="loading-cart__top-buy-more d-flex justify-content-between">
+                    <a href="https://www.thegioididong.com" class="buymore">Mua thêm sản phẩm khác</a>
+                    <span>Giỏ hàng của bạn <!----></span>
+                </div>
+            </div>
+            <div class="loading-cart__body w-100 py-2">
+                <div class="loading-cart__list-product border-bottom" ng-repeat="item in cart">
+                    <div class="loading-cart__product-item d-flex">
+                        <div class="loading-cart__product-item__img">
+                            <a href="#">
+                                <img class="img-fluid" src="{{item.Product.PicturePath}}" alt="">
+                            </a>
+                            <div class="delete-product d-flex justify-content-center align-items-center py-2 gap-1">
+                                <i class="fal fa-times-circle"></i>
+                                Xóa
+                            </div>
+                        </div>
+                        <div class="loading-cart__product-item__info">
+                            <div class="loading-cart__product-item__info-name">
+                                <h6 href="/dtdd/xiaomi-redmi-note-11s-5g"> {{item.Product.Name}} </h6>
+                            </div>
+                            <div class="loading-cart__product-item__info-promo py-1">
+                                <span class="text-primary" href="/dtdd/xiaomi-redmi-note-11s-5g">3 khuyến mãi <i class="fas fa-caret-down"></i></span>
+                            </div>
+
+                            <div class="loading-cart__product-item__info-color py-1">
+                                <span class="text-primary" href="/dtdd/xiaomi-redmi-note-11s-5g">Màu: Xanh dương nhạt <i class="fas fa-caret-down"></i></span>
+                            </div>
+
+                        </div>
+                        <div class="loading-cart__product-item__price d-flex flex-column ms-auto text-end">
+                            <span class="modal__add-cart__header-text"> {{item.Product.Price | formatCurrencyVND}} </span>
+                            <strike class="modal__add-cart__header-text">6.490.000₫</strike>
+                            <input class="d-inline form-control-sm input-touch-spin" id="demo3" type="text" name="demo3" ng-model="item.Quantity">
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="loading-cart__info-customer border-bottom py-4">
+                    <span class="modal__add-cart__header-text">Thông tin khách hàng</span>
+                    <div class="form-check-sex">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="sex" id="exampleRadios1" value="option1" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                                Anh
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="sex" id="exampleRadios2" value="option2">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Chị
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-check-info d-flex gap-3 mt-2">
+                        <div class="form-check col p-0">
+                            <input type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Họ và tên">
+                        </div>
+                        <div class="form-check col p-0">
+                            <input type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Số điện thoại">
+                        </div>
+                    </div>
+                    <span class="modal__add-cart__header-text mt-2">Cách thức nhận hàng</span>
+                    <div class="form-check-format">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="format" id="exampleRadios1" value="option1" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                                Giao hàng tận nơi
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="format" id="exampleRadios2" value="option2">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Nhận hàng tại siêu thị
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-check-info d-flex gap-3 mt-2">
+                        <div class="form-check col p-0">
+                            <input type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ghi chú">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="loading-cart__summary py-4">
+                    <div class="loading-cart__summary-value d-flex justify-content-between">
+                        <b class="modal__add-cart__header-text">Tổng tiền</b>
+                        <b class="modal__add-cart__header-text text-end text-danger">10.940.000₫</b>
+                    </div>
+                    <button type="button" class="btn btn-primary w-100 my-2">Xác nhận</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+    $("input[name ='demo3']").TouchSpin();
+</script>
+<!-- end: content -->
