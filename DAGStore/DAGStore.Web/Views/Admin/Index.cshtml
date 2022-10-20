@@ -307,7 +307,7 @@
                     <ul class="metismenu list-unstyled" id="side-menu">
                         <li class="menu-title">Menu</li>
 
-                        <li ui-sref="home">
+                        <li ui-sref="dashboard">
                             <a class="waves-effect">
                                 <i class="ri-dashboard-line"></i>
                                 <span>Trang điều khiển</span>
@@ -831,7 +831,6 @@
     <!-- App Angular -->
     <script src="/assets/libs/angular.js/angular.js"></script>
 
-
     <script src="/assets/libs/angular-datatables/angular-datatables.min.js"></script>
     <script src="/assets/libs/angular-datatables/jquery.dataTables.min.js"></script>
     <script src="/assets/libs/angular-ui-router/angular-ui-router.js"></script>
@@ -847,31 +846,34 @@
     <script src="/app/app.js"></script>
     <script src="/app/components/home/homeController.js"></script>
     <!-- Brand -->
-    <script src="~/app/components/admin/brand/brand.module.js"></script>
-    <script src="~/app/components/admin/brand/brandListController.js"></script>
-    <script src="~/app/components/admin/brand/brandAddController.js"></script>
-    <script src="~/app/components/admin/brand/brandInfoController.js"></script>
-    <script src="~/app/components/admin/brand/brandEditController.js"></script>
+    <script src="/app/components/admin/brand/brand.module.js"></script>
+    <script src="/app/components/admin/brand/brandListController.js"></script>
+    <script src="/app/components/admin/brand/brandAddController.js"></script>
+    <script src="/app/components/admin/brand/brandInfoController.js"></script>
+    <script src="/app/components/admin/brand/brandEditController.js"></script>
+    <!-- Category -->
+    <script src="/app/components/admin/category/category.module.js"></script>
+    <script src="/app/components/admin/category/categoryListController.js"></script>
+    <script src="/app/components/admin/category/categoryAddController.js"></script>
+    <script src="/app/components/admin/category/categoryInfoController.js"></script>
+    <script src="/app/components/admin/category/categoryEditController.js"></script>
     <!-- MenuRecord -->
     <script src="/app/components/menurecord/menuRecord.module.js"></script>
     <script src="/app/components/menurecord/menuRecordListController.js"></script>
     <script src="/app/components/menurecord/menuRecordAddController.js"></script>
     <script src="/app/components/menurecord/menuRecordEditController.js"></script>
-    <script src="~/app/components/category/category.module.js"></script>
-    <script src="~/app/components/category/categoryListController.js"></script>
-    <script src="~/app/components/category/categoryAddController.js"></script>
-    <script src="~/app/components/category/categoryEditController.js"></script>
+
     <script src="~/app/components/product/product.module.js"></script>
     <script src="~/app/components/product/productListController.js"></script>
     <script src="~/app/components/product/productAddController.js"></script>
     <script src="~/app/components/product/productEditController.js"></script>
     <script>
-                                    //$(document).ready(function () {
-                                    //    $("select option[value='? undefined:undefined ?']").remove();
-                                    //});
-                                    //$(document).load(function () {
-                                    //    $("select option[value='? undefined:undefined ?']").remove();
-                                    //});
+                                                        //$(document).ready(function () {
+                                                        //    $("select option[value='? undefined:undefined ?']").remove();
+                                                        //});
+                                                        //$(document).load(function () {
+                                                        //    $("select option[value='? undefined:undefined ?']").remove();
+                                                        //});
     </script>
 </body>
 </html>

@@ -2,16 +2,15 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-flex align-items-center justify-content-between">
-            <h4 class="mb-0">loại sản phẩm</h4>
+            <h4 class="mb-0">Hãng sản phẩm</h4>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a ui-sref="home">DAGStore</a></li>
-                    <li class="breadcrumb-item"><a ui-sref="category">Quản lý loại loại sản phẩm</a></li>
-                    <li class="breadcrumb-item active"><a ui-sref="category-add"></a>Thêm mới</li>
+                    <li class="breadcrumb-item"><a ui-sref="brand">Quản lý hãng sản phẩm</a></li>
+                    <li class="breadcrumb-item active"><a ui-sref="edit-brand"></a>Thêm mới</li>
                 </ol>
             </div>
-
         </div>
     </div>
 </div>
@@ -23,31 +22,18 @@
         <div class="card">
             <div class="card-body">
 
-                <form class="form-horizontal" novalidate name="formEditCategory" role="form" ng-submit="UpdateCategory()">
+                <form class="form-horizontal" novalidate name="formEditBrand" role="form" ng-submit="EditBrand()">
                     <!-- Name -->
                     <div class="form-group row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Tên loại sản phẩm</label>
+                        <label for="example-text-input" class="col-md-2 col-form-label">Tên hãng sản phẩm</label>
                         <div class="col-md-10">
-                            <input ng-model="category.Name" name="name" ng-maxlength="500" required class="form-control" type="text" value="">
-                            <span class="text-valid" ng-show="formEditCategory.name.$error.required && formEditCategory.name.$touched">Tên loại sản phẩm không được để trống!</span>
-                            <span class="text-valid" ng-show="formEditCategory.name.$error.maxlength">Tên loại sản phẩm không được quá 500 ký tự!</span>
+                            <input ng-model="brand.Name" name="name" ng-maxlength="500" required class="form-control" type="text" value="">
+                            <span class="text-valid" ng-show="formEditBrand.name.$error.required && formEditBrand.name.$touched">Tên hãng sản phẩm không được để trống!</span>
+                            <span class="text-valid" ng-show="formEditBrand.name.$error.maxlength">Tên hãng sản phẩm không được quá 500 ký tự!</span>
                         </div>
                     </div>
 
-                    <!-- ParentCategoryID -->
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Mục loại sản phẩm cha</label>
-                        <div class="col-md-10">
-                            <div class="ui dropdown fluid search selection">
-                                <input ng-model="category.ParentCategoryID" type="hidden" name="parentcategoryid" value="{{category.ParentCategoryID}}">
-                                <i class="dropdown icon"></i>
-                                <div class="default text">{{parentCategory.Name}}</div>
-                                <div class="menu">
-                                    <div ng-repeat="item in categorys" class="item" data-value="{{item.ID}}">{{item.Name}}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
 
                     <!-- ImagePath -->
                     <div class="form-group row">
@@ -56,27 +42,20 @@
                             <div class="input-control d-flex align-items-center">
                                 <button ng-click="ChooseImage(true)" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Chọn ảnh</button>
                                 <i ng-click="ChooseImage(false)" style="cursor:pointer" ng-show="statusChooseAvatar" class="fal fa-times-circle text-danger ml-3"></i>
-                                <input type="hidden" name="picturepath" ng-model="category.PicturePath">
+                                <input type="hidden" name="picturepath" ng-model="brand.PicturePath">
                             </div>
 
-                            <img style="width:160px" class="animate__fadeInDown img-fluid mt-3 rounded" ng-show="statusChooseAvatar" name="picturepath" src="{{category.PicturePath}}">
+                            <img style="width:160px" class="animate__fadeInDown img-fluid mt-3 rounded" ng-show="statusChooseAvatar" name="picturepath" src="{{brand.PicturePath}}">
                         </div>
                     </div>
 
-                    <!-- Description -->
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Mô tả</label>
-                        <div class="col-md-10">
-                            <textarea ck-editor ng-model="category.Description" name="description" id="DAGStoreTextArea" rows="10" cols="80"></textarea>
-                        </div>
-                    </div>
 
                     <!-- DisplayOrder -->
                     <div class="form-group row">
                         <label for="example-number-input" class="col-md-2 col-form-label">Độ ưu tiên</label>
                         <div class="col-md-10">
-                            <input ng-model="category.DisplayOrder" required name="displayorder" class="form-control" type="number" value="0" id="example-number-input">
-                            <span ng-show="formEditCategory.displayorder.$error.required && formEditCategory.displayorder.$touched">Giá loại sản phẩm!</span>
+                            <input ng-model="brand.DisplayOrder" required name="displayorder" class="form-control" type="number" value="0" id="example-number-input">
+                            <span ng-show="formEditBrand.displayorder.$error.required && formEditBrand.displayorder.$touched">Giá hãng sản phẩm!</span>
                         </div>
                     </div>
 
@@ -84,7 +63,7 @@
                     <div class="form-group row mt-4">
                         <label for="example-text-input" class="col-md-2 col-form-label">MetaKeywords</label>
                         <div class="col-md-10">
-                            <input ng-model="category.MetaKeywords" name="metakeywords" class="form-control" type="text" value="">
+                            <input ng-model="brand.MetaKeywords" name="metakeywords" class="form-control" type="text" value="">
                         </div>
                     </div>
 
@@ -92,7 +71,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">MetaDescription</label>
                         <div class="col-md-10">
-                            <input ng-model="category.MetaDescription" name="metadescription" class="form-control" type="text" value="">
+                            <input ng-model="brand.MetaDescription" name="metadescription" class="form-control" type="text" value="">
                         </div>
                     </div>
 
@@ -100,7 +79,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">MetaTitle</label>
                         <div class="col-md-10">
-                            <input ng-model="category.MetaTitle" name="metatitle" class="form-control" type="text" value="">
+                            <input ng-model="brand.MetaTitle" name="metatitle" class="form-control" type="text" value="">
                         </div>
                     </div>
 
@@ -108,16 +87,9 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Alias</label>
                         <div class="col-md-10">
-                            <input ng-model="category.Alias" name="alias" class="form-control" type="text" value="">
-                        </div>
-                    </div>
-
-                    <!-- ShowOnHomePage -->
-                    <div class="form-group row d-flex align-items-center">
-                        <label for="example-number-input" class="col-md-2 col-form-label">Hiện tại trang chủ</label>
-                        <div class="col-md-10 d-flex align-items-center">
-                            <input type="checkbox" id="ShowOnHomePage" switch="none" checked="" ng-model="category.ShowOnHomePage" ng-checked="category.ShowOnHomePage">
-                            <label class="mr-0" for="ShowOnHomePage" data-on-label="On" data-off-label="Off"></label>
+                            <input ng-model="brand.Alias" required name="alias" class="form-control" type="text" value="">
+                            <span class="text-valid" ng-show="formEditBrand.alias.$error.required && formEditBrand.alias.$touched">Tên alias hãng sản phẩm không được để trống!</span>
+                            <span class="text-valid" ng-show="formEditBrand.alias.$error.maxlength">Tên alias hãng sản phẩm không được quá 500 ký tự!</span>
                         </div>
                     </div>
 
@@ -125,14 +97,14 @@
                     <div class="form-group row d-flex align-items-center">
                         <label for="example-number-input" class="col-md-2 col-form-label">Hoạt động</label>
                         <div class="col-md-10 d-flex align-items-center">
-                            <input type="checkbox" id="Published" switch="none" checked="" ng-model="category.Published" ng-checked="category.Published">
+                            <input type="checkbox" id="Published" switch="none" checked="" ng-model="brand.Published" ng-checked="brand.Published">
                             <label class="mr-0" for="Published" data-on-label="On" data-off-label="Off"></label>
                         </div>
                     </div>
 
                     <div class="add-btn mb-4 d-flex justify-content-end" style="gap:12px">
-                        <button ui-sref="category" class="btn btn-secondary waves-effect waves-light">Trở lại</button>
-                        <button ng-disabled="formEditCategory.$invalid" type="submit" class="btn btn-primary waves-effect waves-light">Xác nhận</button>
+                        <button ui-sref="brand" class="btn btn-secondary waves-effect waves-light">Trở lại</button>
+                        <button ng-disabled="formEditBrand.$invalid" type="submit" class="btn btn-primary waves-effect waves-light">Xác nhận</button>
                     </div>
                 </form>
             </div>

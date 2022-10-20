@@ -24,9 +24,9 @@ brand.config(function ($stateProvider, $urlRouterProvider) {
             controller: "brandInfoController",
         },
         {
-            name: 'brand-edit',
-            url: '/brand-edit/:id',
-            templateUrl: '/app/components/brand/brandEditView.html',
+            name: 'edit-brand',
+            url: '/brand/edit/:id',
+            templateUrl: '/app/components/admin/brand/brandEditView.html',
             controller: "brandEditController",
         }];
     states.forEach((state) => $stateProvider.state(state));

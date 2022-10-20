@@ -2,16 +2,15 @@
 <link href="/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 <link href="/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
-
 <!-- Begin: Page Title -->
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-flex align-items-center justify-content-between">
-            <h4 class="mb-0">Menus</h4>
+            <h4 class="mb-0">Hãng sản phẩm</h4>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a ui-sref="home">DAGStore</a></li>
+                    <li class="breadcrumb-item"><a ui-sref="dashboard">DAGStore</a></li>
                     <li class="breadcrumb-item active"><a ui-sref="brand"></a>Hãng sản phẩm</li>
                 </ol>
             </div>
@@ -33,11 +32,11 @@
                     <thead>
                         <tr>
                             <th style="width: 5%;">STT</th>
-                            <th style="width: 10%;">Ảnh đại diện</th>
-                            <th style="width: 45%;">Tên hãng</th>
+                            <th style="width: 15%;">Ảnh đại diện</th>
+                            <th style="width: 40%;">Tên hãng sản phẩm</th>
                             <th style="width: 5%;">Độ ưu tiên</th>
                             <th style="width: 15%;">Trạng thái</th>
-                            <th style="width: 20%;">Thao tác</th>
+                            <th style="width: 15%;">Thao tác</th>
                         </tr>
                     </thead>
 
@@ -52,8 +51,8 @@
                             </td>
                             <td>
                                 <span ui-sref="info-brand({id:item.ID})" class="badge badge-info" style="cursor: pointer;padding: 8px;"> <i class="fas fa-info-circle"></i></span>
-                                <span ui-sref="brand-edit({id:item.ID})" class="badge badge-primary" style="cursor: pointer;padding: 8px;"> <i class="far fa-edit"></i></span>
-                                <span ng-click="Deletebrand($event,item.ID);" class="badge badge-danger" style="cursor: pointer;padding: 8px;"> <i class="fas fa-trash-alt"></i></span>
+                                <span ui-sref="edit-brand({id:item.ID})" class="badge badge-primary" style="cursor: pointer;padding: 8px;"> <i class="far fa-edit"></i></span>
+                                <span ng-click="DeleteBrand($event,item.ID);" class="badge badge-danger" style="cursor: pointer;padding: 8px;"> <i class="fas fa-trash-alt"></i></span>
                             </td>
                         </tr>
                     </tbody>

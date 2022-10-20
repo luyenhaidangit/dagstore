@@ -11,8 +11,8 @@ app.config(function($stateProvider, $urlRouterProvider){
     // Config Router
     var states = [
     {
-      name: 'home',
-      url: '/home',
+      name: 'dashboard',
+      url: '/dashboard',
       templateUrl: '/app/components/home/homeView.html',
       controller: "homeController",
     },
@@ -22,7 +22,7 @@ app.config(function($stateProvider, $urlRouterProvider){
       templateUrl: '/app/components/error/errorView.html'
     }];
     states.forEach((state) => $stateProvider.state(state));
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/dashboard');
 });
 
 // Register App Home
