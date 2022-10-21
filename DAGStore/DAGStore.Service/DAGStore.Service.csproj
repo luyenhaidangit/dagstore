@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="CategoryService.cs" />
     <Compile Include="BrandService.cs" />
+    <Compile Include="ProductDiscountService.cs" />
+    <Compile Include="DiscountService.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="MenuItemRecordService.cs" />
     <Compile Include="MenuRecordService.cs" />

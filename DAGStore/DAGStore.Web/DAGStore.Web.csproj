@@ -101,6 +101,8 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -235,11 +237,13 @@
     <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\DiscountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuRecordController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProductDiscontController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -260,6 +264,15 @@
     <Content Include="app\components\admin\brand\brandEditView.html" />
     <Content Include="app\components\admin\brand\brandListController.js" />
     <Content Include="app\components\admin\brand\brandListView.html" />
+    <Content Include="app\components\admin\category\categoryInfoController.js" />
+    <Content Include="app\components\admin\category\categoryInfoView.html" />
+    <Content Include="app\components\admin\category\category.module.js" />
+    <Content Include="app\components\admin\category\categoryAddController.js" />
+    <Content Include="app\components\admin\category\categoryAddView.html" />
+    <Content Include="app\components\admin\category\categoryEditController.js" />
+    <Content Include="app\components\admin\category\categoryEditView.html" />
+    <Content Include="app\components\admin\category\categoryListController.js" />
+    <Content Include="app\components\admin\category\categoryListView.html" />
     <Content Include="app\components\client\cart\cart.module.js" />
     <Content Include="app\components\client\cart\cartController.js" />
     <Content Include="app\components\client\cart\cartView.html" />
@@ -283,13 +296,13 @@
     <Content Include="app\components\menurecord\menuRecordEditView.html" />
     <Content Include="app\components\menurecord\menuRecordListController.js" />
     <Content Include="app\components\menurecord\menuRecordListView.html" />
-    <Content Include="app\components\product\productEditView.html" />
-    <Content Include="app\components\product\productEditController.js" />
-    <Content Include="app\components\product\product.module.js" />
-    <Content Include="app\components\product\productAddController.js" />
-    <Content Include="app\components\product\productAddView.html" />
-    <Content Include="app\components\product\productListController.js" />
-    <Content Include="app\components\product\productListView.html" />
+    <Content Include="app\components\admin\product\productEditView.html" />
+    <Content Include="app\components\admin\product\productEditController.js" />
+    <Content Include="app\components\admin\product\product.module.js" />
+    <Content Include="app\components\admin\product\productAddController.js" />
+    <Content Include="app\components\admin\product\productAddView.html" />
+    <Content Include="app\components\admin\product\productListController.js" />
+    <Content Include="app\components\admin\product\productListView.html" />
     <Content Include="app\shared\directives\main-navigation\main-navigationController.js" />
     <Content Include="app\shared\directives\main-navigation\main-navigationView.html" />
     <Content Include="app\shared\directives\main-navigation\main-navigationDirective.js" />
@@ -6515,7 +6528,9 @@
     <Folder Include="Content\client\ico\" />
     <Folder Include="Upload\" />
     <Folder Include="Views\Brand\" />
+    <Folder Include="Views\Discount\" />
     <Folder Include="Views\MenuRecord\" />
+    <Folder Include="Views\ProductDiscont\" />
     <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>

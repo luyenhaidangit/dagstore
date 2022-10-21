@@ -8,6 +8,7 @@ function categoryAddController($scope, apiService, notificationService, $state, 
     $scope.category = {
         DisplayOrder: -1,
         Published: true,
+        ShowOnHomePage: true,
     }
 
     // Load Parent Category

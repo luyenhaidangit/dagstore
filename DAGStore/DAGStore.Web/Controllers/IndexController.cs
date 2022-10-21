@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAGStore.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,19 @@ namespace DAGStore.Web.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        IProductService _productService;
+
+        public IndexController(IProductService productService)
+        {
+            _productService = productService;
+        }
+
+        public JsonResult GetProductsNewShowHomePage()
+        {
+            var products = _productService.GetProductsNewShowHomePage().ToList();
+            return Json(products,JsonRequestBehavior.AllowGet);
         }
     }
 }

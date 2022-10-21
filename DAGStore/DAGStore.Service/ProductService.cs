@@ -2,6 +2,7 @@
 using DAGStore.Data.Repositories;
 using DAGStore.Model.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DAGStore.Service
 {
@@ -14,6 +15,8 @@ namespace DAGStore.Service
         bool Delete(int id);
 
         IEnumerable<Product> GetAll();
+
+        IEnumerable<Product> GetProductsNewShowHomePage();
 
         Product GetByID(int id);
 
@@ -44,6 +47,11 @@ namespace DAGStore.Service
         public IEnumerable<Product> GetAll()
         {
             return _productRepository.GetAll();
+        }
+
+        public IEnumerable<Product> GetProductsNewShowHomePage()
+        {
+            return _productRepository.GetMulti(x=>x.ShowOnHomePage && x.Published ==true).Reverse();
         }
 
         public Product GetByID(int id)

@@ -1,9 +1,9 @@
 // Register App
 var app = angular.module('DAGStore', [
     'DAGStore.brand',
-    'DAGStore.menurecord',
     'DAGStore.category',
     'DAGStore.product',
+    'DAGStore.menurecord',
     'DAGStore.common']);
 
 // Config app

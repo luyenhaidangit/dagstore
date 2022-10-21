@@ -1,0 +1,258 @@
+﻿<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0">Sản phẩm</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a ui-sref="dashboard">DAGStore</a></li>
+                    <li class="breadcrumb-item"><a ui-sref="product">Quản lý sản phẩm</a></li>
+                    <li class="breadcrumb-item active"><a ui-sref="product-add"></a>Thêm mới</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                
+                <form class="form-horizontal" novalidate name="formAddProduct" role="form" ng-submit="AddProduct()">
+                    <div class="page-title-box d-flex align-items-center justify-content-between">
+                        <h4 class="mb-0">Thông tin sản phẩm</h4>
+                    </div>
+                    <!-- Name -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Tên sản phẩm</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.Name" name="name" required ng-maxlength="500" class="form-control" type="text" value="">
+                            <span class="text-valid" ng-show="formAddProduct.name.$error.required && formAddProduct.name.$touched">Tên sản phẩm không được để trống!</span>
+                            <span class="text-valid" ng-show="formAddProduct.name.$error.maxlength">Tên sản phẩm không được quá 500 ký tự!</span>
+                        </div>
+                    </div>
+
+                    <!-- BrandID -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Hãng sản phẩm</label>
+                        <div class="col-md-10">
+                            <div class="ui dropdown fluid search selection">
+                                <input ng-model="product.BrandID" type="hidden" name="brandid" value="{{brands[0].ID}}">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">{{brands[0].Name}}</div>
+                                <div class="menu">
+                                    <div ng-repeat="item in brands" class="item" data-value="{{item.ID}}">{{item.Name}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CategoryID -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Loại sản phẩm</label>
+                        <div class="col-md-10">
+                            <div class="ui dropdown fluid search selection">
+                                <input ng-model="product.CategoryID" type="hidden" name="categoryid" value="{{categorys[0].ID}}">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">{{categorys[0].Name}}</div>
+                                <div class="menu">
+                                    <div ng-repeat="item in categorys" class="item" data-value="{{item.ID}}">{{item.Name}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- ImagePath -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Ảnh đại diện</label>
+                        <div class="col-md-10">
+                            <div class="input-control d-flex align-items-center">
+                                <button ng-click="ChooseImage(true)" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Chọn ảnh</button>
+                                <i ng-click="ChooseImage(false)" style="cursor:pointer" ng-show="statusChooseAvatar" class="fal fa-times-circle text-danger ml-3"></i>
+                                <input type="hidden" name="picturepath" ng-model="Product.PicturePath">
+                            </div>
+
+                            <img style="width:160px" class="animate__fadeInDown img-fluid mt-3 rounded" ng-show="statusChooseAvatar" name="picturepath" src="{{Product.PicturePath}}">
+                        </div>
+                    </div>
+
+                    <!-- ShortDescription -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Mô tả ngắn</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.ShortDescription" name="shortdescription" ng-maxlength="500" required class="form-control" type="text" value="">
+                        </div>
+                    </div>
+
+                    <!-- FullDescription -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Nội dung</label>
+                        <div class="col-md-10">
+                            <textarea ck-editor ng-model="product.FullDescription" name="fulldescription" id="DAGStoreTextArea" rows="10" cols="80"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Published -->
+                    <div class="form-group row d-flex align-items-center">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Hoạt động</label>
+                        <div class="col-md-10 d-flex align-items-center">
+                            <input type="checkbox" id="Published" switch="none" checked="" ng-model="product.Published" ng-checked="product.Published">
+                            <label class="mr-0" for="Published" data-on-label="On" data-off-label="Off"></label>
+                        </div>
+                    </div>
+
+                    <!-- AllowCustomerReviews -->
+                    <div class="form-group row d-flex align-items-center">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Cho phép đánh giá</label>
+                        <div class="col-md-10 d-flex align-items-center">
+                            <input type="checkbox" id="AllowCustomerReviews" switch="none" checked="" ng-model="product.AllowCustomerReviews" ng-checked="product.AllowCustomerReviews">
+                            <label class="mr-0" for="AllowCustomerReviews" data-on-label="On" data-off-label="Off"></label>
+                        </div>
+                    </div>
+
+                    <!-- ShowOnHomePage -->
+                    <div class="form-group row d-flex align-items-center">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Hiện tại trang chủ</label>
+                        <div class="col-md-10 d-flex align-items-center">
+                            <input type="checkbox" id="ShowOnHomePage" switch="none" checked="" ng-model="product.ShowOnHomePage" ng-checked="product.ShowOnHomePage">
+                            <label class="mr-0" for="ShowOnHomePage" data-on-label="On" data-off-label="Off"></label>
+                        </div>
+                    </div>
+
+                    <!-- DisplayOrder -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Độ ưu tiên</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.DisplayOrder" required name="displayorder" class="form-control" type="number" id="example-number-input">
+                            <span class="text-valid" ng-show="formAddProduct.displayorder.$error.required && formAddProduct.displayorder.$touched">Độ ưu tiên sản phẩm không được để trống</span>
+                        </div>
+                    </div>
+
+                    <hr />
+                    <div class="page-title-box d-flex align-items-center justify-content-between">
+
+                        <h4 class="my-2">Giá sản phẩm</h4>
+                    </div>
+
+                    <!-- Price -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Giá thực tế</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.Price" required name="price" class="form-control" type="number" value="0" id="example-number-input">
+                            <span class="text-valid" ng-show="formAddProduct.price.$error.required && formAddProduct.price.$touched">Giá sản phẩm không được để trống, nhập lại!</span>
+                        </div>
+                    </div>
+
+                    <!-- OldPrice -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Giá gốc</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.OldPrice" required name="oldprice" class="form-control" type="number" value="0" id="example-number-input">
+                            <span class="text-valid" ng-show="formAddProduct.oldprice.$error.required && formAddProduct.oldprice.$touched">Giá gốc sản phẩm không được để trống, thử lại!</span>
+                        </div>
+                    </div>
+
+                    <!-- Stockquantity -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Số lượng</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.StockQuantity" required name="stockquantity" class="form-control" type="number" value="0" id="example-number-input">
+                            <span class="text-valid" ng-show="formAddProduct.stockquantity.$error.required && formAddProduct.stockquantity.$touched">Số lượng sản phẩm không được để trống, thử lại!</span>
+                        </div>
+                    </div>
+
+                    <!-- HasDiscountsApplied -->
+                    <div class="form-group row d-flex align-items-center">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Áp dụng giảm giá</label>
+                        <div class="col-md-10 d-flex align-items-center">
+                            <input type="checkbox" id="HasDiscountsApplied" switch="none" checked="" ng-model="product.HasDiscountsApplied" ng-checked="product.HasDiscountsApplied">
+                            <label class="mr-0" for="HasDiscountsApplied" data-on-label="On" data-off-label="Off"></label>
+                        </div>
+                    </div>
+
+                    <hr />
+                    <div class="page-title-box d-flex align-items-center justify-content-between">
+
+                        <h4 class="my-2">Vận chuyển</h4>
+                    </div>
+
+                    <!-- IsShipEnabled -->
+                    <div class="form-group row d-flex align-items-center">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Áp dụng ship</label>
+                        <div class="col-md-10 d-flex align-items-center">
+                            <input type="checkbox" id="IsShipEnabled" switch="none" checked="" ng-model="product.IsShipEnabled" ng-checked="product.IsShipEnabled">
+                            <label class="mr-0" for="IsShipEnabled" data-on-label="On" data-off-label="Off"></label>
+                        </div>
+                    </div>
+
+                    <!-- AdditionalShippingCharge -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Phí ship</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.AdditionalShippingCharge" required name="additionalshippingcharge" class="form-control" type="number" value="0" id="example-number-input">
+                            <span ng-show="formAddProduct.additionalshippingcharge.$error.required && formAddProduct.additionalshippingcharge.$touched">Phí ship theo đơn vị khoảng cách không được để trống!</span>
+                        </div>
+                    </div>
+
+
+                    <hr />
+                    <div class="page-title-box d-flex align-items-center justify-content-between">
+
+                        <h4 class="my-2">Công cụ tìm kiếm</h4>
+                    </div>
+
+                    <!-- Metakeywords -->
+                    <div class="form-group row mt-4">
+                        <label for="example-text-input" class="col-md-2 col-form-label">MetaKeywords</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.MetaKeywords" name="metakeywords" class="form-control" type="text" value="">
+                        </div>
+                    </div>
+
+                    <!-- MetaDescription -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">MetaDescription</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.MetaDescription" name="metadescription" class="form-control" type="text" value="">
+                        </div>
+                    </div>
+
+                    <!-- MetaTitle -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">MetaTitle</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.MetaTitle" name="metatitle" class="form-control" type="text" value="">
+                        </div>
+                    </div>
+
+                    <!-- Alias -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Alias</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.Alias" name="alias" class="form-control" type="text" value="">
+                        </div>
+                    </div>
+
+                    <div class="add-btn mb-4 d-flex justify-content-end" style="gap:12px">
+                        <button ui-sref="product" class="btn btn-secondary waves-effect waves-light">Trở lại</button>
+                        <button ng-disabled="formAddProduct.$invalid" type="submit" class="btn btn-primary waves-effect waves-light">Xác nhận</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div>
+<!-- end row -->
+
+<script>
+    $(".ui.dropdown").dropdown({
+
+    });
+</script>

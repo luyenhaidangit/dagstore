@@ -1,3 +1,5 @@
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\EntityFramework.dll
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\EntityFramework.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DAGStore.Web.dll.config
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DAGStore.Web.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DAGStore.Web.pdb
@@ -60,7 +62,6 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DAGStore.Model.dl
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DAGStore.Service.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DotNetOpenAuth.Core.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DotNetOpenAuth.OAuth.dll
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\EntityFramework.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\EntityFramework.SqlServer.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.AspNet.Identity.Core.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
@@ -124,7 +125,6 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Antlr3.Runtime.pd
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Net.Http.Formatting.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Web.Http.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Web.Http.WebHost.xml
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\EntityFramework.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\EntityFramework.SqlServer.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.AspNet.Identity.Core.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.AspNet.Identity.Owin.xml

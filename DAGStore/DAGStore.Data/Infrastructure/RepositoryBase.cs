@@ -134,6 +134,11 @@ namespace DAGStore.Data.Infrastructure
             return dbContext.Set<T>().AsQueryable();
         }
 
+        public IEnumerable<T> GetByQuery(string query)
+        {
+            return dbContext.Set<T>().SqlQuery(query);
+        }
+
         public IEnumerable<T> GetMulti(Expression<Func<T, bool>> predicate, string[] includes = null)
         {
             if (includes != null && includes.Count() > 0)
