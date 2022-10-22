@@ -1,23 +1,23 @@
 ﻿// Register controller
-var brand = angular.module('DAGStore.brand');
-brand.controller('brandEditController', brandEditController);
+var discount = angular.module('DAGStore.discount');
+discount.controller('discountEditController', discountEditController);
 
 // Controller
-function brandEditController($scope, apiService, notificationService, $state, $stateParams) {
+function discountEditController($scope, apiService, notificationService, $state, $stateParams) {
 
-    // Load brand Detail
-    $scope.brand = {
+    // Load discount Detail
+    $scope.discount = {
     }
-    $scope.LoadbrandDetail = LoadbrandDetail;
-    function LoadbrandDetail() {
-        apiService.get("/brand/getbyid/" + $stateParams.id, null, function (result) {
-            $scope.brand = result.data;
-            console.log($scope.brand)
+    $scope.LoadDiscountDetail = LoadDiscountDetail;
+    function LoadDiscountDetail() {
+        apiService.get("/discount/getbyid/" + $stateParams.id, null, function (result) {
+            $scope.discount = result.data;
+            console.log($scope.discount)
         }, function (error) {
             notificationService.displaySuccess("Không thể tải dữ liệu");
         })
     }
-    $scope.LoadbrandDetail();
+    $scope.LoadDiscountDetail();
 
     // Choose Image Avatar
     $scope.statusChooseAvatar = true;
@@ -26,8 +26,8 @@ function brandEditController($scope, apiService, notificationService, $state, $s
         if (status === true) {
             var finder = new CKFinder();
             finder.selectActionFunction = function (fileUrl) {
-                $scope.brand.PicturePath = fileUrl;
-                $("img[name=picturepath]").attr("src", $scope.brand.PicturePath);
+                $scope.discount.PicturePath = fileUrl;
+                $("img[name=picturepath]").attr("src", $scope.discount.PicturePath);
                 $scope.statusChooseAvatar = true;
                 $scope.$apply();
             }
@@ -35,23 +35,23 @@ function brandEditController($scope, apiService, notificationService, $state, $s
             finder.popup();
         }
         if (status === false) {
-            $scope.brand.PicturePath = "";
+            $scope.discount.PicturePath = "";
             $scope.statusChooseAvatar = false;
             $scope.$apply();
         }
     }
 
     // Submit Edit
-    $scope.EditBrand = EditBrand;
-    function EditBrand() {
+    $scope.EditDiscount = EditDiscount;
+    function EditDiscount() {
 
         // Edit Value
-        apiService.put("/brand/update", $scope.brand, function (result) {
+        apiService.put("/discount/update", $scope.discount, function (result) {
             notificationService.displaySuccess("Cập nhật thông tin thành công!");
-            $state.go("brand");
+            $state.go("discount");
         }, function (error) {
             notificationService.displaySuccess("Cập nhật thông tin không thành công!");
-            console.log($scope.brand)
+            console.log($scope.discount)
         });
     }
 }

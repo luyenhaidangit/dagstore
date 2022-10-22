@@ -1,31 +1,30 @@
 ﻿// Register controller
-var brand = angular.module('DAGStore.brand');
-brand.controller('brandAddController', brandAddController);
+var discount = angular.module('DAGStore.discount');
+discount.controller('discountAddController', discountAddController);
 
 // Controller
-function brandAddController($scope, apiService, notificationService, $state, ckeditorService) {
+function discountAddController($scope, apiService, notificationService, $state, ckeditorService) {
     // Default Value
-    $scope.brand = {
-        DisplayOrder: -1,
-        Published: true,
+    $scope.discount = {
+        UsePercentage: false,
     }
 
     // Choose Image Avatar
     $scope.statusChooseAvatar = false;
     $scope.ChooseImage = ChooseImage;
     function ChooseImage(status) {
-        console.log($scope.brands)
+        console.log($scope.discounts)
         if (status === true) {
             var finder = new CKFinder();
             finder.selectActionFunction = function (fileUrl) {
-                $scope.brand.PicturePath = fileUrl;
+                $scope.discount.PicturePath = fileUrl;
                 $scope.statusChooseAvatar = true;
                 $scope.$apply();
             }
             finder.popup();
         }
         if (status === false) {
-            $scope.brand.PicturePath = null;
+            $scope.discount.PicturePath = null;
             $scope.statusChooseAvatar = false;
             $scope.$apply();
         }
@@ -33,18 +32,18 @@ function brandAddController($scope, apiService, notificationService, $state, cke
     
 
     // Submit Add
-    $scope.AddBrand = AddBrand;
-    function AddBrand() {
+    $scope.AddDiscount = AddDiscount;
+    function AddDiscount() {
         console.log("ok")
         // Add Value
-        apiService.post("/brand/create", $scope.brand, function (result) {
+        apiService.post("/discount/create", $scope.discount, function (result) {
             
             notificationService.displaySuccess("Thêm thông tin thành công!");
 
-            $state.go("brand");
+            $state.go("discount");
         }, function (error) {
             notificationService.displaySuccess("Thêm mới không thành công!");
-            console.log($scope.brand);
+            console.log($scope.discount);
         });
     }
 }

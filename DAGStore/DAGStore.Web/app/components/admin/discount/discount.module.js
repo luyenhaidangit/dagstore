@@ -1,33 +1,33 @@
 // Register module
-var brand = angular.module('DAGStore.brand', ['DAGStore.common']);
+var discount = angular.module('DAGStore.discount', ['DAGStore.common']);
 
 // Config module
-brand.config(function ($stateProvider, $urlRouterProvider) {
+discount.config(function ($stateProvider, $urlRouterProvider) {
     // Config Router
     var states = [
         {
-            name: 'brand',
-            url: '/brand',
-            templateUrl: '/app/components/admin/brand/brandListView.html',
-            controller: "brandListController",
+            name: 'discount',
+            url: '/discount',
+            templateUrl: '/app/components/admin/discount/discountListView.html',
+            controller: "discountListController",
         },
         {
-            name: 'add-brand',
-            url: '/brand/add',
-            templateUrl: '/app/components/admin/brand/brandAddView.html',
-            controller: "brandAddController",
+            name: 'add-discount',
+            url: '/discount/add',
+            templateUrl: '/app/components/admin/discount/discountAddView.html',
+            controller: "discountAddController",
         },
         {
-            name: 'info-brand',
-            url: '/brand/info/:id',
-            templateUrl: '/app/components/admin/brand/brandInfoView.html',
-            controller: "brandInfoController",
+            name: 'info-discount',
+            url: '/discount/info/:id',
+            templateUrl: '/app/components/admin/discount/discountInfoView.html',
+            controller: "discountInfoController",
         },
         {
-            name: 'edit-brand',
-            url: '/brand/edit/:id',
-            templateUrl: '/app/components/admin/brand/brandEditView.html',
-            controller: "brandEditController",
+            name: 'edit-discount',
+            url: '/discount/edit/:id',
+            templateUrl: '/app/components/admin/discount/discountEditView.html',
+            controller: "discountEditController",
         }];
     states.forEach((state) => $stateProvider.state(state));
 });

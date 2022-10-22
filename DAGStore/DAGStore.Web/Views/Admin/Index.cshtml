@@ -16,6 +16,7 @@
     @*UI dropdown*@
     <link href="~/assets/libs/UI-Transition/transition.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/libs/UI-Dropdown-master/dropdown.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/libs/sematic/ui-icon/icon.min.css" rel="stylesheet" />
     @*<link href="~/assets//libs/slim-select/dist/slimselect.css" rel="stylesheet" type="text/css" />
         <link href="~/assets//libs/bootstrap-select-1.13.14/dist/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />*@
     <!-- Icons Css -->
@@ -422,7 +423,7 @@
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li>
-                                    <a href="javascript: void(0);" class="waves-effect">
+                                    <a ui-sref="discount" class="waves-effect">
                                         <i class="fas fa-signal"></i>
                                         <span>Giảm giá</span>
                                     </a>
@@ -862,14 +863,21 @@
     <script src="/app/components/admin/product/productListController.js"></script>
     <script src="/app/components/admin/product/productAddController.js"></script>
     <script src="/app/components/admin/product/productEditController.js"></script>
+    <!-- Discount -->
+    <script src="/app/components/admin/discount/discount.module.js"></script>
+    <script src="/app/components/admin/discount/discountListController.js"></script>
+    <script src="/app/components/admin/discount/discountAddController.js"></script>
+    <script src="/app/components/admin/discount/discountInfoController.js"></script>
+    <script src="/app/components/admin/discount/discountEditController.js"></script>
+
     <!-- MenuRecord -->
     <script src="/app/components/menurecord/menuRecord.module.js"></script>
     <script src="/app/components/menurecord/menuRecordListController.js"></script>
     <script src="/app/components/menurecord/menuRecordAddController.js"></script>
     <script src="/app/components/menurecord/menuRecordEditController.js"></script>
 
-    
-    
+
+
 </body>
 </html>
 

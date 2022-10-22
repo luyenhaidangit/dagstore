@@ -1,19 +1,19 @@
 ﻿// Register controller
-var brand = angular.module('DAGStore.brand');
-brand.controller('brandInfoController', brandInfoController);
+var discount = angular.module('DAGStore.discount');
+discount.controller('discountInfoController', discountInfoController);
 
 // Controller
-function brandInfoController($scope, apiService, notificationService, $stateParams) {
-    // Load brand Detail
-    $scope.brand = {
+function discountInfoController($scope, apiService, notificationService, $stateParams) {
+    // Load discount Detail
+    $scope.discount = {
     }
-    $scope.LoadBrandDetail = LoadBrandDetail;
-    function LoadBrandDetail() {
-        apiService.get("/brand/getbyid/" + $stateParams.id, null, function (result) {
-            $scope.brand = result.data;
+    $scope.LoaddiscountDetail = LoaddiscountDetail;
+    function LoaddiscountDetail() {
+        apiService.get("/discount/getbyid/" + $stateParams.id, null, function (result) {
+            $scope.discount = result.data;
         }, function (error) {
             notificationService.displaySuccess("Không thể tải dữ liệu");
         })
     }
-    $scope.LoadBrandDetail();
+    $scope.LoaddiscountDetail();
 }

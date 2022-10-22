@@ -39,7 +39,7 @@ namespace DAGStore.Web.Controllers
             _productService.Add(menuRecord);
             _productService.SaveChanges();
 
-            return Json(true, JsonRequestBehavior.AllowGet);
+            return Json(menuRecord, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPut]

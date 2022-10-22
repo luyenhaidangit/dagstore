@@ -2,6 +2,7 @@
 using DAGStore.Data.Repositories;
 using DAGStore.Model.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DAGStore.Service
 {
@@ -14,6 +15,8 @@ namespace DAGStore.Service
         bool Delete(int id);
 
         IEnumerable<Discount> GetAll();
+
+        IEnumerable<dynamic> GetListProductDiscount();
 
         Discount GetByID(int id);
 
@@ -44,6 +47,18 @@ namespace DAGStore.Service
         public IEnumerable<Discount> GetAll()
         {
             return _DiscountRepository.GetAll();
+        }
+
+        public IEnumerable<dynamic> GetListProductDiscount()
+        {
+            var discount = _DiscountRepository.GetAll();
+            var result = from c in discount
+                         select new
+                         {
+                             ID = c.ID,
+                             Name = c.Name
+                         };
+            return result;
         }
 
         public Discount GetByID(int id)

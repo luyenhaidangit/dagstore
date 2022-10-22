@@ -1,20 +1,20 @@
 // Register controller
-var brand = angular.module('DAGStore.brand');
-brand.controller('brandListController', brandListController);
+var discount = angular.module('DAGStore.discount');
+discount.controller('discountListController', discountListController);
 
 // Controller
-function brandListController($scope, apiService, dataTableService, notificationService, alertService) {
+function discountListController($scope, apiService, dataTableService, notificationService, alertService) {
 
     // Get Data
-    $scope.brands = [];
+    $scope.discounts = [];
     $scope.getItems = getItems;
     function getItems() {
-        apiService.get("/brand/getall", null, function (result) {
+        apiService.get("/discount/getall", null, function (result) {
 
-            $scope.brands = result.data;
+            $scope.discounts = result.data;
             dataTableService.createDataTable("DAGStoreDatatable");
             
-            console.log($scope.brands);
+            console.log($scope.discounts);
         }, function (error) {
             console.log("Get data fail");
         })
@@ -22,8 +22,8 @@ function brandListController($scope, apiService, dataTableService, notificationS
     $scope.getItems();
 
     // Delete Object
-    $scope.Deletebrand = DeleteBrand;
-    function DeleteBrand(e, id) {
+    $scope.DeleteDiscount = DeleteDiscount;
+    function DeleteDiscount(e, id) {
         alertService.alertSubmitDelete().then((result) => {
             if (result.isConfirmed) {
                 var config = {
@@ -31,7 +31,7 @@ function brandListController($scope, apiService, dataTableService, notificationS
                         id: id
                     }
                 }
-                apiService.del("/brand/delete", config, function (success) {
+                apiService.del("/discount/delete", config, function (success) {
                     notificationService.displaySuccess("Xóa thành công bản ghi!");
                     let pageIndex = $("#DAGStoreDatatable").DataTable().page.info().page;
                     let recordOfPage = $("#DAGStoreDatatable").DataTable().page.info().length;

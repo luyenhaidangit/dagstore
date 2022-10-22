@@ -3,6 +3,7 @@ var app = angular.module('DAGStore', [
     'DAGStore.brand',
     'DAGStore.category',
     'DAGStore.product',
+    'DAGStore.discount',
     'DAGStore.menurecord',
     'DAGStore.common']);
 

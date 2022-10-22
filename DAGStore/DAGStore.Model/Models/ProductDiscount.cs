@@ -15,10 +15,10 @@ namespace DAGStore.Model.Models
         public int DiscountID { get; set; }
 
         [ForeignKey("ProductID")]
-        public virtual Product Product { set; get; }
+        public Product Product { set; get; }
 
         [ForeignKey("DiscountID")]
-        public virtual Discount Discount { set; get; }
+        public Discount Discount { set; get; }
 
     }
 }

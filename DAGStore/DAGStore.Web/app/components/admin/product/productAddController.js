@@ -6,6 +6,9 @@ product.controller('productAddController', productAddController);
 function productAddController($scope, apiService, notificationService, $state, ckeditorService) {
     // Init
     $scope.product = {
+        StockQuantity: 0,
+        Price: 0,
+        OldPrice:0,
         ShowOnHomePage: true,
         AllowCustomerReviews: true,
         IsShipEnabled: true,
@@ -15,7 +18,8 @@ function productAddController($scope, apiService, notificationService, $state, c
         CreateOn: new Date().toJSON().slice(0, 10),
         UpdateOn: new Date().toJSON().slice(0, 10),
     }
-
+    $scope.productDiscountID = [];
+    $scope.productDiscount = [];
     // Load List Brand
     $scope.brands = [];
     $scope.GetBrands = GetBrands;
@@ -41,6 +45,19 @@ function productAddController($scope, apiService, notificationService, $state, c
         })
     };
     $scope.GetCategorys();
+
+    // Load List Discont
+    $scope.discounts = [];
+    $scope.GetDiscounts = GetDiscounts;
+    function GetDiscounts() {
+        apiService.get("/discount/GetListDiscountProduct", null, function (result) {
+            $scope.discounts = result.data;
+            console.log($scope.discounts)
+        }, function (error) {
+            console.log("Get data fail");
+        })
+    };
+    $scope.GetDiscounts();
 
     // Choose Image Product
     $scope.statusChooseAvatar = false;
@@ -73,9 +90,27 @@ function productAddController($scope, apiService, notificationService, $state, c
         $scope.product.BrandID = document.getElementsByName("brandid")[0].value;
         $scope.product.CategoryID = document.getElementsByName("categoryid")[0].value;
         $scope.product.Content = CKEDITOR.instances['DAGStoreTextArea'].getData();
-      
+        
         apiService.post("/product/create", $scope.product, function (result) {
+            //Add Discount Product
+            for (var i = 0; i < $scope.productDiscountID.length; i++) {
+                var obj = {
+                    "ProductID": result.data.ID,
+                    "DiscountID": $scope.productDiscountID[i],
+                    "Product": null,
+                    "Discount": null
+                }
+                apiService.post("/ProductDiscont/create", obj, function (result) {
+                    console.log("Thêm khuyến mãi thành công")
+                     
+                }, function (error) {
+                    notificationService.displaySuccess("Thêm mới không thành công!");
+                   
+                });
+            }
+            
             notificationService.displaySuccess("Thêm thông tin thành công!");
+            
             $state.go("product");
         }, function (error) {
             notificationService.displaySuccess("Thêm mới không thành công!");
