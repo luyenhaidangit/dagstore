@@ -10,8 +10,10 @@
         }
 
         function createDefaultCkeditor(idarea) {
-            CKEDITOR.replace('DAGStoreTextArea');;
+            CKEDITOR.replace('DAGStoreTextArea');
         }
+
+
 
 
     }

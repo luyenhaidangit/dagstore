@@ -41,7 +41,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         {
             name: 'index',
             url: '/index',
-            templateUrl: '/app/components/index/indexView.html',
+            templateUrl: '/app/components/client/index/indexView.html',
             controller: "indexController",
         },
         ];

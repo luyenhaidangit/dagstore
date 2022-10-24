@@ -3,6 +3,7 @@ using DAGStore.Data.Repositories;
 using DAGStore.Model.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 
 namespace DAGStore.Service
 {
@@ -52,7 +53,7 @@ namespace DAGStore.Service
         public IEnumerable<dynamic> GetListProductDiscount()
         {
             var discount = _DiscountRepository.GetAll();
-            var result = from c in discount
+            var result = from c in discount 
                          select new
                          {
                              ID = c.ID,

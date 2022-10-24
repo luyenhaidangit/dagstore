@@ -51,7 +51,13 @@ namespace DAGStore.Service
 
         public IEnumerable<Product> GetProductsNewShowHomePage()
         {
-            return _productRepository.GetMulti(x=>x.ShowOnHomePage && x.Published ==true).Reverse();
+            var products = _productRepository.GetAll();
+            products = products.Reverse();
+            var result = (from p in products
+                          where p.Published == true
+                          where p.ShowOnHomePage == true
+                          select p).Take(20); ;
+            return result;
         }
 
         public Product GetByID(int id)
