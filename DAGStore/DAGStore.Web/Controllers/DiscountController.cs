@@ -41,6 +41,13 @@ namespace DAGStore.Web.Controllers
             return Json(listProductDiscount, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult GetDiscountByProduct(int id)
+        {
+            var listProductDiscount = _discountService.GetDiscountByProduct(id).ToList();
+
+            return Json(listProductDiscount, JsonRequestBehavior.AllowGet);
+        }
+
         public JsonResult GetByID(int id)
         {
             var discount = _discountService.GetByID(id);

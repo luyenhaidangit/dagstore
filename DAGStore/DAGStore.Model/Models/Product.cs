@@ -29,6 +29,9 @@ namespace DAGStore.Model.Models
         [MaxLength(4000)]
         public string ShortDescription { get; set; }
 
+        [MaxLength(4000)]
+        public string ShortDescriptionEndow { get; set; }
+
         public string FullDescription { get; set; }
 
         [Required]
@@ -46,14 +49,6 @@ namespace DAGStore.Model.Models
         [Required]
         [MaxLength(500)]
         public string Alias { get; set; }
-
-        [Required]
-        public bool AllowCustomerReviews { get; set; }
-
-        [Required]
-        public bool IsShipEnabled { get; set; }
-
-        public decimal? AdditionalShippingCharge { get; set; }
 
         [Required]
         public int StockQuantity { get; set; }

@@ -90,7 +90,7 @@ function productAddController($scope, apiService, notificationService, $state, c
         $scope.product.BrandID = document.getElementsByName("brandid")[0].value;
         $scope.product.CategoryID = document.getElementsByName("categoryid")[0].value;
         $scope.product.Content = CKEDITOR.instances['DAGStoreTextArea'].getData();
-        
+        console.log($scope.productDiscountID)
         apiService.post("/product/create", $scope.product, function (result) {
             //Add Discount Product
             for (var i = 0; i < $scope.productDiscountID.length; i++) {

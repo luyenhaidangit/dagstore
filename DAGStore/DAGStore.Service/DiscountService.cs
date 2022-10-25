@@ -19,6 +19,8 @@ namespace DAGStore.Service
 
         IEnumerable<dynamic> GetListProductDiscount();
 
+        IEnumerable<Discount> GetDiscountByProduct(int id);
+
         Discount GetByID(int id);
 
         void SaveChanges();
@@ -27,11 +29,15 @@ namespace DAGStore.Service
     public class DiscountService : IDiscountService
     {
         private IDiscountRepository _DiscountRepository;
+        private IProductRepository _productRepository;
+        private IProductDiscountService _productDiscountRepository;
         private IUnitOfWork _unitOfWork;
 
-        public DiscountService(IDiscountRepository DiscountRepository, IUnitOfWork unitOfWork)
+        public DiscountService(IDiscountRepository DiscountRepository, IProductRepository productRepository, IProductDiscountService productDiscountRepository,IUnitOfWork unitOfWork)
         {
             this._DiscountRepository = DiscountRepository;
+            this._productRepository = productRepository;
+            this._productDiscountRepository = productDiscountRepository;
             this._unitOfWork = unitOfWork;
         }
 
@@ -48,6 +54,20 @@ namespace DAGStore.Service
         public IEnumerable<Discount> GetAll()
         {
             return _DiscountRepository.GetAll();
+        }
+
+        public IEnumerable<Discount> GetDiscountByProduct(int id)
+        {
+            var product = _productRepository.GetAll();
+            var discount = _DiscountRepository.GetAll();
+            var productDiscount = _productDiscountRepository.GetAll();
+
+            var result = from p in product
+                         join pd in productDiscount on p.ID equals pd.ProductID
+                         join d in discount on pd.DiscountID equals d.ID
+                         where pd.ProductID == id
+                         select d;
+            return result;
         }
 
         public IEnumerable<dynamic> GetListProductDiscount()

@@ -99,6 +99,10 @@
     <Compile Include="Migrations\202210211628092_Create-Table-Discount.designer.cs">
       <DependentUpon>202210211628092_Create-Table-Discount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210241318135_Update-Table-Product.cs" />
+    <Compile Include="Migrations\202210241318135_Update-Table-Product.designer.cs">
+      <DependentUpon>202210241318135_Update-Table-Product.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
@@ -151,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202210211628092_Create-Table-Discount.resx">
       <DependentUpon>202210211628092_Create-Table-Discount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210241318135_Update-Table-Product.resx">
+      <DependentUpon>202210241318135_Update-Table-Product.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
