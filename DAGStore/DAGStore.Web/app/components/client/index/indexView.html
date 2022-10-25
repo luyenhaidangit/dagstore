@@ -1415,9 +1415,12 @@
                     <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-2 g-3">
                         <div ng-repeat="item in productsNew" class="col">
                             <div class="product-item-core">
-                                <a ui-sref="product({id:item.ID})" href="">
+                                <a ui-sref="product({id:item.IDProduct})" href="">
                                     <div class="product-item-core__label">
-                                        <span ng-repeat="label in item.Discount" class="lalel-product-core">{{label.Name}}</span>
+                                        <span ng-repeat="label in item.Discount" ng-class="{'label-product-round-core':label.PicturePath!==null,'lalel-product-core':label.PicturePath===null}" style="background: {{label.ColorBackGround}}; color: {{label.ColorText}}">
+                                            <img src="{{label.PicturePath}}" alt="">
+                                            <span>{{label.Name}}</span>
+                                        </span>
                                     </div>
 
                                     <div class="product-item-core__img">
