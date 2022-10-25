@@ -167,7 +167,7 @@
 /* end: carousel */
 
 /* begin: label */
-.lalel-product-core{
+.lalel-product-core {
     display: inline-block;
     font-size: 10px;
     border-radius: 4px;
@@ -175,6 +175,8 @@
     line-height: 12px;
     padding: 6px;
     overflow: hidden;
+    background-color: #f1f1f1;
+    color: #333;
 }
 
 .label-product-round-core{

@@ -6,14 +6,10 @@ index.controller('indexController', indexController);
 function indexController($scope, apiService){
     // Get Product News
     $scope.productsNew = [];
-    $scope.GetProductsNewShowHomePage = GetProductsNewShowHomePage;
-    function GetProductsNewShowHomePage() {
-        apiService.get("/index/GetProductsNewShowHomePage", null, function (result) {
-            $scope.productsNew = result.data;
-            console.log($scope.productsNew);
-        }, function (error) {
-            console.log("Get data fail");
-        })
-    };
-    $scope.GetProductsNewShowHomePage();
+    apiService.get("/index/GetProductsNewShowHomePage", null, function (result) {
+        $scope.productsNew = result.data;
+        console.log($scope.productsNew);
+    }, function (error) {
+        console.log("Get data fail");
+    })
 }

@@ -16,7 +16,7 @@ namespace DAGStore.Service
 
         IEnumerable<Product> GetAll();
 
-        IEnumerable<Product> GetProductsNewShowHomePage();
+        IEnumerable<dynamic> GetProductsNewShowHomePage();
 
         Product GetByID(int id);
 
@@ -26,11 +26,15 @@ namespace DAGStore.Service
     public class ProductService : IProductService
     {
         private IProductRepository _productRepository;
+        private IDiscountService _discountService;
+        private IProductDiscountService _productDiscountService;
         private IUnitOfWork _unitOfWork;
 
-        public ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork)
+        public ProductService(IProductRepository productRepository,IDiscountService discountService, IProductDiscountService productDiscountService, IUnitOfWork unitOfWork)
         {
+            this._discountService = discountService;
             this._productRepository = productRepository;
+            this._productDiscountService = productDiscountService;
             this._unitOfWork = unitOfWork;
         }
 
@@ -49,14 +53,24 @@ namespace DAGStore.Service
             return _productRepository.GetAll();
         }
 
-        public IEnumerable<Product> GetProductsNewShowHomePage()
+        public IEnumerable<dynamic> GetProductsNewShowHomePage()
         {
+            var discounts = _discountService.GetAll();
+            var productDiscounts = _productDiscountService.GetAll();
             var products = _productRepository.GetAll();
             products = products.Reverse();
             var result = (from p in products
                           where p.Published == true
                           where p.ShowOnHomePage == true
-                          select p).Take(20); ;
+                          select new
+                          {
+                              IDProduct = p.ID,
+                              NameProduct = p.Name,
+                              PriceProduct = p.Price,
+                              ImageProduct = p.PicturePath,
+                              DescriptionProduct = p.ShortDescriptionEndow,
+                              Discount = _discountService.GetDiscountByProduct(p.ID).Take(2),
+                          }).Take(20); ;
             return result;
         }
 
