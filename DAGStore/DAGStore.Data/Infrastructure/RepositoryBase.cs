@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Runtime.Remoting.Contexts;
 
 namespace DAGStore.Data.Infrastructure
 {
@@ -75,11 +76,20 @@ namespace DAGStore.Data.Infrastructure
             }
         }
 
-        public void DeleteMulti(Expression<Func<T, bool>> where)
+        public bool DeleteMulti(Expression<Func<T, bool>> where)
         {
-            IEnumerable<T> objects = dbSet.Where<T>(where).AsEnumerable();
-            foreach (T obj in objects)
-                dbSet.Remove(obj);
+            try
+            {
+                IEnumerable<T> objects = dbSet.Where<T>(where).AsEnumerable();
+                foreach (T obj in objects)
+                    dbSet.Remove(obj);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            
         }
 
         #endregion Delete

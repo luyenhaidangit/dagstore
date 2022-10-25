@@ -40,5 +40,14 @@ namespace DAGStore.Web.Controllers
 
             return Json(true, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpDelete]
+        public JsonResult DeleteMultiByProductID(int id)
+        {
+            _productDiscountService.DeleteMultiByProductID(id);
+            _productDiscountService.SaveChanges();
+
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
     }
 }

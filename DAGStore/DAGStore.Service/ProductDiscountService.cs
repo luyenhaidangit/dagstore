@@ -13,6 +13,8 @@ namespace DAGStore.Service
 
         bool Delete(int id);
 
+        bool DeleteMultiByProductID(int id);
+
         IEnumerable<ProductDiscount> GetAll();
 
         ProductDiscount GetByID(int id);
@@ -39,6 +41,11 @@ namespace DAGStore.Service
         public bool Delete(int id)
         {
             return _ProductDiscountRepository.Delete(id);
+        }
+
+        public bool DeleteMultiByProductID(int id)
+        {
+            return _ProductDiscountRepository.DeleteMulti(x=>x.ProductID==id);
         }
 
         public IEnumerable<ProductDiscount> GetAll()

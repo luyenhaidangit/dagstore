@@ -4,12 +4,30 @@ product.controller('productEditController', productEditController);
 
 // Controller
 function productEditController($scope, apiService, notificationService, $state, $stateParams, ckeditorService,$filter) {
-    // Init
-    $scope.product = {
-        
-    }
+    //Load Product Discount
+    $scope.productDiscountID = [];
+    $scope.productDiscount = [];
+    apiService.get("/discount/GetDiscountByProduct/" + $stateParams.id, null, function (result) {
+        $scope.productDiscount = result.data;
+        for (let i = 0; i < $scope.productDiscount.length; i++) {
+            $scope.productDiscountID.push($scope.productDiscount[i].ID.toString());
+        }
 
-    //Get List Brand
+    }, function (error) {
+        notificationService.displaySuccess("Không thể tải dữ liệu");
+    })
+
+    //Load Product Detail
+    $scope.product = {
+    }
+    apiService.get("/product/getbyid/" + $stateParams.id, null, function (result) {
+        $scope.product = result.data;
+        $scope.product.CreateOn = $filter('formatJsonDate')($scope.product.CreateOn);
+    }, function (error) {
+        notificationService.displaySuccess("Không thể tải dữ liệu");
+    })
+
+    //Load List Brand
     $scope.brand = {};
     $scope.brands = [];
     apiService.get("/brand/getall", null, function (result) {
@@ -18,91 +36,25 @@ function productEditController($scope, apiService, notificationService, $state, 
     }, function (error) {
         console.log("Get data fail");
     })
-     
-    // Load Product Detail
-    $scope.productDiscount = [];
-    apiService.get("/discount/GetDiscountByProduct/" + $stateParams.id, null, function (result) {
-        $scope.productDiscount = result.data;
-        for (let i = 0; i < $scope.productDiscount.length; i++) {
-            $scope.productDiscountID.push($scope.productDiscount[i].ID.toString());
-        }
-        console.log($scope.productDiscountID)
-        console.log("ok")
-    }, function (error) {
-        notificationService.displaySuccess("Không thể tải dữ liệu");
-    })
 
-    $scope.productDiscountID = [];
-    $scope.LoadProductDetail = LoadProductDetail;
-    function LoadProductDetail() {
-        apiService.get("/product/getbyid/" + $stateParams.id, null, function (result) {
-            $scope.product = result.data;
-            $scope.product.CreateOn = $filter('formatJsonDate')($scope.product.CreateOn);
-        }, function (error) {
-            notificationService.displaySuccess("Không thể tải dữ liệu");
-        })
-    }
-    LoadProductDetail();
-
-    console.log("ok1")
-
-    // Load List Brand
-    
-    $scope.GetBrands = GetBrands;
-    function GetBrands() {
-        
-    };
-    $scope.GetBrands();
-
-    // Load List Category
+    //Load List Category
     $scope.category = {};
     $scope.categorys = [];
-    $scope.GetCategorys = GetCategorys;
-    function GetCategorys() {
-        apiService.get("/category/getall", null, function (result) {
-            $scope.categorys = result.data;
-            $scope.category = $scope.categorys.filter(x => x.ID === $scope.product.CategoryID)[0];
-        }, function (error) {
-            console.log("Get data fail");
-        })
-    };
-    $scope.GetCategorys();
+    apiService.get("/category/getall", null, function (result) {
+        $scope.categorys = result.data;
+        $scope.category = $scope.categorys.filter(x => x.ID === $scope.product.CategoryID)[0];
+        console.log($scope.category)
+    }, function (error) {
+        console.log("Get data fail");
+    })
 
-    // Load List Discont
+    //Load List Discount
     $scope.discounts = [];
-    $scope.GetDiscounts = GetDiscounts;
-    function GetDiscounts() {
-        apiService.get("/discount/GetListDiscountProduct", null, function (result) {
-            $scope.discounts = result.data;
-        }, function (error) {
-            console.log("Get data fail");
-        })
-    };
-    $scope.GetDiscounts();
-
-    // Load Product Discount Detail
-    
-
-    //function LoadProductDiscount() {
-  
-    //    apiService.get("/discount/GetDiscountByProduct/" + $stateParams.id, null, function (result) {
-    //        $scope.productDiscount = result.data;
-    //        console.log($scope.productDiscount)
-    //        for (let i = 0; i < $scope.productDiscount.length; i++) {
-    //            $scope.productDiscountID.push($scope.productDiscount[i].ID.toString());
-    //        }
-   
-    //    }, function (error) {
-    //        notificationService.displaySuccess("Không thể tải dữ liệu");
-
-    //    })
-    //}
-    //LoadProductDiscount();
-    //console.log($scope.productDiscountID)
-    /*LoadProductDiscount();*/
-    //$scope.LoadProductDiscount();
-    //console.log("ok1")
-    //console.log($scope.productDiscountID)
+    apiService.get("/discount/GetListDiscountProduct", null, function (result) {
+        $scope.discounts = result.data;
+    }, function (error) {
+        console.log("Get data fail");
+    })
 
     // Choose Avatar Product
     $scope.statusChooseAvatar = true;
@@ -138,29 +90,40 @@ function productEditController($scope, apiService, notificationService, $state, 
         $scope.product.UpdateOn = new Date().toJSON().slice(0, 10);
 
         apiService.put("/product/update", $scope.product, function (result) {
-
-            ////Add Discount Product
-            //for (var i = 0; i < $scope.productDiscountID.length; i++) {
-            //    var obj = {
-            //        "ProductID": result.data.ID,
-            //        "DiscountID": $scope.productDiscountID[i],
-            //        "Product": null,
-            //        "Discount": null
-            //    }
-            //    apiService.post("/ProductDiscont/create", obj, function (result) {
-            //        console.log("Thêm khuyến mãi thành công")
-
-            //    }, function (error) {
-            //        notificationService.displaySuccess("Thêm mới không thành công!");
-
-            //    });
-            //}
-
-
             notificationService.displaySuccess("Cập nhật thông tin thành công!");
             $state.go("product");
         }, function (error) {
             notificationService.displaySuccess("Cập nhật thông tin không thành công!");
         });
+
+        //Edit Discount Product
+        var config = {
+            params: {
+                id: $scope.product.ID
+            }
+        }
+        apiService.del("/ProductDiscont/DeleteMultiByProductID", config, function (success) {
+            console.log("Ok nha")
+        }, function (error) {
+            console.log("Xóa không thành công!")
+        })
+        console.log($scope.productDiscountID)
+        for (var i = 0; i < $scope.productDiscountID.length; i++) {
+
+            var obj = {
+                "ProductID": $scope.product.ID,
+                "DiscountID": $scope.productDiscountID[i],
+                "Product": null,
+                "Discount": null
+            }
+            apiService.post("/ProductDiscont/create", obj, function (result) {
+                console.log("Thêm khuyến mãi thành công")
+
+            }, function (error) {
+                console.log(obj)
+                notificationService.displaySuccess("Thêm mới không thành công!");
+
+            });
+        }
     }
 }

@@ -18,7 +18,7 @@ namespace DAGStore.Data.Infrastructure
 
         bool Delete(int id);
 
-        void DeleteMulti(Expression<Func<T, bool>> where);
+        bool DeleteMulti(Expression<Func<T, bool>> where);
 
         T GetSingleByID(int id);
 
