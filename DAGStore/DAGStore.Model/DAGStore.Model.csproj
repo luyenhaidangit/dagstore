@@ -54,6 +54,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Brand.cs" />
+    <Compile Include="Models\Supplier.cs" />
     <Compile Include="Models\ProductDiscount.cs" />
     <Compile Include="Models\Discount.cs" />
     <Compile Include="Models\OrderItem.cs" />

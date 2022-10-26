@@ -103,10 +103,15 @@
     <Compile Include="Migrations\202210241318135_Update-Table-Product.designer.cs">
       <DependentUpon>202210241318135_Update-Table-Product.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210261007449_Create-Table-Supplier.cs" />
+    <Compile Include="Migrations\202210261007449_Create-Table-Supplier.designer.cs">
+      <DependentUpon>202210261007449_Create-Table-Supplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Repositories\BrandRepository.cs" />
+    <Compile Include="Repositories\SupplierRepository.cs" />
     <Compile Include="Repositories\ProductDiscountRepository.cs" />
     <Compile Include="Repositories\DiscountRepository.cs" />
     <Compile Include="Repositories\OrderItemRepository.cs" />
@@ -158,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202210241318135_Update-Table-Product.resx">
       <DependentUpon>202210241318135_Update-Table-Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210261007449_Create-Table-Supplier.resx">
+      <DependentUpon>202210261007449_Create-Table-Supplier.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
