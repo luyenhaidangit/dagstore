@@ -155,6 +155,10 @@
     <Compile Include="Migrations\202210271341205_Update-Category-2710-1.designer.cs">
       <DependentUpon>202210271341205_Update-Category-2710-1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210281632226_Delete-Column-SOHP-Table-Category.cs" />
+    <Compile Include="Migrations\202210281632226_Delete-Column-SOHP-Table-Category.designer.cs">
+      <DependentUpon>202210281632226_Delete-Column-SOHP-Table-Category.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
@@ -252,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202210271341205_Update-Category-2710-1.resx">
       <DependentUpon>202210271341205_Update-Category-2710-1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210281632226_Delete-Column-SOHP-Table-Category.resx">
+      <DependentUpon>202210281632226_Delete-Column-SOHP-Table-Category.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

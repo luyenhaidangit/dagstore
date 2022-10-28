@@ -32,9 +32,6 @@ namespace DAGStore.Model.Models
         public int DisplayOrder { get; set; }
 
         [Required]
-        public bool ShowOnHomePage { get; set; }
-
-        [Required]
         public bool Published { get; set; }
 
         [Required]

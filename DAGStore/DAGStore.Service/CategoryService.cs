@@ -48,7 +48,7 @@ namespace DAGStore.Service
         {
             var categories = _categoryRepository.GetAll().ToList();
             var list = (from t in categories
-                        where t.Published == true && t.ShowOnHomePage == true && t.ParentCategoryID == 0
+                        where t.Published == true && t.ParentCategoryID == 0
                         orderby t.DisplayOrder descending
                         select t).Take(10);
             return list;
@@ -102,7 +102,6 @@ namespace DAGStore.Service
                               Description = c.Description,
                               Alias = c.Alias,
                               DisplayOrder = c.DisplayOrder,
-                              ShowOnHomePage = c.ShowOnHomePage,
                               Published = c.Published,
                               Deleted = c.Deleted,
                               NameParentCategory = _categoryRepository.GetSingleByID(c.ParentCategoryID) == null ? "---" : _categoryRepository.GetSingleByID(c.ParentCategoryID).Name,

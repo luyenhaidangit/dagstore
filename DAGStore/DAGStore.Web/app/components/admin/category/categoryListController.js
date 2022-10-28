@@ -13,16 +13,16 @@ function categoryListController($scope, apiService, dataTableService, notificati
         columnDefs: [
             { targets: 0, name: "STT" },
             { targets: 1, name: "ID", visible: false },
-            {
-                targets: 2,
-                name: "Ảnh minh họa",
-                render: function (data, type, row, meta) {
-                    return type === 'export' ? data : '<img src="'+data+'" alt="" class="img-fluid" style="height:28px;">'
-                },
-            },
-            { targets: 3,name: "Tên loại sản phẩm"},
-            { targets: 4, name: "Loại sản phẩm cha", visible: false },
-            { targets: 5, name: "Mô tả", visible: false },
+            { targets: 2, name: "Ảnh minh họa", render: function (data, type) {
+                    return type === 'export' ? (data ==='"' ? null:data) : '<img src="' + data + '" alt="" class="img-fluid" style="height:28px;">'
+                }},
+            { targets: 3, name: "Tên loại sản phẩm"},
+            { targets: 4, name: "Loại sản phẩm cha", visible: false, render: function (data, type) {
+                    return type === 'export' ? (data === '---' ? null : data) : data
+                } },
+            { targets: 5, name: "Mô tả", visible: false, render: function (data, type) {
+                    return type === 'export' ? (data === '---' ? null : data) : data
+                } },
             { targets: 6, name: "Alias", visible: false },
             { targets: 7, name: "Độ ưu tiên" },
             { targets: 8, name: "Trạng thái" },
@@ -33,19 +33,14 @@ function categoryListController($scope, apiService, dataTableService, notificati
             orthogonal: 'export'
         },
     }
-
-    console.log($scope.config)
         
     // Get Data
     $scope.categorys = [];
     $scope.getItems = getItems;
     function getItems() {
         apiService.get("/category/getdata", null, function (result) {
-
             $scope.categorys = result.data;
             dataTableService.createDataTable($scope.config);
-            
-            console.log($scope.categorys);
         }, function (error) {
             console.log("Get data fail");
         })
