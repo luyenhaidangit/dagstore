@@ -4,15 +4,27 @@ category.controller('categoryListController', categoryListController);
 
 // Controller
 function categoryListController($scope, apiService, dataTableService, notificationService, alertService) {
-
+    //Config
+    $scope.columnTable = [
+        { targets: 0, name: "STT" },
+        { targets: 1, name: "ID", visible: false },
+        { targets: 2, name: "Ảnh minh họa" },
+        { targets: 3, name: "Tên loại sản phẩm"},
+        { targets: 4, name: "Loại sản phẩm cha", visible: false},
+        { targets: 5, name: "Mô tả", visible: false},
+        { targets: 6, name: "Alias", visible: false },
+        { targets: 7, name: "Độ ưu tiên"},
+        { targets: 8, name: "Trạng thái" },
+        { targets: 9, name: "Thao tác" },
+    ]
     // Get Data
     $scope.categorys = [];
     $scope.getItems = getItems;
     function getItems() {
-        apiService.get("/category/getall", null, function (result) {
+        apiService.get("/category/getdata", null, function (result) {
 
             $scope.categorys = result.data;
-            dataTableService.createDataTable("DAGStoreDatatable");
+            dataTableService.createDataTable("DAGStoreDatatable", $scope.columnTable);
             
             console.log($scope.categorys);
         }, function (error) {

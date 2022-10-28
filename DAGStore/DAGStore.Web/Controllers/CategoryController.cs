@@ -82,5 +82,10 @@ namespace DAGStore.Web.Controllers
             return Json(oldCategory, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult GetData()
+        {
+            var result = _categoryService.GetData();
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
     }
 }

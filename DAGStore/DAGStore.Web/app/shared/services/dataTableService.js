@@ -26,7 +26,7 @@
             table.row(indexRow).remove().draw();
         }
         
-        function createDataTable(nameTable) {          
+        function createDataTable(nameTable,columnTable) {          
             angular.element(document).ready(function() { 
                 $.fn.dataTable.ext.errMode = 'none';
 
@@ -48,14 +48,13 @@
                     },
 
                     buttons: [
-                        { extend: 'copy', className: 'btn btn-outline-light waves-effect d-block w-100 text-left', text: '<i class="fas fa-copy mr-2"></i>Copy' },
-                        { extend: 'excel', className: 'btn btn-outline-light waves-effect d-block w-100 text-left', text: '<i class="fas fa-file-csv mr-2"></i>Excel' },
-                        { extend: 'pdf', className: 'btn btn-outline-light waves-effect d-block w-100 text-left', text: '<i class="fas fa-file-pdf mr-2"></i>PDF' },      
-                    ],  
+                        { extend: 'colvis', className: 'btn btn-success waves-effect d-block w-100 text-left extension-button me-1', text: '<i class="fal fa-table"></i>' },
+                    ],
+                    'columnDefs': columnTable,
                 });
-                //table.buttons()
-                //    .container()
-                //    .appendTo(".group-btn-export")
+                table.buttons()
+                    .container()
+                    .appendTo(".datatable-extension")
 
                 $('li.toggle-vis').on('click', function (e) {
                     

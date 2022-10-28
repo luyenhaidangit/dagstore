@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "oclazyload@1.1.0",
+      "destination": "assets/libs/oclazyload/"
+    },
+    {
+      "library": "angular-datatables@2.1.0",
+      "destination": "assets/libs/angular-datatables/"
+    }
+  ]
+}

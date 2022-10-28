@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -23,18 +24,12 @@ namespace DAGStore.Model.Models
 
         public string Description { get; set; }
 
-        [MaxLength(500)]
-        public string MetaKeywords { get; set; }
-
-        [MaxLength(4000)]
-        public string MetaDescription { get; set; }
-
-        [MaxLength(500)]
-        public string MetaTitle { get; set; }
-
         [Required]
         [MaxLength(500)]
         public string Alias { get; set; }
+
+        [Required]
+        public int DisplayOrder { get; set; }
 
         [Required]
         public bool ShowOnHomePage { get; set; }
@@ -43,6 +38,6 @@ namespace DAGStore.Model.Models
         public bool Published { get; set; }
 
         [Required]
-        public int DisplayOrder { get; set; }
+        public bool Deleted { get; set; }
     }
 }

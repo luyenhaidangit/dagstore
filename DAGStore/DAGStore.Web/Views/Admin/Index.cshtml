@@ -17,8 +17,7 @@
     <link href="~/assets/libs/UI-Transition/transition.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/libs/UI-Dropdown-master/dropdown.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/libs/sematic/ui-icon/icon.min.css" rel="stylesheet" />
-    @*<link href="~/assets//libs/slim-select/dist/slimselect.css" rel="stylesheet" type="text/css" />
-        <link href="~/assets//libs/bootstrap-select-1.13.14/dist/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />*@
+    
     <!-- Icons Css -->
     <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/assets/fonts/font-awesome-pro-5/css/all.min.css">
@@ -324,7 +323,6 @@
                                 <li><a ui-sref="brand"><i class="fas fa-copyright"></i>Hãng sản phẩm</a></li>
                                 <li><a ui-sref="category"><i class="far fa-sitemap"></i>Loại sản phẩm</a></li>
                                 <li><a ui-sref="product"><i class="fas fa-cubes"></i>Sản phẩm</a></li>
-                                <li><a ui-sref="supplier"><i class="far fa-building"></i>Nhà cung cấp</a></li>
                                 <li><a href="layouts-compact-sidebar.html"><i class="far fa-star-half"></i>Đánh giá sản phẩm</a></li>
                                 <li><a href="layouts-compact-sidebar.html"><i class="fas fa-tags"></i>Tag sản phẩm</a></li>
                                 <li>
@@ -340,10 +338,23 @@
 
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="fas fa-user"></i>
+                                <span>Đối tác</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a class="waves-effect"><i class="fas fa-users"></i>Khách hàng</a></li>
+                                <li><a ui-sref="supplier"><i class="far fa-building"></i>Nhà cung cấp</a></li>
+                                <li><a class="waves-effect"><i class="fas fa-truck"></i>Đơn vị giao hàng</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="fas fa-shopping-cart"></i>
                                 <span>Bán hàng</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
+                                <li><a ui-sref="import-bill"><i class="fas fa-file-invoice"></i>Đơn hàng nhập</a></li>
                                 <li><a href="layouts-light-sidebar.html"><i class="fas fa-file-invoice"></i>Đơn đặt hàng</a></li>
                                 <li><a href="layouts-compact-sidebar.html"><i class="fas fa-truck-moving"></i>Giao hàng</a></li>
                                 <li><a href="layouts-compact-sidebar.html"><i class="fas fa-redo"></i>Thanh toán định kỳ</a></li>
@@ -369,7 +380,7 @@
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="fas fa-user-circle"></i>
-                                <span>Khách hàng</span>
+                                <span>Nhân viên</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li>
@@ -831,9 +842,7 @@
 
     <!-- App Angular -->
     <script src="/assets/libs/angular.js/angular.js"></script>
-
-    <script src="/assets/libs/angular-datatables/angular-datatables.min.js"></script>
-    <script src="/assets/libs/angular-datatables/jquery.dataTables.min.js"></script>
+    <script src="/assets/libs/oclazyload/ocLazyLoad.js"></script>
     <script src="/assets/libs/angular-ui-router/angular-ui-router.js"></script>
 
 
@@ -850,6 +859,7 @@
     <script src="/app/components/admin/supplier/supplier.module.js"></script>
     <script src="/app/components/admin/supplier/supplierListController.js"></script>
     <!-- Brand -->
+
     <script src="/app/components/admin/brand/brand.module.js"></script>
     <script src="/app/components/admin/brand/brandListController.js"></script>
     <script src="/app/components/admin/brand/brandAddController.js"></script>
@@ -872,7 +882,10 @@
     <script src="/app/components/admin/discount/discountAddController.js"></script>
     <script src="/app/components/admin/discount/discountInfoController.js"></script>
     <script src="/app/components/admin/discount/discountEditController.js"></script>
-
+    <!-- ImportBill -->
+    <script src="/app/components/admin/importbill/importBill.module.js"></script>
+    <script src="/app/components/admin/importbill/importBillListController.js"></script>
+    <script src="/app/components/admin/importbill/importBillAddController.js"></script>
     <!-- MenuRecord -->
     <script src="/app/components/menurecord/menuRecord.module.js"></script>
     <script src="/app/components/menurecord/menuRecordListController.js"></script>

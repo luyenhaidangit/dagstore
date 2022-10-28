@@ -12,7 +12,7 @@ namespace DAGStore.Data
         /// update-database: render code to sql and run
         /// </summary>
 
-        public DAGStoreDbContext() : base("Data Source=LAPTOP-3KE0ADA0;Initial Catalog=DAGStore;Integrated Security=True")
+        public DAGStoreDbContext() : base("Data Source=LAPTOP-3KE0ADA0;Initial Catalog=DAGStore;Integrated Security=True;MultipleActiveResultSets=true")
         {
         }
 
@@ -22,6 +22,8 @@ namespace DAGStore.Data
         public DbSet<Product> Product { get; set; }
         public DbSet<Discount> Discount { get; set; }
         public DbSet<ProductDiscount> ProductDiscount { get; set; }
+        public DbSet<ImportBill> ImportBill { get; set; }
+        public DbSet<ImportBillDetail> ImportBillDetail { get; set; }
         public DbSet<MenuRecord> MenuRecord { get; set; }
         public DbSet<MenuItemRecord> MenuItemRecord { get; set; }
         

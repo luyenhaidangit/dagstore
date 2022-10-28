@@ -107,10 +107,60 @@
     <Compile Include="Migrations\202210261007449_Create-Table-Supplier.designer.cs">
       <DependentUpon>202210261007449_Create-Table-Supplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210261507374_Create-Table-Import-Bill.cs" />
+    <Compile Include="Migrations\202210261507374_Create-Table-Import-Bill.designer.cs">
+      <DependentUpon>202210261507374_Create-Table-Import-Bill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210261914567_Create-Bill.cs" />
+    <Compile Include="Migrations\202210261914567_Create-Bill.designer.cs">
+      <DependentUpon>202210261914567_Create-Bill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210262302399_Add-Column-ImportBillID.cs" />
+    <Compile Include="Migrations\202210262302399_Add-Column-ImportBillID.designer.cs">
+      <DependentUpon>202210262302399_Add-Column-ImportBillID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210262311402_update-column-date.cs" />
+    <Compile Include="Migrations\202210262311402_update-column-date.designer.cs">
+      <DependentUpon>202210262311402_update-column-date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210262329441_fix-column.cs" />
+    <Compile Include="Migrations\202210262329441_fix-column.designer.cs">
+      <DependentUpon>202210262329441_fix-column.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210270047461_Update.cs" />
+    <Compile Include="Migrations\202210270047461_Update.designer.cs">
+      <DependentUpon>202210270047461_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210271302070_Update-Table-Category.cs" />
+    <Compile Include="Migrations\202210271302070_Update-Table-Category.designer.cs">
+      <DependentUpon>202210271302070_Update-Table-Category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210271303511_Update-Table-Category-2.cs" />
+    <Compile Include="Migrations\202210271303511_Update-Table-Category-2.designer.cs">
+      <DependentUpon>202210271303511_Update-Table-Category-2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210271309401_Update-Table-Category-3.cs" />
+    <Compile Include="Migrations\202210271309401_Update-Table-Category-3.designer.cs">
+      <DependentUpon>202210271309401_Update-Table-Category-3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210271319207_update-db-category.cs" />
+    <Compile Include="Migrations\202210271319207_update-db-category.designer.cs">
+      <DependentUpon>202210271319207_update-db-category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210271336571_27101.cs" />
+    <Compile Include="Migrations\202210271336571_27101.designer.cs">
+      <DependentUpon>202210271336571_27101.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210271341205_Update-Category-2710-1.cs" />
+    <Compile Include="Migrations\202210271341205_Update-Category-2710-1.designer.cs">
+      <DependentUpon>202210271341205_Update-Category-2710-1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Repositories\BrandRepository.cs" />
+    <Compile Include="Repositories\ImportBillRepository.cs" />
+    <Compile Include="Repositories\ImportBillDetailRepository.cs" />
     <Compile Include="Repositories\SupplierRepository.cs" />
     <Compile Include="Repositories\ProductDiscountRepository.cs" />
     <Compile Include="Repositories\DiscountRepository.cs" />
@@ -166,6 +216,42 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202210261007449_Create-Table-Supplier.resx">
       <DependentUpon>202210261007449_Create-Table-Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210261507374_Create-Table-Import-Bill.resx">
+      <DependentUpon>202210261507374_Create-Table-Import-Bill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210261914567_Create-Bill.resx">
+      <DependentUpon>202210261914567_Create-Bill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210262302399_Add-Column-ImportBillID.resx">
+      <DependentUpon>202210262302399_Add-Column-ImportBillID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210262311402_update-column-date.resx">
+      <DependentUpon>202210262311402_update-column-date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210262329441_fix-column.resx">
+      <DependentUpon>202210262329441_fix-column.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210270047461_Update.resx">
+      <DependentUpon>202210270047461_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210271302070_Update-Table-Category.resx">
+      <DependentUpon>202210271302070_Update-Table-Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210271303511_Update-Table-Category-2.resx">
+      <DependentUpon>202210271303511_Update-Table-Category-2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210271309401_Update-Table-Category-3.resx">
+      <DependentUpon>202210271309401_Update-Table-Category-3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210271319207_update-db-category.resx">
+      <DependentUpon>202210271319207_update-db-category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210271336571_27101.resx">
+      <DependentUpon>202210271336571_27101.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210271341205_Update-Category-2710-1.resx">
+      <DependentUpon>202210271341205_Update-Category-2710-1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -3,6 +3,7 @@ using DAGStore.Data.Repositories;
 using DAGStore.Model.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 
 namespace DAGStore.Service
 {
@@ -22,6 +23,8 @@ namespace DAGStore.Service
 
         Category GetByID(int id);
 
+        IEnumerable<dynamic> GetData();
+
         void SaveChanges();
     }
 
@@ -38,7 +41,7 @@ namespace DAGStore.Service
 
         public IEnumerable<Category> GetAll()
         {
-            return _categoryRepository.GetAll();
+            return _categoryRepository.GetAll().Where(x => x.Deleted != true);
         }
 
         public IEnumerable<Category> GetCategoryShowOnHomePage()
@@ -85,5 +88,27 @@ namespace DAGStore.Service
         {
             return _categoryRepository.Update(category);
         }
+
+        public IEnumerable<dynamic> GetData()
+        {
+            var category = GetAll();
+            var result = (from c in category
+                          select new
+                          {
+                              ID = c.ID,
+                              ParentCategoryID = c.ParentCategoryID,
+                              Name = c.Name,
+                              PicturePath = c.PicturePath,
+                              Description = c.Description,
+                              Alias = c.Alias,
+                              DisplayOrder = c.DisplayOrder,
+                              ShowOnHomePage = c.ShowOnHomePage,
+                              Published = c.Published,
+                              Deleted = c.Deleted,
+                              NameParentCategory = _categoryRepository.GetSingleByID(c.ParentCategoryID) == null ? "---" : _categoryRepository.GetSingleByID(c.ParentCategoryID).Name,
+                          });
+            return result;  
+        }
+
     }
 }

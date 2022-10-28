@@ -1,0 +1,80 @@
+﻿<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0">hóa đơn nhập</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a ui-sref="dashboard">DAGStore</a></li>
+                    <li class="breadcrumb-item"><a ui-sref="importbill">Quản lý hóa đơn nhập</a></li>
+                    <li class="breadcrumb-item active"><a ui-sref="importbill-add"></a>Thêm mới</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form class="form-horizontal" novalidate name="formAddimportbill" role="form" ng-submit="Addimportbill()">
+                    <!-- SupplierID -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Hãng sản phẩm</label>
+                        <div class="col-md-10">
+                            <div class="ui dropdown fluid search selection">
+                                <input ng-model="importbill.SupplierID" type="hidden" name="brandid" value="{{brands[0].ID}}">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">{{suppliers[0].Name}}</div>
+                                <div class="menu">
+                                    <div ng-repeat="item in suppliers" class="item" data-value="{{item.ID}}">{{item.Name}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="table-responsive">
+                        <table class="table table-editable table-nowrap">
+                            <thead>
+                                <tr>
+                                    <th>Sản phẩm</th>
+                                    <th>Số lượng</th>
+                                    <th>Đơn giá</th>
+                                    <th>Giảm giá</th>
+                                </tr>
+                            </thead>
+                            <tr>
+                                <td>{{product.Name}}</td>
+                                <td data-original-value="11"><a href="" data-type="text" data-pk="1" class="editable" data-url="" data-title="Edit Quantity">{{importbill.Quantity}}</a></td>
+                                <td data-original-value="1"><a href="" data-type="text" data-pk="1" class="editable" data-url="" data-title="Edit Quantity">{{importbill.ImportPrice}}</a></td>
+                                <td data-original-value="1.99"><a href="#" data-type="text" data-pk="1" class="editable" data-url="" data-title="Edit Quantity">{{importbill.ImportPrice}}</a></td>
+                            </tr>
+                           
+                        </table>
+                    </div>
+
+
+                    <div class="add-btn mb-4 d-flex justify-content-end" style="gap:12px">
+                        <button ui-sref="importbill" class="btn btn-secondary waves-effect waves-light">Trở lại</button>
+                        <button ng-disabled="formAddimportbill.$invalid" type="submit" class="btn btn-primary waves-effect waves-light">Xác nhận</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div>
+<!-- end row -->
+<script>
+    $(".ui.dropdown").dropdown({
+
+    });
+</script>
+<script src="/assets/libs/bootstrap-editable/js/index.js"></script>
+
+<script src="/assets/js/pages/table-editable.init.js"></script>
