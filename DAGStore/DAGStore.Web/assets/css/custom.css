@@ -93,6 +93,17 @@ div.dt-button-collection.fixed {
     color: #fff;
 }
 
+.dt-buttons.btn-group{
+    display: flex !important;
+    flex-wrap:unset !important;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.breadcrumb-item > a {
+    text-transform: capitalize;
+}
+
 
 
 

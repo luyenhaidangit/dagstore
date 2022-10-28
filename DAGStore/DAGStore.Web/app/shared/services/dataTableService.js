@@ -26,31 +26,34 @@
             table.row(indexRow).remove().draw();
         }
         
-        function createDataTable(nameTable,columnTable) {          
+        function createDataTable(config) {          
             angular.element(document).ready(function() { 
                 $.fn.dataTable.ext.errMode = 'none';
 
-                var table = $('#' + nameTable).DataTable({
-                  language: {
-                    paginate: {
-                        previous: "<i class='mdi mdi-chevron-left'>"
-                        , next: "<i class='mdi mdi-chevron-right'>"
+                var table = $('#' + config.nameDataTable).DataTable({
+                    language: {
+                        paginate: {
+                            previous: "<i class='mdi mdi-chevron-left'>",
+                            next: "<i class='mdi mdi-chevron-right'>",
+                        },
+                        info: "Hiển thị từ _START_ đến _END_ trong _TOTAL_ bản ghi",
+                        search : "Tìm kiếm",
+                        infoEmpty : "Không tìm thấy bản ghi",
+                        infoFiltered:"(Trong tổng số _MAX_ bản ghi)",
+                        lengthMenu:"Hiển thị _MENU_ bản ghi",
                     },
-                    info: "Hiển thị từ _START_ đến _END_ trong _TOTAL_ bản ghi",
-                    search : "Tìm kiếm",
-                    infoEmpty : "Không tìm thấy bản ghi",
-                    infoFiltered:"(Trong tổng số _MAX_ bản ghi)",
-                    lengthMenu:"Hiển thị _MENU_ bản ghi",
-                    },
+
                     drawCallback: function () {
                     $(".dataTables_paginate > .pagination")
                         .addClass("pagination-rounded")
                     },
 
                     buttons: [
-                        { extend: 'colvis', className: 'btn btn-success waves-effect d-block w-100 text-left extension-button me-1', text: '<i class="fal fa-table"></i>' },
+                        { extend: 'excel', className: 'btn btn-success waves-effect d-block w-100 text-left extension-button me-1 rounded', text: '<i class="fas fa-file-export mr-2"></i>Xuất File', title: 'Dữ liệu ' + config.namePage.toLowerCase(), exportOptions: config.exportOptions ,},
+                        { extend: 'colvis', className: 'btn btn-success waves-effect d-block w-100 text-left extension-button me-1 rounded', text: '<i class="fal fa-table"></i>' },
                     ],
-                    'columnDefs': columnTable,
+
+                    columnDefs: config.columnDefs,
                 });
                 table.buttons()
                     .container()

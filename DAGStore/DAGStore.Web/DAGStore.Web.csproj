@@ -2235,6 +2235,7 @@
     <Content Include="assets\libs\datatables.net\foundation\dataTables.foundation.min.css" />
     <Content Include="assets\libs\datatables.net\foundation\dataTables.foundation.min.js" />
     <Content Include="assets\libs\datatables.net\foundation\foundation.min.css" />
+    <Content Include="assets\libs\datatables.net\html5\buttons.html5.min.js" />
     <Content Include="assets\libs\datatables.net\js\jquery.dataTables.min.js" />
     <Content Include="assets\libs\dragula\dragula.min.css" />
     <Content Include="assets\libs\dragula\dragula.min.js" />

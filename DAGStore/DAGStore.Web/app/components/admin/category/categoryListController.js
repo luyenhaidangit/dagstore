@@ -5,18 +5,37 @@ category.controller('categoryListController', categoryListController);
 // Controller
 function categoryListController($scope, apiService, dataTableService, notificationService, alertService) {
     //Config
-    $scope.columnTable = [
-        { targets: 0, name: "STT" },
-        { targets: 1, name: "ID", visible: false },
-        { targets: 2, name: "Ảnh minh họa" },
-        { targets: 3, name: "Tên loại sản phẩm"},
-        { targets: 4, name: "Loại sản phẩm cha", visible: false},
-        { targets: 5, name: "Mô tả", visible: false},
-        { targets: 6, name: "Alias", visible: false },
-        { targets: 7, name: "Độ ưu tiên"},
-        { targets: 8, name: "Trạng thái" },
-        { targets: 9, name: "Thao tác" },
-    ]
+    $scope.config = {
+        namePage: "Loại Sản Phẩm",
+        urlPage: "category",
+        nameDataTable: "DAGStoreDatatable",
+        data: "/category/getdata",
+        columnDefs: [
+            { targets: 0, name: "STT" },
+            { targets: 1, name: "ID", visible: false },
+            {
+                targets: 2,
+                name: "Ảnh minh họa",
+                render: function (data, type, row, meta) {
+                    return type === 'export' ? data : '<img src="'+data+'" alt="" class="img-fluid" style="height:28px;">'
+                },
+            },
+            { targets: 3,name: "Tên loại sản phẩm"},
+            { targets: 4, name: "Loại sản phẩm cha", visible: false },
+            { targets: 5, name: "Mô tả", visible: false },
+            { targets: 6, name: "Alias", visible: false },
+            { targets: 7, name: "Độ ưu tiên" },
+            { targets: 8, name: "Trạng thái" },
+            { targets: 9, name: "Thao tác" },
+        ],
+        exportOptions: {
+            columns: [1, 2, 3, 4, 5, 6, 7, 8],
+            orthogonal: 'export'
+        },
+    }
+
+    console.log($scope.config)
+        
     // Get Data
     $scope.categorys = [];
     $scope.getItems = getItems;
@@ -24,7 +43,7 @@ function categoryListController($scope, apiService, dataTableService, notificati
         apiService.get("/category/getdata", null, function (result) {
 
             $scope.categorys = result.data;
-            dataTableService.createDataTable("DAGStoreDatatable", $scope.columnTable);
+            dataTableService.createDataTable($scope.config);
             
             console.log($scope.categorys);
         }, function (error) {
