@@ -2,13 +2,13 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-flex align-items-center justify-content-between">
-            <h4 class="mb-0">Hãng sản phẩm</h4>
+            <h4 class="mb-0">{{config.nameManage}}</h4>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a ui-sref="dashboard">DAGStore</a></li>
-                    <li class="breadcrumb-item"><a ui-sref="brand">Quản lý hãng sản phẩm</a></li>
-                    <li class="breadcrumb-item active"><a ui-sref="info-brand"></a>Thông tin chi tiết</li>
+                    <li class="breadcrumb-item"><a ui-sref="{{config.urlManage}}">Quản lý {{config.nameManage}}</a></li>
+                    <li class="breadcrumb-item active"><a></a>{{config.namePage}}</li>
                 </ol>
             </div>
 
@@ -39,44 +39,19 @@
                         </div>
                     </div>
 
+                    <!-- Description -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Mô tả</label>
+                        <div class="col-md-10">
+                            <textarea ck-editor ng-model="brand.Description" id="DAGStoreTextArea" rows="10" cols="80"></textarea>
+                        </div>
+                    </div>
 
                     <!-- DisplayOrder -->
                     <div class="form-group row">
                         <label for="example-number-input" class="col-md-2 col-form-label">Độ ưu tiên</label>
                         <div class="col-md-10">
                             <input ng-model="brand.DisplayOrder" readonly class="form-control" type="number" value="0" id="example-number-input">
-                        </div>
-                    </div>
-
-                    <!-- Metakeywords -->
-                    <div class="form-group row mt-4">
-                        <label for="example-text-input" class="col-md-2 col-form-label">MetaKeywords</label>
-                        <div class="col-md-10">
-                            <input ng-model="brand.MetaKeywords" readonly class="form-control" type="text" value="">
-                        </div>
-                    </div>
-
-                    <!-- MetaDescription -->
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">MetaDescription</label>
-                        <div class="col-md-10">
-                            <input ng-model="brand.MetaDescription" readonly class="form-control" type="text" value="">
-                        </div>
-                    </div>
-
-                    <!-- MetaTitle -->
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">MetaTitle</label>
-                        <div class="col-md-10">
-                            <input ng-model="brand.MetaTitle" readonly class="form-control" type="text" value="">
-                        </div>
-                    </div>
-
-                    <!-- Alias -->
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Alias</label>
-                        <div class="col-md-10">
-                            <input ng-model="brand.Alias" readonly class="form-control" type="text" value="">
                         </div>
                     </div>
 

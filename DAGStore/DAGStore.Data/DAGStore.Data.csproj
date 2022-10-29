@@ -163,6 +163,14 @@
     <Compile Include="Migrations\202210290344158_Delete-Column-Alias-Category.designer.cs">
       <DependentUpon>202210290344158_Delete-Column-Alias-Category.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210290829443_Create-Table-Customer.cs" />
+    <Compile Include="Migrations\202210290829443_Create-Table-Customer.designer.cs">
+      <DependentUpon>202210290829443_Create-Table-Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210290838524_Update-Table-Brand.cs" />
+    <Compile Include="Migrations\202210290838524_Update-Table-Brand.designer.cs">
+      <DependentUpon>202210290838524_Update-Table-Brand.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
@@ -266,6 +274,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202210290344158_Delete-Column-Alias-Category.resx">
       <DependentUpon>202210290344158_Delete-Column-Alias-Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210290829443_Create-Table-Customer.resx">
+      <DependentUpon>202210290829443_Create-Table-Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210290838524_Update-Table-Brand.resx">
+      <DependentUpon>202210290838524_Update-Table-Brand.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

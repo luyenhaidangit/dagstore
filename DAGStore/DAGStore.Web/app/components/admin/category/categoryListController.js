@@ -28,7 +28,7 @@ function categoryListController($scope, apiService, dataTableService, notificati
             { targets: 8, name: "Thao tác" },
         ],
         exportOptions: {
-            columns: [1, 2, 3, 4, 5, 6, 7, 8],
+            columns: [1, 2, 3, 4, 5, 6, 7],
             orthogonal: 'export'
         },
     }

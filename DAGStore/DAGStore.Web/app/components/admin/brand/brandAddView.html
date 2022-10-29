@@ -2,13 +2,13 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-flex align-items-center justify-content-between">
-            <h4 class="mb-0">Hãng sản phẩm</h4>
+            <h4 class="mb-0">{{config.nameManage}}</h4>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a ui-sref="dashboard">DAGStore</a></li>
-                    <li class="breadcrumb-item"><a ui-sref="brand">Quản lý hãng sản phẩm</a></li>
-                    <li class="breadcrumb-item active"><a ui-sref="brand-add"></a>Thêm mới</li>
+                    <li class="breadcrumb-item"><a ui-sref="brand">Quản lý {{config.nameManage}}</a></li>
+                    <li class="breadcrumb-item active"><a ui-sref="add-brand"></a>{{config.namePage}}</li>
                 </ol>
             </div>
 
@@ -16,7 +16,6 @@
     </div>
 </div>
 <!-- end page title -->
-
 
 <div class="row">
     <div class="col-12">
@@ -27,13 +26,11 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Tên hãng sản phẩm</label>
                         <div class="col-md-10">
-                            <input ng-model="brand.Name" name="name" ng-maxlength="500" required class="form-control" type="text" value="">
-                            <span class="text-valid" ng-show="formAddBrand.name.$error.required && formAddBrand.name.$touched">Tên hãng sản phẩm không được để trống!</span>
-                            <span class="text-valid" ng-show="formAddBrand.name.$error.maxlength">Tên hãng sản phẩm không được quá 500 ký tự!</span>
+                            <input ng-model="brand.Name" name="name" required ng-maxlength="500" class="form-control" type="text" value="">
+                            <span class="text-valid" ng-show="formAddBrand.name.$error.required && formAddBrand.name.$touched">Tên sản phẩm không được để trống!</span>
+                            <span class="text-valid" ng-show="formAddBrand.name.$error.maxlength">Tên sản phẩm không được quá 500 ký tự!</span>
                         </div>
                     </div>
-
-                    
 
                     <!-- ImagePath -->
                     <div class="form-group row">
@@ -49,47 +46,20 @@
                         </div>
                     </div>
 
-       
+                    <!-- Description -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Mô tả</label>
+                        <div class="col-md-10">
+                            <textarea ck-editor ng-model="brand.Description" name="description" id="DAGStoreTextArea" rows="10" cols="80"></textarea>
+                        </div>
+                    </div>
+
                     <!-- DisplayOrder -->
                     <div class="form-group row">
                         <label for="example-number-input" class="col-md-2 col-form-label">Độ ưu tiên</label>
                         <div class="col-md-10">
                             <input ng-model="brand.DisplayOrder" required name="displayorder" class="form-control" type="number" value="0" id="example-number-input">
                             <span ng-show="formAddBrand.displayorder.$error.required && formAddBrand.displayorder.$touched">Giá hãng sản phẩm!</span>
-                        </div>
-                    </div>
-
-                    <!-- Metakeywords -->
-                    <div class="form-group row mt-4">
-                        <label for="example-text-input" class="col-md-2 col-form-label">MetaKeywords</label>
-                        <div class="col-md-10">
-                            <input ng-model="brand.MetaKeywords" name="metakeywords" class="form-control" type="text" value="">
-                        </div>
-                    </div>
-
-                    <!-- MetaDescription -->
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">MetaDescription</label>
-                        <div class="col-md-10">
-                            <input ng-model="brand.MetaDescription" name="metadescription" class="form-control" type="text" value="">
-                        </div>
-                    </div>
-
-                    <!-- MetaTitle -->
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">MetaTitle</label>
-                        <div class="col-md-10">
-                            <input ng-model="brand.MetaTitle" name="metatitle" class="form-control" type="text" value="">
-                        </div>
-                    </div>
-
-                    <!-- Alias -->
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Alias</label>
-                        <div class="col-md-10">
-                            <input ng-model="brand.Alias" required name="alias" class="form-control" type="text" value="">
-                            <span class="text-valid" ng-show="formAddBrand.alias.$error.required && formAddBrand.alias.$touched">Tên alias hãng sản phẩm không được để trống!</span>
-                            <span class="text-valid" ng-show="formAddBrand.alias.$error.maxlength">Tên alias hãng sản phẩm không được quá 500 ký tự!</span>
                         </div>
                     </div>
 
@@ -109,6 +79,11 @@
                 </form>
             </div>
         </div>
-    </div> <!-- end col -->
+    </div>
 </div>
 <!-- end row -->
+<script>
+    $(".ui.dropdown").dropdown({
+
+    });
+</script>

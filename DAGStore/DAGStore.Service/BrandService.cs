@@ -16,6 +16,8 @@ namespace DAGStore.Service
 
         IEnumerable<Brand> GetAll();
 
+        IEnumerable<dynamic> GetData();
+
         Brand GetByID(int id);
 
         void SaveChanges();
@@ -34,7 +36,7 @@ namespace DAGStore.Service
 
         public IEnumerable<Brand> GetAll()
         {
-            return _brandRepository.GetAll();
+            return _brandRepository.GetAll().Where(x => x.Deleted != true);
         }
 
        
@@ -61,6 +63,23 @@ namespace DAGStore.Service
         public bool Update(Brand brand)
         {
             return _brandRepository.Update(brand);
+        }
+
+        public IEnumerable<dynamic> GetData()
+        {
+            var brand = GetAll();
+            var result = (from c in brand
+                          select new
+                          {
+                              ID = c.ID,
+                              Name = c.Name,
+                              PicturePath = c.PicturePath,
+                              Description = c.Description,
+                              DisplayOrder = c.DisplayOrder,
+                              Published = c.Published,
+                              Deleted = c.Deleted,
+                          });
+            return result;
         }
     }
 }

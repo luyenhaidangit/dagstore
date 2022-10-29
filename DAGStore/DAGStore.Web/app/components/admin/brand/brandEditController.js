@@ -3,21 +3,23 @@ var brand = angular.module('DAGStore.brand');
 brand.controller('brandEditController', brandEditController);
 
 // Controller
-function brandEditController($scope, apiService, notificationService, $state, $stateParams) {
+function brandEditController($scope, apiService, notificationService, $state, $stateParams, ckeditorService) {
+    //Config
+    $scope.config = {
+        nameManage: "Hãng Sản Phẩm",
+        urlManage: "brand",
+        namePage: "Sửa Thông Tin",
+    }
 
     // Load brand Detail
     $scope.brand = {
     }
-    $scope.LoadbrandDetail = LoadbrandDetail;
-    function LoadbrandDetail() {
-        apiService.get("/brand/getbyid/" + $stateParams.id, null, function (result) {
-            $scope.brand = result.data;
-            console.log($scope.brand)
-        }, function (error) {
-            notificationService.displaySuccess("Không thể tải dữ liệu");
-        })
-    }
-    $scope.LoadbrandDetail();
+    apiService.get("/brand/getbyid/" + $stateParams.id, null, function (result) {
+        $scope.brand = result.data;
+        console.log($scope.brand)
+    }, function (error) {
+        notificationService.displaySuccess("Không thể tải dữ liệu");
+    })
 
     // Choose Image Avatar
     $scope.statusChooseAvatar = true;
@@ -41,10 +43,12 @@ function brandEditController($scope, apiService, notificationService, $state, $s
         }
     }
 
+    // Register Description TextArea
+    ckeditorService.createDefaultCkeditor("DAGStoreTextArea");
+
     // Submit Edit
     $scope.EditBrand = EditBrand;
     function EditBrand() {
-
         // Edit Value
         apiService.put("/brand/update", $scope.brand, function (result) {
             notificationService.displaySuccess("Cập nhật thông tin thành công!");
