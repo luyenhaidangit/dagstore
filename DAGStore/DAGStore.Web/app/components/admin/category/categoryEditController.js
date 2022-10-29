@@ -4,35 +4,33 @@ category.controller('categoryEditController', categoryEditController);
 
 // Controller
 function categoryEditController($scope, apiService, notificationService, $state, $stateParams, ckeditorService) {
+    //Config
+    $scope.config = {
+        nameManage: "Loại Sản Phẩm",
+        urlManage: "category",
+        namePage: "Sửa Thông Tin",
+    }
 
     // Load Category Detail
     $scope.category = {
     }
-    $scope.LoadCategoryDetail = LoadCategoryDetail;
-    function LoadCategoryDetail() {
-        apiService.get("/category/getbyid/" + $stateParams.id, null, function (result) {
-            $scope.category = result.data;
-            /*console.log($scope.category);*/
-        }, function (error) {
-            notificationService.displaySuccess("Không thể tải dữ liệu");
-        })
-    }
-    $scope.LoadCategoryDetail();
+    apiService.get("/category/getbyid/" + $stateParams.id, null, function (result) {
+        $scope.category = result.data;
+        console.log($scope.category)
+    }, function (error) {
+        notificationService.displaySuccess("Không thể tải dữ liệu");
+    })
 
     // Load Parent Category
     $scope.parentCategory = {};
     $scope.categorys = [];
-    $scope.getItems = getItems;
-    function getItems() {
-        apiService.get("/category/getall", null, function (result) {
-            $scope.categorys = result.data.filter(x => x.ID !== $scope.category.ID);
-            $scope.parentCategory = $scope.categorys.filter(x => x.ID === $scope.category.ParentCategoryID)[0];
-            
-        }, function (error) {
-            console.log("Get data fail");
-        })
-    };
-    $scope.getItems();
+    apiService.get("/category/getall", null, function (result) {
+        $scope.categorys = result.data.filter(x => x.ID !== $scope.category.ID);
+        $scope.parentCategory = $scope.categorys.filter(x => x.ID === $scope.category.ParentCategoryID)[0];
+
+    }, function (error) {
+        console.log("Get data fail");
+    })
 
     // Choose Image Avatar
     $scope.statusChooseAvatar = true;
