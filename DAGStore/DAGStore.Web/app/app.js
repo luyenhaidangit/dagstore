@@ -16,13 +16,8 @@ app.config(function($stateProvider, $urlRouterProvider){
     {
       name: 'dashboard',
       url: '/dashboard',
-      templateUrl: '/app/components/home/homeView.html',
+      templateUrl: '/app/components/admin/home/homeView.html',
       controller: "homeController",
-    },
-    {
-      name: 'error',
-      url: '/error',
-      templateUrl: '/app/components/error/errorView.html'
     }];
     states.forEach((state) => $stateProvider.state(state));
     $urlRouterProvider.otherwise('/dashboard');
