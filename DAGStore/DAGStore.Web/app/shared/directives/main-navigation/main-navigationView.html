@@ -2,7 +2,7 @@
 <div class="container">
 
     <ul class="nav main-nav">
-        <li ng-repeat="menu in SiteMenu | filter:{ParentCategoryID : 0, Published: true,ShowOnHomePage: true} | limitTo: 10 | orderBy: '-DisplayOrder'" ng-class="(SiteMenu | filter:{ParentCategoryID : menu.ID}).length > 0?'nav-item main-nav__item dropdown-toggle single-column':'nav-item main-nav__item'">
+        <li ng-repeat="menu in SiteMenu | filter:{ParentCategoryID : 0, Published: true} | limitTo: 10 | orderBy: '-DisplayOrder'" ng-class="(SiteMenu | filter:{ParentCategoryID : menu.ID}).length > 0?'nav-item main-nav__item dropdown-toggle single-column':'nav-item main-nav__item'">
             <a ui-sref="category({id:menu.ID})" class="main-nav__item-link">
                 <i><img src="{{menu.PicturePath}}" alt=""></i>
                 <span class="">{{menu.Name}}</span>

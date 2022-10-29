@@ -100,7 +100,6 @@ namespace DAGStore.Service
                               Name = c.Name,
                               PicturePath = c.PicturePath,
                               Description = c.Description,
-                              Alias = c.Alias,
                               DisplayOrder = c.DisplayOrder,
                               Published = c.Published,
                               Deleted = c.Deleted,

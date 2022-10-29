@@ -23,10 +23,9 @@ function categoryListController($scope, apiService, dataTableService, notificati
             { targets: 5, name: "Mô tả", visible: false, render: function (data, type) {
                     return type === 'export' ? (data === '---' ? null : data) : data
                 } },
-            { targets: 6, name: "Alias", visible: false },
-            { targets: 7, name: "Độ ưu tiên" },
-            { targets: 8, name: "Trạng thái" },
-            { targets: 9, name: "Thao tác" },
+            { targets: 6, name: "Độ ưu tiên" },
+            { targets: 7, name: "Trạng thái" },
+            { targets: 8, name: "Thao tác" },
         ],
         exportOptions: {
             columns: [1, 2, 3, 4, 5, 6, 7, 8],
@@ -36,21 +35,16 @@ function categoryListController($scope, apiService, dataTableService, notificati
         
     // Get Data
     $scope.categorys = [];
-    $scope.getItems = getItems;
-    function getItems() {
-        apiService.get("/category/getdata", null, function (result) {
-            $scope.categorys = result.data;
-            dataTableService.createDataTable($scope.config);
-        }, function (error) {
-            console.log("Get data fail");
-        })
-    };
-    $scope.getItems();
+    apiService.get("/category/getdata", null, function (result) {
+        $scope.categorys = result.data;
+        dataTableService.createDataTable($scope.config);
+    }, function (error) {
+        console.log("Get data fail");
+    })
 
     // Delete Object
     $scope.DeleteCategory = DeleteCategory;
     function DeleteCategory(e, id) {
-        console.log($(e.currentTarget).parents('tr').index());
         alertService.alertSubmitDelete().then((result) => {
             if (result.isConfirmed) {
                 var config = {
@@ -64,13 +58,10 @@ function categoryListController($scope, apiService, dataTableService, notificati
                     let recordOfPage = $("#DAGStoreDatatable").DataTable().page.info().length;
                     let recordIndexOfPage = $(e.currentTarget).parents('tr').index();
                     let index = pageIndex * recordOfPage + recordIndexOfPage;
-                    console.log($(e.currentTarget).parents('tr').index());
                     $("#DAGStoreDatatable").DataTable().row(index).remove().draw();
-               
                 }, function (error) {
                     console.log("Xóa không thành công!")
                 })
-
                 alertService.alertDeleteSuccess();
             }
         });

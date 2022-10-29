@@ -25,10 +25,6 @@ namespace DAGStore.Model.Models
         public string Description { get; set; }
 
         [Required]
-        [MaxLength(500)]
-        public string Alias { get; set; }
-
-        [Required]
         public int DisplayOrder { get; set; }
 
         [Required]

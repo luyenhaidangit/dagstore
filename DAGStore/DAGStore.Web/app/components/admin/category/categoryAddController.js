@@ -4,23 +4,27 @@ category.controller('categoryAddController', categoryAddController);
 
 // Controller
 function categoryAddController($scope, apiService, notificationService, $state, ckeditorService) {
+    //Config
+    $scope.config = {
+        nameManage: "Loại Sản Phẩm",
+        urlManage: "category",
+        namePage: "Thêm Mới",
+    }
+
+    // Load Parent Category
+    $scope.categorys = [];
+    apiService.get("/category/getall", null, function (result) {
+        $scope.categorys = result.data;
+    }, function (error) {
+        console.log("Get data fail");
+    })
+
     // Default Value
     $scope.category = {
         DisplayOrder: -1,
         Published: true,
         ShowOnHomePage: true,
     }
-
-    // Load Parent Category
-    $scope.categorys = [];
-    $scope.getItems = function getItems() {
-        apiService.get("/category/getall", null, function (result) {
-            $scope.categorys = result.data;
-        }, function (error) {
-            console.log("Get data fail");
-        })
-    };
-    $scope.getItems();
 
     // Choose Image Avatar
     $scope.statusChooseAvatar = false;
@@ -55,13 +59,10 @@ function categoryAddController($scope, apiService, notificationService, $state, 
 
         // Add Value
         apiService.post("/category/create", $scope.category, function (result) {
-            console.log($scope.category);
             notificationService.displaySuccess("Thêm thông tin thành công!");
-
             $state.go("category");
         }, function (error) {
             notificationService.displaySuccess("Thêm mới không thành công!");
-            console.log($scope.category);
         });
     }
 }

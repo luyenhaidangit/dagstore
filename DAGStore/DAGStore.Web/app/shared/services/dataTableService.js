@@ -49,8 +49,9 @@
                     },
 
                     buttons: [
-                        { extend: 'excel', className: 'btn btn-success waves-effect d-block w-100 text-left extension-button me-1 rounded', text: '<i class="fas fa-file-export mr-2"></i>Xuất File', title: 'Dữ liệu ' + config.namePage.toLowerCase(), exportOptions: config.exportOptions ,},
-                        { extend: 'colvis', className: 'btn btn-success waves-effect d-block w-100 text-left extension-button me-1 rounded', text: '<i class="fal fa-table"></i>' },
+                        { extend: 'excel', className: 'btn btn-success waves-effect d-block text-left extension-button me-1 rounded', text: '<i class="fas fa-file-export"></i>', title: 'Dữ liệu ' + config.namePage.toLowerCase(), exportOptions: config.exportOptions, },
+                        { extend: 'print', className: 'btn btn-success waves-effect d-block text-left extension-button me-1 rounded', text: '<i class="fas fa-print"></i>' },
+                        { extend: 'colvis', className: 'btn btn-success waves-effect d-block text-left extension-button me-1 rounded', text: '<i class="fal fa-table"></i>' },
                     ],
 
                     columnDefs: config.columnDefs,
@@ -59,32 +60,6 @@
                     .container()
                     .appendTo(".datatable-extension")
 
-                $('li.toggle-vis').on('click', function (e) {
-                    
-
-                    // Get the column API object
-                    var column = table.column($(this).attr('data-column'));
-
-                    // Toggle the visibility
-                    column.visible(!column.visible());
-
-                    $(this).children("input").is(":checked") ? $(this).children("input").prop('checked', false) : $(this).children("input").prop('checked', true);
-                    
-                });
-
-                //$('li.toggle-vis input').on('click', function (e) {
-
-                //    /*e.preventDefault();*/
-
-                //     /*Get the column API object*/
-                //    var column = table.column($(this).attr('data-column'));
-
-                //     /*Toggle the visibility*/
-                //    column.visible(!column.visible());
-
-                //    $(this).is(":checked") ? $(this).prop('checked', false) : $(this).prop('checked', true);
-
-                //});
             });
         }
     }
