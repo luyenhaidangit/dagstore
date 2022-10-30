@@ -35,32 +35,19 @@ namespace DAGStore.Model.Models
         public string FullDescription { get; set; }
 
         [Required]
-        public bool ShowOnHomePage { get; set; }
-
-        [MaxLength(500)]
-        public string MetaKeywords { get; set; }
-
-        [MaxLength(4000)]
-        public string MetaDescription { get; set; }
-
-        [MaxLength(500)]
-        public string MetaTitle { get; set; }
+        public decimal CostPrice { get; set; }
 
         [Required]
-        [MaxLength(500)]
-        public string Alias { get; set; }
+        public decimal SellPrice { get; set; }
 
         [Required]
-        public int StockQuantity { get; set; }
+        public int InventoryQuantity { get; set; }
 
         [Required]
-        public decimal Price { get; set; }
+        public int MinimumInventoryQuantity { get; set; }
 
         [Required]
-        public decimal OldPrice { get; set; }
-
-        [Required]
-        public bool HasDiscountsApplied { get; set; }
+        public int MaximumInventoryQuantity { get; set; }
 
         [Required]
         public int DisplayOrder { get; set; }
@@ -69,9 +56,6 @@ namespace DAGStore.Model.Models
         public bool Published { get; set; }
 
         [Required]
-        public DateTime CreateOn { get; set; }
-
-        [Required]
-        public DateTime UpdateOn { get; set; }
+        public bool Deleted { get; set; }
     }
 }

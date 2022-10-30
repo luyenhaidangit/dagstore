@@ -26,6 +26,13 @@ namespace DAGStore.Web.Controllers
             return Json(listProduct, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult GetData()
+        {
+            var listProduct = _productService.GetData();
+
+            return Json(listProduct, JsonRequestBehavior.AllowGet);
+        }
+
         public JsonResult GetByID(int id)
         {
             var menuRecord = _productService.GetByID(id);

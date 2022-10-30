@@ -171,6 +171,18 @@
     <Compile Include="Migrations\202210290838524_Update-Table-Brand.designer.cs">
       <DependentUpon>202210290838524_Update-Table-Brand.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210301754582_Edit-Table-Product.cs" />
+    <Compile Include="Migrations\202210301754582_Edit-Table-Product.designer.cs">
+      <DependentUpon>202210301754582_Edit-Table-Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210301855009_Update-Table-Product-Delete-Time.cs" />
+    <Compile Include="Migrations\202210301855009_Update-Table-Product-Delete-Time.designer.cs">
+      <DependentUpon>202210301855009_Update-Table-Product-Delete-Time.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210301856138_Delete-Time-Table-Product.cs" />
+    <Compile Include="Migrations\202210301856138_Delete-Time-Table-Product.designer.cs">
+      <DependentUpon>202210301856138_Delete-Time-Table-Product.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
@@ -280,6 +292,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202210290838524_Update-Table-Brand.resx">
       <DependentUpon>202210290838524_Update-Table-Brand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210301754582_Edit-Table-Product.resx">
+      <DependentUpon>202210301754582_Edit-Table-Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210301855009_Update-Table-Product-Delete-Time.resx">
+      <DependentUpon>202210301855009_Update-Table-Product-Delete-Time.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210301856138_Delete-Time-Table-Product.resx">
+      <DependentUpon>202210301856138_Delete-Time-Table-Product.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

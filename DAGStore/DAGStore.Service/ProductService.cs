@@ -1,4 +1,5 @@
 ﻿using DAGStore.Data.Infrastructure;
+using DAGStore.Data.Migrations;
 using DAGStore.Data.Repositories;
 using DAGStore.Model.Models;
 using System.Collections.Generic;
@@ -18,6 +19,8 @@ namespace DAGStore.Service
 
         IEnumerable<dynamic> GetProductsNewShowHomePage();
 
+        IEnumerable<dynamic> GetData();
+
         Product GetByID(int id);
 
         void SaveChanges();
@@ -26,16 +29,20 @@ namespace DAGStore.Service
     public class ProductService : IProductService
     {
         private IProductRepository _productRepository;
+        private IBrandRepository _brandRepository;
+        private ICategoryRepository _categoryRepository;
         private IDiscountService _discountService;
         private IProductDiscountService _productDiscountService;
         private IUnitOfWork _unitOfWork;
 
-        public ProductService(IProductRepository productRepository,IDiscountService discountService, IProductDiscountService productDiscountService, IUnitOfWork unitOfWork)
+        public ProductService(IProductRepository productRepository,IDiscountService discountService, IProductDiscountService productDiscountService, IUnitOfWork unitOfWork, IBrandRepository brandService, ICategoryRepository categoryService)
         {
             this._discountService = discountService;
             this._productRepository = productRepository;
             this._productDiscountService = productDiscountService;
             this._unitOfWork = unitOfWork;
+            this._brandRepository = brandService;
+            this._categoryRepository = categoryService;
         }
 
         public bool Add(Product product)
@@ -50,7 +57,32 @@ namespace DAGStore.Service
 
         public IEnumerable<Product> GetAll()
         {
-            return _productRepository.GetAll();
+            return _productRepository.GetAll().Where(x => x.Deleted != true);
+        }
+
+        public IEnumerable<dynamic> GetData()
+        {
+            var product = GetAll();
+            var result = (from c in product
+                          select new
+                          {
+                              ID = c.ID,
+                              Name = c.Name,
+                              PicturePath = c.PicturePath,
+                              ShortDescription = c.ShortDescription,
+                              FullDescription = c.FullDescription,
+                              ShortDescriptionEndow = c.ShortDescriptionEndow,
+                              NameCategory = _categoryRepository.GetSingleByID(c.CategoryID).Name,
+                              NameBrand = _brandRepository.GetSingleByID(c.BrandID).Name,
+                              CostPrice = c.CostPrice,
+                              SellPrice = c.SellPrice,
+                              InventoryQuantity = c.InventoryQuantity,
+                              MinimumInventoryQuantity = c.MinimumInventoryQuantity,
+                              MaximumInventoryQuantity = c.MaximumInventoryQuantity,
+                              DisplayOrder = c.DisplayOrder,
+                              Published = c.Published,
+                          });
+            return result;
         }
 
         public IEnumerable<dynamic> GetProductsNewShowHomePage()
@@ -61,12 +93,11 @@ namespace DAGStore.Service
             products = products.Reverse();
             var result = (from p in products
                           where p.Published == true
-                          where p.ShowOnHomePage == true
                           select new
                           {
                               IDProduct = p.ID,
                               NameProduct = p.Name,
-                              PriceProduct = p.Price,
+                              PriceProduct = p.SellPrice,
                               ImageProduct = p.PicturePath,
                               DescriptionProduct = p.ShortDescriptionEndow,
                               Discount = _discountService.GetDiscountByProduct(p.ID).Take(2),
