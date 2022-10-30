@@ -8,6 +8,8 @@ namespace DAGStore.Service
 {
     public interface IBrandService
     {
+        List<Brand> GetAllBrand();
+
         bool Add(Brand brand);
 
         bool Update(Brand brand);
@@ -80,6 +82,11 @@ namespace DAGStore.Service
                               Deleted = c.Deleted,
                           });
             return result;
+        }
+
+        public List<Brand> GetAllBrand()
+        {
+            return _brandRepository.GetAllBrand();
         }
     }
 }

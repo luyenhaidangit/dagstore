@@ -18,15 +18,6 @@
                 , confirmButtonText: "Xác nhận"
                 , cancelButtonText: "Bỏ qua"
             })
-                //.then((result) => {
-                //    if (result.isConfirmed) {
-                //        Swal.fire(
-                //            'Đã xóa!',
-                //            'Bản ghi đã xóa thành công!',
-                //            'success'
-                //        )
-                //    }
-                //})
             return alertSubmitDelete;
         }
 
@@ -39,9 +30,19 @@
             return alertDeleteSuccess;
         }
 
+        function alertDeleteError(message) {
+            var alertDeleteError = Swal.fire(
+                'Xóa thất bại!',
+                message,
+                'error'
+            )
+            return alertDeleteError;
+        }
+
         return {
             alertSubmitDelete: alertSubmitDelete,
             alertDeleteSuccess: alertDeleteSuccess,
+            alertDeleteError: alertDeleteError,
         }
     }
 })(angular.module('DAGStore.common'));

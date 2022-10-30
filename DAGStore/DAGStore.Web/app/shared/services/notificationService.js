@@ -47,7 +47,7 @@
 
           return{
             displaySuccess : displaySuccess,
-            displayError : displayError,
+              displayError: displayError,
             displayWarning : displayWarning,
             displayInfo : displayInfo
           }

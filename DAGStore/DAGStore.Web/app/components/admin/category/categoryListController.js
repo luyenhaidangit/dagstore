@@ -59,10 +59,17 @@ function categoryListController($scope, apiService, dataTableService, notificati
                     let recordIndexOfPage = $(e.currentTarget).parents('tr').index();
                     let index = pageIndex * recordOfPage + recordIndexOfPage;
                     $("#DAGStoreDatatable").DataTable().row(index).remove().draw();
+                    alertService.alertDeleteSuccess();
                 }, function (error) {
-                    console.log("Xóa không thành công!")
+                    var message = error.data.split('<title>').pop().split('<br>')[0];
+                    console.log(message)
+                    if (message ==='That bai,chi xoa được nhung nhom hang khong chua hang hoa nao') {
+                        alertService.alertDeleteError("Chỉ xóa được những nhóm hàng không chứa sản phẩm nào!");
+                    }
+                    if (message === 'That bai,chi xoa được nhung nhom hang khong chua nhom hang con') {
+                        alertService.alertDeleteError("Chỉ xóa được những nhóm hàng không chứa nhóm hàng con nào!");
+                    } 
                 })
-                alertService.alertDeleteSuccess();
             }
         });
     }

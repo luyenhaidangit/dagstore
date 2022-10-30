@@ -5,3 +5,8 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Core\obj\Debug\DAGStore.C
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Core\obj\Debug\DAGStore.Core.csproj.CoreCompileInputs.cache
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Core\obj\Debug\DAGStore.Core.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Core\obj\Debug\DAGStore.Core.pdb
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Core\bin\Debug\EntityFramework.dll
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Core\bin\Debug\EntityFramework.SqlServer.dll
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Core\bin\Debug\EntityFramework.xml
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Core\bin\Debug\EntityFramework.SqlServer.xml
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Core\obj\Debug\DAGStore.Core.csproj.CopyComplete

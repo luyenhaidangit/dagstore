@@ -67,5 +67,11 @@ namespace DAGStore.Web.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult GetAllBrand()
+        {
+            var result = _brandService.GetAllBrand();
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

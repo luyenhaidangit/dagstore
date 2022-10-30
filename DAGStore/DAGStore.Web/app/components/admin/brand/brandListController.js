@@ -61,11 +61,16 @@ function brandListController($scope, apiService, dataTableService, notificationS
                     let index = pageIndex * recordOfPage + recordIndexOfPage;
                     console.log($(e.currentTarget).parents('tr').index());
                     $("#DAGStoreDatatable").DataTable().row(index).remove().draw();
+                    alertService.alertDeleteSuccess();
                
                 }, function (error) {
-                    console.log("Xóa không thành công!")
+                    var message = error.data.split('<title>').pop().split('<br>')[0];
+                    console.log(message)
+                    if (message === 'That bai,chi xoa được nhung hang hang khong chua hang hoa nao') {
+                        alertService.alertDeleteError("Chỉ xóa được những hãng hàng không chứa sản phẩm nào!");
+                    }
                 })
-                alertService.alertDeleteSuccess();
+                
             }
         });
     }
