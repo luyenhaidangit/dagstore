@@ -4,60 +4,38 @@ product.controller('productAddController', productAddController);
 
 // Controller
 function productAddController($scope, apiService, notificationService, $state, ckeditorService) {
-    // Init
+    //Config
+    $scope.config = {
+        nameManage: "Sản Phẩm",
+        urlManage: "product",
+        namePage: "Thêm Mới",
+    }
     $scope.product = {
-        StockQuantity: 0,
-        Price: 0,
-        OldPrice:0,
-        ShowOnHomePage: true,
-        AllowCustomerReviews: true,
-        IsShipEnabled: true,
-        Published: true,
-        HasDiscountsApplied: true,
+        CostPrice: 0,
+        SellPrice: 0,
+        InventoryQuantity: 0,
+        MinimumInventoryQuantity: 0,
+        MaximumInventoryQuantity: 0,
         DisplayOrder: -1,
+        Published: true,
         CreateOn: new Date().toJSON().slice(0, 10),
         UpdateOn: new Date().toJSON().slice(0, 10),
     }
-    $scope.productDiscountID = [];
-    $scope.productDiscount = [];
     // Load List Brand
-    $scope.brands = [];
-    $scope.GetBrands = GetBrands;
-    function GetBrands() {
-        apiService.get("/brand/getall", null, function (result) {
-            $scope.brands = result.data;
-            console.log($scope.brands[0].ID);
-        }, function (error) {
-            console.log("Get data fail");
-        })
-    };
-    $scope.GetBrands();
+    apiService.get("/brand/getdata", null, function (result) {
+        $scope.brands = result.data;
+        console.log($scope.brands[0].ID);
+    }, function (error) {
+        console.log("Get data fail");
+    })
 
     // Load List Category
-    $scope.categorys = [];
-    $scope.GetCategorys = GetCategorys;
-    function GetCategorys() {
-        apiService.get("/category/getall", null, function (result) {
-            $scope.categorys = result.data;
-            console.log($scope.categorys);
-        }, function (error) {
-            console.log("Get data fail");
-        })
-    };
-    $scope.GetCategorys();
-
-    // Load List Discont
-    $scope.discounts = [];
-    $scope.GetDiscounts = GetDiscounts;
-    function GetDiscounts() {
-        apiService.get("/discount/GetListDiscountProduct", null, function (result) {
-            $scope.discounts = result.data;
-            console.log($scope.discounts)
-        }, function (error) {
-            console.log("Get data fail");
-        })
-    };
-    $scope.GetDiscounts();
+    apiService.get("/category/getdata", null, function (result) {
+        $scope.categorys = result.data;
+        console.log($scope.categorys);
+    }, function (error) {
+        console.log("Get data fail");
+    })
 
     // Choose Image Product
     $scope.statusChooseAvatar = false;
@@ -92,25 +70,7 @@ function productAddController($scope, apiService, notificationService, $state, c
         $scope.product.Content = CKEDITOR.instances['DAGStoreTextArea'].getData();
         console.log($scope.productDiscountID)
         apiService.post("/product/create", $scope.product, function (result) {
-            //Add Discount Product
-            for (var i = 0; i < $scope.productDiscountID.length; i++) {
-                var obj = {
-                    "ProductID": result.data.ID,
-                    "DiscountID": $scope.productDiscountID[i],
-                    "Product": null,
-                    "Discount": null
-                }
-                apiService.post("/ProductDiscont/create", obj, function (result) {
-                    console.log("Thêm khuyến mãi thành công")
-                     
-                }, function (error) {
-                    notificationService.displaySuccess("Thêm mới không thành công!");
-                   
-                });
-            }
-            
             notificationService.displaySuccess("Thêm thông tin thành công!");
-            
             $state.go("product");
         }, function (error) {
             notificationService.displaySuccess("Thêm mới không thành công!");

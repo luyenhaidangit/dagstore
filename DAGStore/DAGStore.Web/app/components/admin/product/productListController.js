@@ -14,9 +14,9 @@ function productListController($scope, apiService, dataTableService, notificatio
             { targets: 0, name: "STT" },
             { targets: 1, name: "ID", visible: false },
             { targets: 2, name: "Ảnh minh họa", render: function (data, type) {
-                    return type === 'export' ? (data === '"' ? null : data) : '<img src="' + data + '" alt="" class="img-fluid" style="height:28px;">'
+                    return type === 'export' ? (data === '"' ? null : data) : '<img src="' + data + '" alt="" class="img-fluid" style="height:32px;">'
             }},
-            { targets: 3, name: "Tên sản phẩm", visible: false },
+            { targets: 3, name: "Tên sản phẩm" },
             { targets: 4, name: "Mô tả ngắn", visible: false },
             { targets: 5, name: "Mô tả", visible: false },
             { targets: 6, name: "Mô tả khuyến mãi", visible: false },
@@ -24,10 +24,10 @@ function productListController($scope, apiService, dataTableService, notificatio
             { targets: 8, name: "Hãng sản phẩm", visible: false },
             { targets: 9, name: "Giá nhập" },
             { targets: 10, name: "Giá bán" },
-            { targets: 11, name: "Số lượng tồn" },
+            { targets: 11, name: "Tồn kho" },
             { targets: 12, name: "Số lượng tồn tối thiểu", visible: false },
             { targets: 13, name: "Số lượng tồn tối đa", visible: false },
-            { targets: 14, name: "Độ ưu tiên" },
+            { targets: 14, name: "Độ ưu tiên", visible: false },
             { targets: 15, name: "Trạng thái" },
             { targets: 16, name: "Thao tác" },
         ],
@@ -48,8 +48,8 @@ function productListController($scope, apiService, dataTableService, notificatio
     })
 
     // Delete Object
-    $scope.deleteProduct = deleteProduct;
-    function deleteProduct(e, id) {
+    $scope.DeleteProduct = DeleteProduct;
+    function DeleteProduct(e, id) {
         console.log($(e.currentTarget).parents('tr').index());
         alertService.alertSubmitDelete().then((result) => {
             if (result.isConfirmed) {
