@@ -40,6 +40,13 @@ namespace DAGStore.Web.Controllers
             return Json(menuRecord, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult GetInfo(int id)
+        {
+            var menuRecord = _productService.GetInfo(id);
+
+            return Json(menuRecord, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public JsonResult Create(Product menuRecord)
         {

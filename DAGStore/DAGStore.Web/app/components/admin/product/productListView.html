@@ -37,20 +37,20 @@
                         <tr ng-repeat="item in products track by $index" data-show="????">
                             <td>{{$index+1}}</td>
                             <td>{{item.ID}}</td>
-                            <td>{{item.PicturePath}}</td>
+                            <td class="d-flex justify-content-center">{{item.PicturePath}}</td>
                             <td>{{item.Name}}</td>
                             <td>{{item.ShortDescription}}</td>
                             <td>{{item.FullDescription}}</td>
                             <td>{{item.ShortDescriptionEndow}}</td>
                             <td>{{item.NameCategory}}</td>
                             <td>{{item.NameBrand}}</td>
-                            <td>{{item.CostPrice}}</td>
-                            <td>{{item.SellPrice}}</td>
+                            <td class="text-right">{{item.CostPrice | formatCurrencyVND}}</td>
+                            <td class="text-right">{{item.SellPrice | formatCurrencyVND}}</td>
                             <td>{{item.InventoryQuantity}}</td>
                             <td>{{item.MinimumInventoryQuantity}}</td>
                             <td>{{item.MaximumInventoryQuantity}}</td>
                             <td>{{item.DisplayOrder}}</td>
-                            <td>{{item.Published}}</td>
+                            <td><button type="button" ng-class="{'btn btn-success waves-effect waves-light btn-sm':item.Published==true,'btn btn-danger waves-effect waves-light btn-sm':item.Published==false}">{{item.Published | statusFilter}}</button></td>
                             <td>
                                 <span ui-sref="info-product({id:item.ID})" class="badge badge-info" style="cursor: pointer;padding: 8px;"> <i class="fas fa-info-circle"></i></span>
                                 <span ui-sref="edit-product({id:item.ID})" class="badge badge-primary" style="cursor: pointer;padding: 8px;"> <i class="far fa-edit"></i></span>

@@ -12,6 +12,12 @@ product.config(function ($stateProvider, $urlRouterProvider) {
             controller: "productListController",
         },
         {
+            name: 'info-product',
+            url: '/product/info/:id',
+            templateUrl: '/app/components/admin/product/productInfoView.html',
+            controller: "productInfoController",
+        },
+        {
             name: 'add-product',
             url: '/product/add',
             templateUrl: '/app/components/admin/product/productAddView.html',

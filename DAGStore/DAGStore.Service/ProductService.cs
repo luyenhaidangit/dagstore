@@ -21,6 +21,8 @@ namespace DAGStore.Service
 
         IEnumerable<dynamic> GetData();
 
+        dynamic GetInfo(int id);
+
         Product GetByID(int id);
 
         void SaveChanges();
@@ -108,6 +110,30 @@ namespace DAGStore.Service
         public Product GetByID(int id)
         {
             return _productRepository.GetSingleByID(id);
+        }
+
+        public dynamic GetInfo(int id)
+        {
+            var product = _productRepository.GetSingleByID(id);
+            var result = (new
+                          {
+                              ID = product.ID,
+                              Name = product.Name,
+                              PicturePath = product.PicturePath,
+                              ShortDescription = product.ShortDescription,
+                              FullDescription = product.FullDescription,
+                              ShortDescriptionEndow = product.ShortDescriptionEndow,
+                              NameCategory = _categoryRepository.GetSingleByID(product.CategoryID).Name,
+                              NameBrand = _brandRepository.GetSingleByID(product.BrandID).Name,
+                              CostPrice = product.CostPrice,
+                              SellPrice = product.SellPrice,
+                              InventoryQuantity = product.InventoryQuantity,
+                              MinimumInventoryQuantity = product.MinimumInventoryQuantity,
+                              MaximumInventoryQuantity = product.MaximumInventoryQuantity,
+                              DisplayOrder = product.DisplayOrder,
+                              Published = product.Published,
+                          });
+            return result;
         }
 
         public void SaveChanges()

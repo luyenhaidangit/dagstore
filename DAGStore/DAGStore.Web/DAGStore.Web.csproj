@@ -294,6 +294,8 @@
     <Content Include="app\components\admin\importbill\importBillInfoView.html" />
     <Content Include="app\components\admin\importbill\importBillListController.js" />
     <Content Include="app\components\admin\importbill\importBillListView.html" />
+    <Content Include="app\components\admin\product\productInfoController.js" />
+    <Content Include="app\components\admin\product\productInfoView.html" />
     <Content Include="app\components\admin\supplier\supplier.module.js" />
     <Content Include="app\components\admin\supplier\supplierAddController.js" />
     <Content Include="app\components\admin\supplier\supplierAddView.html" />
