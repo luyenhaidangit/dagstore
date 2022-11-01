@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{19B28161-DA29-42B6-8150-AB4B414A02BC}</ProjectGuid>
+    <ProjectGuid>{8C45FFBB-7F84-4689-8672-89F7B3DED203}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DAGStore.Data</RootNamespace>
@@ -59,148 +59,28 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\202210011012345_Rebuild.cs" />
-    <Compile Include="Migrations\202210011012345_Rebuild.designer.cs">
-      <DependentUpon>202210011012345_Rebuild.cs</DependentUpon>
+    <Compile Include="Migrations\202210311844446_Rebuid-Project.cs" />
+    <Compile Include="Migrations\202210311844446_Rebuid-Project.designer.cs">
+      <DependentUpon>202210311844446_Rebuid-Project.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202210011136099_Add-Column-Name-Table-Category.cs" />
-    <Compile Include="Migrations\202210011136099_Add-Column-Name-Table-Category.designer.cs">
-      <DependentUpon>202210011136099_Add-Column-Name-Table-Category.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210020505152_Alter-Column-Table-Category.cs" />
-    <Compile Include="Migrations\202210020505152_Alter-Column-Table-Category.designer.cs">
-      <DependentUpon>202210020505152_Alter-Column-Table-Category.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210020512065_Alter-Category.cs" />
-    <Compile Include="Migrations\202210020512065_Alter-Category.designer.cs">
-      <DependentUpon>202210020512065_Alter-Category.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210020519213_Alter-Table-Category.cs" />
-    <Compile Include="Migrations\202210020519213_Alter-Table-Category.designer.cs">
-      <DependentUpon>202210020519213_Alter-Table-Category.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210020619144_Drop-Column-Data-Table-Category.cs" />
-    <Compile Include="Migrations\202210020619144_Drop-Column-Data-Table-Category.designer.cs">
-      <DependentUpon>202210020619144_Drop-Column-Data-Table-Category.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210171728093_Create-Table-Brand.cs" />
-    <Compile Include="Migrations\202210171728093_Create-Table-Brand.designer.cs">
-      <DependentUpon>202210171728093_Create-Table-Brand.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210171734355_Add-Column-BrandID-Product.cs" />
-    <Compile Include="Migrations\202210171734355_Add-Column-BrandID-Product.designer.cs">
-      <DependentUpon>202210171734355_Add-Column-BrandID-Product.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210171736341_Add-Foreign-BrandID-Product.cs" />
-    <Compile Include="Migrations\202210171736341_Add-Foreign-BrandID-Product.designer.cs">
-      <DependentUpon>202210171736341_Add-Foreign-BrandID-Product.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210211628092_Create-Table-Discount.cs" />
-    <Compile Include="Migrations\202210211628092_Create-Table-Discount.designer.cs">
-      <DependentUpon>202210211628092_Create-Table-Discount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210241318135_Update-Table-Product.cs" />
-    <Compile Include="Migrations\202210241318135_Update-Table-Product.designer.cs">
-      <DependentUpon>202210241318135_Update-Table-Product.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210261007449_Create-Table-Supplier.cs" />
-    <Compile Include="Migrations\202210261007449_Create-Table-Supplier.designer.cs">
-      <DependentUpon>202210261007449_Create-Table-Supplier.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210261507374_Create-Table-Import-Bill.cs" />
-    <Compile Include="Migrations\202210261507374_Create-Table-Import-Bill.designer.cs">
-      <DependentUpon>202210261507374_Create-Table-Import-Bill.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210261914567_Create-Bill.cs" />
-    <Compile Include="Migrations\202210261914567_Create-Bill.designer.cs">
-      <DependentUpon>202210261914567_Create-Bill.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210262302399_Add-Column-ImportBillID.cs" />
-    <Compile Include="Migrations\202210262302399_Add-Column-ImportBillID.designer.cs">
-      <DependentUpon>202210262302399_Add-Column-ImportBillID.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210262311402_update-column-date.cs" />
-    <Compile Include="Migrations\202210262311402_update-column-date.designer.cs">
-      <DependentUpon>202210262311402_update-column-date.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210262329441_fix-column.cs" />
-    <Compile Include="Migrations\202210262329441_fix-column.designer.cs">
-      <DependentUpon>202210262329441_fix-column.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210270047461_Update.cs" />
-    <Compile Include="Migrations\202210270047461_Update.designer.cs">
-      <DependentUpon>202210270047461_Update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210271302070_Update-Table-Category.cs" />
-    <Compile Include="Migrations\202210271302070_Update-Table-Category.designer.cs">
-      <DependentUpon>202210271302070_Update-Table-Category.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210271303511_Update-Table-Category-2.cs" />
-    <Compile Include="Migrations\202210271303511_Update-Table-Category-2.designer.cs">
-      <DependentUpon>202210271303511_Update-Table-Category-2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210271309401_Update-Table-Category-3.cs" />
-    <Compile Include="Migrations\202210271309401_Update-Table-Category-3.designer.cs">
-      <DependentUpon>202210271309401_Update-Table-Category-3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210271319207_update-db-category.cs" />
-    <Compile Include="Migrations\202210271319207_update-db-category.designer.cs">
-      <DependentUpon>202210271319207_update-db-category.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210271336571_27101.cs" />
-    <Compile Include="Migrations\202210271336571_27101.designer.cs">
-      <DependentUpon>202210271336571_27101.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210271341205_Update-Category-2710-1.cs" />
-    <Compile Include="Migrations\202210271341205_Update-Category-2710-1.designer.cs">
-      <DependentUpon>202210271341205_Update-Category-2710-1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210281632226_Delete-Column-SOHP-Table-Category.cs" />
-    <Compile Include="Migrations\202210281632226_Delete-Column-SOHP-Table-Category.designer.cs">
-      <DependentUpon>202210281632226_Delete-Column-SOHP-Table-Category.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210290344158_Delete-Column-Alias-Category.cs" />
-    <Compile Include="Migrations\202210290344158_Delete-Column-Alias-Category.designer.cs">
-      <DependentUpon>202210290344158_Delete-Column-Alias-Category.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210290829443_Create-Table-Customer.cs" />
-    <Compile Include="Migrations\202210290829443_Create-Table-Customer.designer.cs">
-      <DependentUpon>202210290829443_Create-Table-Customer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210290838524_Update-Table-Brand.cs" />
-    <Compile Include="Migrations\202210290838524_Update-Table-Brand.designer.cs">
-      <DependentUpon>202210290838524_Update-Table-Brand.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210301754582_Edit-Table-Product.cs" />
-    <Compile Include="Migrations\202210301754582_Edit-Table-Product.designer.cs">
-      <DependentUpon>202210301754582_Edit-Table-Product.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210301855009_Update-Table-Product-Delete-Time.cs" />
-    <Compile Include="Migrations\202210301855009_Update-Table-Product-Delete-Time.designer.cs">
-      <DependentUpon>202210301855009_Update-Table-Product-Delete-Time.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210301856138_Delete-Time-Table-Product.cs" />
-    <Compile Include="Migrations\202210301856138_Delete-Time-Table-Product.designer.cs">
-      <DependentUpon>202210301856138_Delete-Time-Table-Product.cs</DependentUpon>
+    <Compile Include="Migrations\202211010259184_delete-column-date-importbill.cs" />
+    <Compile Include="Migrations\202211010259184_delete-column-date-importbill.designer.cs">
+      <DependentUpon>202211010259184_delete-column-date-importbill.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Repositories\BrandRepository.cs" />
-    <Compile Include="Repositories\ImportBillRepository.cs" />
-    <Compile Include="Repositories\ImportBillDetailRepository.cs" />
-    <Compile Include="Repositories\SupplierRepository.cs" />
-    <Compile Include="Repositories\ProductDiscountRepository.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Repositories\DiscountRepository.cs" />
-    <Compile Include="Repositories\OrderItemRepository.cs" />
-    <Compile Include="Repositories\OrderRepository.cs" />
-    <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\ImportBillDetailRepository.cs" />
+    <Compile Include="Repositories\ImportBillRepository.cs" />
     <Compile Include="Repositories\MenuItemRecordRepository.cs" />
     <Compile Include="Repositories\MenuRecordRepository.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <Compile Include="Repositories\OrderItemRepository.cs" />
+    <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\ProductDiscountRepository.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\SupplierRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAGStore.Model\DAGStore.Model.csproj">
@@ -209,98 +89,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202210011012345_Rebuild.resx">
-      <DependentUpon>202210011012345_Rebuild.cs</DependentUpon>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202210311844446_Rebuid-Project.resx">
+      <DependentUpon>202210311844446_Rebuid-Project.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210011136099_Add-Column-Name-Table-Category.resx">
-      <DependentUpon>202210011136099_Add-Column-Name-Table-Category.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210020505152_Alter-Column-Table-Category.resx">
-      <DependentUpon>202210020505152_Alter-Column-Table-Category.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210020512065_Alter-Category.resx">
-      <DependentUpon>202210020512065_Alter-Category.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210020519213_Alter-Table-Category.resx">
-      <DependentUpon>202210020519213_Alter-Table-Category.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210020619144_Drop-Column-Data-Table-Category.resx">
-      <DependentUpon>202210020619144_Drop-Column-Data-Table-Category.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210171728093_Create-Table-Brand.resx">
-      <DependentUpon>202210171728093_Create-Table-Brand.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210171734355_Add-Column-BrandID-Product.resx">
-      <DependentUpon>202210171734355_Add-Column-BrandID-Product.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210171736341_Add-Foreign-BrandID-Product.resx">
-      <DependentUpon>202210171736341_Add-Foreign-BrandID-Product.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210211628092_Create-Table-Discount.resx">
-      <DependentUpon>202210211628092_Create-Table-Discount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210241318135_Update-Table-Product.resx">
-      <DependentUpon>202210241318135_Update-Table-Product.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210261007449_Create-Table-Supplier.resx">
-      <DependentUpon>202210261007449_Create-Table-Supplier.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210261507374_Create-Table-Import-Bill.resx">
-      <DependentUpon>202210261507374_Create-Table-Import-Bill.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210261914567_Create-Bill.resx">
-      <DependentUpon>202210261914567_Create-Bill.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210262302399_Add-Column-ImportBillID.resx">
-      <DependentUpon>202210262302399_Add-Column-ImportBillID.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210262311402_update-column-date.resx">
-      <DependentUpon>202210262311402_update-column-date.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210262329441_fix-column.resx">
-      <DependentUpon>202210262329441_fix-column.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210270047461_Update.resx">
-      <DependentUpon>202210270047461_Update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210271302070_Update-Table-Category.resx">
-      <DependentUpon>202210271302070_Update-Table-Category.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210271303511_Update-Table-Category-2.resx">
-      <DependentUpon>202210271303511_Update-Table-Category-2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210271309401_Update-Table-Category-3.resx">
-      <DependentUpon>202210271309401_Update-Table-Category-3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210271319207_update-db-category.resx">
-      <DependentUpon>202210271319207_update-db-category.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210271336571_27101.resx">
-      <DependentUpon>202210271336571_27101.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210271341205_Update-Category-2710-1.resx">
-      <DependentUpon>202210271341205_Update-Category-2710-1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210281632226_Delete-Column-SOHP-Table-Category.resx">
-      <DependentUpon>202210281632226_Delete-Column-SOHP-Table-Category.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210290344158_Delete-Column-Alias-Category.resx">
-      <DependentUpon>202210290344158_Delete-Column-Alias-Category.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210290829443_Create-Table-Customer.resx">
-      <DependentUpon>202210290829443_Create-Table-Customer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210290838524_Update-Table-Brand.resx">
-      <DependentUpon>202210290838524_Update-Table-Brand.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210301754582_Edit-Table-Product.resx">
-      <DependentUpon>202210301754582_Edit-Table-Product.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210301855009_Update-Table-Product-Delete-Time.resx">
-      <DependentUpon>202210301855009_Update-Table-Product-Delete-Time.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210301856138_Delete-Time-Table-Product.resx">
-      <DependentUpon>202210301856138_Delete-Time-Table-Product.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202211010259184_delete-column-date-importbill.resx">
+      <DependentUpon>202211010259184_delete-column-date-importbill.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

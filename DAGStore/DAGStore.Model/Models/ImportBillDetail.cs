@@ -11,13 +11,15 @@ namespace DAGStore.Model.Models
         [Key]
         public int ID { get; set; }
 
-        [ForeignKey("ImportBill")]
+        [Required]
         public int ImportBillID { get; set; }
-        public ImportBill ImportBill { get; set; }
+
+        [ForeignKey("ImportBillID")]
+        public virtual ImportBill ImportBill { get; set; }
 
         [ForeignKey("Product")]
         public int ProductID { get; set; }
-        public Product Product { get; set; }
+        public virtual Product Product { get; set; }
 
         [Required]
         public int Quantity { get; set; }

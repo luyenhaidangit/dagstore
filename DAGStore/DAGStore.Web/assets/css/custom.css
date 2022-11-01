@@ -104,6 +104,17 @@ div.dt-button-collection.fixed {
     text-transform: capitalize;
 }
 
+.text-placeholder {
+    color: rgba(191, 191, 191, 0.87);
+    cursor: text;
+    position: relative;
+    left: 1px;
+    z-index: 3;
+    display: inline-block;
+    -webkit-transition: none;
+    transition: none;
+}
+
 
 
 

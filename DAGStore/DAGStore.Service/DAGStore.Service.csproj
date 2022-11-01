@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAGStore.Data\DAGStore.Data.csproj">
-      <Project>{19b28161-da29-42b6-8150-ab4b414a02bc}</Project>
+      <Project>{8c45ffbb-7f84-4689-8672-89f7b3ded203}</Project>
       <Name>DAGStore.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAGStore.Model\DAGStore.Model.csproj">

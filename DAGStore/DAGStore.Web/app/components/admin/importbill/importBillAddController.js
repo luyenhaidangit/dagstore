@@ -4,6 +4,21 @@ importbill.controller('importbillAddController', importbillAddController);
 
 // Controller
 function importbillAddController($scope, apiService, notificationService, $state, ckeditorService) {
+    //Config
+    $scope.config = {
+        nameManage: "Hóa Đơn Nhập",
+        urlManage: "add-import-bill",
+        namePage: "Thêm Mới",
+    }
+
+    // Get data
+    $scope.products = [];
+    apiService.get("/product/getdata", null, function (result) {
+        $scope.products = result.data;
+    }, function (error) {
+        console.log("Get data fail");
+    })
+
     // Default Value
     $scope.importbill = {
         Quantity: 1,

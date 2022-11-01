@@ -2,16 +2,46 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-flex align-items-center justify-content-between">
-            <h4 class="mb-0">hóa đơn nhập</h4>
+            <h4 class="mb-0">{{config.nameManage}}</h4>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a ui-sref="dashboard">DAGStore</a></li>
-                    <li class="breadcrumb-item"><a ui-sref="importbill">Quản lý hóa đơn nhập</a></li>
-                    <li class="breadcrumb-item active"><a ui-sref="importbill-add"></a>Thêm mới</li>
+                    <li class="breadcrumb-item"><a ui-sref="brand">Quản lý {{config.nameManage}}</a></li>
+                    <li class="breadcrumb-item active"><a ui-sref="add-brand"></a>{{config.namePage}}</li>
                 </ol>
             </div>
+        </div>
+    </div>
+    <div class="col-8">
+        <!-- BrandID -->
+        <div class="form-group row">
+            <div class="col-md-12">
 
+                <div class="ui dropdown fluid search selection">
+                    <input ng-model="product.BrandID" type="hidden" name="brandid" value="{{brands[0].ID}}" placeholder="Chọn hàng hóa">
+                    <i class="dropdown icon"></i>
+                    <div class="text default"> Chọn thông tin hàng hóa</div>
+                    <div class="menu">
+                        <div ng-repeat="item in products" class="item" data-value="{{item.ID}}">
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="{{item.PicturePath}}" style="height:28px;" class="img-fluid" alt="Responsive image">
+                                </div>
+                                <div class="col-11 text-left">
+                                    <div class="font-weight-bold mb-1">{{item.Name}}</div>
+                                    <div>
+                                        <span class="font-weight-normal mr-2" style="font-size:13px;">Mã: {{item.ID}}</span>
+                                        <span class="font-weight-normal mr-2" style="font-size:13px;">Giá bán: {{item.CostPrice| formatCurrencyVND}}</span>
+                                        <span class="font-weight-normal" style="font-size:13px;">Tồn kho: {{item.InventoryQuantity}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -19,60 +49,121 @@
 
 
 <div class="row">
-    <div class="col-12">
-        <div class="card">
+    <div class="col-8">
+        <div class="card" style="min-height:500px;">
             <div class="card-body">
-                <form class="form-horizontal" novalidate name="formAddimportbill" role="form" ng-submit="Addimportbill()">
-                    <!-- SupplierID -->
+                <form class="form-horizontal" novalidate name="formAddBrand" role="form" ng-submit="AddBrand()">
+                    <!-- Name -->
                     <div class="form-group row">
-                        <label for="example-text-input" class="col-md-2 col-form-label">Hãng sản phẩm</label>
+                        <label for="example-text-input" class="col-md-2 col-form-label">Tên hãng sản phẩm</label>
                         <div class="col-md-10">
-                            <div class="ui dropdown fluid search selection">
-                                <input ng-model="importbill.SupplierID" type="hidden" name="brandid" value="{{brands[0].ID}}">
-                                <i class="dropdown icon"></i>
-                                <div class="default text">{{suppliers[0].Name}}</div>
-                                <div class="menu">
-                                    <div ng-repeat="item in suppliers" class="item" data-value="{{item.ID}}">{{item.Name}}</div>
-                                </div>
-                            </div>
+                            <input ng-model="brand.Name" name="name" required ng-maxlength="500" class="form-control" type="text" value="">
+                            <span class="text-valid" ng-show="formAddBrand.name.$error.required && formAddBrand.name.$touched">Tên sản phẩm không được để trống!</span>
+                            <span class="text-valid" ng-show="formAddBrand.name.$error.maxlength">Tên sản phẩm không được quá 500 ký tự!</span>
                         </div>
                     </div>
 
+                    <!-- ImagePath -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Ảnh đại diện</label>
+                        <div class="col-md-10">
+                            <div class="input-control d-flex align-items-center">
+                                <button ng-click="ChooseImage(true)" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Chọn ảnh</button>
+                                <i ng-click="ChooseImage(false)" style="cursor:pointer" ng-show="statusChooseAvatar" class="fal fa-times-circle text-danger ml-3"></i>
+                                <input type="hidden" name="picturepath" ng-model="brand.PicturePath">
+                            </div>
 
-                    <div class="table-responsive">
-                        <table class="table table-editable table-nowrap">
-                            <thead>
-                                <tr>
-                                    <th>Sản phẩm</th>
-                                    <th>Số lượng</th>
-                                    <th>Đơn giá</th>
-                                    <th>Giảm giá</th>
-                                </tr>
-                            </thead>
-                            <tr>
-                                <td>{{product.Name}}</td>
-                                <td data-original-value="11"><a href="" data-type="text" data-pk="1" class="editable" data-url="" data-title="Edit Quantity">{{importbill.Quantity}}</a></td>
-                                <td data-original-value="1"><a href="" data-type="text" data-pk="1" class="editable" data-url="" data-title="Edit Quantity">{{importbill.ImportPrice}}</a></td>
-                                <td data-original-value="1.99"><a href="#" data-type="text" data-pk="1" class="editable" data-url="" data-title="Edit Quantity">{{importbill.ImportPrice}}</a></td>
-                            </tr>
-                           
-                        </table>
+                            <img style="width:160px" class="animate__fadeInDown img-fluid mt-3 rounded" ng-show="statusChooseAvatar" name="picturepath" src="{{brand.PicturePath}}">
+                        </div>
                     </div>
 
+                    <!-- DisplayOrder -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Độ ưu tiên</label>
+                        <div class="col-md-10">
+                            <input ng-model="brand.DisplayOrder" required name="displayorder" class="form-control" type="number" value="0" id="example-number-input">
+                            <span ng-show="formAddBrand.displayorder.$error.required && formAddBrand.displayorder.$touched">Giá hãng sản phẩm!</span>
+                        </div>
+                    </div>
+
+                    <!-- Published -->
+                    <div class="form-group row d-flex align-items-center">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Hoạt động</label>
+                        <div class="col-md-10 d-flex align-items-center">
+                            <input type="checkbox" id="Published" switch="none" checked="" ng-model="brand.Published" ng-checked="brand.Published">
+                            <label class="mr-0" for="Published" data-on-label="On" data-off-label="Off"></label>
+                        </div>
+                    </div>
 
                     <div class="add-btn mb-4 d-flex justify-content-end" style="gap:12px">
-                        <button ui-sref="importbill" class="btn btn-secondary waves-effect waves-light">Trở lại</button>
-                        <button ng-disabled="formAddimportbill.$invalid" type="submit" class="btn btn-primary waves-effect waves-light">Xác nhận</button>
+                        <button ui-sref="brand" class="btn btn-secondary waves-effect waves-light">Trở lại</button>
+                        <button ng-disabled="formAddBrand.$invalid" type="submit" class="btn btn-primary waves-effect waves-light">Xác nhận</button>
                     </div>
                 </form>
             </div>
         </div>
-    </div> <!-- end col -->
+    </div>
+    <div class="col-4">
+        <div class="card" style="min-height:500px;">
+            <div class="card-body">
+                <form class="form-horizontal" novalidate name="formAddBrand" role="form" ng-submit="AddBrand()">
+                    <!-- Name -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Tên hãng sản phẩm</label>
+                        <div class="col-md-10">
+                            <input ng-model="brand.Name" name="name" required ng-maxlength="500" class="form-control" type="text" value="">
+                            <span class="text-valid" ng-show="formAddBrand.name.$error.required && formAddBrand.name.$touched">Tên sản phẩm không được để trống!</span>
+                            <span class="text-valid" ng-show="formAddBrand.name.$error.maxlength">Tên sản phẩm không được quá 500 ký tự!</span>
+                        </div>
+                    </div>
+
+                    <!-- ImagePath -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Ảnh đại diện</label>
+                        <div class="col-md-10">
+                            <div class="input-control d-flex align-items-center">
+                                <button ng-click="ChooseImage(true)" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Chọn ảnh</button>
+                                <i ng-click="ChooseImage(false)" style="cursor:pointer" ng-show="statusChooseAvatar" class="fal fa-times-circle text-danger ml-3"></i>
+                                <input type="hidden" name="picturepath" ng-model="brand.PicturePath">
+                            </div>
+
+                            <img style="width:160px" class="animate__fadeInDown img-fluid mt-3 rounded" ng-show="statusChooseAvatar" name="picturepath" src="{{brand.PicturePath}}">
+                        </div>
+                    </div>
+
+                   
+
+                    <!-- DisplayOrder -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Độ ưu tiên</label>
+                        <div class="col-md-10">
+                            <input ng-model="brand.DisplayOrder" required name="displayorder" class="form-control" type="number" value="0" id="example-number-input">
+                            <span ng-show="formAddBrand.displayorder.$error.required && formAddBrand.displayorder.$touched">Giá hãng sản phẩm!</span>
+                        </div>
+                    </div>
+
+                    <!-- Published -->
+                    <div class="form-group row d-flex align-items-center">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Hoạt động</label>
+                        <div class="col-md-10 d-flex align-items-center">
+                            <input type="checkbox" id="Published" switch="none" checked="" ng-model="brand.Published" ng-checked="brand.Published">
+                            <label class="mr-0" for="Published" data-on-label="On" data-off-label="Off"></label>
+                        </div>
+                    </div>
+
+                    <div class="add-btn mb-4 d-flex justify-content-end" style="gap:12px">
+                        <button ui-sref="brand" class="btn btn-secondary waves-effect waves-light">Trở lại</button>
+                        <button ng-disabled="formAddBrand.$invalid" type="submit" class="btn btn-primary waves-effect waves-light">Xác nhận</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- end row -->
 <script>
     $(".ui.dropdown").dropdown({
-
+        action: 'select',
     });
 </script>
 <script src="/assets/libs/bootstrap-editable/js/index.js"></script>

@@ -4,26 +4,43 @@ importBill.controller('importBillListController', importBillListController);
 
 // Controller
 function importBillListController($scope, apiService, dataTableService, notificationService, alertService) {
-
+    //Config
+    $scope.config = {
+        namePage: "Hóa Đơn Nhập",
+        urlPage: "import-bill",
+        nameDataTable: "DAGStoreDatatable",
+        data: "/import-bill/getall",
+        columnDefs: [
+            { targets: 0, name: "STT" },
+            { targets: 1, name: "ID", visible: false },
+            { targets: 2, name: "Tên nhà cung cấp" },
+            { targets: 3, name: "Tổng đơn hàng" },
+            { targets: 4, name: "Tổng khuyến mãi" },
+            { targets: 5, name: "Tổng thực thanh toán" },
+            { targets: 6, name: "Mô tả", visible: false },
+            { targets: 7, name: "Trạng thái" },
+            { targets: 8, name: "Thao tác" },
+        ],
+        exportOptions: {
+            columns: [1, 2, 3, 4, 5, 6,7],
+            orthogonal: 'export'
+        },
+    }
     // Get Data
-    $scope.importBills = [];
-    $scope.getItems = getItems;
-    function getItems() {
-        apiService.get("/importBill/getdata", null, function (result) {
+    $scope.importbills = [];
+    apiService.get("/importbill/getall", null, function (result) {
 
-            $scope.importBills = result.data;
-            dataTableService.createDataTable("DAGStoreDatatable");
-            
-            console.log($scope.importBills);
-        }, function (error) {
-            console.log("Get data fail");
-        })
-    };
-    $scope.getItems();
+        $scope.importbills = result.data;
+        dataTableService.createDataTable($scope.config);
+
+        console.log($scope.importbills);
+    }, function (error) {
+        console.log("Get data fail");
+    })
 
     // Delete Object
-    $scope.DeleteimportBill = DeleteimportBill;
-    function DeleteimportBill(e, id) {
+    $scope.DeleteImportBill = DeleteImportBill;
+    function DeleteImportBill(e, id) {
         alertService.alertSubmitDelete().then((result) => {
             if (result.isConfirmed) {
                 var config = {
@@ -31,7 +48,7 @@ function importBillListController($scope, apiService, dataTableService, notifica
                         id: id
                     }
                 }
-                apiService.del("/importBill/delete", config, function (success) {
+                apiService.del("/importbill/delete", config, function (success) {
                     notificationService.displaySuccess("Xóa thành công bản ghi!");
                     let pageIndex = $("#DAGStoreDatatable").DataTable().page.info().page;
                     let recordOfPage = $("#DAGStoreDatatable").DataTable().page.info().length;
