@@ -3,12 +3,15 @@ var importbill = angular.module('DAGStore.importBill');
 importbill.controller('importbillAddController', importbillAddController);
 
 // Controller
-function importbillAddController($scope, apiService, notificationService, $state, ckeditorService) {
+function importbillAddController($scope, apiService, notificationService, $state, ckeditorService, dataTableService) {
     //Config
     $scope.config = {
         nameManage: "Hóa Đơn Nhập",
         urlManage: "add-import-bill",
         namePage: "Thêm Mới",
+    }
+    $scope.importbill = {
+        ImportBillDetails: [],
     }
 
     // Get data
@@ -19,37 +22,33 @@ function importbillAddController($scope, apiService, notificationService, $state
         console.log("Get data fail");
     })
 
-    // Default Value
-    $scope.importbill = {
-        Quantity: 1,
-        ImportPrice: 12000000,
+    $scope.AddImportBillDetail = AddImportBillDetail;
+    function AddImportBillDetail(item) {
+        
+        var item = {
+            PicturePath: item.PicturePath,
+            ProductName: item.Name,
+            Quantity: 0,
+            ImportPrice: 0,
+            Discount: 0,
+            TotalImportPrice:0,
+        }
+
+        $scope.importbill.ImportBillDetails.push(item);
+        $scope.products.splice($scope.products.findIndex(a => a.ID === item.ID), 1)
     }
 
-    $scope.product = {
-        "ID": 2,
-        "Name": "Samsung Galaxy Z Fold4 256GB",
-        "CategoryID": 5,
-        "Category": null,
-        "BrandID": 2,
-        "Brand": null,
-        "PicturePath": "/Upload/images/Product/samsung-galaxy-z-fold4-5g-thumb-1a-600x600%20(1).jpg",
-        "ShortDescription": "Samsung Galaxy Z Fold4 256GB",
-        "ShortDescriptionEndow": null,
-        "FullDescription": null,
-        "ShowOnHomePage": true,
-        "MetaKeywords": "samsung-galaxy-z-fold4-256gb",
-        "MetaDescription": "samsung-galaxy-z-fold4-256gb",
-        "MetaTitle": "samsung-galaxy-z-fold4-256gb",
-        "Alias": "samsung-galaxy-z-fold4-256gb",
-        "StockQuantity": 10,
-        "Price": 40990000,
-        "OldPrice": 38000000,
-        "HasDiscountsApplied": true,
-        "DisplayOrder": -1,
-        "Published": true,
-        "CreateOn": "/Date(1664989200000)/",
-        "UpdateOn": "/Date(1666544400000)/",
+    $scope.InvoiceProcessing = InvoiceProcessing;
+    function InvoiceProcessing(item) {
+        
     }
+
+    
+
+
+   
+
+    
 
     // Load List Brand
     $scope.suppliers = [];
@@ -57,33 +56,13 @@ function importbillAddController($scope, apiService, notificationService, $state
     function GetSuppliers() {
         apiService.get("/supplier/getall", null, function (result) {
             $scope.suppliers = result.data;
-            console.log($scope.suppliers[0].ID);
+          
         }, function (error) {
             console.log("Get data fail");
         })
     };
     $scope.GetSuppliers();
 
-    // Choose Image Avatar
-    $scope.statusChooseAvatar = false;
-    $scope.ChooseImage = ChooseImage;
-    function ChooseImage(status) {
-        console.log($scope.importbills)
-        if (status === true) {
-            var finder = new CKFinder();
-            finder.selectActionFunction = function (fileUrl) {
-                $scope.importbill.PicturePath = fileUrl;
-                $scope.statusChooseAvatar = true;
-                $scope.$apply();
-            }
-            finder.popup();
-        }
-        if (status === false) {
-            $scope.importbill.PicturePath = null;
-            $scope.statusChooseAvatar = false;
-            $scope.$apply();
-        }
-    }
     
 
     // Submit Add

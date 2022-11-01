@@ -11,6 +11,7 @@
             desTroyDataTable: desTroyDataTable,
             deleteRowDataTable: deleteRowDataTable,
             createDefaultDataTable: createDefaultDataTable,
+            createDataTableEdit: createDataTableEdit
         }
 
         function createDefaultDataTable(nameTable) {
@@ -61,6 +62,10 @@
                     .appendTo(".datatable-extension")
 
             });
+        }
+
+        function createDataTableEdit() {
+           
         }
     }
 })(angular.module('DAGStore.common'));

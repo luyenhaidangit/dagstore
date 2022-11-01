@@ -2232,6 +2232,7 @@
     <Content Include="assets\libs\datatables.net-select-bs4\js\select.bootstrap4.min.js" />
     <Content Include="assets\libs\datatables.net-select\js\dataTables.select.min.js" />
     <Content Include="assets\libs\datatables.net-select\License.txt" />
+    <Content Include="assets\libs\datatables.net\editor\dataTables.editor.min.js" />
     <Content Include="assets\libs\datatables.net\foundation\buttons.foundation.min.css" />
     <Content Include="assets\libs\datatables.net\foundation\buttons.foundation.min.js" />
     <Content Include="assets\libs\datatables.net\foundation\dataTables.foundation.min.css" />
