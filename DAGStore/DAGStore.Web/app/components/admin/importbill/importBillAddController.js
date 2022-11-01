@@ -39,7 +39,19 @@ function importbillAddController($scope, apiService, notificationService, $state
     }
 
     $scope.InvoiceProcessing = InvoiceProcessing;
-    function InvoiceProcessing(item) {
+    function InvoiceProcessing(index) {
+        console.log($scope.importbill.ImportBillDetails[index])
+        var quantity = $scope.importbill.ImportBillDetails[index].Quantity === null ? 0 : ($scope.importbill.ImportBillDetails[index].Quantity);
+        var importprice = $scope.importbill.ImportBillDetails[index].ImportPrice === null ? 0 : $scope.importbill.ImportBillDetails[index].ImportPrice;
+        var discount = $scope.importbill.ImportBillDetails[index].Discount === null ? 0 : $scope.importbill.ImportBillDetails[index].Discount;
+        $scope.importbill.ImportBillDetails[index].Quantity = $scope.importbill.ImportBillDetails[index].Quantity < 0 ? 0 : $scope.importbill.ImportBillDetails[index].Quantity;
+        $scope.importbill.ImportBillDetails[index].ImportPrice = $scope.importbill.ImportBillDetails[index].ImportPrice < 0 ? 0 : $scope.importbill.ImportBillDetails[index].ImportPrice;
+        $scope.importbill.ImportBillDetails[index].Discount = $scope.importbill.ImportBillDetails[index].Discount < 0 ? 0 : $scope.importbill.ImportBillDetails[index].Discount;
+        var result = $scope.importbill.ImportBillDetails[index].Quantity * $scope.importbill.ImportBillDetails[index].ImportPrice - $scope.importbill.ImportBillDetails[index].Discount;
+        console.log(result)
+        $scope.importbill.ImportBillDetails[index].TotalImportPrice = result;
+        
+
         
     }
 
