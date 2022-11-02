@@ -11,6 +11,9 @@ function importbillAddController($scope, apiService, notificationService, $state
         namePage: "Thêm Mới",
     }
     $scope.importbill = {
+        TotalPriceBill: 0,
+        ActualPriceBill: 0,
+        Discount: 0,
         ImportBillDetails: [],
     }
 
@@ -22,74 +25,84 @@ function importbillAddController($scope, apiService, notificationService, $state
         console.log("Get data fail");
     })
 
+    // Add ImportBillDetail
     $scope.AddImportBillDetail = AddImportBillDetail;
     function AddImportBillDetail(item) {
-        
+        $scope.products.splice($scope.products.findIndex(a => a.ID === item.ID), 1)
+        console.log(item)
         var item = {
             PicturePath: item.PicturePath,
             ProductName: item.Name,
-            Quantity: 0,
-            ImportPrice: 0,
+            ImportBillID : null,
+            ProductID: item.ID,
+            Quantity: 1,
+            ImportPrice: item.CostPrice,
             Discount: 0,
-            TotalImportPrice:0,
+            TotalImportPrice: 0,
         }
-
+        item.TotalImportPrice = item.Quantity * item.ImportPrice - item.Discount
         $scope.importbill.ImportBillDetails.push(item);
-        $scope.products.splice($scope.products.findIndex(a => a.ID === item.ID), 1)
+        InvoiceTotalProcessing();
     }
 
+    // Invoice Processing
     $scope.InvoiceProcessing = InvoiceProcessing;
     function InvoiceProcessing(index) {
-        console.log($scope.importbill.ImportBillDetails[index])
-        var quantity = $scope.importbill.ImportBillDetails[index].Quantity === null ? 0 : ($scope.importbill.ImportBillDetails[index].Quantity);
-        var importprice = $scope.importbill.ImportBillDetails[index].ImportPrice === null ? 0 : $scope.importbill.ImportBillDetails[index].ImportPrice;
-        var discount = $scope.importbill.ImportBillDetails[index].Discount === null ? 0 : $scope.importbill.ImportBillDetails[index].Discount;
-        $scope.importbill.ImportBillDetails[index].Quantity = $scope.importbill.ImportBillDetails[index].Quantity < 0 ? 0 : $scope.importbill.ImportBillDetails[index].Quantity;
-        $scope.importbill.ImportBillDetails[index].ImportPrice = $scope.importbill.ImportBillDetails[index].ImportPrice < 0 ? 0 : $scope.importbill.ImportBillDetails[index].ImportPrice;
-        $scope.importbill.ImportBillDetails[index].Discount = $scope.importbill.ImportBillDetails[index].Discount < 0 ? 0 : $scope.importbill.ImportBillDetails[index].Discount;
-        var result = $scope.importbill.ImportBillDetails[index].Quantity * $scope.importbill.ImportBillDetails[index].ImportPrice - $scope.importbill.ImportBillDetails[index].Discount;
-        console.log(result)
+        var result = ($scope.importbill.ImportBillDetails[index].Quantity * $scope.importbill.ImportBillDetails[index].ImportPrice) * (100 - $scope.importbill.ImportBillDetails[index].Discount)/100;
         $scope.importbill.ImportBillDetails[index].TotalImportPrice = result;
-        
 
-        
+        InvoiceTotalProcessing();
     }
-
-    
-
-
-   
-
-    
 
     // Load List Brand
     $scope.suppliers = [];
-    $scope.GetSuppliers = GetSuppliers;
-    function GetSuppliers() {
-        apiService.get("/supplier/getall", null, function (result) {
-            $scope.suppliers = result.data;
-          
-        }, function (error) {
-            console.log("Get data fail");
-        })
-    };
-    $scope.GetSuppliers();
+    apiService.get("/supplier/getall", null, function (result) {
+        $scope.suppliers = result.data;
+    }, function (error) {
+        console.log("Get data fail");
+    })
 
+    // Invoice Total Processing
+    function Sum(items, prop) {
+        return items.reduce(function (a, b) {
+            return a + b[prop];
+        }, 0);
+    };
+    $scope.InvoiceTotalProcessing = InvoiceTotalProcessing;
+    function InvoiceTotalProcessing() {
+        $scope.importbill.ActualPriceBill = Sum($scope.importbill.ImportBillDetails, 'TotalImportPrice');
+        var TotalPriceBill = 0;
+        $scope.importbill.ImportBillDetails.forEach(item => {
+            TotalPriceBill += item.Quantity * item.ImportPrice;
+        });
+        $scope.importbill.TotalPriceBill = TotalPriceBill;
+        $scope.importbill.Discount = $scope.importbill.TotalPriceBill - $scope.importbill.ActualPriceBill;
+    }
+
+    // Remove Detail Bill
+    $scope.RemoveDetailBill = RemoveDetailBill;
+    function RemoveDetailBill(value) {
+     /*   $scope.importbill.ImportBillDetails = $scope.importbill.ImportBillDetails.splice(index, 1);*/
+        $scope.importbill.ImportBillDetails = $scope.importbill.ImportBillDetails.filter(function (item) {
+            return item !== value
+        })
+        InvoiceTotalProcessing();
+    }
     
 
-    // Submit Add
-    $scope.Addimportbill = Addimportbill;
-    function Addimportbill() {
-        console.log("ok")
-        // Add Value
-        apiService.post("/importbill/create", $scope.importbill, function (result) {
+    //// Submit Add
+    //$scope.Addimportbill = Addimportbill;
+    //function Addimportbill() {
+    //    console.log("ok")
+    //    // Add Value
+    //    apiService.post("/importbill/create", $scope.importbill, function (result) {
             
-            notificationService.displaySuccess("Thêm thông tin thành công!");
+    //        notificationService.displaySuccess("Thêm thông tin thành công!");
 
-            $state.go("importbill");
-        }, function (error) {
-            notificationService.displaySuccess("Thêm mới không thành công!");
-            console.log($scope.importbill);
-        });
-    }
+    //        $state.go("importbill");
+    //    }, function (error) {
+    //        notificationService.displaySuccess("Thêm mới không thành công!");
+    //        console.log($scope.importbill);
+    //    });
+    //}
 }
