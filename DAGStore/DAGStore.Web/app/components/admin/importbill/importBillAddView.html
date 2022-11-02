@@ -93,13 +93,13 @@
     </div>
     <div class="col-4">
         <div class="card" style="min-height:500px;">
-            <div class="card-body" style="padding-bottom:30px">
-                <form class="form-horizontal" novalidate name="formAddBrand" role="form" ng-submit="AddBrand()">
+            <div class="card-body" style="padding-bottom:50px">
+                <form class="form-horizontal" novalidate name="form" role="form" ng-submit="AddBrand()">
                     <div class="form-group row">
                         <div class="col-md-12">
                             <div class="table-responsive">
                                 <table class="table table-borderless mb-0">
-                                    <tbody ng-form="form">
+                                    <tbody>
                                         <tr class="border-bottom">
                                             <td>Người tạo đơn</td>
                                             <td>Luyện Hải Đăng</td>
@@ -121,13 +121,14 @@
                     <div class="form-group row">
                         <div class="col-md-12">
                             <div class="ui dropdown fluid search selection">
-                                <input ng-model="product.BrandID" type="hidden" name="brandid" value="{{brands[0].ID}}">
                                 <i class="dropdown icon"></i>
+                                <input ng-model="importbill.SupplierID" name="supplier" type="hidden" required>
                                 <div class="default text">Lựa chọn nhà cung cấp</div>
                                 <div class="menu">
-                                    <div ng-repeat="item in suppliers" class="item" data-value="{{item.ID}}">{{item.Name}}</div>
+                                    <div ng-repeat="item in suppliers" ng-click="ChooseSupplierImportBill(item)" class="item" data-value="{{item.ID}}">{{item.Name}}</div>
                                 </div>
                             </div>
+                            <span class="text-valid ml-2" ng-show="errorSupplier">Vui lòng chọn nhà cung cấp!</span>
                         </div>
                     </div>
                     <!-- Info -->
@@ -135,8 +136,6 @@
                         <div class="col-md-12">
                             <div class="table-responsive">
                                 <table class="table table-borderless mb-0">
-
-
                                     <tbody ng-form="form">
                                         <tr class="border-bottom">
                                             <td>Tổng hóa đơn</td>
@@ -158,14 +157,15 @@
                     <!-- Info -->
                     <div class="form-group row">
                         <div class="col-md-12">
-                            <textarea required="" class="form-control" rows="2" placeholder="Ghi chú"></textarea>
+                            <input ng-model="importbill.Description" class="form-control" rows="2" placeholder="Ghi chú"></input>
                         </div>
                     </div>
 
                     <div class="add-btn mb-4 d-flex justify-content-end" style="gap:12px">
                         <button ui-sref="import-bill" class="btn btn-secondary waves-effect waves-light">Trở lại</button>
-                        <button class="btn btn-primary waves-effect waves-light">Xác nhận</button>
+                        <button ng-click="AddImportBill()" class="btn btn-primary waves-effect waves-light">Xác nhận</button>
                     </div>
+
                 </form>
             </div>
         </div>

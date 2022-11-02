@@ -11,9 +11,12 @@ function importbillAddController($scope, apiService, notificationService, $state
         namePage: "Thêm Mới",
     }
     $scope.importbill = {
+        SupplierID: 0,
         TotalPriceBill: 0,
         ActualPriceBill: 0,
         Discount: 0,
+        Description: null,
+        Status: true,
         ImportBillDetails: [],
     }
 
@@ -82,27 +85,29 @@ function importbillAddController($scope, apiService, notificationService, $state
     // Remove Detail Bill
     $scope.RemoveDetailBill = RemoveDetailBill;
     function RemoveDetailBill(value) {
-     /*   $scope.importbill.ImportBillDetails = $scope.importbill.ImportBillDetails.splice(index, 1);*/
         $scope.importbill.ImportBillDetails = $scope.importbill.ImportBillDetails.filter(function (item) {
             return item !== value
         })
         InvoiceTotalProcessing();
     }
-    
 
-    //// Submit Add
-    //$scope.Addimportbill = Addimportbill;
-    //function Addimportbill() {
-    //    console.log("ok")
-    //    // Add Value
-    //    apiService.post("/importbill/create", $scope.importbill, function (result) {
-            
-    //        notificationService.displaySuccess("Thêm thông tin thành công!");
+    //Choose Supplier Import Bill
+    $scope.ChooseSupplierImportBill = ChooseSupplierImportBill;
+    function ChooseSupplierImportBill(item) {
+        $scope.importbill.SupplierID = item.ID;
+        $scope.errorSupplier = false;
+    }
 
-    //        $state.go("importbill");
-    //    }, function (error) {
-    //        notificationService.displaySuccess("Thêm mới không thành công!");
-    //        console.log($scope.importbill);
-    //    });
-    //}
+  
+    $scope.AddImportBill = AddImportBill;
+    function AddImportBill() {
+        $scope.errorSupplier = $scope.importbill.SupplierID == 0 ? true : false;
+        console.log($scope.importbill)
+        apiService.post("/importbill/create", $scope.importbill, function (result) {
+            notificationService.displaySuccess("Thêm thông tin thành công!");
+            $state.go("import-bill");
+        }, function (error) {
+           
+        });
+    }
 }
