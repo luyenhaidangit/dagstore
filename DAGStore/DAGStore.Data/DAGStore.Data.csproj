@@ -67,6 +67,22 @@
     <Compile Include="Migrations\202211010259184_delete-column-date-importbill.designer.cs">
       <DependentUpon>202211010259184_delete-column-date-importbill.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202211031232002_Add-Column-ImportBillCode.cs" />
+    <Compile Include="Migrations\202211031232002_Add-Column-ImportBillCode.designer.cs">
+      <DependentUpon>202211031232002_Add-Column-ImportBillCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211031253118_Add-Column-CreateOn-ImportBill.cs" />
+    <Compile Include="Migrations\202211031253118_Add-Column-CreateOn-ImportBill.designer.cs">
+      <DependentUpon>202211031253118_Add-Column-CreateOn-ImportBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211031328194_Reset-CreatOn-ImportBill.cs" />
+    <Compile Include="Migrations\202211031328194_Reset-CreatOn-ImportBill.designer.cs">
+      <DependentUpon>202211031328194_Reset-CreatOn-ImportBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211031329335_Edit-Column-CreateOn-ImportBill.cs" />
+    <Compile Include="Migrations\202211031329335_Edit-Column-CreateOn-ImportBill.designer.cs">
+      <DependentUpon>202211031329335_Edit-Column-CreateOn-ImportBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BrandRepository.cs" />
@@ -98,6 +114,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202211010259184_delete-column-date-importbill.resx">
       <DependentUpon>202211010259184_delete-column-date-importbill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211031232002_Add-Column-ImportBillCode.resx">
+      <DependentUpon>202211031232002_Add-Column-ImportBillCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211031253118_Add-Column-CreateOn-ImportBill.resx">
+      <DependentUpon>202211031253118_Add-Column-CreateOn-ImportBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211031328194_Reset-CreatOn-ImportBill.resx">
+      <DependentUpon>202211031328194_Reset-CreatOn-ImportBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211031329335_Edit-Column-CreateOn-ImportBill.resx">
+      <DependentUpon>202211031329335_Edit-Column-CreateOn-ImportBill.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -13,10 +13,12 @@ namespace DAGStore.Web.Controllers
     public class ImportBillController : Controller
     {
         IImportBillService _importBillService;
+        IImportBillDetailService _importBillDetailService;
 
-        public ImportBillController(IImportBillService importBillService)
+        public ImportBillController(IImportBillService importBillService, IImportBillDetailService importBillDetailService)
         {
             this._importBillService = importBillService;
+            this._importBillDetailService = importBillDetailService;
         }
 
         // GET: category
@@ -46,6 +48,12 @@ namespace DAGStore.Web.Controllers
         {
             _importBillService.Add(importBill);
             _importBillService.SaveChanges();
+            foreach (var importBillDetail in importBill.ImportBillDetails)
+            {
+                importBillDetail.ImportBillID = importBill.ID;
+                _importBillDetailService.Add(importBillDetail);
+            }
+            _importBillDetailService.SaveChanges();
 
             return Json(true, JsonRequestBehavior.AllowGet);
         }

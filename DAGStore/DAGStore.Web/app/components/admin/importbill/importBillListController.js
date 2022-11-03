@@ -56,7 +56,7 @@ function importBillListController($scope, apiService, dataTableService, notifica
                     let index = pageIndex * recordOfPage + recordIndexOfPage;
                     console.log($(e.currentTarget).parents('tr').index());
                     $("#DAGStoreDatatable").DataTable().row(index).remove().draw();
-               
+                    
                 }, function (error) {
                     console.log("Xóa không thành công!")
                 })

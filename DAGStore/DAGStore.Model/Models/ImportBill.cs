@@ -11,6 +11,9 @@ namespace DAGStore.Model.Models
         [Key]
         public int ID { get; set; }
 
+        [MaxLength(50)]
+        public string ImportBillCode { get; set; }
+
         [ForeignKey("Supplier")]
         public int SupplierID { get; set; }
         public Supplier Supplier { get; set; }
@@ -29,6 +32,8 @@ namespace DAGStore.Model.Models
 
         [Required]
         public bool Status { get; set; }
+
+        public DateTime CreateOn { get; set; }
 
         public virtual IEnumerable<ImportBillDetail> ImportBillDetails { set; get; }
     }
