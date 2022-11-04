@@ -7,7 +7,7 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a ui-sref="dashboard">DAGStore</a></li>
-                    <li class="breadcrumb-item"><a ui-sref="brand">Quản lý {{config.nameManage}}</a></li>
+                    <li class="breadcrumb-item"><a ui-sref="import-bill">Quản lý {{config.nameManage}}</a></li>
                     <li class="breadcrumb-item active"><a ui-sref="add-brand"></a>{{config.namePage}}</li>
                 </ol>
             </div>
@@ -23,38 +23,10 @@
 
     <div class="col-8">
 
-        <div class="col-12">
-            <!-- BrandID -->
-            <div class="form-group row">
-                <div class="col-md-12 p-0">
-                    <div class="ui dropdown select-product fluid search selection multiple">
-                        <i class="dropdown icon"></i>
-                        <div class="text default"> Chọn thông tin hàng hóa</div>
-                        <div class="menu">
-                            <div ng-repeat="item in products" class="item" ng-click="AddImportBillDetail(item,$event)">
-                                <div class="row">
-                                    <div class="col-1">
-                                        <img src="{{item.PicturePath}}" style="height:28px;" class="img-fluid" alt="Responsive image">
-                                    </div>
-                                    <div class="col-11 text-left">
-                                        <div class="font-weight-bold mb-1">{{item.Name}}</div>
-                                        <div>
-                                            <span class="font-weight-normal mr-2" style="font-size:13px;">Mã: {{item.ID}}</span>
-                                            <span class="font-weight-normal mr-2" style="font-size:13px;">Giá bán: {{item.CostPrice| formatCurrencyVND}}</span>
-                                            <span class="font-weight-normal" style="font-size:13px;">Tồn kho: {{item.InventoryQuantity}}</span>
-                                        </div>
-                                    </div>
-                                </div>
+       
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" style="min-height:500px;">
-            <div class="card-body p-0">
+        <div class="card" style="min-height:515px;">
+            <div class="card-body p-0" style="padding-bottom:50px;">
                 <form class="form-horizontal" novalidate name="formAddBrand" role="form" ng-submit="AddBrand()">
                     <div class="table-responsive">
                         <table class="table table-borderless mb-0">
@@ -71,17 +43,17 @@
                                 </tr>
                             </thead>
                             <tbody ng-form="form">
-                                <tr class="border-bottom" ng-repeat="item in importbill.ImportBillDetails">
-                                    <td><i class="fas fa-trash-alt text-danger" style="cursor:pointer" ng-click="RemoveDetailBill(item)"></i></td>
-                                    <td><img src="{{item.PicturePath}}" style="height:28px;" class="img-fluid" alt="Responsive image"></td>
-                                    <td>{{item.ProductName}}</td>
+                                <tr class="border-bottom" ng-repeat="item in importbill.ImportBills">
+                                    <td>{{$index+1}}</td>
+                                    <td><img src="{{item.Product.PicturePath}}" style="height:28px;" class="img-fluid" alt="Responsive image"></td>
+                                    <td>{{item.Product.Name}}</td>
                                     <td>
-                                        <input ng-model="importbill.ImportBillDetails[$index].Quantity" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : 0" ng-change="InvoiceProcessing($index)" class="form-control form-control-sm" type="number">
+                                        <input ng-model="importbill.ImportBills[$index].Quantity" readonly min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : 0" ng-change="InvoiceProcessing($index)" class="form-control form-control-sm" type="number">
                                     </td>
                                     <td>
-                                        <input ng-model="importbill.ImportBillDetails[$index].ImportPrice" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : 0" ng-change="InvoiceProcessing($index)" class="form-control form-control-sm" type="number">
+                                        <input ng-model="importbill.ImportBills[$index].ImportPrice" readonly min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : 0" ng-change="InvoiceProcessing($index)" class="form-control form-control-sm" type="number">
                                     </td>
-                                    <td><input ng-model="importbill.ImportBillDetails[$index].Discount" min="0" max="100" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? (this.value = !!this.value && Math.abs(this.value) <=100 ? Math.abs(this.value):100) : 0" ng-change="InvoiceProcessing($index)" class="form-control form-control-sm" type="number"></td>
+                                    <td><input ng-model="importbill.ImportBills[$index].Discount" readonly min="0" max="100" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? (this.value = !!this.value && Math.abs(this.value) <=100 ? Math.abs(this.value):100) : 0" ng-change="InvoiceProcessing($index)" class="form-control form-control-sm" type="number"></td>
                                     <td class="text-right">{{item.TotalImportPrice | formatCurrencyVND}}</td>
                                 </tr>
                             </tbody>
@@ -93,7 +65,7 @@
     </div>
     <div class="col-4">
         <div class="card" style="min-height:500px;">
-            <div class="card-body" style="padding-bottom:50px">
+            <div class="card-body">
                 <form class="form-horizontal" novalidate name="form" role="form" ng-submit="AddBrand()">
                     <div class="form-group row">
                         <div class="col-md-12">
@@ -106,31 +78,22 @@
                                         </tr>
                                         <tr class="border-bottom">
                                             <td>Ngày tạo đơn</td>
-                                            <td>02/11/2022</td>
+                                            <td>{{importbill.CreateOn}}</td>
                                         </tr>
                                         <tr class="border-bottom">
                                             <td>Trạng thái</td>
-                                            <td>Phiếu tạm</td>
+                                            <td>{{importbill.Status | importBillFilter}}</td>
+                                        </tr>
+                                        <tr class="border-bottom">
+                                            <td>Nhà cung cấp</td>
+                                            <td>{{importbill.NameSupplier}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    <!-- Suppliers -->
-                    <div class="form-group row">
-                        <div class="col-md-12">
-                            <div class="ui dropdown fluid search selection">
-                                <i class="dropdown icon"></i>
-                                <input ng-model="importbill.SupplierID" name="supplier" type="hidden" required>
-                                <div class="default text">Lựa chọn nhà cung cấp</div>
-                                <div class="menu">
-                                    <div ng-repeat="item in suppliers" ng-click="ChooseSupplierImportBill(item)" class="item" data-value="{{item.ID}}">{{item.Name}}</div>
-                                </div>
-                            </div>
-                            <span class="text-valid ml-2" ng-show="errorSupplier">Vui lòng chọn nhà cung cấp!</span>
-                        </div>
-                    </div>
+                   
                     <!-- Info -->
                     <div class="form-group row">
                         <div class="col-md-12">
@@ -143,7 +106,7 @@
                                         </tr>
                                         <tr class="border-bottom">
                                             <td>Tổng giảm giá</td>
-                                            <td>{{importbill.Discount | formatCurrencyVND}}</td>
+                                            <td>{{importbill.TotalDiscount | formatCurrencyVND}}</td>
                                         </tr>
                                         <tr class="border-bottom">
                                             <td>Thanh toán</td>
@@ -163,7 +126,6 @@
 
                     <div class="add-btn mb-4 d-flex justify-content-end" style="gap:12px">
                         <button ui-sref="import-bill" class="btn btn-secondary waves-effect waves-light">Trở lại</button>
-                        <button ng-click="AddImportBill()" class="btn btn-primary waves-effect waves-light">Xác nhận</button>
                     </div>
 
                 </form>

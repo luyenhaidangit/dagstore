@@ -17,12 +17,12 @@ importBill.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: '/app/components/admin/importBill/importBillAddView.html',
             controller: "importbillAddController",
         },
-        //{
-        //    name: 'info-importBill',
-        //    url: '/importBill/info/:id',
-        //    templateUrl: '/app/components/admin/importBill/importBillInfoView.html',
-        //    controller: "importBillInfoController",
-        //},
+        {
+            name: 'info-import-bill',
+            url: '/import-bill/info/:id',
+            templateUrl: '/app/components/admin/importbill/importBillInfoView.html',
+            controller: "importBillInfoController",
+        },
         //{
         //    name: 'edit-importBill',
         //    url: '/importBill/edit/:id',

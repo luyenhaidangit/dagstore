@@ -36,6 +36,13 @@ namespace DAGStore.Web.Controllers
             return Json(listImportBill, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult GetInfo(int id)
+        {
+            var listImportBill = _importBillService.GetInfo(id);
+
+            return Json(listImportBill, JsonRequestBehavior.AllowGet);
+        }
+
         public JsonResult GetByID(int id)
         {
             var importBill = _importBillService.GetByID(id);

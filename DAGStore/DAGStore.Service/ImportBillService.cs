@@ -19,6 +19,8 @@ namespace DAGStore.Service
 
         IEnumerable<dynamic> GetList();
 
+        dynamic GetInfo(int id);
+
         ImportBill GetByID(int id);
 
         void SaveChanges();
