@@ -68,15 +68,18 @@ namespace DAGStore.Web.Controllers
        
         public JsonResult Update(ImportBill importBill)
         {
-            var importBillDetails = _importBillDetailService.GetAll().Where(x=>x.ImportBillID == importBill.ID);
-            foreach(var item in importBillDetails)
-            {
-                _importBillDetailService.Delete(item.ID);
-            }
-            _importBillDetailService.SaveChanges();
+            
 
             _importBillService.Update(importBill);
             _importBillService.SaveChanges();
+
+            //var importBillDetails = _importBillDetailService.GetAll().Where(x => x.ImportBillID == importBill.ID);
+            //foreach (var item in importBillDetails)
+            //{
+            //    _importBillDetailService.Delete(item.ID);
+            //}
+            //_importBillDetailService.SaveChanges();
+
             //foreach (var importBillDetail in importBill.ImportBillDetails)
             //{
             //    importBillDetail.ImportBillID = importBill.ID;

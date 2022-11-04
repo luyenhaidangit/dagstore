@@ -105,7 +105,7 @@ function importBillEditController($scope, apiService, notificationService, $stat
     $scope.EditImportBill = EditImportBill;
     function EditImportBill () {
        
-        $scope.importbill.ImportBillDetails = [];
+       /* $scope.importbill.ImportBillDetails = [];*/
         apiService.put("/importbill/update", $scope.importbill, function (result) {
             notificationService.displaySuccess("Cập nhật thông tin thành công!");
             $state.go("import-bill");
