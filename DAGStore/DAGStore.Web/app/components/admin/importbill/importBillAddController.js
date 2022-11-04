@@ -22,10 +22,11 @@ function importbillAddController($scope, apiService, notificationService, $state
         ImportBillDetails: [],
     }
 
-    // Get data
+    //Load List Product
     $scope.products = [];
-    apiService.get("/product/getdata", null, function (result) {
+    apiService.get("/product/getall", null, function (result) {
         $scope.products = result.data;
+        console.log($scope.products)
     }, function (error) {
         console.log("Get data fail");
     })
@@ -81,7 +82,7 @@ function importbillAddController($scope, apiService, notificationService, $state
             TotalPriceBill += item.Quantity * item.ImportPrice;
         });
         $scope.importbill.TotalPriceBill = TotalPriceBill;
-        $scope.importbill.Discount = $scope.importbill.TotalPriceBill - $scope.importbill.ActualPriceBill;
+        $scope.importbill.TotalDiscount = $scope.importbill.TotalPriceBill - $scope.importbill.ActualPriceBill;
     }
 
     // Remove Detail Bill

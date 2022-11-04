@@ -23,13 +23,12 @@ importBill.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: '/app/components/admin/importbill/importBillInfoView.html',
             controller: "importBillInfoController",
         },
-        //{
-        //    name: 'edit-importBill',
-        //    url: '/importBill/edit/:id',
-        //    templateUrl: '/app/components/admin/importBill/importBillEditView.html',
-        //    controller: "importBillEditController",
-        //}
-
+        {
+            name: 'edit-import-bill',
+            url: '/import-bill/edit/:id',
+            templateUrl: '/app/components/admin/importBill/importBillEditView.html',
+            controller: "importBillEditController",
+        }
         ];
     states.forEach((state) => $stateProvider.state(state));
 });

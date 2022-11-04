@@ -56,13 +56,14 @@ namespace DAGStore.Service
                              ID = i.ID,
                              ImportBillCode = i.ImportBillCode,
                              NameSupplier = _supplierRepository.GetSingleByID(i.SupplierID).Name,
+                             SupplierID = i.SupplierID,
                              TotalPriceBill = i.TotalPriceBill,
                              TotalDiscount = i.TotalDiscount,
                              ActualPriceBill = i.ActualPriceBill,
                              Description = i.Description,
                              Status = i.Status,
                              CreateOn = i.CreateOn.ToString("dd-MM-yyyy"),
-                             ImportBills = _importBillDetailRepository.GetMulti(x=>x.ImportBillID == i.ID),
+                             ImportBillDetails = _importBillDetailRepository.GetMulti(x=>x.ImportBillID == i.ID),
                          }; 
             return result;
         }
