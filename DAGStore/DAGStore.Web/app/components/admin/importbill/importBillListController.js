@@ -13,13 +13,15 @@ function importBillListController($scope, apiService, dataTableService, notifica
         columnDefs: [
             { targets: 0, name: "STT" },
             { targets: 1, name: "ID", visible: false },
-            { targets: 2, name: "Tên nhà cung cấp" },
-            { targets: 3, name: "Tổng đơn hàng" },
-            { targets: 4, name: "Tổng khuyến mãi" },
-            { targets: 5, name: "Tổng thực thanh toán" },
-            { targets: 6, name: "Mô tả", visible: false },
-            { targets: 7, name: "Trạng thái" },
-            { targets: 8, name: "Thao tác" },
+            { targets: 2, name: "Mã HDN" },
+            { targets: 3, name: "Tên nhà cung cấp" },
+            { targets: 4, name: "Tổng hóa đơn", visible: false },
+            { targets: 5, name: "Tổng giảm giá", visible: false },
+            { targets: 6, name: "Thanh toán" },
+            { targets: 7, name: "Mô tả", visible: false },
+            { targets: 8, name: "Trạng thái" },
+            { targets: 9, name: "Ngày tạo" },
+            { targets: 10, name: "Thao tác" },
         ],
         exportOptions: {
             columns: [1, 2, 3, 4, 5, 6,7],
@@ -28,7 +30,7 @@ function importBillListController($scope, apiService, dataTableService, notifica
     }
     // Get Data
     $scope.importbills = [];
-    apiService.get("/importbill/getall", null, function (result) {
+    apiService.get("/importbill/getlist", null, function (result) {
 
         $scope.importbills = result.data;
         dataTableService.createDataTable($scope.config);

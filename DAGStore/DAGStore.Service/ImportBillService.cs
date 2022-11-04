@@ -2,6 +2,7 @@
 using DAGStore.Data.Repositories;
 using DAGStore.Model.Models;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 
 namespace DAGStore.Service
@@ -16,7 +17,7 @@ namespace DAGStore.Service
 
         IEnumerable<ImportBill> GetAll();
 
-        IEnumerable<dynamic> GetData();
+        IEnumerable<dynamic> GetList();
 
         ImportBill GetByID(int id);
 
@@ -26,13 +27,15 @@ namespace DAGStore.Service
     public class ImportBillService : IImportBillService
     {
         private IImportBillRepository _importBillRepository;
-        private ISupplierService _supplierService;
+        private ISupplierRepository _supplierRepository;
+        private IImportBillDetailRepository _importBillDetailRepository;
         private IUnitOfWork _unitOfWork;
 
-        public ImportBillService(IImportBillRepository importBillRepository, ISupplierService supplierService, IUnitOfWork unitOfWork)
+        public ImportBillService(IImportBillRepository importBillRepository, ISupplierRepository supplierRepository,IImportBillDetailRepository importBillDetailRepository, IUnitOfWork unitOfWork)
         {
             this._importBillRepository = importBillRepository;
-            this._supplierService = supplierService;
+            this._supplierRepository = supplierRepository;
+            this._importBillDetailRepository = importBillDetailRepository;
             this._unitOfWork = unitOfWork;
         }
 
@@ -41,19 +44,32 @@ namespace DAGStore.Service
             return _importBillRepository.GetAll();
         }
 
-        public IEnumerable<dynamic> GetData()
+        public IEnumerable<dynamic> GetList()
         {
             var importBill = _importBillRepository.GetAll();
-            var supplier = _supplierService.GetAll();
 
-            var result = from i in importBill
-                         join s in supplier on i.SupplierID equals s.ID
+            var result = from i in importBill        
                          select new
                          {
-                             ImportBill = i,
-                             Supplier = s
+                             ID = i.ID,
+                             ImportBillCode = i.ImportBillCode,
+                             NameSupplier = _supplierRepository.GetSingleByID(i.SupplierID).Name,
+                             TotalPriceBill = i.TotalPriceBill,
+                             TotalDiscount = i.TotalDiscount,
+                             ActualPriceBill = i.ActualPriceBill,
+                             Description = i.Description,
+                             Status = i.Status,
+                             CreateOn = i.CreateOn.ToString("dd-MM-yyyy"),
+                             ImportBills = _importBillDetailRepository.GetMulti(x=>x.ImportBillID == i.ID),
                          }; 
             return result;
+        }
+
+        public dynamic GetInfo(int id)
+        {
+            var importBill = GetList().FirstOrDefault(x=> x.ID == id);
+
+            return importBill;
         }
 
         public bool Add(ImportBill importBill)

@@ -16,6 +16,8 @@ function importbillAddController($scope, apiService, notificationService, $state
         ActualPriceBill: 0,
         Discount: 0,
         Description: null,
+        ImportBillCode: 'Code',
+        CreateOn: '01-01-1990',
         Status: true,
         ImportBillDetails: [],
     }

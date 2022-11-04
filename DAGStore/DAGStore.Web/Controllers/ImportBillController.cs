@@ -29,9 +29,9 @@ namespace DAGStore.Web.Controllers
             return Json(listImportBill, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult GetData()
+        public JsonResult GetList()
         {
-            var listImportBill = _importBillService.GetData();
+            var listImportBill = _importBillService.GetList();
 
             return Json(listImportBill, JsonRequestBehavior.AllowGet);
         }

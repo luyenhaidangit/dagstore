@@ -37,14 +37,16 @@
                         <tr ng-repeat="item in importbills track by $index" data-show="????">
                             <td>{{$index+1}}</td>
                             <td>{{item.ID}}</td>
-                            <td>{{item.SupplierID}}</td>
-                            <td>{{item.TotalPriceBill}}</td>
-                            <td>{{item.TotalDiscount}}</td>
-                            <td>{{item.ActualPriceBill}}</td>
+                            <td>{{item.ImportBillCode}}</td>
+                            <td>{{item.NameSupplier}}</td>
+                            <td class="text-right">{{item.TotalPriceBill | formatCurrencyVND}}</td>
+                            <td class="text-right">{{item.TotalDiscount | formatCurrencyVND}}</td>
+                            <td class="text-right">{{item.ActualPriceBill | formatCurrencyVND}}</td>
                             <td>{{item.Description}}</td>
-                            <td>{{item.Status}}</td>
+                            <td><button type="button" ng-class="{'btn btn-success waves-effect waves-light btn-sm':item.Status==true,'btn btn-danger waves-effect waves-light btn-sm':item.Status==false}">{{item.Status | importBillFilter}}</button></td>
+                            <td>{{item.CreateOn}}</td>
                             <td>
-                                <span ui-sref="info-brand({id:item.ID})" class="badge badge-info" style="cursor: pointer;padding: 8px;"> <i class="fas fa-info-circle"></i></span>
+                                <span ui-sref="info-import-bill({id:item.ID})" class="badge badge-info" style="cursor: pointer;padding: 8px;"> <i class="fas fa-info-circle"></i></span>
                                 <span ui-sref="edit-brand({id:item.ID})" class="badge badge-primary" style="cursor: pointer;padding: 8px;"> <i class="far fa-edit"></i></span>
                                 <span ng-click="DeleteImportBill($event,item.ID);" class="badge badge-danger" style="cursor: pointer;padding: 8px;"> <i class="fas fa-trash-alt"></i></span>
                             </td>

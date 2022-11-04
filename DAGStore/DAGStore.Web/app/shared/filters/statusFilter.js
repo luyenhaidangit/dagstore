@@ -11,6 +11,16 @@
         }
     })
 
+    app.filter("importBillFilter", function () {
+        return function (input) {
+            if (input === true) {
+                return "Phiếu nhập";
+            } else {
+                return "Phiếu hủy";
+            }
+        }
+    })
+
     app.filter("existDataFilter", function () {
         return function (input) {
             if (input === null) {
