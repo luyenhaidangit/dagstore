@@ -54,6 +54,8 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Brand.cs" />
+    <Compile Include="Models\SliderItem.cs" />
+    <Compile Include="Models\Slider.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\ImportBillDetail.cs" />
     <Compile Include="Models\ImportBill.cs" />

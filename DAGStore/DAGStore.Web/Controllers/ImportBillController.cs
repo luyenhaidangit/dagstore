@@ -65,27 +65,24 @@ namespace DAGStore.Web.Controllers
             return Json(true, JsonRequestBehavior.AllowGet);
         }
 
-       
+        [HttpPut]
         public JsonResult Update(ImportBill importBill)
         {
-            
-
             _importBillService.Update(importBill);
             _importBillService.SaveChanges();
 
-            //var importBillDetails = _importBillDetailService.GetAll().Where(x => x.ImportBillID == importBill.ID);
-            //foreach (var item in importBillDetails)
-            //{
-            //    _importBillDetailService.Delete(item.ID);
-            //}
-            //_importBillDetailService.SaveChanges();
-
-            //foreach (var importBillDetail in importBill.ImportBillDetails)
-            //{
-            //    importBillDetail.ImportBillID = importBill.ID;
-            //    _importBillDetailService.Add(importBillDetail);
-            //}
-            //_importBillDetailService.SaveChanges();
+            var importBillDetails = _importBillDetailService.GetAll().Where(x => x.ImportBillID == importBill.ID);
+            foreach (var item in importBillDetails)
+            {
+                _importBillDetailService.Delete(item.ID);
+            }
+            _importBillDetailService.SaveChanges();
+            foreach (var importBillDetail in importBill.ImportBillDetails)
+            {
+                importBillDetail.ImportBillID = importBill.ID;
+                _importBillDetailService.Add(importBillDetail);
+            }
+            _importBillDetailService.SaveChanges();
 
             return Json(true, JsonRequestBehavior.AllowGet);
         }

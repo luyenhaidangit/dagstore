@@ -19,7 +19,9 @@ function importbillAddController($scope, apiService, notificationService, $state
         ImportBillCode: 'Code',
         CreateOn: '01-01-1990',
         Status: true,
-        ImportBillDetails: [],
+        ImportBillDetails: [
+            
+        ],
     }
 
     //Load List Product
@@ -45,6 +47,7 @@ function importbillAddController($scope, apiService, notificationService, $state
             ImportPrice: item.CostPrice,
             Discount: 0,
             TotalImportPrice: 0,
+            ProductDetail: item,
         }
         item.TotalImportPrice = item.Quantity * item.ImportPrice - item.Discount
         $scope.importbill.ImportBillDetails.push(item);
@@ -88,6 +91,7 @@ function importbillAddController($scope, apiService, notificationService, $state
     // Remove Detail Bill
     $scope.RemoveDetailBill = RemoveDetailBill;
     function RemoveDetailBill(value) {
+        $scope.products.push(value.ProductDetail);
         $scope.importbill.ImportBillDetails = $scope.importbill.ImportBillDetails.filter(function (item) {
             return item !== value
         })
@@ -101,6 +105,7 @@ function importbillAddController($scope, apiService, notificationService, $state
         $scope.errorSupplier = false;
     }
 
+    
   
     $scope.AddImportBill = AddImportBill;
     function AddImportBill() {

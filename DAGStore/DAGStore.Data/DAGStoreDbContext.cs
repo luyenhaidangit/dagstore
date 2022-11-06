@@ -26,6 +26,8 @@ namespace DAGStore.Data
         public DbSet<ImportBillDetail> ImportBillDetail { get; set; }
         public DbSet<MenuRecord> MenuRecord { get; set; }
         public DbSet<MenuItemRecord> MenuItemRecord { get; set; }
+        public DbSet<Slider> Slider { get; set; }
+        public DbSet<SliderItem> SliderItem { get; set; }
         public DbSet<Customer> Customer { get; set; }
         public DbSet<Order> Order { get; set; }
         public DbSet<OrderItem> OrderItem { get; set; }

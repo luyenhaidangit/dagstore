@@ -63,7 +63,7 @@ namespace DAGStore.Service
                              Description = i.Description,
                              Status = i.Status,
                              CreateOn = i.CreateOn.ToString("dd-MM-yyyy"),
-                             ImportBillDetails = _importBillDetailRepository.GetMulti(x=>x.ImportBillID == i.ID),
+                             ImportBillDetails = _importBillDetailRepository.GetImportBillDetailsByImportBill(i.ID),
                          }; 
             return result;
         }

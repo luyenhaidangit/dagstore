@@ -15,6 +15,7 @@ function importBillEditController($scope, apiService, notificationService, $stat
     $scope.products = [];
     apiService.get("/product/getall", null, function (result) {
         $scope.products = result.data;
+       
     }, function (error) {
         console.log("Get data fail");
     })
@@ -25,7 +26,7 @@ function importBillEditController($scope, apiService, notificationService, $stat
     }
     apiService.get("/importbill/getinfo/" + $stateParams.id, null, function (result) {
         $scope.importbill = result.data;
-        console.log($scope.importbill)
+        
     }, function (error) {
         notificationService.displaySuccess("Không thể tải dữ liệu");
     })
@@ -37,13 +38,14 @@ function importBillEditController($scope, apiService, notificationService, $stat
         console.log(item)
         var item = {
             PicturePath: item.PicturePath,
-            ProductName: item.Name,
+            Name: item.Name,
             ImportBillID: null,
             ProductID: item.ID,
             Quantity: 1,
             ImportPrice: item.CostPrice,
             Discount: 0,
             TotalImportPrice: 0,
+            ProductDetail: item,
         }
         item.TotalImportPrice = item.Quantity * item.ImportPrice - item.Discount
         $scope.importbill.ImportBillDetails.push(item);
@@ -79,9 +81,11 @@ function importBillEditController($scope, apiService, notificationService, $stat
     // Remove Detail Bill
     $scope.RemoveDetailBill = RemoveDetailBill;
     function RemoveDetailBill(value) {
+        $scope.products.push(value.ProductDetail);
         $scope.importbill.ImportBillDetails = $scope.importbill.ImportBillDetails.filter(function (item) {
             return item !== value
         })
+       
         InvoiceTotalProcessing();
     }
 
@@ -104,9 +108,22 @@ function importBillEditController($scope, apiService, notificationService, $stat
     // Submit Edit
     $scope.EditImportBill = EditImportBill;
     function EditImportBill () {
-       
+        //for (let i = 0; i < $scope.importbill.length; i++) {
+        //    $scope.importbill.ImportBillDetails.ImportBill.CreateOn = '2022-11-05 19:31:07.093';
+        //}
        /* $scope.importbill.ImportBillDetails = [];*/
         apiService.put("/importbill/update", $scope.importbill, function (result) {
+            console.log(result.data)
+            //for (let i = 0; i < $scope.importbill.ImportBillDetails.length; i++) {
+            //    var item = $scope.importbill.ImportBillDetails[i];
+            //    apiService.post("/importbilldetail/create", item, function (result) {
+            //        notificationService.displaySuccess("Thêm thông tin thành công!");
+            //        $state.go("import-bill");
+            //    }, function (error) {
+
+            //    });
+            //    console.log(item)
+            //}
             notificationService.displaySuccess("Cập nhật thông tin thành công!");
             $state.go("import-bill");
         }, function (error) {

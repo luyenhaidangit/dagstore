@@ -83,10 +83,24 @@
     <Compile Include="Migrations\202211031329335_Edit-Column-CreateOn-ImportBill.designer.cs">
       <DependentUpon>202211031329335_Edit-Column-CreateOn-ImportBill.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202211041631380_Create-Table-Slider.cs" />
+    <Compile Include="Migrations\202211041631380_Create-Table-Slider.designer.cs">
+      <DependentUpon>202211041631380_Create-Table-Slider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211051341225_Update-Time.cs" />
+    <Compile Include="Migrations\202211051341225_Update-Time.designer.cs">
+      <DependentUpon>202211051341225_Update-Time.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211051350050_Rebuild-Time.cs" />
+    <Compile Include="Migrations\202211051350050_Rebuild-Time.designer.cs">
+      <DependentUpon>202211051350050_Rebuild-Time.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BrandRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\SliderItemRepository.cs" />
+    <Compile Include="Repositories\SliderRepository.cs" />
     <Compile Include="Repositories\DiscountRepository.cs" />
     <Compile Include="Repositories\ImportBillDetailRepository.cs" />
     <Compile Include="Repositories\ImportBillRepository.cs" />
@@ -126,6 +140,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202211031329335_Edit-Column-CreateOn-ImportBill.resx">
       <DependentUpon>202211031329335_Edit-Column-CreateOn-ImportBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211041631380_Create-Table-Slider.resx">
+      <DependentUpon>202211041631380_Create-Table-Slider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211051341225_Update-Time.resx">
+      <DependentUpon>202211051341225_Update-Time.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211051350050_Rebuild-Time.resx">
+      <DependentUpon>202211051350050_Rebuild-Time.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

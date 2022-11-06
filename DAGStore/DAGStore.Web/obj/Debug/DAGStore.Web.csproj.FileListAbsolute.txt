@@ -1,3 +1,7 @@
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.AspNet.Identity.Core.dll
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.Security.Facebook.dll
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Web.Mvc.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DAGStore.Web.dll.config
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DAGStore.Web.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DAGStore.Web.pdb
@@ -62,16 +66,13 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DotNetOpenAuth.Co
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DotNetOpenAuth.OAuth.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\EntityFramework.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\EntityFramework.SqlServer.dll
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.AspNet.Identity.Core.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.AspNet.Identity.Owin.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Bcl.AsyncInterfaces.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.dll
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.Security.Cookies.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.Security.dll
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.Security.Facebook.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.Security.Google.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.Security.OAuth.dll
@@ -114,7 +115,6 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Numerics.V
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Threading.Tasks.Extensions.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Web.Helpers.xml
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Web.Mvc.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Web.Optimization.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Web.Razor.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\System.Web.WebPages.xml

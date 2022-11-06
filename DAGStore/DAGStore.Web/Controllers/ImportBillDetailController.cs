@@ -60,5 +60,29 @@ namespace DAGStore.Web.Controllers
 
             return Json(true, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpDelete]
+        public JsonResult Delete(IEnumerable<ImportBillDetail> importBillDetails)
+        {
+            foreach (var item in importBillDetails)
+            {
+                _importBillDetailService.Delete(item.ID);
+            }
+            _importBillDetailService.SaveChanges();
+
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult Create(IEnumerable<ImportBillDetail> importBillDetails)
+        {
+            foreach (var importBillDetail in importBillDetails)
+            {
+                _importBillDetailService.Add(importBillDetail);
+            }
+            _importBillDetailService.SaveChanges();
+
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
     }
 }
