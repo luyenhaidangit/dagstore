@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dagstore.online - Điện thoại, Laptop, Phụ kiện, Đồng hồ chính hãng</title>
     <!-- favicon -->
-
     <link rel="shortcut icon" href="~/Content/client/img/resource/favicon-dagstore.ico" type="image/x-icon">
     <!-- fontawesome font -->
     <link rel="stylesheet" href="~/Content/client/font/font-awesome-pro-5/css/all.min.css">
@@ -25,17 +24,9 @@
 </head>
 
 <body ng-app="DAGStoreHome">
+    <preload-directive id="preloader-active">
 
-    <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="~/Content/client/img/resource/fit-utehy.png" alt="logo" />
-                </div>
-            </div>
-        </div>
-    </div>
+    </preload-directive>
 
     <div id="root">
         <top-slider-directive class="header-topbar bg-main">
@@ -43,223 +34,12 @@
         </top-slider-directive>
         <!-- end: header-topbar -->
         <!-- begin: header -->
-        <header class="header bg-main">
-            <div class="header__top">
-                <div class="container">
-                    <!-- begin: logo -->
-                    <a href="" ui-sref="index" class="header__logo">
-                        <img src="~/Content/client/img/resource/logo-dagstore.png" alt="Logo Dagstore">
-                        <img src="~/Content/client/img/resource/logo-dagstore-small.png" alt="Logo Dagstore Small">
-                    </a>
-                    <!-- end: logo -->
-                    <!-- begin: header andress -->
-                    <button type="button" class="header__address btn" data-bs-toggle="modal" data-bs-target="#headerAndress">
-                        <i class="far fa-map-marker"></i>
-                        <span>Xem giá, tồn kho tại:</span>
-                        <span data-province="3" data-district="0" data-ward="0">Hồ Chí Minh</span>
-                    </button>
-                    <!-- end: header andress -->
-                    <!-- begin: modal andress-->
-                    <div class="modal fade" id="headerAndress" tabindex="-1" aria-labelledby="headerAndressLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                            <div class="modal-content modal__andress">
-                                <div class="modal-header modal__andress-header">
-                                    <div class="modal__andress-header__top">
-                                        <p class="modal__andress-header__top-title">
-                                            Quý khách vui lòng cho biết <b>Địa Chỉ Nhận Hàng</b> để biết chính xác thời gian giao hàng
-                                        </p>
-                                        <i class="far fa-times modal__andress-header__top-closed" data-bs-dismiss="modal" aria-label="Close"><p>Đóng</p></i>
-                                    </div>
+        <header class="header bg-main d-flex flex-column">
+            <header-top-directive class="header__top">
 
-                                    <div class="modal__andress-header__search">
-                                        <input class="modal__andress-header__search-input" name="locationSearch" placeholder="Tìm nhanh tỉnh thành, quận huyện, phường xã">
-                                        <i class="far fa-search modal__andress-header__search-icon"></i>
-                                    </div>
-                                </div>
-                                <div class="modal-body modal__andress-body">
-                                    <strong>Hoặc chọn tỉnh, thành phố</strong>
+            </header-top-directive>
 
-                                    <div class="modal-location">
-                                        <ul class="modal-location__list-item">
-                                            <li><a class="modal-location__item">Hồ Chí Minh</a></li>
-                                            <li><a class="modal-location__item active">Hà Nội</a></li>
-                                            <li><a class="modal-location__item">Đà Nẵng</a></li>
-                                            <li><a class="modal-location__item">An Giang</a></li>
-                                            <li><a class="modal-location__item">Bà Rịa - Vũng Tàu</a></li>
-                                            <li><a class="modal-location__item">Bắc Giang</a></li>
-                                            <li><a class="modal-location__item">Bắc Kạn</a></li>
-                                            <li><a class="modal-location__item">Bạc Liêu</a></li>
-                                            <li><a class="modal-location__item">Bắc Ninh</a></li>
-                                            <li><a class="modal-location__item">Bến Tre</a></li>
-                                            <li><a class="modal-location__item">Bình Định</a></li>
-                                            <li><a class="modal-location__item">Bình Dương</a></li>
-                                            <li><a class="modal-location__item">Bình Phước</a></li>
-                                            <li><a class="modal-location__item">Bình Thuận</a></li>
-                                            <li><a class="modal-location__item">Cà Mau</a></li>
-                                            <li><a class="modal-location__item">Cần Thơ</a></li>
-                                            <li><a class="modal-location__item">Cao Bằng</a></li>
-                                            <li><a class="modal-location__item">Đắk Lắk</a></li>
-                                            <li><a class="modal-location__item">Đắk Nông</a></li>
-                                            <li><a class="modal-location__item">Điện Biên</a></li>
-                                            <li><a class="modal-location__item">Đồng Nai</a></li>
-                                            <li><a class="modal-location__item">Đồng Tháp</a></li>
-                                            <li><a class="modal-location__item">Gia Lai</a></li>
-                                            <li><a class="modal-location__item">Hà Giang</a></li>
-                                            <li><a class="modal-location__item">Hà Nam</a></li>
-                                            <li><a class="modal-location__item">Hà Tĩnh</a></li>
-                                            <li><a class="modal-location__item">Hải Dương</a></li>
-                                            <li><a class="modal-location__item">Hải Phòng</a></li>
-                                            <li><a class="modal-location__item">Hậu Giang</a></li>
-                                            <li><a class="modal-location__item">Hòa Bình</a></li>
-                                            <li><a class="modal-location__item">Hưng Yên</a></li>
-                                            <li><a class="modal-location__item">Khánh Hòa</a></li>
-                                            <li><a class="modal-location__item">Kiên Giang</a></li>
-                                            <li><a class="modal-location__item">Kon Tum</a></li>
-                                            <li><a class="modal-location__item">Lai Châu</a></li>
-                                            <li><a class="modal-location__item">Lâm Đồng</a></li>
-                                            <li><a class="modal-location__item">Lạng Sơn</a></li>
-                                            <li><a class="modal-location__item">Lào Cai</a></li>
-                                            <li><a class="modal-location__item">Long An</a></li>
-                                            <li><a class="modal-location__item">Nam Định</a></li>
-                                            <li><a class="modal-location__item">Nghệ An</a></li>
-                                            <li><a class="modal-location__item">Ninh Bình</a></li>
-                                            <li><a class="modal-location__item">Ninh Thuận</a></li>
-                                            <li><a class="modal-location__item">Phú Thọ</a></li>
-                                            <li><a class="modal-location__item">Phú Yên</a></li>
-                                            <li><a class="modal-location__item">Quảng Bình</a></li>
-                                            <li><a class="modal-location__item">Quảng Nam</a></li>
-                                            <li><a class="modal-location__item">Quảng Ngãi</a></li>
-                                            <li><a class="modal-location__item">Quảng Ninh</a></li>
-                                            <li><a class="modal-location__item">Quảng Trị</a></li>
-                                            <li><a class="modal-location__item">Sóc Trăng</a></li>
-                                            <li><a class="modal-location__item">Sơn La</a></li>
-                                            <li><a class="modal-location__item">Tây Ninh</a></li>
-                                            <li><a class="modal-location__item">Thái Bình</a></li>
-                                            <li><a class="modal-location__item">Thái Nguyên</a></li>
-                                            <li><a class="modal-location__item">Thanh Hóa</a></li>
-                                            <li><a class="modal-location__item">Thừa Thiên Huế</a></li>
-                                            <li><a class="modal-location__item">Tiền Giang</a></li>
-                                            <li><a class="modal-location__item">Trà Vinh</a></li>
-                                            <li><a class="modal-location__item">Tuyên Quang</a></li>
-                                            <li><a class="modal-location__item">Vĩnh Long</a></li>
-                                            <li><a class="modal-location__item">Vĩnh Phúc</a></li>
-                                            <li><a class="modal-location__item">Yên Bái</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: modal andress -->
-                    <!-- begin: header search -->
-                    <form class="header__search">
-                        <input type="text" class="header__input-search" placeholder="Bạn tìm gì..." name="key" autocomplete="off" maxlength="100">
-
-                        <button type="header__button-submit">
-                            <i class="far fa-search"></i>
-                        </button>
-                    </form>
-                    <!-- end: header search -->
-                    <!-- begin: history order -->
-                    <a href="/page/client/customer/history-order.html" class="history-order btn">
-                        Lịch sử đơn hàng
-                    </a>
-                    <!-- end: history order -->
-                    <!-- begin: header cart -->
-                    <a ui-sref="cart" href="/page/client/customer/cart.html" class="header__cart btn">
-                        <div class="header__cart-icon">
-                            <i class="far fa-shopping-cart"></i>
-                            <span class="cart-number has-cart">2</span>
-                        </div>
-                        <span>Giỏ hàng</span>
-                    </a>
-                    <!-- end: header cart -->
-                    <!-- begin: header blog -->
-                    <div class="header__blog">
-                        <div class="header__blog-item">
-                            <a href="/page/client/blog/news.html">
-                                24h<br>Công
-                                nghệ
-                            </a>
-                        </div>
-                        <div class="header__blog-item">
-                            <a href="/page/client/blog/Q&A.html">Hỏi Đáp</a>
-                        </div>
-                        <div class="header__blog-item">
-                            <a href="/page/client/blog/app.html">Game App</a>
-                        </div>
-                    </div>
-                    <!-- end: header blog -->
-                    <!-- begin: header collapse -->
-                    <div class="header__collapse">
-                        <button class="header__menu btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offmenucanvasRight" aria-controls="offmenucanvasRight">
-                            <div class="header__cart-icon">
-                                <i class="far fa-bars"></i>
-                            </div>
-                            <span>Menu</span>
-                        </button>
-
-                        <div class="offcanvas offcanvas-end offcanvas-header__collapse" tabindex="-1" id="offmenucanvasRight" aria-labelledby="offcanvasRightLabel">
-                            <div class="offcanvas-header offcanvas__menu-header">
-                                <i class="far fa-times offcanvas__menu-header__top-closed" data-bs-dismiss="offcanvas" aria-label="Close"><span>Đóng</span></i>
-                            </div>
-                            <div class="offcanvas-body offcanvas__menu-body">
-                                <div class="header__collapse-list-categories">
-                                    <div class="container">
-                                        <div class="row justify-content-md-center">
-                                            <a href="/page/client/categories/categories.html" class="col header__collapse-categories"><span class="">Điện thoại</span></a>
-                                            <a href="/page/client/categories/categories.html" class="col header__collapse-categories"><span class="">Lap top</span></a>
-                                            <a href="/page/client/categories/categories.html" class="col header__collapse-categories"><span class="">Tablet</span></a>
-                                            <a href="/page/client/categories/categories.html" class="col header__collapse-categories"><span class="">Phụ kiện</span></a>
-                                            <a href="/page/client/categories/categories.html" class="col header__collapse-categories"><span class="">Đồng hồ thông minh</span></a>
-                                            <a href="/page/client/categories/categories.html" class="col header__collapse-categories"><span class="">Máy tính bộ</span></a>
-                                            <a href="/page/client/categories/categories.html" class="col header__collapse-categories"><span class="">Màn hình máy tính</span></a>
-                                            <a href="/page/client/categories/categories.html" class="col header__collapse-categories"><span class="">Máy in</span></a>
-                                            <a href="/page/client/categories/categories.html" class="col header__collapse-categories"><span class="">Mực in</span></a>
-                                            <a href="/page/client/categories/categories.html" class="col header__collapse-categories"><span class="">Đồng hồ thời trang</span></a>
-                                            <a href="/page/client/categories/categories.html" class="col header__collapse-categories"><span class="">Sạc dự phòng</span></a>
-                                            <a href="/page/client/categories/categories.html" class="col header__collapse-categories"><span class="">Tai nghe</span></a>
-                                            <a href="/page/client/categories/categories.html" class="col header__collapse-categories"><span class="">Máy cũ giá rẻ</span></a>
-                                            <a href="/page/client/categories/categories.html" class="col header__collapse-categories"><span class="">Sim, thẻ cào</span></a>
-                                            <a href="/page/client/categories/categories.html" class="col header__collapse-categories"><span class="">Dịch vụ, tiện ích</span></a>
-                                        </div>
-                                        <div class="row justify-content-md-center mt-4">
-                                            <div class="col header__collapse-blog">
-                                                <strong>Nhóm hàng mới</strong>
-                                                <div class="header__collapse-blog__list-item">
-                                                    <a class="header__collapse-blog__item" href="/page/client/categories/categories.html"><span>Phụ kiện ô tô</span></a>
-                                                    <a class="header__collapse-blog__item" href="/page/client/categories/categories.html"><span>Thiết bị nhà thông minh</span></a>
-                                                    <a class="header__collapse-blog__item" href="/page/client/categories/categories.html"><span>Màn hình máy tính</span></a>
-                                                    <a class="header__collapse-blog__item" href="/page/client/categories/categories.html"><span>Thẻ cào giảm đến 3%</span></a>
-                                                </div>
-                                            </div>
-                                            <div class="col header__collapse-blog">
-                                                <strong>Thế giới công nghệ</strong>
-                                                <div class="header__collapse-blog__list-item">
-                                                    <a class="header__collapse-blog__item" href="/page/client/categories/categories.html"><span>24h công nghệ</span></a>
-                                                    <a class="header__collapse-blog__item" href="/page/client/categories/categories.html"><span>Game App</span></a>
-                                                    <a class="header__collapse-blog__item" href="/page/client/categories/categories.html"><span>Hỏi đáp</span></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col header__collapse-other-link">
-                                                <a class="text-primary" href="/page/client/customer/cart.html">Lịch sử mua hàng</a>
-                                                <span>Tổng đài <a class="text-primary" href="tel:1800.1060">1800.1060</a> (7:30 - 22:00)</span>
-                                                <span>Xem <a class="text-primary" href="/page/client/categories/categories.html">3256</a> siêu thị (8:00 - 22:00)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: header collapse -->
-                </div>
-            </div>
-
-            <main-navigation-directive class="header__main">
+            <main-navigation-directive class="header__main pt-2">
 
             </main-navigation-directive>
         </header>
@@ -478,10 +258,16 @@
     <script src="~/app/shared/filters/statusFilter.js"></script>
     <script src="~/app/shared/services/apiService.js"></script>
     <script src="~/app/shared/services/notificationService.js"></script>
-    <script src="~/app/shared/directives/top-slider/top-sliderDirective.js"></script>
-    <script src="~/app/shared/directives/top-slider/top-sliderController.js"></script>
-    <script src="~/app/shared/directives/main-navigation/main-navigationDirective.js"></script>
-    <script src="~/app/shared/directives/main-navigation/main-navigationController.js"></script>
+    <!-- Directive -->
+    <script src="/app/shared/directives/preload/preloadDirective.js"></script>
+    <script src="/app/shared/directives/preload/preloadController.js"></script>
+    <script src="/app/shared/directives/top-slider/top-sliderDirective.js"></script>
+    <script src="/app/shared/directives/top-slider/top-sliderController.js"></script>
+    <script src="/app/shared/directives/header-top/header-topDirective.js"></script>
+    <script src="/app/shared/directives/header-top/header-topController.js"></script>
+    <script src="/app/shared/directives/main-navigation/main-navigationDirective.js"></script>
+    <script src="/app/shared/directives/main-navigation/main-navigationController.js"></script>
+    <!-- App -->
     <script src="~/app/app.js"></script>
     <script src="/app/components/client/index/index.module.js"></script>
     <script src="/app/components/client/index/indexController.js"></script>
