@@ -19,8 +19,9 @@
 /* #endregion */
 
 /* #region : Header*/
-.header{
+.header {
     padding: 8px 0;
+    background-color: #ffd400;
 }
 
 .header__top{

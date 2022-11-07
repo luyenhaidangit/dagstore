@@ -344,6 +344,9 @@
     <Content Include="app\components\admin\product\productAddView.html" />
     <Content Include="app\components\admin\product\productListController.js" />
     <Content Include="app\components\admin\product\productListView.html" />
+    <Content Include="app\shared\directives\footer\footerController.js" />
+    <Content Include="app\shared\directives\footer\footerDirective.js" />
+    <Content Include="app\shared\directives\footer\footerView.html" />
     <Content Include="app\shared\directives\header-top\header-topController.js" />
     <Content Include="app\shared\directives\header-top\header-topDirective.js" />
     <Content Include="app\shared\directives\header-top\header-topView.html" />
