@@ -2,17 +2,14 @@
 <div class="container">
 
     <ul class="nav main-nav">
-        <li ng-repeat="menu in SiteMenu | filter:{ParentCategoryID : 0, Published: true} | limitTo: 10 | orderBy: '-DisplayOrder'" ng-class="(SiteMenu | filter:{ParentCategoryID : menu.ID}).length > 0?'nav-item main-nav__item dropdown-toggle single-column':'nav-item main-nav__item'">
-            <a ui-sref="category({id:menu.ID})" class="main-nav__item-link">
-                <i><img src="{{menu.PicturePath}}" alt=""></i>
-                <span class="">{{menu.Name}}</span>
+        <li ng-repeat="category in categorys | filter:{ParentCategoryID : 0}" ng-class="(category.CategoryChild).length > 0?'nav-item main-nav__item dropdown-toggle single-column':'nav-item main-nav__item'">
+            <a ui-sref="category({id:category.ID})" class="main-nav__item-link">
+                <i><img src="{{category.PicturePath}}" alt=""></i>
+                <span class="">{{category.Name}}</span>
             </a>
-            <!-- We will create submenu only when available -->
-            <div class="main-sub-nav" ng-if="(SiteMenu | filter:{ParentCategoryID : menu.ID}).length > 0">
+            <div ng-if="(category.CategoryChild).length > 0" class="main-sub-nav">
                 <div class="main-sub-nav__item">
-                    <a ng-repeat="menu in SiteMenu | filter:{ParentCategoryID : menu.ID}" ui-sref="category({id:menu.ID})">
-                        <h3>{{menu.Name}}</h3>
-                    </a>
+                    <a ng-repeat="category1 in category.CategoryChild" ui-sref="category({id:category1.ID})"><h3>{{category1.Name}}</h3></a>
                 </div>
             </div>
         </li>

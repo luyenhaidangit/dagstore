@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
+using System.Xml.Linq;
 
 namespace DAGStore.Web.Controllers
 {
@@ -17,15 +18,17 @@ namespace DAGStore.Web.Controllers
             return View();
         }
 
+        ICategoryService _categoryService;
         IProductService _productService;
         ISliderService _sliderService;
         ISliderItemService _sliderItemService;
 
-        public IndexController(IProductService productService,ISliderService sliderService,ISliderItemService sliderItemService)
+        public IndexController(IProductService productService,ISliderService sliderService,ISliderItemService sliderItemService,ICategoryService categoryService)
         {
             _productService = productService;
             _sliderService = sliderService;
             _sliderItemService = sliderItemService;
+            _categoryService = categoryService;
         }
 
         public JsonResult GetProductsNewShowHomePage()
@@ -53,6 +56,34 @@ namespace DAGStore.Web.Controllers
                              SliderItems = sliderItem.Where(x => x.SliderID == s.ID).OrderByDescending(x=>x.DisplayOrder),
                          };
             
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult ShowCategoryNavigation()
+        {
+            var categorys = _categoryService.GetAll().ToList();
+
+            var result = from c in categorys
+                         where c.Published == true && c.ParentCategoryID == 0
+                         orderby c.DisplayOrder descending
+                         select new
+                         {
+                             ID = c.ID,
+                             ParentCategoryID = c.ParentCategoryID,
+                             Name = c.Name,
+                             PicturePath = c.PicturePath,
+                             CategoryChild = (from c1 in categorys
+                                             where c1.ParentCategoryID == c.ID && c1.Published == true
+                                             orderby c1.DisplayOrder descending
+                                             select new
+                                             {
+                                                 ID = c1.ID,
+                                                 ParentCategoryID = c1.ParentCategoryID,
+                                                 Name = c1.Name,
+                                                 PicturePath = c1.PicturePath,
+                                             }).Take(10),
+                         };
+
             return Json(result, JsonRequestBehavior.AllowGet);
         }
     }

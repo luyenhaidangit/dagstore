@@ -1,6 +1,6 @@
-<div class="big-banner">
-    <a aria-label="slide" data-cate="0" data-place="1998" href="/page/client/sale-event/sale-event.html">
-        <img class="" src="/Content/client/img/big-banner/Banner-Big-1920x450-1920x450.jpg" alt="Banner Big Campaign">
+<div class="big-banner" ng-repeat="item in sliders | filter:{Position:'index_main'} | limitTo: 1">
+    <a ng-repeat="slider in item.SliderItems | limitTo: 1" href="{{slider.URL}}" aria-label="slide" data-cate="0" data-place="1998">
+        <img class="" src="{{slider.ImagePath}}" alt="Banner Big Campaign">
         <img class="" src="/Content/client/img/big-banner/5e687f55f7f335ad6ce2.jpg" alt="Banner Big Campaign">
     </a>
 </div>

@@ -5,19 +5,10 @@ app.controller("mainNavigationController", mainNavigationController);
 // Controller
 function mainNavigationController($scope, apiService) {
     // Get Data
-    $scope.SiteMenu = [];
-    $scope.getItems = getItems;
-    function getItems() {
-        apiService.get("/category/getall", null, function (result) {
-
-            $scope.SiteMenu = result.data;
-
-
-
-        }, function (error) {
-            console.log("Get data fail");
-        })
-    };
-    $scope.getItems();
-
+    $scope.categorys = [];
+    apiService.get("/index/ShowCategoryNavigation", null, function (result) {
+        $scope.categorys = result.data;
+    }, function (error) {
+        console.log("Get data fail");
+    })
 };

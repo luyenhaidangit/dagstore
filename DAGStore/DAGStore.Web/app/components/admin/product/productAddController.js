@@ -15,7 +15,7 @@ function productAddController($scope, apiService, notificationService, $state, c
         SellPrice: 0,
         InventoryQuantity: 0,
         MinimumInventoryQuantity: 0,
-        MaximumInventoryQuantity: 0,
+        MaximumInventoryQuantity: 99999,
         DisplayOrder: -1,
         Published: true,
         CreateOn: new Date().toJSON().slice(0, 10),
