@@ -248,6 +248,8 @@
     <Compile Include="Controllers\ProductDiscontController.cs" />
     <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Controllers\SliderItemController.cs" />
+    <Compile Include="Controllers\SuggestController.cs" />
+    <Compile Include="Controllers\SuggestProductController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -307,6 +309,14 @@
     <Content Include="app\components\admin\slider\sliderInfoView.html" />
     <Content Include="app\components\admin\slider\sliderListController.js" />
     <Content Include="app\components\admin\slider\sliderListView.html" />
+    <Content Include="app\components\admin\suggest\sliderAddController.js" />
+    <Content Include="app\components\admin\suggest\sliderAddView.html" />
+    <Content Include="app\components\admin\suggest\sliderEditController.js" />
+    <Content Include="app\components\admin\suggest\sliderEditView.html" />
+    <Content Include="app\components\admin\suggest\sliderInfoController.js" />
+    <Content Include="app\components\admin\suggest\sliderInfoView.html" />
+    <Content Include="app\components\admin\suggest\sliderListController.js" />
+    <Content Include="app\components\admin\suggest\sliderListView.html" />
     <Content Include="app\components\admin\supplier\supplier.module.js" />
     <Content Include="app\components\admin\supplier\supplierAddController.js" />
     <Content Include="app\components\admin\supplier\supplierAddView.html" />
@@ -2581,6 +2591,7 @@
     <Content Include="assets\libs\ng-ckeditor\ng-ckeditor.css" />
     <Content Include="assets\libs\ng-ckeditor\ng-ckeditor.js" />
     <Content Include="assets\libs\ng-ckeditor\ng-ckeditor.min.js" />
+    <Content Include="assets\libs\ngAnimate\angular-animate.js" />
     <Content Include="assets\libs\ngckeditor-master\.gitignore" />
     <Content Include="assets\libs\ngckeditor-master\examples\1.html" />
     <Content Include="assets\libs\ngckeditor-master\examples\css\bootstrap.css" />
@@ -6634,6 +6645,8 @@
     <Folder Include="Views\Product\" />
     <Folder Include="Views\SliderItem\" />
     <Folder Include="Views\Slider\" />
+    <Folder Include="Views\SuggestProduct\" />
+    <Folder Include="Views\Suggest\" />
     <Folder Include="Views\Supplier\" />
   </ItemGroup>
   <ItemGroup>

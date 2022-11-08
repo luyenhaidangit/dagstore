@@ -95,10 +95,20 @@
     <Compile Include="Migrations\202211051350050_Rebuild-Time.designer.cs">
       <DependentUpon>202211051350050_Rebuild-Time.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202211081026004_Rebuild-Table-Suggest.cs" />
+    <Compile Include="Migrations\202211081026004_Rebuild-Table-Suggest.designer.cs">
+      <DependentUpon>202211081026004_Rebuild-Table-Suggest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211081039454_Add-Column-ShowOnHomePage-Suggest.cs" />
+    <Compile Include="Migrations\202211081039454_Add-Column-ShowOnHomePage-Suggest.designer.cs">
+      <DependentUpon>202211081039454_Add-Column-ShowOnHomePage-Suggest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BrandRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\SuggestProductRepository.cs" />
+    <Compile Include="Repositories\SuggestRepository.cs" />
     <Compile Include="Repositories\SliderItemRepository.cs" />
     <Compile Include="Repositories\SliderRepository.cs" />
     <Compile Include="Repositories\DiscountRepository.cs" />
@@ -149,6 +159,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202211051350050_Rebuild-Time.resx">
       <DependentUpon>202211051350050_Rebuild-Time.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211081026004_Rebuild-Table-Suggest.resx">
+      <DependentUpon>202211081026004_Rebuild-Table-Suggest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211081039454_Add-Column-ShowOnHomePage-Suggest.resx">
+      <DependentUpon>202211081039454_Add-Column-ShowOnHomePage-Suggest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

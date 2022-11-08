@@ -31,6 +31,9 @@ namespace DAGStore.Model.Models
         [Required]
         public bool Status { get; set; }
 
+        [Required]
+        public bool ShowOnHomePage { get; set; }
+
         public virtual Slider Slider { get; set; }
 
         public virtual IEnumerable<SuggestProduct> SuggestProducts { set; get; }

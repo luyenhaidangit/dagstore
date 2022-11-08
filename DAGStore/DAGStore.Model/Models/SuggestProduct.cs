@@ -13,7 +13,7 @@ namespace DAGStore.Model.Models
         public int SuggestID { get; set; }
 
         [Key, Column(Order = 1)]
-        public int DiscountID { get; set; }
+        public int ProductID { get; set; }
 
         [ForeignKey("SuggestID")]
         public Suggest Suggest { set; get; }
