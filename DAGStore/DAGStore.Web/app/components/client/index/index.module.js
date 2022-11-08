@@ -1,4 +1,6 @@
 ﻿// Register module
-var index = angular.module('DAGStoreHome.index', ['DAGStore.common']);
+var index = angular.module('DAGStoreHome.index', ['DAGStore.common'])
+
+
 
 

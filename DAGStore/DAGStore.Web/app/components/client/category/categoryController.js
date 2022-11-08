@@ -3,7 +3,9 @@ var category = angular.module('DAGStoreHome.category');
 category.controller('categoryController', categoryController);
 
 // Controller
-function categoryController($scope, apiService, $stateParams, $filter) {
+function categoryController($scope, apiService, $stateParams, $filter, $rootScope) {
+    
+
     // Load Category Detail
     $scope.category = {
     }

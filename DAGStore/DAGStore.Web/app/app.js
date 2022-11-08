@@ -41,6 +41,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: '/index',
             templateUrl: '/app/components/client/index/indexView.html',
             controller: "indexController",
+            onEnter: function () {
+                $('html, body').animate({ scrollTop: -10000 }, 0);
+            }
         },
         ];
     states.forEach((state) => $stateProvider.state(state));
