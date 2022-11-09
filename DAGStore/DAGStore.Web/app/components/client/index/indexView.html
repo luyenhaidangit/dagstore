@@ -82,13 +82,13 @@
         </div>
         <!-- end: banner-topzone -->
         <!-- begin: hot-deal -->
-        <div class="hot-deal">
-            <div class="hot-deal__title">
-                <img src="/Content/client/img/banner-sale/Top-Deal-Desktop-1200x100.png" alt="">
+        <div ng-repeat="suggest in suggests" class="suggest suggest__{{suggest.ID}} hot-deal" style="background-color:{{suggest.BackgroundColor}};">
+            <div class="suggest__title">
+                <img src="{{suggest.ImagePath}}" alt="">
             </div>
 
-            <div class="hot-deal__carousel">
-                <div class="swiper hot-deal__swiper">
+            <div class="suggest__carousel">
+                <div class="swiper suggest__swiper suggest__swiper__{{suggest.ID}}">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide product-item-core">
                             <a href="/page/client/product/product.html">
@@ -511,8 +511,8 @@
                         </div>
 
                     </div>
-                    <a class="swiper-button-next carousel-button-next-core hot-deal__button-next"><i class="far fa-angle-right"></i></a>
-                    <a class="swiper-button-prev carousel-button-prev-core hot-deal__button-prev"><i class="far fa-angle-left"></i></a>
+                    <a class="swiper-button-next carousel-button-next-core suggest__button-next suggest__button-next__{{suggest.ID}}"><i class="far fa-angle-right"></i></a>
+                    <a class="swiper-button-prev carousel-button-prev-core suggest__button-prev suggest__button-prev__{{suggest.ID}}"><i class="far fa-angle-left"></i></a>
                 </div>
             </div>
 
@@ -3525,51 +3525,7 @@
         });
 
 
-        //Hot Deal Carousel
-        var swiperHotDeal = new Swiper(".hot-deal__swiper", {
-            spaceBetween: 16,
-            slidesPerGroup: 2,
-            freeMode: true,
-            navigation: {
-                nextEl: ".hot-deal__button-next",
-                prevEl: ".hot-deal__button-prev",
-            },
-            breakpoints: {
-                1400: {
-                    slidesPerView: 5,
-                    spaceBetween: 16,
-                    slidesPerGroup: 5,
-                    loop: true,
-                },
-                1200: {
-                    slidesPerView: 4,
-                    spaceBetween: 24,
-                    slidesPerGroup: 4,
-                    loop: true,
-                },
-
-                992: {
-                    slidesPerView: 3,
-                    spaceBetween: 24,
-                    slidesPerGroup: 3,
-                    loop: true,
-                },
-                768: {
-                    watchSlidesProgress: true,
-                    slidesPerView: 2,
-                    spaceBetween: 24,
-                    slidesPerGroup: 2,
-                },
-                567: {
-                    watchSlidesProgress: true,
-                    slidesPerView: 2,
-                    spaceBetween: 24,
-                    slidesPerGroup: 2,
-                    loop: true,
-                    freeMode: false,
-                },
-            }
-        });
+        
 
         // Promo Brand Carousel
         var swiperOutstanding = new Swiper(".promo-brand__swiper-outstanding", {

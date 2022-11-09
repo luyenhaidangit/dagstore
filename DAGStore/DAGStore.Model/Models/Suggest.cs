@@ -24,7 +24,7 @@ namespace DAGStore.Model.Models
         [MaxLength(500)]
         public string BackgroundColor { get; set; }
 
-        public int SliderID { get; set; }
+        public int? SliderID { get; set; }
 
         public int DisplayOrder { get; set; }
 

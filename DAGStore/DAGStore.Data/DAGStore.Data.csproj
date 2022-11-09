@@ -103,6 +103,14 @@
     <Compile Include="Migrations\202211081039454_Add-Column-ShowOnHomePage-Suggest.designer.cs">
       <DependentUpon>202211081039454_Add-Column-ShowOnHomePage-Suggest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202211081104161_Delete-column-SliderID.cs" />
+    <Compile Include="Migrations\202211081104161_Delete-column-SliderID.designer.cs">
+      <DependentUpon>202211081104161_Delete-column-SliderID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211081105485_ReCreate-Column-SliderID.cs" />
+    <Compile Include="Migrations\202211081105485_ReCreate-Column-SliderID.designer.cs">
+      <DependentUpon>202211081105485_ReCreate-Column-SliderID.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BrandRepository.cs" />
@@ -165,6 +173,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202211081039454_Add-Column-ShowOnHomePage-Suggest.resx">
       <DependentUpon>202211081039454_Add-Column-ShowOnHomePage-Suggest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211081104161_Delete-column-SliderID.resx">
+      <DependentUpon>202211081104161_Delete-column-SliderID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211081105485_ReCreate-Column-SliderID.resx">
+      <DependentUpon>202211081105485_ReCreate-Column-SliderID.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

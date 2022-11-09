@@ -275,7 +275,15 @@
 /* #endregion */
 
 /* #region : Hot Deal*/
-.hot-deal{
+/*.hot-deal{
+    display: flex;
+    flex-direction: column;
+    background-color: #FEBD1C;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}*/
+
+.suggest {
     display: flex;
     flex-direction: column;
     background-color: #FEBD1C;
@@ -283,11 +291,11 @@
     margin-bottom: 16px;
 }
 
-.hot-deal__swiper{
+.suggest__swiper {
     padding: 10px;
 }
 
-.hot-deal__title > img{
+.suggest__title > img {
     width: 100%;
     height: auto;
     border-top-left-radius: 8px;
@@ -295,18 +303,18 @@
 }
 
 @media only screen and (max-width: 576px) {
-    .hot-deal{
+    .suggest {
         border-radius: unset;
         margin-bottom: 0;
     }
 
-    .hot-deal__carousel .product-item-core{
+    .suggest__carousel .product-item-core {
         max-width: 240px;
         min-height: 480px;
     }
 
-    .hot-deal__button-next,
-    .hot-deal__button-prev{
+    .suggest__button-next,
+    .suggest__button-prev {
         display: none;
     }
 

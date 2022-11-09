@@ -375,6 +375,7 @@
     <Content Include="app\shared\services\apiService.js" />
     <Content Include="app\shared\services\dataTableService.js" />
     <Content Include="app\shared\services\ckeditorService.js" />
+    <Content Include="app\shared\services\sliderService.js" />
     <Content Include="app\shared\services\notificationService.js" />
     <Content Include="assets\css\app-dark.css" />
     <Content Include="assets\css\app-dark.min.css" />

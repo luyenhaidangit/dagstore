@@ -22,13 +22,17 @@ namespace DAGStore.Web.Controllers
         IProductService _productService;
         ISliderService _sliderService;
         ISliderItemService _sliderItemService;
+        ISuggestService _suggestService;
+        ISuggestProductService _suggestProductService;
 
-        public IndexController(IProductService productService,ISliderService sliderService,ISliderItemService sliderItemService,ICategoryService categoryService)
+        public IndexController(IProductService productService,ISliderService sliderService,ISliderItemService sliderItemService,ICategoryService categoryService,ISuggestService suggestService,ISuggestProductService suggestProductService)
         {
             _productService = productService;
             _sliderService = sliderService;
             _sliderItemService = sliderItemService;
             _categoryService = categoryService;
+            _suggestService = suggestService;
+            _suggestProductService = suggestProductService;
         }
 
         public JsonResult GetProductsNewShowHomePage()
@@ -82,6 +86,26 @@ namespace DAGStore.Web.Controllers
                                                  Name = c1.Name,
                                                  PicturePath = c1.PicturePath,
                                              }).Take(10),
+                         };
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetSuggests()
+        {
+            var suggest = _suggestService.GetAll().ToList();
+
+            var result = from s in suggest
+                         where s.Status == true && s.ShowOnHomePage == true
+                         orderby s.DisplayOrder descending
+                         select new
+                         {
+                             ID = s.ID,
+                             Title = s.Title,
+                             ImagePath = s.ImagePath,
+                             TextColor = s.TextColor,
+                             BackgroundColor = s.BackgroundColor,
+                             SuggestProducts = _suggestProductService.GetAll().ToList(),
                          };
 
             return Json(result, JsonRequestBehavior.AllowGet);
