@@ -5,13 +5,13 @@
     <div class="container py-2">
         <!-- begin: breadcumbb -->
         <ol class="breadcrumb mb-2">
-            <li class="breadcrumb-item"><a href="/page/client/categories/categories.html">{{category.Name}}</a></li>
-            <li class="breadcrumb-item active">Điện thoại Oppo</li>
+            <li class="breadcrumb-item"><a ui-sref="category({id:product.Category.ID})">{{product.Category.Name}}</a></li>
+            <li class="breadcrumb-item active">{{product.Category.Name}} {{product.Brand.Name}}</li>
         </ol>
         <!-- end: breadcrumb -->
         <!-- begin: intro-product -->
         <div class="intro-product d-flex align-items-center pb-2 border-bottom flex-wrap">
-            <strong class="product-title d-block d-md-inline-block mw-100">{{category.Name}} {{product.Name}}</strong>
+            <strong class="product-title d-block d-md-inline-block mw-100">{{product.Category.Name}} {{product.Name}}</strong>
             <a href="#" class="product-rate d-flex align-items-center mx-3 flex-wrap">
                 <div class="small-ratings d-flex gap-1">
                     <i class="fa fa-star rating-color"></i>
@@ -804,7 +804,7 @@
                             <div class="product-item-core__text">Giá tại <a href="#">Hà Nội<i class="fas fa-caret-down"></i></a></div>
                             <div class="product-item-core__row">
                                 <strong class="product-item-core__price me-2">
-                                    <span>{{product.Price | formatCurrencyVND}}</span>
+                                    <span>{{product.SellPrice | formatCurrencyVND}}</span>
                                 </strong>
                                 <div class="product-item-core__label">
                                     <span class="lalel-product-core label-installment">Trả góp 0%</span>

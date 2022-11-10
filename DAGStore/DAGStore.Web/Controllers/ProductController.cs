@@ -13,10 +13,14 @@ namespace DAGStore.Web.Controllers
     public class ProductController : Controller
     {
         IProductService _productService;
+        ICategoryService _categoryService;
+        IBrandService _brandService;
 
-        public ProductController(IProductService menuRecordService)
+        public ProductController(IProductService menuRecordService,ICategoryService categoryService,IBrandService brandService)
         {
             this._productService = menuRecordService;
+            this._categoryService = categoryService;
+            this._brandService = brandService;
         }
         // GET: MenuRecord
         public JsonResult GetAll()
@@ -72,6 +76,34 @@ namespace DAGStore.Web.Controllers
             _productService.SaveChanges();
 
             return Json(oldProduct, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetProductDetail(int id)
+        {
+            var product = _productService.GetAll().ToList();
+
+            var result = (from p in product
+                         where p.ID == id
+                         select new
+                         {
+                             ID = p.ID,
+                             Name = p.Name,
+                             Category = _categoryService.GetByID(p.CategoryID),
+                             Brand = _brandService.GetByID(p.BrandID),
+                             PicturePath = p.PicturePath,
+                             ShortDescription = p.ShortDescription,
+                             ShortDescriptionEndow = p.ShortDescriptionEndow,
+                             FullDescription = p.FullDescription,
+                             CostPrice = p.CostPrice,
+                             SellPrice = p.SellPrice,
+                             InventoryQuantity = p.InventoryQuantity,
+                             MinimumInventoryQuantity = p.MinimumInventoryQuantity,
+                             MaximumInventoryQuantity = p.MaximumInventoryQuantity,
+                             DisplayOrder = p.DisplayOrder,
+                             Published = p.Published,
+                             Deleted = p.Deleted,
+                         }).FirstOrDefault();
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
     }

@@ -8,7 +8,7 @@ function productController($scope, apiService, $stateParams, $filter, notificati
     $scope.product = {
     }
     $scope.category =
-    apiService.get("/product/getbyid/" + $stateParams.id, null, function (result) {
+    apiService.get("/product/getproductdetail/" + $stateParams.id, null, function (result) {
         $scope.product = result.data;
         $scope.product.CreateOn = $filter('formatJsonDate')($scope.product.CreateOn);
         apiService.get("/category/getbyid/" + $scope.product.CategoryID, null, function (resultCategory) {
