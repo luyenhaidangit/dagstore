@@ -28,7 +28,6 @@ function indexController($scope, apiService, sliderService) {
                 nextbutton: ".suggest__button-next__" + item.ID,
 
             }
-            console.log(config.prebutton)
 
             sliderService.createSliderProduct(config)
         })
