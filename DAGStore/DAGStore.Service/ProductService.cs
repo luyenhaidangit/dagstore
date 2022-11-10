@@ -21,6 +21,8 @@ namespace DAGStore.Service
 
         IEnumerable<dynamic> GetData();
 
+        IEnumerable<Product> GetSuggestProduct(int id);
+
         dynamic GetInfo(int id);
 
         Product GetByID(int id);
@@ -35,9 +37,11 @@ namespace DAGStore.Service
         private ICategoryRepository _categoryRepository;
         private IDiscountService _discountService;
         private IProductDiscountService _productDiscountService;
+        private ISuggestRepository _suggestRepository;
+        private ISuggestProductRepository _suggestProductRepository;
         private IUnitOfWork _unitOfWork;
 
-        public ProductService(IProductRepository productRepository,IDiscountService discountService, IProductDiscountService productDiscountService, IUnitOfWork unitOfWork, IBrandRepository brandService, ICategoryRepository categoryService)
+        public ProductService(IProductRepository productRepository,IDiscountService discountService, IProductDiscountService productDiscountService, IUnitOfWork unitOfWork, IBrandRepository brandService, ICategoryRepository categoryService,ISuggestRepository suggestRepository,ISuggestProductRepository suggestProductRepository)
         {
             this._discountService = discountService;
             this._productRepository = productRepository;
@@ -45,6 +49,23 @@ namespace DAGStore.Service
             this._unitOfWork = unitOfWork;
             this._brandRepository = brandService;
             this._categoryRepository = categoryService;
+            this._suggestRepository = suggestRepository;
+            this._suggestProductRepository = suggestProductRepository;
+        }
+
+        public IEnumerable<Product> GetSuggestProduct(int id)
+        {
+            var suggest = _suggestRepository.GetAll().ToList();
+            var suggestproduct = _suggestProductRepository.GetAll().ToList();
+            var product = _productRepository.GetAll().ToList();
+
+            var result = from s in suggest
+                         join spr in suggestproduct on s.ID equals spr.SuggestID
+                         join p in product on spr.ProductID equals p.ID
+                         where s.ID == id
+                         orderby p.DisplayOrder descending
+                         select p;
+            return result;
         }
 
         public bool Add(Product product)

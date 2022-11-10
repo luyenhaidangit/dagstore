@@ -94,6 +94,8 @@ namespace DAGStore.Web.Controllers
         public JsonResult GetSuggests()
         {
             var suggest = _suggestService.GetAll().ToList();
+            var suggestproduct = _suggestProductService.GetAll().ToList();
+            var product = _productService.GetAll().ToList();
 
             var result = from s in suggest
                          where s.Status == true && s.ShowOnHomePage == true
@@ -105,7 +107,7 @@ namespace DAGStore.Web.Controllers
                              ImagePath = s.ImagePath,
                              TextColor = s.TextColor,
                              BackgroundColor = s.BackgroundColor,
-                             SuggestProducts = _suggestProductService.GetAll().ToList(),
+                             SuggestProducts = _productService.GetSuggestProduct(s.ID),
                          };
 
             return Json(result, JsonRequestBehavior.AllowGet);
