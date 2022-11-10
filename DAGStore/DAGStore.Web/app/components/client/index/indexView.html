@@ -85,6 +85,7 @@
         <div ng-repeat="suggest in suggests" class="suggest suggest__{{suggest.ID}} hot-deal" style="background-color:{{suggest.BackgroundColor}};">
             <div class="suggest__title">
                 <img src="{{suggest.ImagePath}}" alt="">
+                <p class="{{suggest.Title == '' ? 'd-none' : '' }}">{{suggest.Title}}</p>
             </div>
 
             <div class="suggest__carousel">

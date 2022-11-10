@@ -1,4 +1,4 @@
-@import url("reset.css?v=3.4.1");
+﻿@import url("reset.css?v=3.4.1");
 @import url("common.css?v=3.4.1");
 @import url("component-client.css?v=3.4.1");
 
@@ -337,9 +337,9 @@
     background: #092dc6;
 }
 
-.promo-brand__title{
+.suggest__title {
     display: block;
-    padding: 24px 0;
+    padding: 0px 0;
     font-size: 44px;
     line-height: 40px;
     color: #fff;
@@ -348,6 +348,10 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     text-align: center;
+}
+
+.suggest__title > p {
+        padding: 24px 0;
 }
 
 .promo-brand__swiper-outstanding{
