@@ -71,8 +71,8 @@ function productEditController($scope, apiService, notificationService, $state, 
     function EditProduct() {
         $scope.product.BrandID = document.getElementsByName("brandid")[0].value;
         $scope.product.CategoryID = document.getElementsByName("categoryid")[0].value;
-        $scope.product.Content = CKEDITOR.instances['DAGStoreTextArea'].getData();
-
+        $scope.product.FullDescription = CKEDITOR.instances['DAGStoreTextArea'].getData();
+        console.log($scope.product)
         apiService.put("/product/update", $scope.product, function (result) {
             notificationService.displaySuccess("Cập nhật thông tin thành công!");
             $state.go("product");

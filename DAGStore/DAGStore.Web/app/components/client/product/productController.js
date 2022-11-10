@@ -3,20 +3,14 @@ var product = angular.module('DAGStoreHome.product');
 product.controller('productController', productController);
 
 // Controller
-function productController($scope, apiService, $stateParams, $filter, notificationService,$state) {
+function productController($scope, apiService, $stateParams, $filter, notificationService, $state, $sce) {
     // Load Product Detail
     $scope.product = {
     }
     $scope.category =
     apiService.get("/product/getproductdetail/" + $stateParams.id, null, function (result) {
         $scope.product = result.data;
-        $scope.product.CreateOn = $filter('formatJsonDate')($scope.product.CreateOn);
-        apiService.get("/category/getbyid/" + $scope.product.CategoryID, null, function (resultCategory) {
-            $scope.category = resultCategory.data;
-        }, function (error) {
-            console.log("Không thể tải dữ liệu");
-            
-        })
+        $scope.Message = $sce.trustAsHtml($scope.product.FullDescription);
     }, function (error) {
         console.log("Không thể tải dữ liệu");
     })

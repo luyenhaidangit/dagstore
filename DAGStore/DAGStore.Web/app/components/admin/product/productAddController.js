@@ -67,8 +67,8 @@ function productAddController($scope, apiService, notificationService, $state, c
     function AddProduct() {
         $scope.product.BrandID = document.getElementsByName("brandid")[0].value;
         $scope.product.CategoryID = document.getElementsByName("categoryid")[0].value;
-        $scope.product.Content = CKEDITOR.instances['DAGStoreTextArea'].getData();
-        console.log($scope.productDiscountID)
+        $scope.product.FullDescription = CKEDITOR.instances['DAGStoreTextArea'].getData();
+        console.log($scope.product)
         apiService.post("/product/create", $scope.product, function (result) {
             notificationService.displaySuccess("Thêm thông tin thành công!");
             $state.go("product");

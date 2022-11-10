@@ -7,4 +7,6 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
+	config.filebrowserBrowseUrl = '/assets/libs/ckfinder/ckfinder.html',
+	config.filebrowserUploadUrl = '/assets/libs/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Files'
 };
