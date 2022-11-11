@@ -111,6 +111,10 @@
     <Compile Include="Migrations\202211081105485_ReCreate-Column-SliderID.designer.cs">
       <DependentUpon>202211081105485_ReCreate-Column-SliderID.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202211111729416_Update-Customer.cs" />
+    <Compile Include="Migrations\202211111729416_Update-Customer.designer.cs">
+      <DependentUpon>202211111729416_Update-Customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BrandRepository.cs" />
@@ -179,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202211081105485_ReCreate-Column-SliderID.resx">
       <DependentUpon>202211081105485_ReCreate-Column-SliderID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211111729416_Update-Customer.resx">
+      <DependentUpon>202211111729416_Update-Customer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

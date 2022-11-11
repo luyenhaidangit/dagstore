@@ -8,15 +8,15 @@
         <div class="loading-cart d-flex flex-column py-2">
             <div class="loading-cart__top w-100">
                 <div class="loading-cart__top-buy-more d-flex justify-content-between">
-                    <a href="https://www.thegioididong.com" class="buymore">Mua thêm sản phẩm khác</a>
-                    <span>Giỏ hàng của bạn <!----></span>
+                    <a ui-sref="index" class="buymore">Mua thêm sản phẩm khác</a>
+                    <span>Giỏ hàng của bạn</span>
                 </div>
             </div>
             <div class="loading-cart__body w-100 py-2">
                 <div class="loading-cart__list-product border-bottom" ng-repeat="item in cart">
                     <div class="loading-cart__product-item d-flex">
                         <div class="loading-cart__product-item__img">
-                            <a href="#">
+                            <a ui-sref="product({id:item.Product.ID})">
                                 <img class="img-fluid" src="{{item.Product.PicturePath}}" alt="">
                             </a>
                             <div ng-click="DeteteCartItem(item.Product.ID)" class="delete-product d-flex justify-content-center align-items-center py-2 gap-1">
@@ -40,7 +40,11 @@
                         <div class="loading-cart__product-item__price d-flex flex-column ms-auto text-end">
                             <span class="modal__add-cart__header-text"> {{item.Product.SellPrice | formatCurrencyVND}} </span>
                             <strike class="modal__add-cart__header-text">6.490.000₫</strike>
-                            <input class="d-inline form-control-sm input-touch-spin" id="demo3" type="text" name="demo3" ng-model="item.Quantity">
+                            <div class="input-group input-group-sm mb-3">
+                                <span ng-click="ChangeQuantity(item,'-')" class="input-group-text" id="inputGroup-sizing-sm" style="cursor:pointer;">-</span>
+                                <input ng-change="ChangeQuantity(item,'change')" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" style="max-width:40px;" ng-model="item.Quantity" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : 0">
+                                <span ng-click="ChangeQuantity(item,'+')" class="input-group-text" id="inputGroup-sizing-sm" style="cursor:pointer;">+</span>
+                            </div>
                         </div>
                     </div>
 
@@ -95,7 +99,7 @@
                 <div class="loading-cart__summary py-4">
                     <div class="loading-cart__summary-value d-flex justify-content-between">
                         <b class="modal__add-cart__header-text">Tổng tiền</b>
-                        <b class="modal__add-cart__header-text text-end text-danger">10.940.000₫</b>
+                        <b class="modal__add-cart__header-text text-end text-danger">{{order.OrderTotal | formatCurrencyVND}}</b>
                     </div>
                     <button type="button" class="btn btn-primary w-100 my-2">Xác nhận</button>
                 </div>
@@ -105,17 +109,17 @@
 
     </div>
 
-    <div class="container-sm d-flex justify-content-center" ng-show="cart.length == 0" style="min-height:560px;padding:40px 0">
+    <div class="container-sm d-flex justify-content-center" ng-show="cart.length == 0" style="min-height:540px;padding:0px 0">
         <div class="cartempty d-flex flex-column align-items-center justify-content-center">
             <i class="fal fa-cart-plus text-danger" style="font-size:60px;"></i>
-            <span>Không có sản phẩm nào trong giỏ hàng</span>
-            <a href="https://www.thegioididong.com" class="backhome">Về trang chủ</a>
-            <p>Khi cần trợ giúp vui lòng gọi <a style="color: #288ad6" href="tel:18001060">1800.1060</a> hoặc <a style="color: #288ad6" href="tel:02836221060">028.3622.1060</a> (7h30 - 22h)</p>
+            <span class="my-1">Không có sản phẩm nào trong giỏ hàng</span>
+            <a class="my-1" ui-sref="index">Về trang chủ</a>
+            <p class="my-1">Khi cần trợ giúp vui lòng gọi <a style="color: #288ad6" href="tel:0922002360">092.2002.360</a> hoặc <a style="color: #288ad6" href="tel:0395502917">0395.502.917</a> (7h30 - 22h)</p>
         </div>
     </div>
 
 </div>
 <script>
-    $("input[name ='demo3']").TouchSpin();
+   
 </script>
 <!-- end: content -->

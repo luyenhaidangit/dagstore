@@ -21,8 +21,6 @@ namespace DAGStore.Model.Models
         [MaxLength(10)]
         public string Sex { get; set; }
 
-        public DateTime BirthDay { get; set; }
-
         [MaxLength(500)]
         public string Email { get; set; }
 

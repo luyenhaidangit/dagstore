@@ -53,6 +53,19 @@ namespace DAGStore.Web.Controllers
             return Json("OK",JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPut]
+        public JsonResult Update(Cart cartitem)
+        {
+            var cart = (List<Cart>)Session["SessionCart"] ?? new List<Cart>();
+
+            var index = cart.FindIndex(x => x.ProductID==cartitem.ProductID);
+
+            cart[index] = cartitem;
+
+            Session["SessionCart"] = cart;
+            return Json("OK", JsonRequestBehavior.AllowGet);
+        }
+
         [HttpDelete]
         public JsonResult Delete(int id)
         {
