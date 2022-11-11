@@ -10,6 +10,9 @@ product.config(function ($stateProvider, $urlRouterProvider) {
             url: '/cart',
             templateUrl: '/app/components/client/cart/cartView.html',
             controller: "cartController",
+            onEnter: function () {
+                $('html, body').animate({ scrollTop: -10000 }, 0);
+            }
         },
     ];
     states.forEach((state) => $stateProvider.state(state));

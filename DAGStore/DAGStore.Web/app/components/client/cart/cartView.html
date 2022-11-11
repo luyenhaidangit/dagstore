@@ -4,7 +4,7 @@
 
 <!-- begin: content -->
 <div class="content">
-    <div class="container-sm d-flex justify-content-center">
+    <div class="container-sm d-flex justify-content-center" ng-show="cart.length != 0">
         <div class="loading-cart d-flex flex-column py-2">
             <div class="loading-cart__top w-100">
                 <div class="loading-cart__top-buy-more d-flex justify-content-between">
@@ -19,7 +19,7 @@
                             <a href="#">
                                 <img class="img-fluid" src="{{item.Product.PicturePath}}" alt="">
                             </a>
-                            <div class="delete-product d-flex justify-content-center align-items-center py-2 gap-1">
+                            <div ng-click="DeteteCartItem(item.Product.ID)" class="delete-product d-flex justify-content-center align-items-center py-2 gap-1">
                                 <i class="fal fa-times-circle"></i>
                                 Xóa
                             </div>
@@ -38,7 +38,7 @@
 
                         </div>
                         <div class="loading-cart__product-item__price d-flex flex-column ms-auto text-end">
-                            <span class="modal__add-cart__header-text"> {{item.Product.Price | formatCurrencyVND}} </span>
+                            <span class="modal__add-cart__header-text"> {{item.Product.SellPrice | formatCurrencyVND}} </span>
                             <strike class="modal__add-cart__header-text">6.490.000₫</strike>
                             <input class="d-inline form-control-sm input-touch-spin" id="demo3" type="text" name="demo3" ng-model="item.Quantity">
                         </div>
@@ -103,6 +103,15 @@
 
         </div>
 
+    </div>
+
+    <div class="container-sm d-flex justify-content-center" ng-show="cart.length == 0" style="min-height:560px;padding:40px 0">
+        <div class="cartempty d-flex flex-column align-items-center justify-content-center">
+            <i class="fal fa-cart-plus text-danger" style="font-size:60px;"></i>
+            <span>Không có sản phẩm nào trong giỏ hàng</span>
+            <a href="https://www.thegioididong.com" class="backhome">Về trang chủ</a>
+            <p>Khi cần trợ giúp vui lòng gọi <a style="color: #288ad6" href="tel:18001060">1800.1060</a> hoặc <a style="color: #288ad6" href="tel:02836221060">028.3622.1060</a> (7h30 - 22h)</p>
+        </div>
     </div>
 
 </div>

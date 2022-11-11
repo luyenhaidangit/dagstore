@@ -753,28 +753,8 @@
 
                         <div class="box-info-product overflow-hidden">
                             <h5 class="my-3">Thông tin sản phẩm</h5>
-                            <div class="d-flex justify-content-center flex-column">
-                                <strong>OPPO Reno8 Z 5G đã được ra mắt trên thị trường di động Việt Nam. Điện thoại có vẻ ngoài được tạo hình vuông vức với màu sắc hết sức trẻ trung, cùng với đó là một hiệu năng mạnh mẽ và bộ camera có khả năng chụp ảnh sắc nét.</strong>
-
-                                <strong>Ngoại hình vuông vức hợp xu hướng</strong>
-
-                                <p>Reno8 Z 5G được OPPO sử dụng kiểu thiết kế vuông vức khá tương đồng với phiên bản tiền nhiệm Reno7 Z 5G khi mặt lưng và các cạnh bên được vát phẳng một cách tinh tế, mang lại cho người dùng một cái nhìn sang trọng và thời thượng hơn khi cầm nắm sử dụng trên tay.</p>
-                                <img src="/Content/client/img/product/oppo-reno8-z-5g-050822-104602.jpg" alt="" class="img-fluid rounded">
-                                <p>Mặt lưng của máy được làm từ vật liệu kính cùng một độ nhám nhất định giúp cho thiết bị có khả năng hạn chế các vết xước nhẹ, tình trạng bám dấu vân tay cũng được cải thiện đáng kể nên người dùng sẽ không cần tốn quá nhiều thời gian để vệ sinh máy.</p>
-                                <strong>Màn hình hiển thị chất lượng</strong>
-                                <p>Reno8 Z 5G mang đến cho bạn những hình ảnh sống động đầy rực rỡ khi được phủ lên trên một tấm nền AMOLED cao cấp, ngoài ra với kích thước màn hình lên đến 6.43 inch và độ phân giải Full HD+ (1080 x 2400 Pixels) nên mọi thông tin trên màn hình đều được tái hiện sắc nét và to rõ.</p>
-                                <img src="/Content/client/img/product/oppo-reno8-z-5g-050822-111635.jpg" alt="" class="img-fluid rounded">
-                                <strong>Nâng tầm trải nghiệm chụp ảnh</strong>
-                                <p>Reno8 Z 5G được OPPO trang bị 3 camera với camera chính có độ phân giải lên đến 64 MP cùng hai ống kính phụ có chung độ phân giải 2 MP, điều này giúp cho điện thoại có thể bắt lại những khung cảnh đẹp sắc nét hơn hay thỏa mình sáng tạo với nhiều góc độ khác nhau thông qua các tính năng chụp mới mẻ mà ống kính phụ mang lại.</p>
-                                <img src="/Content/client/img/product/oppo-reno8-z-5g-050822-104833.jpg" alt="" class="img-fluid rounded">
-                                <strong>Hiệu năng mạnh mẽ đến từ chipset Qualcomm</strong>
-                                <p>OPPO Reno8 Z 5G được vận hành bởi con chip Snapdragon 695 5G 8 nhân với hiệu suất tôi đa có thể đạt được là 2.2 GHz, đi kèm với đó là sự tối ưu về hệ điều hành Android 12 giúp cho các nhu cầu sử dụng hàng ngày trở nên mượt mà hơn hẳn.</p>
-                                <img src="/Content/client/img/product/oppo-reno8-z-5g-250722-105256.jpg" alt="" class="img-fluid rounded">
-                                <p>Điện thoại RAM 8 GB giúp bạn có thể mở đồng thời nhiều ứng dụng mà không cần phải lo lắng đến vấn đề giật lag trong lúc đa nhiệm. Ngoài ra hãng còn bổ sung thêm cho thiết bị tính năng mở rộng RAM nhằm giúp cho người dùng sử dụng nhiều tác vụ nâng cao được ổn định hơn.</p>
-                                <strong>Hỗ trợ sạc pin nhanh chóng</strong>
-                                <p>Với viên pin có dung lượng 4500 mAh thừa sức mang lại cho bạn thời lượng dùng lên đến cả ngày cho các tác vụ đàm thoại, nhắn tin hay nghe nhạc. Để tối ưu thời gian sạc trên thiết bị nên OPPO cũng đã tích hợp thêm công nghệ SuperVOOC 33 W có khả năng lấp đầy viên pin trong tích tắc.</p>
-                                <img src="/Content/client/img/product/oppo-reno8-z-5g-050822-105151.jpg" alt="" class="img-fluid rounded">
-                                <p>Với vẻ ngoài trẻ trung, lịch lãm sản phẩm sẽ thu hút được rất nhiều bạn trẻ hiện nay và nhất là thế hệ GenZ, bên cạnh đó thì OPPO Reno8 Z 5G cũng được trang bị bộ 3 camera chất lượng để bạn có thể nâng cấp khả năng nhiếp ảnh hay một cấu hình mạnh mẽ giúp bạn tối ưu công việc nhanh chóng.</p>
+                            <div class="d-flex justify-content-center flex-column" ng-bind-html = "Message">
+                                
                             </div>
                             <div class="bg-article"></div>
                             <div class="btn-read-more">
@@ -887,8 +867,8 @@
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                     <div class="modal-content modal__add-cart">
                                         <div class="modal-header modal__add-cart__header">
-                                            <span class="modal__add-cart__header-text">{{category.Name}} {{product.Name}}</span>
-                                            <span class="modal__add-cart__header-text"> {{product.Price | formatCurrencyVND}} <strike>6.490.000₫</strike></span>
+                                            <span class="modal__add-cart__header-text">{{product.Category.Name}} {{product.Name}}</span>
+                                            <span class="modal__add-cart__header-text"> {{product.SellPrice | formatCurrencyVND}} <strike>6.490.000₫</strike></span>
                                         </div>
                                         <div class="modal-body modal__add-cart__body">
                                             <div class="choose-custom-product">

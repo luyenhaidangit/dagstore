@@ -52,5 +52,15 @@ namespace DAGStore.Web.Controllers
             Session["SessionCart"] = cart;
             return Json("OK",JsonRequestBehavior.AllowGet);
         }
+
+        [HttpDelete]
+        public JsonResult Delete(int id)
+        {
+            var cart = (List<Cart>)Session["SessionCart"] ?? new List<Cart>();
+            var item = cart.FirstOrDefault(x => x.ProductID == id);
+            cart.Remove(item);
+            Session["SessionCart"] = cart;
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
     }
 }
