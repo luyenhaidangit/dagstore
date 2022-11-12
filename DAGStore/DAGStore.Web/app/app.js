@@ -19,10 +19,19 @@ app.config(function($stateProvider, $urlRouterProvider){
       url: '/dashboard',
       templateUrl: '/app/components/admin/home/homeView.html',
       controller: "homeController",
-    }];
+    },
+    {
+        name: 'signin',
+        url: '/signin',
+        templateUrl: '/app/components/admin/login/loginView.html',
+        controller: "loginController",
+    }
+    ];
     states.forEach((state) => $stateProvider.state(state));
     $urlRouterProvider.otherwise('/dashboard');
 });
+
+
 
 // Register App Home
 var app = angular.module('DAGStoreHome', [
@@ -48,5 +57,24 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         ];
     states.forEach((state) => $stateProvider.state(state));
     $urlRouterProvider.otherwise('/index');
+});
+
+// Register App
+var app = angular.module('DAGStoreLogin', [
+    'DAGStore.common']);
+
+// Config app
+app.config(function ($stateProvider, $urlRouterProvider) {
+    // Config Router
+    var states = [
+        {
+            name: 'signin',
+            url: '/signin',
+            templateUrl: '/app/components/admin/login/loginView.html',
+            controller: "loginController",
+        }
+    ];
+    states.forEach((state) => $stateProvider.state(state));
+    $urlRouterProvider.otherwise('/signin');
 });
 

@@ -242,6 +242,7 @@
     <Compile Include="Controllers\ImportBillController.cs" />
     <Compile Include="Controllers\ImportBillDetailController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuRecordController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -289,6 +290,7 @@
     <Content Include="app\components\admin\discount\discountInfoView.html" />
     <Content Include="app\components\admin\discount\discountListController.js" />
     <Content Include="app\components\admin\discount\discountListView.html" />
+    <Content Include="app\components\admin\home\rootController.js" />
     <Content Include="app\components\admin\importbill\importBill.module.js" />
     <Content Include="app\components\admin\importbill\importBillAddController.js" />
     <Content Include="app\components\admin\importbill\importBillAddView.html" />
@@ -298,6 +300,8 @@
     <Content Include="app\components\admin\importbill\importBillInfoView.html" />
     <Content Include="app\components\admin\importbill\importBillListController.js" />
     <Content Include="app\components\admin\importbill\importBillListView.html" />
+    <Content Include="app\components\admin\login\loginController.js" />
+    <Content Include="app\components\admin\login\loginView.html" />
     <Content Include="app\components\admin\product\productInfoController.js" />
     <Content Include="app\components\admin\product\productInfoView.html" />
     <Content Include="app\components\admin\slider\slider.module.js" />
@@ -377,6 +381,7 @@
     <Content Include="app\shared\services\ckeditorService.js" />
     <Content Include="app\shared\services\sliderService.js" />
     <Content Include="app\shared\services\notificationService.js" />
+    <Content Include="app\shared\views\baseView.html" />
     <Content Include="assets\css\app-dark.css" />
     <Content Include="assets\css\app-dark.min.css" />
     <Content Include="assets\css\app-rtl.css" />
@@ -3414,6 +3419,7 @@
     <Content Include="Content\client\font\nazox-icon\fonts\fa-solid-900.svg" />
     <Content Include="Content\client\font\nazox-icon\fonts\remixicon.svg" />
     <Content Include="Content\client\font\nazox-icon\fonts\remixicon.symbol.svg" />
+    <Content Include="Content\client\img\dien-thoai-nao-chup-anh-dep-nhat-hien-nay-1-1583513768935567337952.jpg" />
     <Content Include="Content\client\img\resource\preload.gif" />
     <Content Include="Content\client\img\resource\favicon-dagstore.ico" />
     <Content Include="Content\client\img\avatar\ban-phim-128x129.png" />
@@ -6632,6 +6638,7 @@
     <Content Include="Views\Index\Index.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\viewss.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -32,7 +32,7 @@
 
 </head>
 
-<body data-sidebar="dark" ng-app="DAGStore">
+<body data-sidebar="dark" ng-app="DAGStore" ng-controller="rootController">
     <!-- Loader -->
     <div id="preloader">
         <div id="status">
@@ -284,7 +284,7 @@
                             <a class="dropdown-item" href="#"><i class="ri-user-line align-middle mr-1"></i>Thông tin tài khoản</a>
                             <a class="dropdown-item d-block" href="#"><span class="badge badge-success float-right mt-1">11</span><i class="ri-settings-2-line align-middle mr-1"></i>Cài đặt</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-danger" href="#"><i class="ri-shut-down-line align-middle mr-1 text-danger"></i>Đăng xuất</a>
+                            <a class="dropdown-item text-danger" style="cursor:pointer" ng-click="LogOut()"><i class="ri-shut-down-line align-middle mr-1 text-danger"></i>Đăng xuất</a>
                         </div>
                     </div>
                     <!-- end: user -->
@@ -862,6 +862,7 @@
     <script src="~/app/shared/services/ckeditorService.js"></script>
     <script src="/app/app.js"></script>
     <script src="/app/components/admin/home/homeController.js"></script>
+    <script src="/app/components/admin/home/rootController.js"></script>
     <!-- Supplier -->
     <script src="/app/components/admin/supplier/supplier.module.js"></script>
     <script src="/app/components/admin/supplier/supplierListController.js"></script>
