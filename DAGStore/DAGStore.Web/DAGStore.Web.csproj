@@ -709,6 +709,15 @@
     <Content Include="assets\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-world-mill-en.js" />
     <Content Include="assets\libs\admin-resources\rwd-table\rwd-table.min.css" />
     <Content Include="assets\libs\admin-resources\rwd-table\rwd-table.min.js" />
+    <Content Include="assets\libs\angular-datatables\angular-datatables.directive.js" />
+    <Content Include="assets\libs\angular-datatables\angular-datatables.js" />
+    <Content Include="assets\libs\angular-datatables\angular-datatables.module.js" />
+    <Content Include="assets\libs\angular-loading-bar\loading-bar.css" />
+    <Content Include="assets\libs\angular-loading-bar\loading-bar.js" />
+    <Content Include="assets\libs\angular-loading-bar\loading-bar.min.css" />
+    <Content Include="assets\libs\angular-loading-bar\loading-bar.min.js" />
+    <Content Include="assets\libs\angular-local-storage\angular-local-storage.js" />
+    <Content Include="assets\libs\angular-local-storage\angular-local-storage.min.js" />
     <Content Include="assets\libs\angular-ui-router\angular-ui-router.js" />
     <Content Include="assets\libs\angular-ui-router\angular-ui-router.min.js" />
     <Content Include="assets\libs\angular-ui-router\resolveService.js" />
@@ -6578,6 +6587,9 @@
     <Content Include="assets\libs\oclazyload\modules\ocLazyLoad.loaders.requireJSLoader.min.js.map" />
     <Content Include="assets\libs\oclazyload\modules\ocLazyLoad.loaders.templatesLoader.min.js.map" />
     <Content Include="assets\libs\oclazyload\modules\ocLazyLoad.polyfill.ie8.min.js.map" />
+    <Content Include="assets\libs\angular-datatables\angular-datatables.directive.js.map" />
+    <Content Include="assets\libs\angular-datatables\angular-datatables.js.map" />
+    <Content Include="assets\libs\angular-datatables\angular-datatables.module.js.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

@@ -9,6 +9,16 @@
     {
       "library": "angular-datatables@2.1.0",
       "destination": "assets/libs/angular-datatables/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "angular-local-storage@0.7.1",
+      "destination": "assets/libs/angular-local-storage/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "angular-loading-bar@0.9.0",
+      "destination": "assets/libs/angular-loading-bar/"
     }
   ]
 }

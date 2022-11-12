@@ -1,3 +1,5 @@
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\obj\Debug\DAGStore.Web.csproj.AssemblyReference.cache
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\obj\Debug\DAGStore.Web.csproj.CoreCompileInputs.cache
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DAGStore.Web.dll.config
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DAGStore.Web.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DAGStore.Web.pdb
@@ -139,8 +141,6 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.Se
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.Owin.Security.OAuth.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\obj\Debug\DAGStore.Web.csproj.AssemblyReference.cache
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\obj\Debug\DAGStore.Web.csproj.CoreCompileInputs.cache
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\obj\Debug\DAGStore.Web.csproj.CopyComplete
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\obj\Debug\DAGStore.Web.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\obj\Debug\DAGStore.Web.pdb

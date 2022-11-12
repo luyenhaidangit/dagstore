@@ -12,20 +12,25 @@ using System.Web.Http;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using DAGStore.Data;
-using DotNetOpenAuth.OAuth;
+using Microsoft.AspNet.Identity;
 using DAGStore.Model.Models;
-using Autofac.Features.ResolveAnything;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.DataProtection;
+using System.Web;
+using DAGStore.Data.Infrastructure;
+using DAGStore.Web;
 
 [assembly: OwinStartup(typeof(DAGStore.Web.App_Start.Startup))]
 
 namespace DAGStore.Web.App_Start
 {
-    public class Startup
+    public partial class Startup
     {
         public void Configuration(IAppBuilder app)
         {
             // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=316888
             ConfigAutofac(app);
+            ConfigureAuth(app);
         }
         private void ConfigAutofac(IAppBuilder app)
         {
@@ -38,17 +43,22 @@ namespace DAGStore.Web.App_Start
             builder.RegisterType<DbFactory>().As<IDbFactory>().InstancePerRequest();
 
             builder.RegisterType<DAGStoreDbContext>().AsSelf().InstancePerRequest();
-            builder.RegisterType<SecuritySettings>().As<SecuritySettings>();
-            //builder.RegisterType<Category>().AsSelf().As<DAGStoreDbContext>().InstancePerLifetimeScope();
-            builder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
+
+            //Asp.net Identity
+            builder.RegisterType<ApplicationUserStore>().As<IUserStore<ApplicationUser>>().InstancePerRequest();
+            builder.RegisterType<ApplicationUserManager>().AsSelf().InstancePerRequest();
+            builder.RegisterType<ApplicationSignInManager>().AsSelf().InstancePerRequest();
+            builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
+            builder.Register(c => app.GetDataProtectionProvider()).InstancePerRequest();
+
 
             // Repositories
-            builder.RegisterAssemblyTypes(typeof(MenuRecordRepository).Assembly)
+            builder.RegisterAssemblyTypes(typeof(ProductRepository).Assembly)
                 .Where(t => t.Name.EndsWith("Repository"))
                 .AsImplementedInterfaces().InstancePerRequest();
 
             // Services
-            builder.RegisterAssemblyTypes(typeof(MenuRecordService).Assembly)
+            builder.RegisterAssemblyTypes(typeof(ProductService).Assembly)
                .Where(t => t.Name.EndsWith("Service"))
                .AsImplementedInterfaces().InstancePerRequest();
 

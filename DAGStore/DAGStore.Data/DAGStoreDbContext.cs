@@ -1,9 +1,12 @@
 ﻿using DAGStore.Model.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Reflection;
 
 namespace DAGStore.Data
 {
-    public class DAGStoreDbContext : DbContext
+    public class DAGStoreDbContext : IdentityDbContext<ApplicationUser>
     {
         /// <summary>
         /// Using packet manager console
@@ -34,7 +37,7 @@ namespace DAGStore.Data
         public DbSet<Suggest> Suggest { get; set; }
         public DbSet<SuggestProduct> SuggestProduct  { get; set; }
 
-        public virtual void Commit()
+    public virtual void Commit()
         {
             base.SaveChanges();
         }
@@ -46,7 +49,10 @@ namespace DAGStore.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-        
+            modelBuilder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId, i.RoleId }).ToTable("ApplicationUserRoles");
+            modelBuilder.Entity<IdentityUserLogin>().HasKey(i => i.UserId).ToTable("ApplicationUserLogins");
+            modelBuilder.Entity<IdentityRole>().ToTable("ApplicationRoles");
+            modelBuilder.Entity<IdentityUserClaim>().HasKey(i => i.UserId).ToTable("ApplicationUserClaims");
         }
     }
 }

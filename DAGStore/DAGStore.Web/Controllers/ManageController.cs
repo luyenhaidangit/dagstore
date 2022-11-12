@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using DAGStore.Web.Models;
+using DAGStore.Web.App_Start;
 
 namespace DAGStore.Web.Controllers
 {
