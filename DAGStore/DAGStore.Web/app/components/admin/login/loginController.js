@@ -35,11 +35,13 @@ function loginController($scope, loginService, notificationService) {
     $scope.loginSubmit = loginSubmit;
     function loginSubmit() {
         loginService.login($scope.loginData.userName, $scope.loginData.password).then(function (response) {
+            console.log(response)
             if (response != null && response.error != undefined) {
-                notificationService.displayError("Đăng nhập không đúng.");
+                notificationService.displaySuccess("Đăng nhập không đúng");
             }
             else {
-                /*window.location = "/admin"*/
+                 window.location = "/admin"
+                console.log("ok")
             }
         });
     }

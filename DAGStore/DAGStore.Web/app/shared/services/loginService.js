@@ -15,8 +15,9 @@
                     headers:
                         { 'Content-Type': 'application/x-www-form-urlencoded' }
                 }).then(function (response) {
+                 
                     userInfo = {
-                        accessToken: response.access_token,
+                        accessToken: response.data.access_token,
                         userName: userName
                     };
                     console.log(userInfo)
@@ -27,7 +28,7 @@
                 }, function (err) {
                     authData.authenticationData.IsAuthenticated = false;
                     authData.authenticationData.userName = "";
-                    deferred.resolve(err);
+                    deferred.resolve(err.data);
                     console.log(err)
                 })
                 return deferred.promise;
