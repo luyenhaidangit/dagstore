@@ -379,6 +379,9 @@
     <Content Include="app\shared\services\apiService.js" />
     <Content Include="app\shared\services\dataTableService.js" />
     <Content Include="app\shared\services\ckeditorService.js" />
+    <Content Include="app\shared\services\authData.js" />
+    <Content Include="app\shared\services\authenticationService.js" />
+    <Content Include="app\shared\services\loginService.js" />
     <Content Include="app\shared\services\sliderService.js" />
     <Content Include="app\shared\services\notificationService.js" />
     <Content Include="app\shared\views\baseView.html" />

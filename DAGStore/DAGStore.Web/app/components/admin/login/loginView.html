@@ -25,13 +25,13 @@
                                             <div class="form-group auth-form-group-custom mb-4">
                                                 <i class="ri-user-2-line auti-custom-input-icon"></i>
                                                 <label for="username">Tên đăng nhập</label>
-                                                <input type="text" class="form-control" id="username" placeholder="Nhập tên đăng nhập">
+                                                <input type="text" class="form-control" id="username" placeholder="Nhập tên đăng nhập" ng-model="loginData.userName">
                                             </div>
 
                                             <div class="form-group auth-form-group-custom mb-4">
                                                 <i class="ri-lock-2-line auti-custom-input-icon"></i>
                                                 <label for="userpassword">Mật khẩu</label>
-                                                <input type="password" class="form-control" id="userpassword" placeholder="Nhập mật khẩu">
+                                                <input type="password" class="form-control" id="userpassword" placeholder="Nhập mật khẩu" ng-model="loginData.password">
                                             </div>
 
                                             <div class="custom-control custom-checkbox">
@@ -40,7 +40,7 @@
                                             </div>
 
                                             <div class="mt-4 text-center">
-                                                <button class="btn btn-primary w-md waves-effect waves-light" ng-click="Login()">Đăng nhập</button>
+                                                <button class="btn btn-primary w-md waves-effect waves-light" ng-click="loginSubmit()">Đăng nhập</button>
                                             </div>
 
                                             <div class="mt-4 text-center">

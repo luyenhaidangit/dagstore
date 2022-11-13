@@ -125,6 +125,18 @@
     <Compile Include="Migrations\202211121113383_Add-ASPIdentity.designer.cs">
       <DependentUpon>202211121113383_Add-ASPIdentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202211130436233_Add-Data.cs" />
+    <Compile Include="Migrations\202211130436233_Add-Data.designer.cs">
+      <DependentUpon>202211130436233_Add-Data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211130438282_Add-News.cs" />
+    <Compile Include="Migrations\202211130438282_Add-News.designer.cs">
+      <DependentUpon>202211130438282_Add-News.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211130441129_Add-News1.cs" />
+    <Compile Include="Migrations\202211130441129_Add-News1.designer.cs">
+      <DependentUpon>202211130441129_Add-News1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BrandRepository.cs" />
@@ -199,6 +211,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202211121113383_Add-ASPIdentity.resx">
       <DependentUpon>202211121113383_Add-ASPIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211130436233_Add-Data.resx">
+      <DependentUpon>202211130436233_Add-Data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211130438282_Add-News.resx">
+      <DependentUpon>202211130438282_Add-News.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211130441129_Add-News1.resx">
+      <DependentUpon>202211130441129_Add-News1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

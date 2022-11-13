@@ -36,8 +36,9 @@ namespace DAGStore.Data
         public DbSet<OrderItem> OrderItem { get; set; }
         public DbSet<Suggest> Suggest { get; set; }
         public DbSet<SuggestProduct> SuggestProduct  { get; set; }
+        public DbSet<News> News { get; set; }
 
-    public virtual void Commit()
+        public virtual void Commit()
         {
             base.SaveChanges();
         }
