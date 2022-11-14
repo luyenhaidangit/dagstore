@@ -8,6 +8,7 @@ using DAGStore.Service;
 
 namespace DAGStore.Web.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         ICategoryService _categoryService;
@@ -48,6 +49,11 @@ namespace DAGStore.Web.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public string TestMethod()
+        {
+            return "test";
         }
     }
 }

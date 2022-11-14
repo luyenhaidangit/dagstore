@@ -17,3 +17,4 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\bin\Debug\Microso
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\obj\Debug\DAGStore.Service.csproj.CopyComplete
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\obj\Debug\DAGStore.Service.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\obj\Debug\DAGStore.Service.pdb
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\bin\Debug\DAGStore.Service.dll.config

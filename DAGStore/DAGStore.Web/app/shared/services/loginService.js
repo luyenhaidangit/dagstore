@@ -15,7 +15,7 @@
                     headers:
                         { 'Content-Type': 'application/x-www-form-urlencoded' }
                 }).then(function (response) {
-                 
+                    console.log(response)
                     userInfo = {
                         accessToken: response.data.access_token,
                         userName: userName
@@ -24,6 +24,7 @@
                     authenticationService.setTokenInfo(userInfo);
                     authData.authenticationData.IsAuthenticated = true;
                     authData.authenticationData.userName = userName;
+                    console.log(authenticationService.getTokenInfo())
                     deferred.resolve(null);
                 }, function (err) {
                     authData.authenticationData.IsAuthenticated = false;

@@ -144,3 +144,4 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\Microsoft.CodeDom
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\obj\Debug\DAGStore.Web.csproj.CopyComplete
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\obj\Debug\DAGStore.Web.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\obj\Debug\DAGStore.Web.pdb
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Web\bin\DAGStore.Service.dll.config

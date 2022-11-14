@@ -15,14 +15,15 @@ app.config(function($stateProvider, $urlRouterProvider){
     // Config Router
     var states = [
     {
-      name: 'dashboard',
-      url: '/dashboard',
-      templateUrl: '/app/components/admin/home/homeView.html',
-      controller: "homeController",
+        name: 'dashboard',
+        url: '/dashboard',
+        templateUrl: '/app/components/admin/home/homeView.html',
+        controller: "homeController",
     },
     {
         name: 'signin',
         url: '/signin',
+       
         templateUrl: '/app/components/admin/login/loginView.html',
         controller: "loginController",
     }
@@ -31,14 +32,24 @@ app.config(function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/dashboard');
 });
 
+app.run(function () {
+    //    apiService.get("/home/testmethod", null, function (result) {
+    //    $scope.products = result.data;
+    //    dataTableService.createDataTable($scope.config);
+
+    //}, function (error) {
+    //    console.log("Get data fail");
+    //})
+})
 
 // Config app
 app.config(function ($httpProvider) {
     // Config Router
     $httpProvider.interceptors.push(function ($q, $location) {
         return {
+            
             request: function (config) {
-
+                console.log(config);
                 return config;
             },
             requestError: function (rejection) {
@@ -46,16 +57,19 @@ app.config(function ($httpProvider) {
                 return $q.reject(rejection);
             },
             response: function (response) {
+                
                 if (response.status == "401") {
                     $location.path('/login');
+                    window.location = "/login"
                 }
                 //the same response/modified/or a new one need to be returned.
                 return response;
             },
             responseError: function (rejection) {
-
+                console.log(rejection);
                 if (rejection.status == "401") {
                     $location.path('/login');
+                    window.location = "/admin"
                 }
                 return $q.reject(rejection);
             }
@@ -92,11 +106,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 });
 
 // Register App
-var app = angular.module('DAGStoreLogin', [
+var applogin = angular.module('DAGStoreLogin', [
     'DAGStore.common']);
 
 // Config app
-app.config(function ($stateProvider, $urlRouterProvider) {
+applogin.config(function ($stateProvider, $urlRouterProvider) {
     // Config Router
     var states = [
         {
@@ -108,5 +122,35 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     ];
     states.forEach((state) => $stateProvider.state(state));
     $urlRouterProvider.otherwise('/signin');
+});
+
+applogin.config(function ($httpProvider) {
+    // Config Router
+    $httpProvider.interceptors.push(function ($q, $location) {
+        return {
+            request: function (config) {
+
+                return config;
+            },
+            requestError: function (rejection) {
+
+                return $q.reject(rejection);
+            },
+            response: function (response) {
+                if (response.status == "401") {
+                    $location.path('/login');
+                }
+                //the same response/modified/or a new one need to be returned.
+                return response;
+            },
+            responseError: function (rejection) {
+
+                if (rejection.status == "401") {
+                    $location.path('/login');
+                }
+                return $q.reject(rejection);
+            }
+        };
+    });
 });
 
