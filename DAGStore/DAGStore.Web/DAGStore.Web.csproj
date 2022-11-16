@@ -238,6 +238,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\DiscountController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImportBillController.cs" />
     <Compile Include="Controllers\ImportBillDetailController.cs" />
@@ -272,6 +273,8 @@
     <Content Include="app\components\admin\brand\brandEditView.html" />
     <Content Include="app\components\admin\brand\brandListController.js" />
     <Content Include="app\components\admin\brand\brandListView.html" />
+    <Content Include="app\components\admin\category\categoryListController.js" />
+    <Content Include="app\components\admin\category\categoryListView.html" />
     <Content Include="app\components\admin\category\categoryInfoController.js" />
     <Content Include="app\components\admin\category\categoryInfoView.html" />
     <Content Include="app\components\admin\category\category.module.js" />
@@ -279,8 +282,6 @@
     <Content Include="app\components\admin\category\categoryAddView.html" />
     <Content Include="app\components\admin\category\categoryEditController.js" />
     <Content Include="app\components\admin\category\categoryEditView.html" />
-    <Content Include="app\components\admin\category\categoryListController.js" />
-    <Content Include="app\components\admin\category\categoryListView.html" />
     <Content Include="app\components\admin\discount\discount.module.js" />
     <Content Include="app\components\admin\discount\discountAddController.js" />
     <Content Include="app\components\admin\discount\discountAddView.html" />
@@ -290,6 +291,11 @@
     <Content Include="app\components\admin\discount\discountInfoView.html" />
     <Content Include="app\components\admin\discount\discountListController.js" />
     <Content Include="app\components\admin\discount\discountListView.html" />
+    <Content Include="app\components\admin\event\eventListController.js" />
+    <Content Include="app\components\admin\event\eventListView.html" />
+    <Content Include="app\components\admin\event\event.module.js" />
+    <Content Include="app\components\admin\event\eventAddController.js" />
+    <Content Include="app\components\admin\event\eventAddView.html" />
     <Content Include="app\components\admin\home\rootController.js" />
     <Content Include="app\components\admin\importbill\importBill.module.js" />
     <Content Include="app\components\admin\importbill\importBillAddController.js" />
@@ -6688,6 +6694,7 @@
     <Folder Include="Upload\" />
     <Folder Include="Views\Brand\" />
     <Folder Include="Views\Discount\" />
+    <Folder Include="Views\Event\" />
     <Folder Include="Views\ImportBillDetail\" />
     <Folder Include="Views\ImportBill\" />
     <Folder Include="Views\MenuRecord\" />

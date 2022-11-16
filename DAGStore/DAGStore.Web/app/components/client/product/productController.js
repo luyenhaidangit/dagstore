@@ -45,6 +45,4 @@ function productController($scope, apiService, $stateParams, $filter, notificati
             $rootScope.LoadPageSuccess = true;
         }, 600);
     });
-    
-    
 }

@@ -8,6 +8,7 @@ var app = angular.module('DAGStore', [
     'DAGStore.importBill',
     'DAGStore.menurecord',
     'DAGStore.slider',
+    'DAGStore.event',
     'DAGStore.common']);
 
 // Config app

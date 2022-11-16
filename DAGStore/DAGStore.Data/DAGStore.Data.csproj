@@ -163,10 +163,15 @@
     <Compile Include="Migrations\202211130441129_Add-News1.designer.cs">
       <DependentUpon>202211130441129_Add-News1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202211161802087_Add-Object-Event.cs" />
+    <Compile Include="Migrations\202211161802087_Add-Object-Event.designer.cs">
+      <DependentUpon>202211161802087_Add-Object-Event.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BrandRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\EventRepository.cs" />
     <Compile Include="Repositories\SuggestProductRepository.cs" />
     <Compile Include="Repositories\SuggestRepository.cs" />
     <Compile Include="Repositories\SliderItemRepository.cs" />
@@ -246,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202211130441129_Add-News1.resx">
       <DependentUpon>202211130441129_Add-News1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211161802087_Add-Object-Event.resx">
+      <DependentUpon>202211161802087_Add-Object-Event.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
