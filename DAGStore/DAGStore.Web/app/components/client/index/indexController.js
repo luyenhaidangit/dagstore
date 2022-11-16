@@ -3,16 +3,14 @@ var index = angular.module('DAGStoreHome.index');
 index.controller('indexController', indexController);
 
 // Controller
-function indexController($scope, apiService, sliderService) {
-    
+function indexController($scope, apiService, sliderService, $rootScope, $timeout, $state) {
+    //Load Page
+    $rootScope.LoadPageSuccess = false;
     
     // Get Slider
     $scope.sliders = [];
     apiService.get("/index/showslider", null, function (result) {
-        $scope.sliders = result.data;
-        
-        
-        
+        $scope.sliders = result.data;  
     }, function (error) {
         console.log("Get data fail");
     })
@@ -26,7 +24,6 @@ function indexController($scope, apiService, sliderService) {
                 selector: ".suggest__swiper.suggest__swiper__" + item.ID,
                 prebutton: ".suggest__button-prev__" + item.ID,
                 nextbutton: ".suggest__button-next__" + item.ID,
-
             }
 
             sliderService.createSliderProduct(config)
@@ -38,8 +35,17 @@ function indexController($scope, apiService, sliderService) {
     // Get Product News
     $scope.productsNew = [];
     apiService.get("/index/GetProductsNewShowHomePage", null, function (result) {
+       
         $scope.productsNew = result.data;
+        
     }, function (error) {
         console.log("Get data fail");
     })
+
+    //Load Page
+    angular.element(function () {
+        $timeout(function () {
+            $rootScope.LoadPageSuccess = true;
+        }, 500);
+    });
 }

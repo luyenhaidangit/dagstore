@@ -3,7 +3,9 @@ var category = angular.module('DAGStoreHome.category');
 category.controller('categoryController', categoryController);
 
 // Controller
-function categoryController($scope, apiService, $stateParams, $filter, $rootScope) {
+function categoryController($scope, apiService, $stateParams, $filter, $rootScope, $timeout) {
+    //Load Page
+    $rootScope.LoadPageSuccess = false;
     
 
     // Load Category Detail
@@ -32,4 +34,10 @@ function categoryController($scope, apiService, $stateParams, $filter, $rootScop
         })
     };
     $scope.GetProductsOfCategory();
+
+    angular.element(function () {
+        $timeout(function () {
+            $rootScope.LoadPageSuccess = true;
+        }, 300);
+    });
 }

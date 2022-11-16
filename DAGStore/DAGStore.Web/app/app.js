@@ -32,7 +32,18 @@ app.config(function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/dashboard');
 });
 
-app.run(function () {
+app.run(function ($rootScope) {
+    //$rootScope.$on("$routeChangeStart", function () {
+    //   /* $rootScope.progressbar = ngProgressFactory.createInstance();*/
+    //    cfpLoadingBar.start();
+    //  /*  $rootScope.progressbar.start();*/
+
+    //});
+
+    //$rootScope.$on("$routeChangeSuccess", function () {
+    //    cfpLoadingBar.complete();
+    //    /*$rootScope.progressbar.complete();*/
+    //});
     //    apiService.get("/home/testmethod", null, function (result) {
     //    $scope.products = result.data;
     //    dataTableService.createDataTable($scope.config);
@@ -43,39 +54,39 @@ app.run(function () {
 })
 
 // Config app
-app.config(function ($httpProvider) {
-    // Config Router
-    $httpProvider.interceptors.push(function ($q, $location) {
-        return {
+//app.config(function ($httpProvider) {
+//    // Config Router
+//    $httpProvider.interceptors.push(function ($q, $location) {
+//        return {
             
-            request: function (config) {
-                console.log(config);
-                return config;
-            },
-            requestError: function (rejection) {
+//            request: function (config) {
+//                console.log(config);
+//                return config;
+//            },
+//            requestError: function (rejection) {
 
-                return $q.reject(rejection);
-            },
-            response: function (response) {
+//                return $q.reject(rejection);
+//            },
+//            response: function (response) {
                 
-                if (response.status == "401") {
-                    $location.path('/login');
-                    window.location = "/login"
-                }
-                //the same response/modified/or a new one need to be returned.
-                return response;
-            },
-            responseError: function (rejection) {
-                console.log(rejection);
-                if (rejection.status == "401") {
-                    $location.path('/login');
-                    window.location = "/admin"
-                }
-                return $q.reject(rejection);
-            }
-        };
-    });
-});
+//                if (response.status == "401") {
+//                    $location.path('/login');
+//                    window.location = "/login"
+//                }
+//                //the same response/modified/or a new one need to be returned.
+//                return response;
+//            },
+//            responseError: function (rejection) {
+//                console.log(rejection);
+//                if (rejection.status == "401") {
+//                    $location.path('/login');
+//                    window.location = "/admin"
+//                }
+//                return $q.reject(rejection);
+//            }
+//        };
+//    });
+//});
 
 
 
@@ -103,6 +114,14 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         ];
     states.forEach((state) => $stateProvider.state(state));
     $urlRouterProvider.otherwise('/index');
+});
+
+app.run(function ($rootScope) {
+    //angular.element(function () {
+    //    console.log('page loading completed');
+    //    $rootScope.load = true;
+    //});
+    
 });
 
 // Register App

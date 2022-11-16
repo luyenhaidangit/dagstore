@@ -3,7 +3,10 @@ var product = angular.module('DAGStoreHome.product');
 product.controller('productController', productController);
 
 // Controller
-function productController($scope, apiService, $stateParams, $filter, notificationService, $state, $sce) {
+function productController($scope, apiService, $stateParams, $filter, notificationService, $state, $sce, $rootScope, $timeout) {
+    //Load Page
+    $rootScope.LoadPageSuccess = false;
+
     // Load Product Detail
     $scope.product = {
     }
@@ -35,6 +38,13 @@ function productController($scope, apiService, $stateParams, $filter, notificati
            /* console.log($scope.category);*/
         });
     }
+
+    //Load Page
+    angular.element(function () {
+        $timeout(function () {
+            $rootScope.LoadPageSuccess = true;
+        }, 600);
+    });
     
     
 }
