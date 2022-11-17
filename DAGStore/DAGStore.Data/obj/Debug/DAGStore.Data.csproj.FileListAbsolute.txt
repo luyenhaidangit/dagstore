@@ -53,3 +53,4 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\bin\Debug\Microsoft.
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\bin\Debug\Newtonsoft.Json.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddObjectEvent.resources
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddColumnType.resources
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddColumnDescriptionSuggest.resources

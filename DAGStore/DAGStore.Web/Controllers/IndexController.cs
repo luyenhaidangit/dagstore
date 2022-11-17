@@ -110,6 +110,7 @@ namespace DAGStore.Web.Controllers
                              TextColor = s.TextColor,
                              Type = s.Type,
                              BackgroundColor = s.BackgroundColor,
+                             Description = s.Description,
                              SuggestProducts = _productService.GetSuggestProduct(s.ID),
                          };
 

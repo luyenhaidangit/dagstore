@@ -89,7 +89,7 @@
                 </div>
             </div>
 
-            <a href="#" class="read-more__btn-lg">
+            <a ui-sref="suggest({id:suggest.ID})" class="read-more__btn-lg" style="cursor:pointer;">
                 <span>Xem tất cả</span>
                 <i class="fas fa-caret-right"></i>
             </a>
@@ -102,32 +102,11 @@
             </div>
 
             <div class="shopping-trends__body">
-                <div class="shopping-trends__item">
-                    <a href="/page/client/categories/shopping-trends.html">
-                        <img class="shopping-trends__item-img" src="/Content/client/img/banner-media/Desk00909-280x235.png" alt="">
-                        <span class="shopping-trends__item-name">Điện thoại</span>
-                        <strong class="shopping-trends__item-sub">Galaxy Z Fold4 | Z Flip4</strong>
-                    </a>
-                </div>
-                <div class="shopping-trends__item">
-                    <a href="/page/client/categories/shopping-trends.html">
-                        <img class="shopping-trends__item-img" src="/Content/client/img/banner-media/xu-huong-gaming-desk-280x235.png" alt="">
-                        <span class="shopping-trends__item-name">Laptop Gaming</span>
-                        <strong class="shopping-trends__item-sub">Giảm đến 9 triệu</strong>
-                    </a>
-                </div>
-                <div class="shopping-trends__item">
-                    <a href="/page/client/categories/shopping-trends.html">
-                        <img class="shopping-trends__item-img" src="/Content/client/img/banner-media/phukien-280x235.png" alt="">
-                        <span class="shopping-trends__item-name">Tai nghe không dây</span>
-                        <strong class="shopping-trends__item-sub">Giảm đến 50%</strong>
-                    </a>
-                </div>
-                <div class="shopping-trends__item">
-                    <a href="/page/client/categories/shopping-trends.html">
-                        <img class="shopping-trends__item-img" src="/Content/client/img/banner-media/w5-280-x-235-280x234-3.png" alt="">
-                        <span class="shopping-trends__item-name">Galaxy Watch5, Watch5 Pro</span>
-                        <strong class="shopping-trends__item-sub">Đặt trước ngay!</strong>
+                <div ng-repeat="item in suggests | filter: { Type: 3 } | limitTo:4:0" ui-sref="suggest({id:item.ID})" style="cursor:pointer;" class="shopping-trends__item">
+                    <a>
+                        <img class="shopping-trends__item-img" src="{{item.ImagePath}}" alt="">
+                        <span class="shopping-trends__item-name">{{item.Title}}</span>
+                        <strong class="shopping-trends__item-sub">{{item.Description}}</strong>
                     </a>
                 </div>
             </div>
