@@ -24,8 +24,9 @@ namespace DAGStore.Web.Controllers
         ISliderItemService _sliderItemService;
         ISuggestService _suggestService;
         ISuggestProductService _suggestProductService;
+        IEventService _eventService;
 
-        public IndexController(IProductService productService,ISliderService sliderService,ISliderItemService sliderItemService,ICategoryService categoryService,ISuggestService suggestService,ISuggestProductService suggestProductService)
+        public IndexController(IEventService eventService ,IProductService productService,ISliderService sliderService,ISliderItemService sliderItemService,ICategoryService categoryService,ISuggestService suggestService,ISuggestProductService suggestProductService)
         {
             _productService = productService;
             _sliderService = sliderService;
@@ -33,6 +34,7 @@ namespace DAGStore.Web.Controllers
             _categoryService = categoryService;
             _suggestService = suggestService;
             _suggestProductService = suggestProductService;
+            _eventService = eventService;
         }
 
         public JsonResult GetProductsNewShowHomePage()
@@ -108,6 +110,23 @@ namespace DAGStore.Web.Controllers
                              TextColor = s.TextColor,
                              BackgroundColor = s.BackgroundColor,
                              SuggestProducts = _productService.GetSuggestProduct(s.ID),
+                         };
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetEvents()
+        {
+            var even = _eventService.GetAll().ToList();
+
+            var result = from e in even
+                         where e.Status == true && e.ShowOnHomePage == true
+                         orderby e.DisplayOrder descending
+                         select new
+                         {
+                             ID = e.ID,
+                             Title = e.Title,
+                             ImagePath = e.ImagePath,
                          };
 
             return Json(result, JsonRequestBehavior.AllowGet);

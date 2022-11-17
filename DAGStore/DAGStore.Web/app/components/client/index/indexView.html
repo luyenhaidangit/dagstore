@@ -11,12 +11,12 @@
     <div class="container">
         <!-- begin: big-campain -->
         <div class="big-campaign">
-            <div class="swiper big-campaign__swiper">
+            <div class="swiper event__swiper">
                 <div class="swiper-wrapper">
-                    <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
-                        <img class="slide-img-core" src="/Content/client/img/big-campaign/ssgif-06-720x220-9.gif" alt="">
+                    <a ng-repeat="event in events" href="#" class="swiper-slide">
+                        <img class="slide-img-core" src="{{event.ImagePath}}" alt="">
                     </a>
-                    <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                    <!--<a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
                         <img class="slide-img-core" src="/Content/client/img/big-campaign/720-220-720x220-23.png" alt="">
                     </a>
                     <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
@@ -33,11 +33,11 @@
                     </a>
                     <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
                         <img class="slide-img-core" src="/Content/client/img/big-campaign/720-220-720x220-43.png" alt="">
-                    </a>
+                    </a>-->
                 </div>
             </div>
-            <div class="swiper-button-next slide-button-next-core big-campaign__button-next"><i class="far fa-angle-right"></i></div>
-            <div class="swiper-button-prev slide-button-prev-core big-campaign__button-pre"><i class="far fa-angle-left"></i></div>
+            <div class="swiper-button-next slide-button-next-core event__button-next"><i class="far fa-angle-right"></i></div>
+            <div class="swiper-button-prev slide-button-prev-core event__button-prev"><i class="far fa-angle-left"></i></div>
             <div class="swiper-pagination big-campaign__dot"></div>
         </div>
        
@@ -2636,32 +2636,7 @@
 <script>
     $(document).ready(function () {
         //Big Campaign Carousel
-        var swiperBigCampaign = new Swiper(".big-campaign__swiper", {
-            slidesPerView: 1,
-            spaceBetween: 0,
-            slidesPerGroup: 1,
-            loop: true,
-            loopFillGroupWithBlank: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".big-campaign__dot",
-                clickable: true,
-            },
-            navigation: {
-                nextEl: ".big-campaign__button-next",
-                prevEl: ".big-campaign__button-pre",
-            },
-
-            breakpoints: {
-                992: {
-                    slidesPerView: 2,
-                    spaceBetween: 16
-                }
-            }
-        });
+        
 
 
         

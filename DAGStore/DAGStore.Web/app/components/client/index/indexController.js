@@ -15,6 +15,22 @@ function indexController($scope, apiService, sliderService, $rootScope, $timeout
         console.log("Get data fail");
     })
 
+    //Get Event
+    $scope.events = [];
+    apiService.get("/index/getevents", null, function (result) {
+        $scope.events = result.data;
+        console.log($scope.events)
+        var config = {
+            selector: ".event__swiper",
+            prebutton: ".event__button-prev",
+            nextbutton: ".event__button-next",
+        }
+
+        sliderService.createSliderEvent(config)
+    }, function (error) {
+        console.log("Get data fail");
+    })                                        
+
     // Get Suggest
     $scope.suggests = [];
     apiService.get("/index/getsuggests", null, function (result) {
@@ -46,6 +62,6 @@ function indexController($scope, apiService, sliderService, $rootScope, $timeout
     angular.element(function () {
         $timeout(function () {
             $rootScope.LoadPageSuccess = true;
-        }, 500);
+        }, 700);
     });
 }

@@ -8,6 +8,38 @@
     function sliderService() {
         return {
             createSliderProduct: createSliderProduct,
+            createSliderEvent: createSliderEvent,
+        }
+
+        function createSliderEvent(config) {
+            angular.element(document).ready(function () {
+                var swiperEvent = new Swiper(config.selector, {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    slidesPerGroup: 1,
+                    loop: true,
+                    loopFillGroupWithBlank: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: ".big-campaign__dot",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: config.nextbutton,
+                        prevEl: config.prebutton,
+                    },
+
+                    breakpoints: {
+                        992: {
+                            slidesPerView: 2,
+                            spaceBetween: 16
+                        }
+                    }
+                });
+            });
         }
 
         function createSliderProduct(config) {
