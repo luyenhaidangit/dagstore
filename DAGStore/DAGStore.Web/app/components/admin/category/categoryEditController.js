@@ -33,24 +33,38 @@ function categoryEditController($scope, apiService, notificationService, $state,
     })
 
     // Choose Image Avatar
-    $scope.statusChooseAvatar = true;
+    $scope.statusChooseAvatar1 = true;
+    $scope.statusChooseAvatar2 = true;
     $scope.ChooseImage = ChooseImage;
-    function ChooseImage(status) {
+    function ChooseImage(status,type) {
         if (status === true) {
             var finder = new CKFinder();
             finder.selectActionFunction = function (fileUrl) {
-                $scope.category.PicturePath = fileUrl;
-                $("img[name=picturepath]").attr("src", $scope.category.PicturePath);
-                $scope.statusChooseAvatar = true;
-                $scope.$apply();
+                if (type == 1) {
+                    $scope.category.PicturePath = fileUrl;
+                    $("img[name=picturepath]").attr("src", $scope.category.PicturePath);
+                    $scope.statusChooseAvatar1 = true;
+                    $scope.$apply();
+                } else {
+                    $scope.category.PictureAvatar = fileUrl;
+                    $("img[name=pictureavatar]").attr("src", $scope.category.PictureAvatar);
+                    $scope.statusChooseAvatar2 = true;
+                    $scope.$apply();
+                }
             }
-
             finder.popup();
         }
         if (status === false) {
-            $scope.category.PicturePath = "";
-            $scope.statusChooseAvatar = false;
-            $scope.$apply();
+            if (type == 1) {
+                $scope.category.PicturePath = "";
+                $scope.statusChooseAvatar1 = false;
+                $scope.$apply();
+            } else {
+                $scope.category.PictureAvatar = "";
+                $scope.statusChooseAvatar2 = false;
+                $scope.$apply();
+            }
+            
         }
     }
 

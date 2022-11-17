@@ -27,23 +27,38 @@ function categoryAddController($scope, apiService, notificationService, $state, 
     }
 
     // Choose Image Avatar
-    $scope.statusChooseAvatar = false;
+    $scope.statusChooseAvatar1 = true;
+    $scope.statusChooseAvatar2 = true;
     $scope.ChooseImage = ChooseImage;
-    function ChooseImage(status) {
-        console.log($scope.categorys)
+    function ChooseImage(status, type) {
         if (status === true) {
             var finder = new CKFinder();
             finder.selectActionFunction = function (fileUrl) {
-                $scope.category.PicturePath = fileUrl;
-                $scope.statusChooseAvatar = true;
-                $scope.$apply();
+                if (type == 1) {
+                    $scope.category.PicturePath = fileUrl;
+                    $("img[name=picturepath]").attr("src", $scope.category.PicturePath);
+                    $scope.statusChooseAvatar1 = true;
+                    $scope.$apply();
+                } else {
+                    $scope.category.PictureAvatar = fileUrl;
+                    $("img[name=pictureavatar]").attr("src", $scope.category.PictureAvatar);
+                    $scope.statusChooseAvatar2 = true;
+                    $scope.$apply();
+                }
             }
             finder.popup();
         }
         if (status === false) {
-            $scope.category.PicturePath = null;
-            $scope.statusChooseAvatar = false;
-            $scope.$apply();
+            if (type == 1) {
+                $scope.category.PicturePath = "";
+                $scope.statusChooseAvatar1 = false;
+                $scope.$apply();
+            } else {
+                $scope.category.PictureAvatar = "";
+                $scope.statusChooseAvatar2 = false;
+                $scope.$apply();
+            }
+
         }
     }
 

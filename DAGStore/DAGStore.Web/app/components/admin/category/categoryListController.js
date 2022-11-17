@@ -9,7 +9,7 @@ function categoryListController($scope, apiService, dataTableService, notificati
         namePage: "Loại Sản Phẩm",
         urlPage: "category",
         nameDataTable: "DAGStoreDatatable",
-        data: "/category/getdata",
+        data: "/category/getall",
         columnDefs: [
             { targets: 0, name: "STT" },
             { targets: 1, name: "ID", visible: false },
@@ -43,6 +43,7 @@ function categoryListController($scope, apiService, dataTableService, notificati
     $scope.categorys = [];
     apiService.get("/category/getdata", null, function (result) {
         $scope.categorys = result.data;
+        console.log($scope.categorys)
         dataTableService.createDataTable($scope.config);
     }, function (error) {
         console.log("Get data fail");

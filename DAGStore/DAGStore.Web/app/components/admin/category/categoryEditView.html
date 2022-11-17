@@ -54,12 +54,26 @@
                         <label for="example-text-input" class="col-md-2 col-form-label">Ảnh đại diện</label>
                         <div class="col-md-10">
                             <div class="input-control d-flex align-items-center">
-                                <button ng-click="ChooseImage(true)" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Chọn ảnh</button>
-                                <i ng-click="ChooseImage(false)" style="cursor:pointer" ng-show="statusChooseAvatar" class="fal fa-times-circle text-danger ml-3"></i>
+                                <button ng-click="ChooseImage(true,1)" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Chọn ảnh</button>
+                                <i ng-click="ChooseImage(false,1)" style="cursor:pointer" ng-show="statusChooseAvatar1" class="fal fa-times-circle text-danger ml-3"></i>
                                 <input type="hidden" name="picturepath" ng-model="category.PicturePath">
                             </div>
 
-                            <img style="width:160px" class="animate__fadeInDown img-fluid mt-3 rounded" ng-show="statusChooseAvatar" name="picturepath" src="{{category.PicturePath}}">
+                            <img style="width:160px" class="animate__fadeInDown img-fluid mt-3 rounded" ng-show="statusChooseAvatar1" name="picturepath" src="{{category.PicturePath}}">
+                        </div>
+                    </div>
+
+                    <!-- ImageAvatar -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Ảnh đại diện</label>
+                        <div class="col-md-10">
+                            <div class="input-control d-flex align-items-center">
+                                <button ng-click="ChooseImage(true,2)" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Chọn ảnh</button>
+                                <i ng-click="ChooseImage(false,2)" style="cursor:pointer" ng-show="statusChooseAvatar2" class="fal fa-times-circle text-danger ml-3"></i>
+                                <input type="hidden" name="pictureavatar" ng-model="category.ImageAvatar">
+                            </div>
+
+                            <img style="width:160px" class="animate__fadeInDown img-fluid mt-3 rounded" ng-show="statusChooseAvatar2" name="picturepath" src="{{category.PictureAvatar}}">
                         </div>
                     </div>
 

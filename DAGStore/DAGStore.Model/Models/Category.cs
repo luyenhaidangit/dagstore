@@ -22,6 +22,9 @@ namespace DAGStore.Model.Models
         [MaxLength(4000)]
         public string PicturePath { get; set; }
 
+        [MaxLength(4000)]
+        public string PictureAvatar { get; set; }
+
         public string Description { get; set; }
 
         [Required]
