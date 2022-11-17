@@ -16,24 +16,6 @@
                     <a ng-repeat="event in events" href="#" class="swiper-slide">
                         <img class="slide-img-core" src="{{event.ImagePath}}" alt="">
                     </a>
-                    <!--<a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
-                        <img class="slide-img-core" src="/Content/client/img/big-campaign/720-220-720x220-23.png" alt="">
-                    </a>
-                    <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
-                        <img class="slide-img-core" src="/Content/client/img/big-campaign/he-reno7-720-220-720x220.png" alt="">
-                    </a>
-                    <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
-                        <img class="slide-img-core" src="/Content/client/img/big-campaign/he-poco-720-220-720x220-1.png" alt="">
-                    </a>
-                    <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
-                        <img class="slide-img-core" src="/Content/client/img/big-campaign/720-220-720x220-183.png" alt="">
-                    </a>
-                    <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
-                        <img class="slide-img-core" src="/Content/client/img/big-campaign/w4-720-220-720x220-2.png" alt="">
-                    </a>
-                    <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
-                        <img class="slide-img-core" src="/Content/client/img/big-campaign/720-220-720x220-43.png" alt="">
-                    </a>-->
                 </div>
             </div>
             <div class="swiper-button-next slide-button-next-core event__button-next"><i class="far fa-angle-right"></i></div>
@@ -44,28 +26,10 @@
         <!-- end: big-campain -->
         <!-- begin: option promo -->
         <div class="option-promo">
-            <div class="option-promo__item">
-                <a href="/page/client/sale-event/sale-event.html" class="option-promo__item-link">
-                    <img src="/Content/client/img/ico/icon--96x104-2.png" alt="" class="option-promo__item-icon">
-                    <span>Chỉ giảm Online</span>
-                </a>
-            </div>
-            <div class="option-promo__item">
-                <a href="/page/client/sale-event/sale-event.html" class="option-promo__item-link">
-                    <img src="/Content/client/img/ico/LDP---Icon-Desk-61x60.png" alt="" class="option-promo__item-icon">
-                    <span>Đồng giá từ 99k</span>
-                </a>
-            </div>
-            <div class="option-promo__item">
-                <a href="/page/client/sale-event/sale-event.html" class="option-promo__item-link">
-                    <img src="/Content/client/img/ico/100x100-101x101.png" alt="" class="option-promo__item-icon">
-                    <span>Ngày đẹp giảm đến 50%</span>
-                </a>
-            </div>
-            <div class="option-promo__item">
-                <a href="/page/client/sale-event/sale-event.html" class="option-promo__item-link">
-                    <img src="/Content/client/img/ico/b2s-120x120.png" alt="" class="option-promo__item-icon">
-                    <span>Đổi điểm giảm đến 3tr</span>
+            <div ng-repeat="item in suggests | filter: { Type: 1 } | limitTo:4:0" ui-sref="suggest({id:item.ID})" class="option-promo__item" style="cursor:pointer;">
+                <a class="option-promo__item-link">
+                    <img src="{{item.ImagePath}}" alt="" class="option-promo__item-icon">
+                    <span>{{item.Title}}</span>
                 </a>
             </div>
         </div>
@@ -75,14 +39,14 @@
     <!-- begin: content -->
     <div class="container-sm">
         <!-- begin: banner-topzone -->
-        <div class="banner-ads banner-topzone">
-            <a href="/page/client/ads/ads.html" class="banner-ads__link">
-                <img src="/Content/client/img/banner-ads/Banner-topzone-1200x100.png" alt="">
+        <div ng-repeat="suggest in suggests | filter: { Type: 2 }| limitTo:1:0" ui-sref="suggest({id:suggest.ID})" class="banner-ads banner-topzone" style="cursor:pointer;">
+            <a class="banner-ads__link">
+                <img src="{{suggest.ImagePath}}" alt="">
             </a>
         </div>
         <!-- end: banner-topzone -->
         <!-- begin: hot-deal -->
-        <div ng-repeat="suggest in suggests" class="suggest suggest__{{suggest.ID}} hot-deal" style="background-color:{{suggest.BackgroundColor}};">
+        <div ng-repeat="suggest in suggests | filter: { Type: 0 }| limitTo:4:0" class="suggest suggest__{{suggest.ID}} hot-deal" style="background-color:{{suggest.BackgroundColor}};">
             <div class="suggest__title">
                 <img class="{{suggest.Title == null ? 'd-none' : '' }}" src="{{suggest.ImagePath}}" alt="">
                 <p class="{{suggest.Title == '' ? 'd-none' : '' }} mb-1">{{suggest.Title}}</p>

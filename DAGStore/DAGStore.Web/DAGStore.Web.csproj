@@ -350,6 +350,9 @@
     <Content Include="app\components\client\index\indexController.js" />
     <Content Include="app\components\client\index\indexView.html" />
     <Content Include="app\components\client\index\index.module.js" />
+    <Content Include="app\components\client\suggest\suggest.module.js" />
+    <Content Include="app\components\client\suggest\suggestController.js" />
+    <Content Include="app\components\client\suggest\suggestView.html" />
     <Content Include="app\components\menurecord\menuRecord.module.js" />
     <Content Include="app\components\menurecord\menuRecordAddController.js" />
     <Content Include="app\components\menurecord\menuRecordAddView.html" />

@@ -35,7 +35,7 @@ function indexController($scope, apiService, sliderService, $rootScope, $timeout
     $scope.suggests = [];
     apiService.get("/index/getsuggests", null, function (result) {
         $scope.suggests = result.data;
-        let setup = $scope.suggests.map((item) => {
+        var setup = $scope.suggests.filter(x => x.Type == 0).map((item) => {
             var config = {
                 selector: ".suggest__swiper.suggest__swiper__" + item.ID,
                 prebutton: ".suggest__button-prev__" + item.ID,

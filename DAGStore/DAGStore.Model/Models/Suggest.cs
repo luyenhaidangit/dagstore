@@ -15,6 +15,8 @@ namespace DAGStore.Model.Models
         [MaxLength(500)]
         public string Title { get; set; }
 
+        public int Type { get; set; }
+
         [MaxLength(4000)]
         public string ImagePath { get; set; }
 
