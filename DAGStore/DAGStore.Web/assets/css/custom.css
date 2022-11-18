@@ -115,6 +115,12 @@ div.dt-button-collection.fixed {
     transition: none;
 }
 
+#loading-bar .bar {
+    background: rgb(116, 155, 216);
+    height: 6px;
+    border-radius: 8px;
+}
+
 
 
 
