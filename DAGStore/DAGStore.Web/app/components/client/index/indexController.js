@@ -52,7 +52,6 @@ function indexController($scope, apiService, sliderService, $rootScope, $timeout
     $scope.categories = [];
     apiService.get("/index/getcategories", null, function (result) {
         $scope.categories = result.data;
-        console.log($scope.categories)
     }, function (error) {
         console.log("Get data fail");
     })
@@ -68,9 +67,20 @@ function indexController($scope, apiService, sliderService, $rootScope, $timeout
     // Get Product News
     $scope.productsNew = [];
     apiService.get("/index/GetProductsNewShowHomePage", null, function (result) {
-       
+
         $scope.productsNew = result.data;
-        
+
+    }, function (error) {
+        console.log("Get data fail");
+    })
+
+    // Get Product Discount
+    $scope.productsDiscount = [];
+    apiService.get("/index/GetProductsDiscountShowHomePage", null, function (result) {
+
+        $scope.productsDiscount = result.data;
+        console.log($scope.productsDiscount)
+
     }, function (error) {
         console.log("Get data fail");
     })

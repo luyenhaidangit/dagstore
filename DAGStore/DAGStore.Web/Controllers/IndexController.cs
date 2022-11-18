@@ -26,8 +26,9 @@ namespace DAGStore.Web.Controllers
         ISuggestProductService _suggestProductService;
         IDiscountService _discountService;
         IEventService _eventService;
+        IProductDiscountService _productDiscountService;
 
-        public IndexController(IDiscountService discountService,IEventService eventService ,IProductService productService,ISliderService sliderService,ISliderItemService sliderItemService,ICategoryService categoryService,ISuggestService suggestService,ISuggestProductService suggestProductService)
+        public IndexController(IProductDiscountService productDiscountService,IDiscountService discountService,IEventService eventService ,IProductService productService,ISliderService sliderService,ISliderItemService sliderItemService,ICategoryService categoryService,ISuggestService suggestService,ISuggestProductService suggestProductService)
         {
             _productService = productService;
             _sliderService = sliderService;
@@ -37,12 +38,40 @@ namespace DAGStore.Web.Controllers
             _suggestProductService = suggestProductService;
             _eventService = eventService;
             _discountService = discountService;
+            _productDiscountService = productDiscountService;
         }
 
         public JsonResult GetProductsNewShowHomePage()
         {
             var products = _productService.GetProductsNewShowHomePage().ToList();
             return Json(products,JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetProductsDiscountShowHomePage()
+        {
+            var discounts = _discountService.GetAll();
+            var productDiscounts = _productDiscountService.GetAll();
+            var products = _productService.GetAll();
+            products = products.Reverse();
+            var result = (from p in products
+                          where p.Published == true
+                          select new
+                          {
+                              IDProduct = p.ID,
+                              NameProduct = p.Name,
+                              PriceProduct = p.SellPrice,
+                              ImageProduct = p.PicturePath,
+                              DescriptionProduct = p.ShortDescriptionEndow,
+                              Discount = _discountService.GetDiscountByProduct(p.ID).Take(2),
+                              DiscountRate = ((int)(100 - ((p.CostPrice/p.SellPrice)*100))),
+                          }).OrderByDescending(p=> p.DiscountRate).Take(20); 
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetProducts()
+        {
+            var products = _productService.GetAll().Where(x => x.Published == true).ToList();
+            return Json(products, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult ShowSlider()
