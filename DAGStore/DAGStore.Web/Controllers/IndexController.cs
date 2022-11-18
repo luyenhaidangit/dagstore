@@ -133,5 +133,17 @@ namespace DAGStore.Web.Controllers
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult GetCategories()
+        {
+            var categories = _categoryService.GetAll().ToList();
+
+            var result = from c in categories
+                         where c.Published == true
+                         orderby c.DisplayOrder descending
+                         select c;
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
     }
 }

@@ -48,6 +48,15 @@ function indexController($scope, apiService, sliderService, $rootScope, $timeout
         console.log("Get data fail");
     })
 
+    // Get Suggest
+    $scope.categories = [];
+    apiService.get("/index/getcategories", null, function (result) {
+        $scope.categories = result.data;
+        console.log($scope.categories)
+    }, function (error) {
+        console.log("Get data fail");
+    })
+
     // Get Product News
     $scope.productsNew = [];
     apiService.get("/index/GetProductsNewShowHomePage", null, function (result) {

@@ -41,7 +41,7 @@ function categoryListController($scope, apiService, dataTableService, notificati
 
     // Get Data
     $scope.categorys = [];
-    apiService.get("/category/getdata", null, function (result) {
+    apiService.get("/category/getall", null, function (result) {
         $scope.categorys = result.data;
         console.log($scope.categorys)
         dataTableService.createDataTable($scope.config);
