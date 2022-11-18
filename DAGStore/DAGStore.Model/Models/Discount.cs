@@ -33,8 +33,13 @@ namespace DAGStore.Model.Models
         [Required]
         public string Description { get; set; }
 
+        public string FullDescription { get; set; }
+
         [MaxLength(4000)]
         public string PicturePath { get; set; }
+
+        [MaxLength(4000)]
+        public string PictureAvatar { get; set; }
 
         [MaxLength(100)]
         public string ColorBackGround { get; set; }

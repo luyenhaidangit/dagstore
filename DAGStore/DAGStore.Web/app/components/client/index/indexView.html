@@ -143,23 +143,8 @@
             </div>
             <div class="swiper discount-payonl__swiper">
                 <div class="swiper-wrapper">
-                    <a href="/page/client/sale-event/sale-event.html" class="swiper-slide discount-payonl__slider">
-                        <img class="slide-img-core" src="/Content/client/img/banner-sale/VNPayiPhoneiPad-380x200.png" alt="">
-                    </a>
-                    <a href="/page/client/sale-event/sale-event.html" class="swiper-slide discount-payonl__slider">
-                        <img class="slide-img-core" src="/Content/client/img/banner-sale/EXB-500k-380x200.png" alt="">
-                    </a>
-                    <a href="/page/client/sale-event/sale-event.html" class="swiper-slide discount-payonl__slider">
-                        <img class="slide-img-core" src="/Content/client/img/banner-sale/380x200--shoppee.jpg" alt="">
-                    </a>
-                    <a href="/page/client/sale-event/sale-event.html" class="swiper-slide discount-payonl__slider">
-                        <img class="slide-img-core" src="/Content/client/img/banner-sale/380x200-380x200-3.jpg" alt="">
-                    </a>
-                    <a href="/page/client/sale-event/sale-event.html" class="swiper-slide discount-payonl__slider">
-                        <img class="slide-img-core" src="/Content/client/img/banner-sale/VNPay-Toan-bo-san-pham-380x200.png" alt="">
-                    </a>
-                    <a href="/page/client/sale-event/sale-event.html" class="swiper-slide discount-payonl__slider">
-                        <img class="slide-img-core" src="/Content/client/img/banner-sale/VNPaySamsungGarmin-380x200.png" alt="">
+                    <a ng-repeat="item in discounts" ui-sref="discount({id:item.ID})" style="cursor:pointer;" class="swiper-slide discount-payonl__slider">
+                        <img class="slide-img-core" src="{{item.PictureAvatar}}" alt="">
                     </a>
                 </div>
                 <div class="swiper-button-next slide-button-next-core discount-payonl__button-next"><i class="far fa-angle-right"></i></div>
@@ -172,13 +157,13 @@
         <div class="service-conv">
             <div class="home-categories__title">
                 <strong>Dịch vụ tiện ích</strong>
-                <a href="/page/client/categories/categories.html">Xem thêm dịch vụ <i class="far fa-angle-right"></i></a>
+                <a href="https://www.thegioididong.com/utilities/thanh-toan-tra-gop">Xem thêm dịch vụ <i class="far fa-angle-right"></i></a>
             </div>
 
             <div class="swiper service-conv__body">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide service-conv__item">
-                        <a href="/page/client/categories/shopping-trends.html">
+                        <a href="https://www.thegioididong.com/sim-so-dep">
                             <div class="service-conv__item-icon">
                                 <i class="fas fa-mobile-alt"></i>
                             </div>
@@ -195,7 +180,7 @@
                         </a>
                     </div>
                     <div class="swiper-slide service-conv__item">
-                        <a href="/page/client/categories/shopping-trends.html">
+                        <a href="https://www.thegioididong.com/utilities/thanh-toan-tien-dien">
                             <div class="service-conv__item-icon">
                                 <i class="fas fa-bolt"></i>
                             </div>
@@ -212,7 +197,7 @@
                         </a>
                     </div>
                     <div class="swiper-slide service-conv__item">
-                        <a href="/page/client/categories/shopping-trends.html">
+                        <a href="https://www.thegioididong.com/sim-so-dep">
                             <div class="service-conv__item-icon">
                                 <i class="fas fa-gamepad-alt"></i>
                             </div>
@@ -229,7 +214,7 @@
                         </a>
                     </div>
                     <div class="swiper-slide service-conv__item">
-                        <a href="/page/client/categories/shopping-trends.html">
+                        <a href="https://www.thegioididong.com/utilities/thanh-toan-ve-tau-xe">
                             <div class="service-conv__item-icon">
                                 <i class="fas fa-plane"></i>
                             </div>

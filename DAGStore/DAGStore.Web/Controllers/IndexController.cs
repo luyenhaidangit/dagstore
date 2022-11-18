@@ -24,9 +24,10 @@ namespace DAGStore.Web.Controllers
         ISliderItemService _sliderItemService;
         ISuggestService _suggestService;
         ISuggestProductService _suggestProductService;
+        IDiscountService _discountService;
         IEventService _eventService;
 
-        public IndexController(IEventService eventService ,IProductService productService,ISliderService sliderService,ISliderItemService sliderItemService,ICategoryService categoryService,ISuggestService suggestService,ISuggestProductService suggestProductService)
+        public IndexController(IDiscountService discountService,IEventService eventService ,IProductService productService,ISliderService sliderService,ISliderItemService sliderItemService,ICategoryService categoryService,ISuggestService suggestService,ISuggestProductService suggestProductService)
         {
             _productService = productService;
             _sliderService = sliderService;
@@ -35,6 +36,7 @@ namespace DAGStore.Web.Controllers
             _suggestService = suggestService;
             _suggestProductService = suggestProductService;
             _eventService = eventService;
+            _discountService = discountService;
         }
 
         public JsonResult GetProductsNewShowHomePage()
@@ -141,6 +143,16 @@ namespace DAGStore.Web.Controllers
             var result = from c in categories
                          where c.Published == true
                          orderby c.DisplayOrder descending
+                         select c;
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetDiscounts()
+        {
+            var discounts = _discountService.GetAll().ToList();
+
+            var result = from c in discounts
                          select c;
 
             return Json(result, JsonRequestBehavior.AllowGet);

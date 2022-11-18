@@ -342,6 +342,9 @@
     <Content Include="app\components\client\category\category.module.js" />
     <Content Include="app\components\client\category\categoryController.js" />
     <Content Include="app\components\client\category\categoryView.html" />
+    <Content Include="app\components\client\discount\discount.module.js" />
+    <Content Include="app\components\client\discount\discountController.js" />
+    <Content Include="app\components\client\discount\discountView.html" />
     <Content Include="app\components\client\product\product.module.js" />
     <Content Include="app\components\client\product\productController.js" />
     <Content Include="app\components\client\product\productView.html" />
