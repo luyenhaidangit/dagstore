@@ -119,13 +119,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/index');
 });
 
-app.run(function ($rootScope) {
-    //angular.element(function () {
-    //    console.log('page loading completed');
-    //    $rootScope.load = true;
-    //});
-    
-});
 
 // Register App
 var applogin = angular.module('DAGStoreLogin', [
