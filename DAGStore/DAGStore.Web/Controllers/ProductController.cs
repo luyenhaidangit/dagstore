@@ -69,6 +69,17 @@ namespace DAGStore.Web.Controllers
             return Json(true, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPut]
+        public JsonResult IncreaseViewCount(int id)
+        {
+            var product = _productService.GetByID(id);
+            product.ViewCount += 1;
+            _productService.Update(product);
+            _productService.SaveChanges();
+
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpDelete]
         public JsonResult Delete(int id)
         {

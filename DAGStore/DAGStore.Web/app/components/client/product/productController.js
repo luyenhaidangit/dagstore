@@ -10,7 +10,15 @@ function productController($scope, apiService, $stateParams, $filter, notificati
     // Load Product Detail
     $scope.product = {
     }
-    $scope.category =
+
+    // Increase Views Product
+    apiService.put("/product/IncreaseViewCount/" + $stateParams.id,null, function (success) {
+        console.log("Tang view");
+    }, function (error) {
+        console.log("Xóa không thành công!")
+    })
+
+   /* $scope.category =*/
     apiService.get("/product/getproductdetail/" + $stateParams.id, null, function (result) {
         $scope.product = result.data;
         $scope.Message = $sce.trustAsHtml($scope.product.FullDescription);
