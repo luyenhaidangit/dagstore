@@ -68,6 +68,28 @@ namespace DAGStore.Web.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult GetProductsViewCountShowHomePage()
+        {
+            var discounts = _discountService.GetAll();
+            var productDiscounts = _productDiscountService.GetAll();
+            var products = _productService.GetAll();
+            products = products.Reverse();
+            var result = (from p in products
+                          where p.Published == true
+                          select new
+                          {
+                              IDProduct = p.ID,
+                              NameProduct = p.Name,
+                              PriceProduct = p.SellPriceActual,
+                              ImageProduct = p.PicturePath,
+                              DescriptionProduct = p.ShortDescriptionEndow,
+                              Discount = _discountService.GetDiscountByProduct(p.ID).Take(2),
+                              ViewCount = p.ViewCount,
+                              DiscountRate = ((int)(100 - ((p.SellPriceActual / p.SellPrice) * 100))),
+                          }).OrderByDescending(p => p.ViewCount).Take(20);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
         public JsonResult GetProducts()
         {
             var products = _productService.GetAll().Where(x => x.Published == true).ToList();
