@@ -59,11 +59,11 @@ namespace DAGStore.Web.Controllers
                           {
                               IDProduct = p.ID,
                               NameProduct = p.Name,
-                              PriceProduct = p.SellPrice,
+                              PriceProduct = p.SellPriceActual,
                               ImageProduct = p.PicturePath,
                               DescriptionProduct = p.ShortDescriptionEndow,
                               Discount = _discountService.GetDiscountByProduct(p.ID).Take(2),
-                              DiscountRate = ((int)(100 - ((p.CostPrice/p.SellPrice)*100))),
+                              DiscountRate = ((int)(100 - ((p.SellPriceActual/p.SellPrice)*100))),
                           }).OrderByDescending(p=> p.DiscountRate).Take(20); 
             return Json(result, JsonRequestBehavior.AllowGet);
         }

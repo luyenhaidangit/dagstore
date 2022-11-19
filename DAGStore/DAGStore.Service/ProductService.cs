@@ -125,6 +125,7 @@ namespace DAGStore.Service
                               SellPriceActual = p.SellPriceActual,
                               ImageProduct = p.PicturePath,
                               DescriptionProduct = p.ShortDescriptionEndow,
+                              DiscountRate = ((int)(100 - ((p.SellPriceActual / p.SellPrice) * 100))),
                               Discount = _discountService.GetDiscountByProduct(p.ID).Take(2),
                           }).Take(20); ;
             return result;
