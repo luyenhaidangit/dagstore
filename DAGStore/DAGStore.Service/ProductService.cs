@@ -21,7 +21,7 @@ namespace DAGStore.Service
 
         IEnumerable<dynamic> GetData();
 
-        IEnumerable<Product> GetSuggestProduct(int id);
+        IEnumerable<dynamic> GetSuggestProduct(int id);
 
         dynamic GetInfo(int id);
 
@@ -53,18 +53,32 @@ namespace DAGStore.Service
             this._suggestProductRepository = suggestProductRepository;
         }
 
-        public IEnumerable<Product> GetSuggestProduct(int id)
+        public IEnumerable<dynamic> GetSuggestProduct(int id)
         {
             var suggest = _suggestRepository.GetAll().ToList();
             var suggestproduct = _suggestProductRepository.GetAll().ToList();
-            var product = _productRepository.GetAll().ToList();
+            var products = _productRepository.GetAll().ToList();
 
             var result = from s in suggest
                          join spr in suggestproduct on s.ID equals spr.SuggestID
-                         join p in product on spr.ProductID equals p.ID
+                         join product in products on spr.ProductID equals product.ID
                          where s.ID == id
-                         orderby p.DisplayOrder descending
-                         select p;
+                         orderby product.DisplayOrder descending
+                         select new
+                         {
+                             ID = product.ID,
+                             Name = product.Name,
+                             PicturePath = product.PicturePath,
+                             ShortDescription = product.ShortDescription,
+                             FullDescription = product.FullDescription,
+                             ShortDescriptionEndow = product.ShortDescriptionEndow,
+                             CostPrice = product.CostPrice,
+                             SellPrice = product.SellPrice,
+                             SellPriceActual = product.SellPriceActual,
+                             DiscountRate = ((int)(100 - ((product.SellPriceActual / product.SellPrice) * 100))),
+                             InventoryQuantity = product.InventoryQuantity,
+                             DisplayOrder = product.DisplayOrder,
+                         }; 
             return result;
         }
 
@@ -121,13 +135,12 @@ namespace DAGStore.Service
                           {
                               IDProduct = p.ID,
                               NameProduct = p.Name,
-                              PriceProduct = p.SellPrice,
-                              SellPriceActual = p.SellPriceActual,
+                              PriceProduct = p.SellPriceActual,
                               ImageProduct = p.PicturePath,
                               DescriptionProduct = p.ShortDescriptionEndow,
                               DiscountRate = ((int)(100 - ((p.SellPriceActual / p.SellPrice) * 100))),
                               Discount = _discountService.GetDiscountByProduct(p.ID).Take(2),
-                          }).Take(20); ;
+                          }).Take(20); 
             return result;
         }
 

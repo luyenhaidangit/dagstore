@@ -75,7 +75,7 @@
                                 </span>
 
                                 <strong class="product-item-core__price">
-                                    <span>{{product.SellPrice | formatCurrencyVND}}</span>
+                                    <span>{{product.SellPriceActual | formatCurrencyVND}}<small class="product-item-core__price-percent-discount">-{{product.DiscountRate}}%</small></span>
                                 </strong>
 
                                 <div class="product-item-core__gift">

@@ -71,7 +71,25 @@ namespace DAGStore.Web.Controllers
         public JsonResult GetProducts()
         {
             var products = _productService.GetAll().Where(x => x.Published == true).ToList();
-            return Json(products, JsonRequestBehavior.AllowGet);
+
+            var result = from product in products
+                         select new
+                         {
+                             ID = product.ID,
+                             Name = product.Name,
+                             PicturePath = product.PicturePath,
+                             ShortDescription = product.ShortDescription,
+                             FullDescription = product.FullDescription,
+                             ShortDescriptionEndow = product.ShortDescriptionEndow,
+                             CostPrice = product.CostPrice,
+                             SellPrice = product.SellPrice,
+                             SellPriceActual = product.SellPriceActual,
+                             DiscountRate = ((int)(100 - ((product.SellPriceActual / product.SellPrice) * 100))),
+                             InventoryQuantity = product.InventoryQuantity,
+                             DisplayOrder = product.DisplayOrder,
+                         };
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult ShowSlider()
