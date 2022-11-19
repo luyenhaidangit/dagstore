@@ -35,7 +35,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Hãng sản phẩm</label>
                         <div class="col-md-10">
-                            <input ng-model="product.NameBrand" readonly class="form-control" type="text" value="">
+                            <input ng-model="product.BrandName" readonly class="form-control" type="text" value="">
                         </div>
                     </div>
 
@@ -43,7 +43,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Loại sản phẩm</label>
                         <div class="col-md-10">
-                            <input ng-model="product.NameCategory" readonly class="form-control" type="text" value="">
+                            <input ng-model="product.CategoryName" readonly class="form-control" type="text" value="">
                         </div>
                     </div>
 
@@ -92,6 +92,14 @@
                         <label for="example-number-input" class="col-md-2 col-form-label">Giá bán</label>
                         <div class="col-md-10">
                             <input ng-model="product.SellPrice" readonly class="form-control" type="number" id="example-number-input">
+                        </div>
+                    </div>
+
+                    <!-- SellPriceActual -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Giá bán thực tế</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.SellPriceActual" readonly name="sellpriceactual" class="form-control" type="number">
                         </div>
                     </div>
 

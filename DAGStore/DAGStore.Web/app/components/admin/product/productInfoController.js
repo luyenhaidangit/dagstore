@@ -14,7 +14,7 @@ function productInfoController($scope, apiService, notificationService, $statePa
     // Load Product Detail
     $scope.product = {
     }
-    apiService.get("/product/getinfo/" + $stateParams.id, null, function (result) {
+    apiService.get("/product/GetProductDetail/" + $stateParams.id, null, function (result) {
         $scope.product = result.data;
     }, function (error) {
         notificationService.displaySuccess("Không thể tải dữ liệu");

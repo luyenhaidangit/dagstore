@@ -183,6 +183,10 @@
     <Compile Include="Migrations\202211180601056_Edit-Table-Discount-18-11.designer.cs">
       <DependentUpon>202211180601056_Edit-Table-Discount-18-11.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202211190203254_Add-Property-SellPriceActual-Product.cs" />
+    <Compile Include="Migrations\202211190203254_Add-Property-SellPriceActual-Product.designer.cs">
+      <DependentUpon>202211190203254_Add-Property-SellPriceActual-Product.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BrandRepository.cs" />
@@ -282,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202211180601056_Edit-Table-Discount-18-11.resx">
       <DependentUpon>202211180601056_Edit-Table-Discount-18-11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211190203254_Add-Property-SellPriceActual-Product.resx">
+      <DependentUpon>202211190203254_Add-Property-SellPriceActual-Product.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

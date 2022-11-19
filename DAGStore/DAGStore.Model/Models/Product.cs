@@ -41,6 +41,9 @@ namespace DAGStore.Model.Models
         public decimal SellPrice { get; set; }
 
         [Required]
+        public decimal SellPriceActual { get; set; }
+
+        [Required]
         public int InventoryQuantity { get; set; }
 
         [Required]

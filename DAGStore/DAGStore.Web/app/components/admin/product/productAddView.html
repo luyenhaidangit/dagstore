@@ -116,6 +116,14 @@
                         </div>
                     </div>
 
+                    <!-- SellPriceActual -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Giá bán thực tế</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.SellPriceActual" name="sellpriceactual" class="form-control" type="number" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? (this.value = !!this.value && Math.abs(this.value) <= sellprice.value ? Math.abs(this.value):sellprice.value) : 0">
+                        </div>
+                    </div>
+
                     <!-- InventoryQuantity -->
                     <div class="form-group row">
                         <label for="example-number-input" class="col-md-2 col-form-label">Tồn kho</label>

@@ -37,9 +37,9 @@
                         <label for="example-text-input" class="col-md-2 col-form-label">Hãng sản phẩm</label>
                         <div class="col-md-10">
                             <div class="ui dropdown fluid search selection">
-                                <input ng-model="product.BrandID" type="hidden" name="brandid" value="{{brands[0].ID}}">
+                                <input ng-model="product.BrandID" type="hidden" name="brandid" value="{{product.BrandID}}" ng-change="ChangeBrand()">
                                 <i class="dropdown icon"></i>
-                                <div class="default text">{{brand.Name}}</div>
+                                <div class="default text">{{product.BrandName}}</div>
                                 <div class="menu">
                                     <div ng-repeat="item in brands" class="item" data-value="{{item.ID}}">{{item.Name}}</div>
                                 </div>
@@ -54,7 +54,7 @@
                             <div class="ui dropdown fluid search selection">
                                 <input ng-model="product.CategoryID" type="hidden" name="categoryid" value="{{categorys[0].ID}}">
                                 <i class="dropdown icon"></i>
-                                <div class="default text">{{category.Name}}</div>
+                                <div class="default text">{{product.CategoryName}}</div>
                                 <div class="menu">
                                     <div ng-repeat="item in categorys" class="item" data-value="{{item.ID}}">{{item.Name}}</div>
                                 </div>
@@ -113,6 +113,14 @@
                         <label for="example-number-input" class="col-md-2 col-form-label">Giá bán</label>
                         <div class="col-md-10">
                             <input ng-model="product.SellPrice" name="sellprice" class="form-control" type="number" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : 0">
+                        </div>
+                    </div>
+
+                    <!-- SellPriceActual -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Giá bán thực tế</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.SellPriceActual" name="sellpriceactual" class="form-control" type="number" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? (this.value = !!this.value && Math.abs(this.value) <= sellprice.value ? Math.abs(this.value):sellprice.value) : 0">
                         </div>
                     </div>
 

@@ -14,29 +14,30 @@ function productEditController($scope, apiService, notificationService, $state, 
     //Load Product Detail
     $scope.product = {
     }
-    apiService.get("/product/getbyid/" + $stateParams.id, null, function (result) {
+    apiService.get("/product/GetProductDetail/" + $stateParams.id, null, function (result) {
         $scope.product = result.data;
+        console.log($scope.product)
     }, function (error) {
         notificationService.displaySuccess("Không thể tải dữ liệu");
     })
 
     //Load List Brand
-    $scope.brand = {};
     $scope.brands = [];
     apiService.get("/brand/getdata", null, function (result) {
         $scope.brands = result.data;
-        $scope.brand = $scope.brands.filter(x => x.ID === $scope.product.BrandID)[0];
     }, function (error) {
         console.log("Get data fail");
     })
 
+    $scope.ChangeBrand = ChangeBrand;
+    function ChangeBrand() {
+        console.log("ok")
+    }
+
     //Load List Category
-    $scope.category = {};
     $scope.categorys = [];
     apiService.get("/category/getdata", null, function (result) {
         $scope.categorys = result.data;
-        $scope.category = $scope.categorys.filter(x => x.ID === $scope.product.CategoryID)[0];
-        console.log($scope.category)
     }, function (error) {
         console.log("Get data fail");
     })
@@ -69,6 +70,7 @@ function productEditController($scope, apiService, notificationService, $state, 
     // Submit Edit Product
     $scope.EditProduct = EditProduct;
     function EditProduct() {
+        console.log($scope.product)
         $scope.product.BrandID = document.getElementsByName("brandid")[0].value;
         $scope.product.CategoryID = document.getElementsByName("categoryid")[0].value;
         $scope.product.FullDescription = CKEDITOR.instances['DAGStoreTextArea'].getData();

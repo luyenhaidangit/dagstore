@@ -104,6 +104,7 @@ namespace DAGStore.Service
                               MaximumInventoryQuantity = c.MaximumInventoryQuantity,
                               DisplayOrder = c.DisplayOrder,
                               Published = c.Published,
+                              SellPriceActual = c.SellPriceActual,
                           });
             return result;
         }
@@ -121,6 +122,7 @@ namespace DAGStore.Service
                               IDProduct = p.ID,
                               NameProduct = p.Name,
                               PriceProduct = p.SellPrice,
+                              SellPriceActual = p.SellPriceActual,
                               ImageProduct = p.PicturePath,
                               DescriptionProduct = p.ShortDescriptionEndow,
                               Discount = _discountService.GetDiscountByProduct(p.ID).Take(2),
@@ -148,6 +150,7 @@ namespace DAGStore.Service
                               NameBrand = _brandRepository.GetSingleByID(product.BrandID).Name,
                               CostPrice = product.CostPrice,
                               SellPrice = product.SellPrice,
+                              SellPriceActual = product.SellPriceActual,
                               InventoryQuantity = product.InventoryQuantity,
                               MinimumInventoryQuantity = product.MinimumInventoryQuantity,
                               MaximumInventoryQuantity = product.MaximumInventoryQuantity,
