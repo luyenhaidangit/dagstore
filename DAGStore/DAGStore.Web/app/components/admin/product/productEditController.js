@@ -29,11 +29,6 @@ function productEditController($scope, apiService, notificationService, $state, 
         console.log("Get data fail");
     })
 
-    $scope.ChangeBrand = ChangeBrand;
-    function ChangeBrand() {
-        console.log("ok")
-    }
-
     //Load List Category
     $scope.categorys = [];
     apiService.get("/category/getdata", null, function (result) {
