@@ -43,24 +43,48 @@ function categoryController($scope, apiService, $stateParams, $filter, $rootScop
         FilterProduct();
     }
 
-    $scope.FilterProductByBrand = FilterProductByBrand;
+    //Filter Product
+    $scope.FilterProduct = FilterProduct;
+    function FilterProduct() {
+        $scope.productsShow = $scope.products
+            .filter(x => $scope.brandFilter == null ? true : x.BrandProduct.ID == $scope.brandFilter)
+            .filter(x => x.PriceProduct >= $scope.priceStart && x.PriceProduct <= $scope.priceEnd)
+            .slice(0, $scope.numberProduct);
+    }
+
+    //Filter Product By Brand
     $scope.brand = {
     }
+    $scope.FilterProductByBrand = FilterProductByBrand;
     $scope.brand.Name = "Hãng";
-    $scope.brandFilter = true;
+    $scope.brandFilter = null;
     function FilterProductByBrand(item) {
         $scope.brandFilter = item.ID;
         $scope.brand = item;
         FilterProduct();
     }
-
-    $scope.FilterProduct = FilterProduct;
-    function FilterProduct() {
-        $scope.productsShow = $scope.products.filter(x => x.BrandProduct.ID == $scope.brandFilter).slice(0, $scope.numberProduct);;
-        console.log($scope.products)
-        console.log("vcl")
+    $scope.CloseFilterProductByBrand = CloseFilterProductByBrand;
+    function CloseFilterProductByBrand() {
+        $scope.brand.Name = "Hãng";
+        $scope.brandFilter = true;
+        /*$scope.productsShow = $scope.products.filter(x => x.BrandProduct.ID === !true).slice(0, $scope.numberProduct);*/
+        $scope.productsShow = $scope.products.slice(0, $scope.numberProduct);
     }
+    
+    //Filter Product By Price
+    $scope.price = {
 
+    }
+    $scope.price.Name = "Giá";
+    $scope.priceStart = 0;
+    $scope.priceEnd = Infinity;
+    $scope.FilterProductByPrice = FilterProductByPrice;
+    function FilterProductByPrice(start, end) {
+        $scope.priceStart = start;
+        $scope.priceEnd = end;
+        $scope.price.Name = "Từ " + $filter('formatCurrencyVND')(start) + " - " + $filter('formatCurrencyVND')(end);
+        FilterProduct();
+    }
     //$scope.GetProductsOfCategory = GetProductsOfCategory;
     //function GetProductsOfCategory() {
     //    apiService.get("/product/getall", null, function (result) {

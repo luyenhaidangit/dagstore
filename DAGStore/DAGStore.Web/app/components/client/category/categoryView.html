@@ -65,20 +65,21 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-core" aria-labelledby="filter-brand">
                             <li ng-repeat="item in brands" ng-click="FilterProductByBrand(item)"><a class="filter-item rounded d-flex justify-content-center align-items-center"><img class="" src="{{item.PicturePath}}" alt=""></a></li>
+                            <li ng-click="CloseFilterProductByBrand()"><a class="btn btn-outline-danger rounded d-flex justify-content-center align-items-center"><div>Bỏ chọn</div></a></li>
                         </ul>
                     </div>
 
                     <div class="dropdown">
                         <button class="filter-item rounded dropdown-toggle" type="button" id="filter-price" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span>Giá</span>
+                            <span>{{price.Name}}</span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-core" aria-labelledby="filter-price">
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Dưới 2 triệu</span></a></li>
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 2 đến 4 triệu</span></a></li>
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 4 đến 7 triệu</span></a></li>
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 7 đến 13 triệu</span></a></li>
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 13 đến 20 triệu</span></a></li>
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Trên 20 triệu</span></a></li>
+                            <li ng-click="FilterProductByPrice(0,2000000)"><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Dưới 2 triệu</span></a></li>
+                            <li ng-click="FilterProductByPrice(2000000,4000000)"><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Từ 2 đến 4 triệu</span></a></li>
+                            <li ng-click="FilterProductByPrice(4000000,7000000)"><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Từ 4 đến 7 triệu</span></a></li>
+                            <li ng-click="FilterProductByPrice(7000000,13000000)"><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Từ 7 đến 13 triệu</span></a></li>
+                            <li ng-click="FilterProductByPrice(13000000,20000000)"><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Từ 13 đến 20 triệu</span></a></li>
+                            <li ng-click="FilterProductByPrice(20000000,999999999)"><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Trên 20 triệu</span></a></li>
                         </ul>
                     </div>
 
@@ -143,12 +144,12 @@
                             <span>Tính năng đặc biệt</span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-core" aria-labelledby="filter-special">
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Dưới 2 triệu</span></a></li>
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 2 đến 4 triệu</span></a></li>
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 4 đến 7 triệu</span></a></li>
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 7 đến 13 triệu</span></a></li>
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 13 đến 20 triệu</span></a></li>
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Trên 20 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Dưới 2 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Từ 2 đến 4 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Từ 4 đến 7 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Từ 7 đến 13 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Từ 13 đến 20 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Trên 20 triệu</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -248,7 +249,7 @@
             <div class="daily-sg__list-item" id="foryou" role="tabpanel" aria-labelledby="option-daily-sg__foryou-tab">
                 <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-2 g-3">
                     <div ng-repeat="item in productsShow" class="col">
-                        <div class="product-item-core">
+                        <div class="product-item-core border">
                             <a ui-sref="product({id:item.IDProduct})" href="">
                                 <div class="product-item-core__label">
                                     <span ng-repeat="label in item.Discount" ng-class="{'label-product-round-core':label.PicturePath!==null,'lalel-product-core':label.PicturePath===null}" style="background: {{label.ColorBackGround}}; color: {{label.ColorText}}">
