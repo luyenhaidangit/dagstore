@@ -260,7 +260,7 @@
 
             <div class="daily-sg__list-item" id="foryou" role="tabpanel" aria-labelledby="option-daily-sg__foryou-tab">
                 <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-2 g-3">
-                    <div ng-repeat="item in products" class="col">
+                    <div ng-repeat="item in productsShow" class="col">
                         <div class="product-item-core">
                             <a ui-sref="product({id:item.IDProduct})" href="">
                                 <div class="product-item-core__label">
@@ -295,8 +295,8 @@
                 </div>
             </div>
 
-            <a href="/page/client/sale-event/sale-event.html" class="read-more__btn-lg border btn btn-outline-primary my-4">
-                <span>Xem tất cả</span>
+            <a ng-click="LoadMoreProduct()" class="read-more__btn-lg border btn btn-outline-primary my-4">
+                <span>Xem thêm</span>
                 <i class="fas fa-caret-right"></i>
             </a>
         </div>

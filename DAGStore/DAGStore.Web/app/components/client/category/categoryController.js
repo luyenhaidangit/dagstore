@@ -6,7 +6,7 @@ category.controller('categoryController', categoryController);
 function categoryController($scope, apiService, $stateParams, $filter, $rootScope, $timeout) {
     //Load Page
     $rootScope.LoadPageSuccess = false;
-    
+    var numberProduct = 2;
 
     // Load Category Detail
     $scope.category = {
@@ -21,14 +21,23 @@ function categoryController($scope, apiService, $stateParams, $filter, $rootScop
     }
     $scope.LoadCategoryDetail();
 
+    
     // Load List Product Of Category
     $scope.products = [];
     apiService.get("/product/GetProductsByCategory/" + $stateParams.id, null, function (result) {
         $scope.products = result.data;
+        $scope.productsShow = $scope.products.slice(0, numberProduct);
         console.log($scope.products)
     }, function (error) {
         console.log("Không thể tải dữ liệu");
     })
+
+    //Load More Product
+    $scope.LoadMoreProduct = LoadMoreProduct;
+    function LoadMoreProduct() {
+        numberProduct += 2;
+        $scope.productsShow = $scope.products.slice(0, numberProduct);
+    }
 
     //$scope.GetProductsOfCategory = GetProductsOfCategory;
     //function GetProductsOfCategory() {
