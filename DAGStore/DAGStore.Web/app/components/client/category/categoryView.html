@@ -261,31 +261,33 @@
             <div class="daily-sg__list-item" id="foryou" role="tabpanel" aria-labelledby="option-daily-sg__foryou-tab">
                 <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-2 g-3">
                     <div ng-repeat="item in products" class="col">
-                        <div class="product-item-core border">
-                            <a href ui-sref="product({id:item.ID})">
+                        <div class="product-item-core">
+                            <a ui-sref="product({id:item.IDProduct})" href="">
                                 <div class="product-item-core__label">
-                                    <span class="lalel-product-core label-preorder">Đặt trước đến 25/08</span>
-                                    <span class="lalel-product-core label-installment">Trả góp 0%</span>
+                                    <span ng-repeat="label in item.Discount" ng-class="{'label-product-round-core':label.PicturePath!==null,'lalel-product-core':label.PicturePath===null}" style="background: {{label.ColorBackGround}}; color: {{label.ColorText}}">
+                                        <img src="{{label.PicturePath}}" alt="">
+                                        <span>{{label.Name}}</span>
+                                    </span>
                                 </div>
 
                                 <div class="product-item-core__img">
-                                    <img src="{{item.PicturePath}}" alt="">
+                                    <img src="{{item.ImageProduct}}" alt="">
                                 </div>
 
                                 <h3 class="product-item-core__title">
-                                    {{item.Name}}
+                                    {{item.NameProduct}}
                                 </h3>
 
                                 <span class="product-item-core__order-online">
-                                    Hàng sắp về
+                                    Online giá rẻ
                                 </span>
 
                                 <strong class="product-item-core__price">
-                                    <span>{{item.Price | formatCurrencyVND }}</span>
+                                    <span>{{item.PriceProduct | formatCurrencyVND }}<small class="product-item-core__price-percent-discount">-{{item.DiscountRate}}%</small></span>
                                 </strong>
 
                                 <div class="product-item-core__gift">
-                                    Tặng PMH 3.5 triệu, Gói Samsung Care+ 4.5 triệu, Trả góp 0%
+                                    {{item.DescriptionProduct}}
                                 </div>
                             </a>
                         </div>

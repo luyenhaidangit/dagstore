@@ -23,17 +23,24 @@ function categoryController($scope, apiService, $stateParams, $filter, $rootScop
 
     // Load List Product Of Category
     $scope.products = [];
-    $scope.GetProductsOfCategory = GetProductsOfCategory;
-    function GetProductsOfCategory() {
-        apiService.get("/product/getall", null, function (result) {
-            $scope.products = result.data;
-            $scope.products = $filter('filter')($scope.products, { CategoryID: $stateParams.id })
-            console.log($scope.products);
-        }, function (error) {
-            console.log("Get data fail");
-        })
-    };
-    $scope.GetProductsOfCategory();
+    apiService.get("/product/GetProductsByCategory/" + $stateParams.id, null, function (result) {
+        $scope.products = result.data;
+        console.log($scope.products)
+    }, function (error) {
+        console.log("Không thể tải dữ liệu");
+    })
+
+    //$scope.GetProductsOfCategory = GetProductsOfCategory;
+    //function GetProductsOfCategory() {
+    //    apiService.get("/product/getall", null, function (result) {
+    //        $scope.products = result.data;
+    //        $scope.products = $filter('filter')($scope.products, { CategoryID: $stateParams.id })
+    //        console.log($scope.products);
+    //    }, function (error) {
+    //        console.log("Get data fail");
+    //    })
+    //};
+    //$scope.GetProductsOfCategory();
 
     angular.element(function () {
         $timeout(function () {

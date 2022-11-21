@@ -15,12 +15,16 @@ namespace DAGStore.Web.Controllers
         IProductService _productService;
         ICategoryService _categoryService;
         IBrandService _brandService;
+        IDiscountService _discountService;
+        IProductDiscountService _productDiscountService;
 
-        public ProductController(IProductService menuRecordService,ICategoryService categoryService,IBrandService brandService)
+        public ProductController(IProductDiscountService productDiscountService,IDiscountService discountService,IProductService menuRecordService,ICategoryService categoryService,IBrandService brandService)
         {
             this._productService = menuRecordService;
             this._categoryService = categoryService;
             this._brandService = brandService;
+            this._discountService = discountService;
+            this._productDiscountService = productDiscountService;
         }
         // GET: MenuRecord
         public JsonResult GetAll()
@@ -117,6 +121,27 @@ namespace DAGStore.Web.Controllers
                              Published = p.Published,
                              Deleted = p.Deleted,
                          }).FirstOrDefault();
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetProductsByCategory(int id)
+        {
+            var discounts = _discountService.GetAll();
+            var productDiscounts = _productDiscountService.GetAll();
+            var products = _productService.GetAll();
+            products = products.Reverse();
+            var result = (from p in products
+                          where p.Published == true && p.CategoryID == id
+                          select new
+                          {
+                              IDProduct = p.ID,
+                              NameProduct = p.Name,
+                              PriceProduct = p.SellPriceActual,
+                              ImageProduct = p.PicturePath,
+                              DescriptionProduct = p.ShortDescriptionEndow,
+                              Discount = _discountService.GetDiscountByProduct(p.ID).Take(2),
+                              DiscountRate = ((int)(100 - ((p.SellPriceActual / p.SellPrice) * 100))),
+                          }).OrderByDescending(p => p.DiscountRate).Take(20);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
