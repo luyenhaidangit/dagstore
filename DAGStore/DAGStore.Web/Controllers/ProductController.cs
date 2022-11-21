@@ -124,6 +124,7 @@ namespace DAGStore.Web.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        #region Product Category
         public JsonResult GetProductsByCategory(int id)
         {
             var discounts = _discountService.GetAll();
@@ -135,6 +136,7 @@ namespace DAGStore.Web.Controllers
                           select new
                           {
                               IDProduct = p.ID,
+                              BrandProduct = _brandService.GetByID(p.BrandID),
                               NameProduct = p.Name,
                               PriceProduct = p.SellPriceActual,
                               ImageProduct = p.PicturePath,
@@ -144,6 +146,6 @@ namespace DAGStore.Web.Controllers
                           }).OrderByDescending(p => p.DiscountRate).Take(20);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-
+        #endregion
     }
 }

@@ -6,8 +6,7 @@ category.controller('categoryController', categoryController);
 function categoryController($scope, apiService, $stateParams, $filter, $rootScope, $timeout) {
     //Load Page
     $rootScope.LoadPageSuccess = false;
-    var numberProduct = 2;
-
+    var numberProduct = 10;
     // Load Category Detail
     $scope.category = {
     }
@@ -23,20 +22,43 @@ function categoryController($scope, apiService, $stateParams, $filter, $rootScop
 
     
     // Load List Product Of Category
+    $scope.brands = [];
     $scope.products = [];
     apiService.get("/product/GetProductsByCategory/" + $stateParams.id, null, function (result) {
         $scope.products = result.data;
-        $scope.productsShow = $scope.products.slice(0, numberProduct);
-        console.log($scope.products)
+        $scope.productsShow = $scope.products.slice(0, $scope.numberProduct);
+        $scope.brands = result.data.map((item) => {
+            return item.BrandProduct;
+        }).filter((v, i, a) => a.findIndex(v2 => (v2.ID === v.ID)) === i);
+        console.log($scope.brands)
     }, function (error) {
         console.log("Không thể tải dữ liệu");
     })
 
     //Load More Product
     $scope.LoadMoreProduct = LoadMoreProduct;
+    $scope.numberProduct = 10;
     function LoadMoreProduct() {
-        numberProduct += 2;
-        $scope.productsShow = $scope.products.slice(0, numberProduct);
+        $scope.numberProduct += 10;
+        FilterProduct();
+    }
+
+    $scope.FilterProductByBrand = FilterProductByBrand;
+    $scope.brand = {
+    }
+    $scope.brand.Name = "Hãng";
+    $scope.brandFilter = true;
+    function FilterProductByBrand(item) {
+        $scope.brandFilter = item.ID;
+        $scope.brand = item;
+        FilterProduct();
+    }
+
+    $scope.FilterProduct = FilterProduct;
+    function FilterProduct() {
+        $scope.productsShow = $scope.products.filter(x => x.BrandProduct.ID == $scope.brandFilter).slice(0, $scope.numberProduct);;
+        console.log($scope.products)
+        console.log("vcl")
     }
 
     //$scope.GetProductsOfCategory = GetProductsOfCategory;

@@ -50,8 +50,8 @@
     </div>
 
     <div class="container">
-        <!-- begin: box-filter -->
-        <!--<div class="box-filter mt-3">
+         <!--begin: box-filter--> 
+        <div class="box-filter mt-3">
             <div class="filter-main d-flex">
                 <div class="filter-total">
                     <div class="filter-total__collapse rounded d-flex align-items-center gap-2"><i class="far fa-filter"></i> <span>Bộ lọc</span></div>
@@ -61,24 +61,10 @@
 
                     <div class="dropdown">
                         <button class="filter-item rounded dropdown-toggle" type="button" id="filter-brand" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span>Hãng</span>
+                            <span>{{brand.Name}}</span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-core" aria-labelledby="filter-brand">
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><img class="" src="/Content/client/img/ico/logo-iphone-220x48.png" alt=""></a></li>
-
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><img class="" src="/Content/client/img/ico/samsungnew-220x48-1.png" alt=""></a></li>
-
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><img class="" src="/Content/client/img/ico/OPPO42-b_5.jpg" alt=""></a></li>
-
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><img class="" src="/Content/client/img/ico/logo-xiaomi-220x48-5.png" alt=""></a></li>
-
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><img class="" src="/Content/client/img/ico/Realme42-b_37.png" alt=""></a></li>
-
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><img class="" src="/Content/client/img/ico/Nokia42-b_21.jpg" alt=""></a></li>
-
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><img class="" src="/Content/client/img/ico/Mobell42-b_19.jpg" alt=""></a></li>
-
-                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><img class="" src="/Content/client/img/ico/vivo-logo-220-220x48-3.png" alt=""></a></li>
+                            <li ng-repeat="item in brands" ng-click="FilterProductByBrand(item)"><a class="filter-item rounded d-flex justify-content-center align-items-center"><img class="" src="{{item.PicturePath}}" alt=""></a></li>
                         </ul>
                     </div>
 
@@ -169,7 +155,8 @@
             </div>
             <div class="filter-quick">
                 <div class="filter-quick-brand mt-2">
-                    <li><a class="filter-item rounded-pill d-inline-flex align-items-center me-1 mb-2" href="#"><img class="" src="/Content/client/img/ico/logo-iphone-220x48.png" alt=""></a></li>
+                    <li ng-repeat="item in brands" ng-click="FilterProductByBrand(item)"><a class="filter-item rounded-pill d-inline-flex align-items-center me-1 mb-2"><img class="" src="{{item.PicturePath}}" alt=""></a></li>
+                    <!--<li><a class="filter-item rounded-pill d-inline-flex align-items-center me-1 mb-2" href="#"><img class="" src="/Content/client/img/ico/logo-iphone-220x48.png" alt=""></a></li>
 
                     <li><a class="filter-item rounded-pill d-inline-flex align-items-center me-1 mb-2" href="#"><img class="" src="/Content/client/img/ico/samsungnew-220x48-1.png" alt=""></a></li>
 
@@ -183,7 +170,7 @@
 
                     <li><a class="filter-item rounded-pill d-inline-flex align-items-center me-1 mb-2" href="#"><img class="" src="/Content/client/img/ico/Mobell42-b_19.jpg" alt=""></a></li>
 
-                    <li><a class="filter-item rounded-pill d-inline-flex align-items-center me-1 mb-2" href="#"><img class="" src="/Content/client/img/ico/vivo-logo-220-220x48-3.png" alt=""></a></li>
+                    <li><a class="filter-item rounded-pill d-inline-flex align-items-center me-1 mb-2" href="#"><img class="" src="/Content/client/img/ico/vivo-logo-220-220x48-3.png" alt=""></a></li>-->
                 </div>
 
                 <div class="filter-quick-demand mt-2">
@@ -198,7 +185,7 @@
                     <li><a class="filter-item rounded-pill d-inline-flex align-items-center me-1 mb-2" href="#"><span>Nhỏ gọn dễ cầm</span></a></li>
                 </div>
             </div>
-        </div>-->
+        </div>
         <!-- end: box-filter -->
     </div>
 
