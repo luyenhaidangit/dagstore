@@ -12,6 +12,14 @@ namespace DAGStore.Model.Models
         [Key]
         public int ID { get; set; }
 
-        
+        [MaxLength(500)]
+        public string Title { get; set; }
+
+        [MaxLength(4000)]
+        public string PictureAvatar { get; set; }
+
+        public string Content { get; set; }
+
+        public DateTime? CreateOn { get; set; }
     }
 }

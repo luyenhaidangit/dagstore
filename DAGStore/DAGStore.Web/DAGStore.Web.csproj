@@ -246,6 +246,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuRecordController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductDiscontController.cs" />
     <Compile Include="Controllers\SliderController.cs" />
@@ -345,6 +346,9 @@
     <Content Include="app\components\client\discount\discount.module.js" />
     <Content Include="app\components\client\discount\discountController.js" />
     <Content Include="app\components\client\discount\discountView.html" />
+    <Content Include="app\components\client\news\news.module.js" />
+    <Content Include="app\components\client\news\newsController.js" />
+    <Content Include="app\components\client\news\newsView.html" />
     <Content Include="app\components\client\product\product.module.js" />
     <Content Include="app\components\client\product\productController.js" />
     <Content Include="app\components\client\product\productView.html" />
@@ -6704,6 +6708,7 @@
     <Folder Include="Views\ImportBillDetail\" />
     <Folder Include="Views\ImportBill\" />
     <Folder Include="Views\MenuRecord\" />
+    <Folder Include="Views\News\" />
     <Folder Include="Views\ProductDiscont\" />
     <Folder Include="Views\Product\" />
     <Folder Include="Views\SliderItem\" />

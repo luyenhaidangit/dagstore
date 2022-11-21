@@ -191,10 +191,15 @@
     <Compile Include="Migrations\202211190707111_Add-ViewCount-Product.designer.cs">
       <DependentUpon>202211190707111_Add-ViewCount-Product.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202211201616526_Add-Table-News.cs" />
+    <Compile Include="Migrations\202211201616526_Add-Table-News.designer.cs">
+      <DependentUpon>202211201616526_Add-Table-News.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BrandRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\NewsRepository.cs" />
     <Compile Include="Repositories\EventRepository.cs" />
     <Compile Include="Repositories\SuggestProductRepository.cs" />
     <Compile Include="Repositories\SuggestRepository.cs" />
@@ -296,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202211190707111_Add-ViewCount-Product.resx">
       <DependentUpon>202211190707111_Add-ViewCount-Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211201616526_Add-Table-News.resx">
+      <DependentUpon>202211201616526_Add-Table-News.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

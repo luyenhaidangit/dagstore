@@ -95,6 +95,16 @@ function indexController($scope, apiService, sliderService, $rootScope, $timeout
         console.log("Get data fail");
     })
 
+    // Get Product View
+    $scope.news = [];
+    apiService.get("/index/getnews", null, function (result) {
+
+        $scope.news = result.data;
+
+    }, function (error) {
+        console.log("Get data fail");
+    })
+
     //Load Page
     angular.element(function () {
         $timeout(function () {

@@ -99,6 +99,7 @@ var app = angular.module('DAGStoreHome', [
     'DAGStoreHome.cart',
     'DAGStoreHome.suggest',
     'DAGStoreHome.discount',
+    'DAGStoreHome.news',
     'DAGStore.common']);
 
 // Config App Home
