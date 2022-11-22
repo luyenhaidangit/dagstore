@@ -18,7 +18,6 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.DataProtection;
 using System.Web;
 using DAGStore.Data.Infrastructure;
-using DAGStore.Web;
 
 [assembly: OwinStartup(typeof(DAGStore.Web.App_Start.Startup))]
 

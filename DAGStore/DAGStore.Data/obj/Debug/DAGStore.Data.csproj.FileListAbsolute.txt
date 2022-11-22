@@ -59,3 +59,4 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.D
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddPropertySellPriceActualProduct.resources
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddViewCountProduct.resources
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddTableNews.resources
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddDataIdentity.resources

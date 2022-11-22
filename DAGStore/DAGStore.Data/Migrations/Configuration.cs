@@ -27,14 +27,14 @@
 
             var user = new ApplicationUser()
             {
-                UserName = "tedu",
-                Email = "tedu.international@gmail.com",
+                UserName = "luyenhaidang",
+                Email = "luyenhaidangit@gmail.com",
                 EmailConfirmed = true,
-                FullName = "Technology Education"
+                FullName = "Luyện Hải Đăng"
 
             };
 
-            manager.Create(user, "123456");
+            manager.Create(user, "haidang");
 
             if (!roleManager.Roles.Any())
             {
@@ -42,7 +42,7 @@
                 roleManager.Create(new IdentityRole { Name = "User" });
             }
 
-            var adminUser = manager.FindByEmail("tedu.international@gmail.com");
+            var adminUser = manager.FindByEmail("luyenhaidangit@gmail.com");
 
             manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
         }
