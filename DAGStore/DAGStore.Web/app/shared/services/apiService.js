@@ -3,7 +3,7 @@
 (function (app) {
     app.factory('apiService', apiService);
 
-    apiService.$inject = ['$http'];
+    apiService.$inject = ['$http','authenticationService'];
 
     function apiService($http) {
         return {
@@ -14,6 +14,7 @@
         }
 
         function post(url, data, success, failure) {
+            authenticationService.setHeader();
             $http.post(url, data).then(function (result) {
                 success(result);
             }, function (error) {
@@ -28,6 +29,7 @@
         }
 
         function del(url, data, success, failure) {
+            authenticationService.setHeader();
             $http.delete(url, data).then(function (result) {
                 success(result);
             }, function (error) {
@@ -43,6 +45,7 @@
         }
 
         function get(url, params, success, failure) {
+            authenticationService.setHeader();
             $http.get(url, params).then(function (result) {
                 success(result);
             }, function (error) {
@@ -56,6 +59,7 @@
         }
 
         function put(url, data, success, failure) {
+            authenticationService.setHeader();
             $http.put(url, data).then(function (result) {
                 success(result);
             }, function (error) {

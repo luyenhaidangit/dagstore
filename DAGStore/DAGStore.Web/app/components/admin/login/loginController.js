@@ -61,12 +61,35 @@
 //    }
 //}
 
+//(function (app) {
+//    app.controller('loginController', loginController);
+//    loginController.$inject = ['$scope', '$state'];
+//    function loginController($scope, $state) {
+//        $scope.loginSubmit = function () {
+//            $state.go('dashboard');
+//        }
+//    }
+//})(angular.module('DAGStore'));
+
 (function (app) {
-    app.controller('loginController', loginController);
-    loginController.$inject = ['$scope', '$state'];
-    function loginController($scope, $state) {
-        $scope.loginSubmit = function () {
-            $state.go('dashboard');
-        }
-    }
+    app.controller('loginController', ['$scope', 'loginService', '$injector', 'notificationService',
+        function ($scope, loginService, $injector, notificationService) {
+
+            $scope.loginData = {
+                userName: "",
+                password: ""
+            };
+
+            $scope.loginSubmit = function () {
+                loginService.login($scope.loginData.userName, $scope.loginData.password).then(function (response) {
+                    if (response != null && response.error != undefined) {
+                        notificationService.displaySuccess("Đăng nhập không đúng.");
+                    }
+                    else {
+                        var stateService = $injector.get('$state');
+                        stateService.go('dashboard');
+                    }
+                });
+            }
+        }]);
 })(angular.module('DAGStore'));

@@ -23,18 +23,6 @@ app.config(function($stateProvider, $urlRouterProvider){
         url: '',
         templateUrl: '/app/shared/views/baseView.html',
         abstract: true,
-        //resolve: {
-        //    loadMyService: ['$ocLazyLoad', function ($ocLazyLoad) {
-        //        return $ocLazyLoad.load([
-        //            '/assets/libs/jquery/jquery.min.js',
-        //            '/assets/libs/bootstrap/js/bootstrap.bundle.min.js',
-        //            '/assets/libs/metismenu/metisMenu.min.js',
-        //            '/assets/libs/simplebar/simplebar.min.js',
-        //            '/assets/libs/node-waves/waves.min.js',
-        //            '/assets/js/app.js',
-        //        ]);
-        //    }]
-        //}
     },
     {
         name: 'dashboard',
@@ -55,27 +43,37 @@ app.config(function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/login');
     $urlRouterProvider.otherwise('/login');
 });
+app.config(configAuthentication).$inject = ['$stateProvider', '$urlRouterProvider'];;
 
-app.run(function ($rootScope) {
-    //$rootScope.$on("$routeChangeStart", function () {
-    //   /* $rootScope.progressbar = ngProgressFactory.createInstance();*/
-    //    cfpLoadingBar.start();
-    //  /*  $rootScope.progressbar.start();*/
+function configAuthentication($httpProvider) {
+    $httpProvider.interceptors.push(function ($q, $location) {
+        return {
+            request: function (config) {
 
-    //});
+                return config;
+            },
+            requestError: function (rejection) {
 
-    //$rootScope.$on("$routeChangeSuccess", function () {
-    //    cfpLoadingBar.complete();
-    //    /*$rootScope.progressbar.complete();*/
-    //});
-    //    apiService.get("/home/testmethod", null, function (result) {
-    //    $scope.products = result.data;
-    //    dataTableService.createDataTable($scope.config);
+                return $q.reject(rejection);
+            },
+            response: function (response) {
+                if (response.status == "401") {
+                    $location.path('/login');
+                }
+                //the same response/modified/or a new one need to be returned.
+                return response;
+            },
+            responseError: function (rejection) {
 
-    //}, function (error) {
-    //    console.log("Get data fail");
-    //})
-})
+                if (rejection.status == "401") {
+                    $location.path('/login');
+                }
+                return $q.reject(rejection);
+            }
+        };
+    });
+}
+
 
 // Config app
 //app.config(function ($httpProvider) {
