@@ -9,6 +9,7 @@ using System.Web.Script.Serialization;
 
 namespace DAGStore.Web.Controllers
 {
+    [Authorize]
     public class ProductDiscontController : Controller
     {
         // GET: ProductDiscont

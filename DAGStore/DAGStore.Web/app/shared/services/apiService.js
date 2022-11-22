@@ -5,7 +5,7 @@
 
     apiService.$inject = ['$http','authenticationService'];
 
-    function apiService($http) {
+    function apiService($http, authenticationService) {
         return {
             get: get,
             post:post,

@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace DAGStore.Web.Controllers
 {
+    [Authorize]
     public class DiscountController : Controller
     {
 
