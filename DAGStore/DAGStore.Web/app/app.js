@@ -13,22 +13,30 @@ var app = angular.module('DAGStore', [
 
 // Config app
 app.config(function($stateProvider, $urlRouterProvider){
-    // Config Router
+    /* Config Router*/
     var states = [
+    {
+        name: 'base',
+        url: '',
+        templateUrl: '/app/shared/views/baseView.html',
+        abstract: true,
+    },
     {
         name: 'dashboard',
         url: '/dashboard',
         templateUrl: '/app/components/admin/home/homeView.html',
         controller: "homeController",
+        parent: 'base',
     },
     {
         name: 'signin',
         url: '/signin',
-       
+
         templateUrl: '/app/components/admin/login/loginView.html',
         controller: "loginController",
     }
     ];
+    $urlRouterProvider.otherwise('/dashboard');
     states.forEach((state) => $stateProvider.state(state));
     $urlRouterProvider.otherwise('/dashboard');
 });

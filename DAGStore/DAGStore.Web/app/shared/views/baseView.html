@@ -1,4 +1,4 @@
-﻿ <!-- Begin page -->
+﻿<!-- Begin page -->
 <div id="layout-wrapper">
     <header id="page-topbar">
         <div class="navbar-header">
@@ -239,7 +239,7 @@
                         <a class="dropdown-item" href="#"><i class="ri-user-line align-middle mr-1"></i>Thông tin tài khoản</a>
                         <a class="dropdown-item d-block" href="#"><span class="badge badge-success float-right mt-1">11</span><i class="ri-settings-2-line align-middle mr-1"></i>Cài đặt</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-danger" href="#"><i class="ri-shut-down-line align-middle mr-1 text-danger"></i>Đăng xuất</a>
+                        <a class="dropdown-item text-danger" style="cursor:pointer" ng-click="LogOut()"><i class="ri-shut-down-line align-middle mr-1 text-danger"></i>Đăng xuất</a>
                     </div>
                 </div>
                 <!-- end: user -->
@@ -309,7 +309,7 @@
                             <span>Bán hàng</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            <li><a ui-sref="import-bill"><i class="fas fa-file-invoice"></i>Đơn hàng nhập</a></li>
+                            <li><a ui-sref="import-bill"><i class="fas fa-clipboard-check"></i>Đơn hàng nhập</a></li>
                             <li><a href="layouts-light-sidebar.html"><i class="fas fa-file-invoice"></i>Đơn đặt hàng</a></li>
                             <li><a href="layouts-compact-sidebar.html"><i class="fas fa-truck-moving"></i>Giao hàng</a></li>
                             <li><a href="layouts-compact-sidebar.html"><i class="fas fa-redo"></i>Thanh toán định kỳ</a></li>
@@ -410,9 +410,9 @@
                             </li>
 
                             <li>
-                                <a href="javascript: void(0);" class="waves-effect">
+                                <a ui-sref="event" class="waves-effect">
                                     <i class="fas fa-bullhorn"></i>
-                                    <span>Chiến dịch</span>
+                                    <span>Sự kiện</span>
                                 </a>
                             </li>
 
@@ -720,7 +720,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6">
-                    <script>document.write(new Date().getFullYear())</script> © Luyện Hải Đăng - FIT.UTEHY
+                    2022 © Luyện Hải Đăng - FIT.UTEHY
                 </div>
                 <div class="col-sm-6">
                     <div class="text-sm-right d-none d-sm-block">
@@ -732,9 +732,7 @@
         </div>
     </footer>
 </div>
-<!-- end main content-->
-<!-- END layout-wrapper -->
-<!-- Right Sidebar -->
+
 <div class="right-bar">
     <div data-simplebar class="h-100">
         <div class="rightbar-title px-3 py-4">
@@ -779,3 +777,11 @@
 <!-- /Right-bar -->
 <!-- Right bar overlay-->
 <div class="rightbar-overlay"></div>
+
+<!-- JAVASCRIPT -->
+
+<script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/libs/metismenu/metisMenu.min.js"></script>
+<script src="/assets/libs/simplebar/simplebar.min.js"></script>
+<script src="/assets/libs/node-waves/waves.min.js"></script>
+<script src="/assets/js/app.js"></script>

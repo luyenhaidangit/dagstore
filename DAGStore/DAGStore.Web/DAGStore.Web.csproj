@@ -6702,7 +6702,6 @@
     <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Content\client\ico\" />
     <Folder Include="Upload\" />
     <Folder Include="Views\Brand\" />

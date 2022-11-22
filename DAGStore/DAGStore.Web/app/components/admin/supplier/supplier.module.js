@@ -10,6 +10,7 @@ supplier.config(function ($stateProvider, $urlRouterProvider) {
             url: '/supplier',
             templateUrl: '/app/components/admin/supplier/supplierListView.html',
             controller: "supplierListController",
+            parent: 'base',
         }];
     states.forEach((state) => $stateProvider.state(state));
 });

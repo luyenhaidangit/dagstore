@@ -10,6 +10,7 @@ event.config(function ($stateProvider, $urlRouterProvider) {
             url: '/event',
             templateUrl: '/app/components/admin/event/eventListView.html',
             controller: "eventListController",
+            parent: 'base',
         }];
     states.forEach((state) => $stateProvider.state(state));
 });

@@ -10,12 +10,14 @@ slider.config(function ($stateProvider, $urlRouterProvider) {
             url: '/slider',
             templateUrl: '/app/components/admin/slider/sliderListView.html',
             controller: "sliderListController",
+            parent: 'base',
         },
         {
             name: 'add-slider',
             url: '/slider/add',
             templateUrl: '/app/components/admin/slider/sliderAddView.html',
             controller: "sliderAddController",
+            parent: 'base',
         },
         ];
     states.forEach((state) => $stateProvider.state(state));
