@@ -9,7 +9,10 @@ var app = angular.module('DAGStore', [
     'DAGStore.menurecord',
     'DAGStore.slider',
     'DAGStore.event',
-    'DAGStore.common']);
+    'DAGStore.common',
+]);
+
+
 
 // Config app
 app.config(function($stateProvider, $urlRouterProvider){
@@ -20,6 +23,18 @@ app.config(function($stateProvider, $urlRouterProvider){
         url: '',
         templateUrl: '/app/shared/views/baseView.html',
         abstract: true,
+        //resolve: {
+        //    loadMyService: ['$ocLazyLoad', function ($ocLazyLoad) {
+        //        return $ocLazyLoad.load([
+        //            '/assets/libs/jquery/jquery.min.js',
+        //            '/assets/libs/bootstrap/js/bootstrap.bundle.min.js',
+        //            '/assets/libs/metismenu/metisMenu.min.js',
+        //            '/assets/libs/simplebar/simplebar.min.js',
+        //            '/assets/libs/node-waves/waves.min.js',
+        //            '/assets/js/app.js',
+        //        ]);
+        //    }]
+        //}
     },
     {
         name: 'dashboard',
@@ -29,16 +44,16 @@ app.config(function($stateProvider, $urlRouterProvider){
         parent: 'base',
     },
     {
-        name: 'signin',
-        url: '/signin',
+        name: 'login',
+        url: '/login',
 
         templateUrl: '/app/components/admin/login/loginView.html',
         controller: "loginController",
     }
     ];
-    $urlRouterProvider.otherwise('/dashboard');
     states.forEach((state) => $stateProvider.state(state));
-    $urlRouterProvider.otherwise('/dashboard');
+    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/login');
 });
 
 app.run(function ($rootScope) {

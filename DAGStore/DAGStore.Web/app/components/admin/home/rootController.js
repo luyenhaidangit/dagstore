@@ -3,9 +3,9 @@ var app = angular.module('DAGStore');
 app.controller('rootController', rootController);
 
 // Controller
-function rootController($scope) {
+function rootController($scope, $state) {
     $scope.LogOut = LogOut;
     function LogOut() {
-        window.location = "/login"
+        $state.go('login');
     }
 }
