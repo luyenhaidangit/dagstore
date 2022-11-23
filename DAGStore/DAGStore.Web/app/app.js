@@ -15,29 +15,29 @@ var app = angular.module('DAGStore', [
 
 
 // Config app
-app.config(function($stateProvider, $urlRouterProvider){
+app.config(function ($stateProvider, $urlRouterProvider) {
     /* Config Router*/
     var states = [
-    {
-        name: 'base',
-        url: '',
-        templateUrl: '/app/shared/views/baseView.html',
-        abstract: true,
-    },
-    {
-        name: 'dashboard',
-        url: '/dashboard',
-        templateUrl: '/app/components/admin/home/homeView.html',
-        controller: "homeController",
-        parent: 'base',
-    },
-    {
-        name: 'login',
-        url: '/login',
+        {
+            name: 'base',
+            url: '',
+            templateUrl: '/app/shared/views/baseView.html',
+            abstract: true,
+        },
+        {
+            name: 'dashboard',
+            url: '/dashboard',
+            templateUrl: '/app/components/admin/home/homeView.html',
+            controller: "homeController",
+            parent: 'base',
+        },
+        {
+            name: 'login',
+            url: '/login',
 
-        templateUrl: '/app/components/admin/login/loginView.html',
-        controller: "loginController",
-    }
+            templateUrl: '/app/components/admin/login/loginView.html',
+            controller: "loginController",
+        }
     ];
     states.forEach((state) => $stateProvider.state(state));
     $urlRouterProvider.otherwise('/login');
@@ -80,7 +80,7 @@ function configAuthentication($httpProvider) {
 //    // Config Router
 //    $httpProvider.interceptors.push(function ($q, $location) {
 //        return {
-            
+
 //            request: function (config) {
 //                console.log(config);
 //                return config;
@@ -90,7 +90,7 @@ function configAuthentication($httpProvider) {
 //                return $q.reject(rejection);
 //            },
 //            response: function (response) {
-                
+
 //                if (response.status == "401") {
 //                    $location.path('/login');
 //                    window.location = "/login"
@@ -136,7 +136,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 $('html, body').animate({ scrollTop: -10000 }, 0);
             }
         },
-        ];
+    ];
     states.forEach((state) => $stateProvider.state(state));
     $urlRouterProvider.otherwise('/index');
 });
@@ -190,4 +190,3 @@ applogin.config(function ($httpProvider) {
         };
     });
 });
-

@@ -8,27 +8,18 @@ using DAGStore.Service;
 
 namespace DAGStore.Web.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
-        ICategoryService _categoryService;
 
-        public HomeController(ICategoryService categoryService)
+        public HomeController()
         {
-            _categoryService = categoryService;
         }
 
         [ChildActionOnly]
         public ActionResult Footer()
         {
             return PartialView();
-        }
-
-        [ChildActionOnly]
-        public ActionResult Header()
-        {
-            var categories = _categoryService.GetAll().ToList();
-            
-            return PartialView(categories);
         }
 
         public ActionResult Index()

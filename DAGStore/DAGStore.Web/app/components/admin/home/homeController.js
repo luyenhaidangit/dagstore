@@ -4,9 +4,9 @@ app.controller('homeController', homeController);
 
 // Controller
 function homeController(apiService){
-    apiService.get("/home/testmethod", null, function (result) {
+    //apiService.get("/home/testmethod", null, function (result) {
       
-    }, function (error) {
-        console.log("Get data fail");
-    })
+    //}, function (error) {
+    //    console.log("Get data fail");
+    //})
 }

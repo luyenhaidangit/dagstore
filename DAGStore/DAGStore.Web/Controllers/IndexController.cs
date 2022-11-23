@@ -1,5 +1,6 @@
 ﻿using DAGStore.Model.Models;
 using DAGStore.Service;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -236,6 +237,30 @@ namespace DAGStore.Web.Controllers
             var result = from c in news
                          select c;
 
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetSearchNavigation(string key)
+        {
+            var products = _productService.GetAll().ToList();
+
+            var result = from product in products
+                         where product.Name.ToLower().Contains(key.ToLower())
+                         select new
+                         {
+                             ID = product.ID,
+                             Name = product.Name,
+                             PicturePath = product.PicturePath,
+                             ShortDescription = product.ShortDescription,
+                             FullDescription = product.FullDescription,
+                             ShortDescriptionEndow = product.ShortDescriptionEndow,
+                             CostPrice = product.CostPrice,
+                             SellPrice = product.SellPrice,
+                             SellPriceActual = product.SellPriceActual,
+                             DiscountRate = ((int)(100 - ((product.SellPriceActual / product.SellPrice) * 100))),
+                             InventoryQuantity = product.InventoryQuantity,
+                             DisplayOrder = product.DisplayOrder,
+                         };
             return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
