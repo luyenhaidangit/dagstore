@@ -78,6 +78,7 @@
             this.init = function () {
                 if ($window.sessionStorage["TokenInfo"]) {
                     tokenInfo = JSON.parse($window.sessionStorage["TokenInfo"]);
+                    console.log(tokenInfo)
                 }
             }
 
@@ -92,6 +93,7 @@
             this.validateRequest = function () {
                 var url = '/home/TestMethod';
                 var deferred = $q.defer();
+                this.setHeader();
                 $http.get(url).then(function () {
                     deferred.resolve(null);
                 }, function (error) {
