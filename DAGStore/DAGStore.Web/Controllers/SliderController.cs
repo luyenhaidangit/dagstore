@@ -10,7 +10,6 @@ using System.Web.Mvc;
 
 namespace DAGStore.Web.Controllers
 {
-    [Authorize]
     public class SliderController : Controller
     {
         ISliderService _SliderService;

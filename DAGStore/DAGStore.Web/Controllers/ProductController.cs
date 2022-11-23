@@ -10,7 +10,6 @@ using System.Web.Mvc;
 
 namespace DAGStore.Web.Controllers
 {
-    [Authorize]
     public class ProductController : Controller
     {
         IProductService _productService;

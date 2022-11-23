@@ -8,7 +8,6 @@ using DAGStore.Service;
 
 namespace DAGStore.Web.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         ICategoryService _categoryService;
