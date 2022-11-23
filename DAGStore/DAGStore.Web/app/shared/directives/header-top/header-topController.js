@@ -18,5 +18,15 @@ function headerTopController($scope, apiService) {
                 console.log("loi")
             })
         }
-    }    
+    }
+
+    $scope.ChooseProduc = ChooseProduc;
+    function ChooseProduc() {
+        $scope.searchItem = [];
+        $scope.keySearch = "";
+    }
+
+    
+            
+
 };

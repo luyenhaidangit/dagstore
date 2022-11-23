@@ -119,9 +119,9 @@
 
         <div ng-show="searchItem.length == 0 ? false: true" class="main-sub-nav seacrh-input d-block" style="width:120%;top:60px;max-height: 240px;overflow-y:scroll;">
             <div ng-repeat="item in searchItem" class="main-sub-nav__item">
-                <a ui-sref="product({id:item.ID})" style="cursor:pointer;" class="d-flex">
+                <a ui-sref="product({id:item.ID})" ng-click="ChooseProduc()" style="cursor:pointer;" class="d-flex">
 
-                    <img src="{{item.PicturePath}}" style="max-width: 44px;" class="img-fluid">
+                    <img src="{{item.PicturePath}}" style="max-width: 40px;" class="img-fluid">
                     <div class="search-navigation__info-product">
                         <h6 class="ms-3 mb-0">{{item.Name}}</h6>
                         <div class="search-navigation__info-product-price d-flex ms-3 mt-1">
