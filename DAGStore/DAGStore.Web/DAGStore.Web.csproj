@@ -359,6 +359,9 @@
     <Content Include="app\components\client\discount\discount.module.js" />
     <Content Include="app\components\client\discount\discountController.js" />
     <Content Include="app\components\client\discount\discountView.html" />
+    <Content Include="app\components\client\historyorder\historyorder.module.js" />
+    <Content Include="app\components\client\historyorder\historyorderController.js" />
+    <Content Include="app\components\client\historyorder\historyorderView.html" />
     <Content Include="app\components\client\news\news.module.js" />
     <Content Include="app\components\client\news\newsController.js" />
     <Content Include="app\components\client\news\newsView.html" />
