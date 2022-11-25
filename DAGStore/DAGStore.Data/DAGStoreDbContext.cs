@@ -38,6 +38,7 @@ namespace DAGStore.Data
         public DbSet<SuggestProduct> SuggestProduct  { get; set; }
         public DbSet<News> News { get; set; }
         public DbSet<Event> Event { get; set; }
+        public DbSet<Page> Page { get; set; }
 
         public virtual void Commit()
         {
