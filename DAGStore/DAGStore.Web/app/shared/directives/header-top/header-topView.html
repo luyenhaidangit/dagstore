@@ -113,7 +113,7 @@
     <form class="header__search">
         <input type="text" ng-model="keySearch" ng-change="GetSearchProduct()" class="header__input-search" placeholder="Bạn tìm gì..." name="key" autocomplete="off" maxlength="100">
 
-        <button type="header__button-submit">
+        <button type="header__button-submit" style="cursor:pointer;" ui-sref="search({key:keySearch})" ng-click="ChooseProduc()">
             <i class="far fa-search"></i>
         </button>
 

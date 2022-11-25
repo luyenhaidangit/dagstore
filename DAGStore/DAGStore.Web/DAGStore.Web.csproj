@@ -360,6 +360,9 @@
     <Content Include="app\components\client\index\indexController.js" />
     <Content Include="app\components\client\index\indexView.html" />
     <Content Include="app\components\client\index\index.module.js" />
+    <Content Include="app\components\client\search\search.module.js" />
+    <Content Include="app\components\client\search\searchController.js" />
+    <Content Include="app\components\client\search\searchView.html" />
     <Content Include="app\components\client\suggest\suggest.module.js" />
     <Content Include="app\components\client\suggest\suggestController.js" />
     <Content Include="app\components\client\suggest\suggestView.html" />
