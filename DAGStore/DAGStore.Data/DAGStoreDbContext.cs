@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Reflection;
+using System.Security.Policy;
 
 namespace DAGStore.Data
 {
@@ -41,6 +42,8 @@ namespace DAGStore.Data
         public DbSet<Page> Page { get; set; }
         public DbSet<Variation> Variation { get; set; }
         public DbSet<VariationOption> VariationOption { get; set; }
+        public DbSet<ProductItem> ProductItem { get; set; }
+        public DbSet<ProductConfiguration> ProductConfiguration { get; set; }
 
         public virtual void Commit()
         {
@@ -54,6 +57,15 @@ namespace DAGStore.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+    //        modelBuilder.Entity<ProductItem>()
+    //.HasRequired(c => c.ProductConfigurations)
+    //.WithMany()
+    //.WillCascadeOnDelete(false);
+
+    //        modelBuilder.Entity<VariationOption>()
+    //            .HasRequired(s => s.ProductConfigurations)
+    //            .WithMany()
+    //            .WillCascadeOnDelete(false);
             modelBuilder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId, i.RoleId }).ToTable("ApplicationUserRoles");
             modelBuilder.Entity<IdentityUserLogin>().HasKey(i => i.UserId).ToTable("ApplicationUserLogins");
             modelBuilder.Entity<IdentityRole>().ToTable("ApplicationRoles");

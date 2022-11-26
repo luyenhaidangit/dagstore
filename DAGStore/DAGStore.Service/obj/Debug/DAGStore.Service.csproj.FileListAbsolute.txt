@@ -1,5 +1,4 @@
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\obj\Debug\DAGStore.Service.csproj.AssemblyReference.cache
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\obj\Debug\DAGStore.Service.csproj.CoreCompileInputs.cache
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\bin\Debug\DAGStore.Service.dll.config
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\bin\Debug\DAGStore.Service.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\bin\Debug\DAGStore.Service.pdb
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\bin\Debug\DAGStore.Data.dll
@@ -14,7 +13,8 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\bin\Debug\DAGStor
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\bin\Debug\EntityFramework.xml
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\obj\Debug\DAGStore.Service.csproj.AssemblyReference.cache
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\obj\Debug\DAGStore.Service.csproj.CoreCompileInputs.cache
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\obj\Debug\DAGStore.Service.csproj.CopyComplete
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\obj\Debug\DAGStore.Service.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\obj\Debug\DAGStore.Service.pdb
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Service\bin\Debug\DAGStore.Service.dll.config

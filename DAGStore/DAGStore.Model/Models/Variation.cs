@@ -18,5 +18,7 @@ namespace DAGStore.Model.Models
         [Required]
         [MaxLength(500)]
         public string Name { get; set; }
+
+        public virtual IEnumerable<VariationOption> VariationOptions { set; get; }
     }
 }
