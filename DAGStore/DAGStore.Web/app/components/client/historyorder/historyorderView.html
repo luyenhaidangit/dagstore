@@ -3,18 +3,16 @@
     <form>
         <div class="form-group">
             <label for="exampleInputEmail1">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" style="max-width: 200px;">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <input ng-model="emailverifi.email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" style="max-width: 200px;">
         </div>
 
-        <button type="button" class="btn btn-outline-primary">Gửi code</button>
-
-
+        <button ng-click="SendCode()" type="button" class="btn btn-outline-primary">Gửi code</button>
+        <span ng-show="SendCodeSuccess" class="text-danger">Mã xác nhận đã gửi tới email của bạn</span>
         <div class="form-group">
-            <label for="exampleInputEmail1">Code</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Code" style="max-width: 200px;">
+            <label for="exampleInputEmail1">Mã xác nhận</label>
+            <input ng-model="emailverifi.code" type="text" class="form-control" id="exampleInputEmail1" placeholder="Mã xác nhận" style="max-width: 200px;">
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button class="btn btn-primary">Xác nhận</button>
     </form>
 </div>

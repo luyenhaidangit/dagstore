@@ -16,6 +16,10 @@ function productEditController($scope, apiService, notificationService, $state, 
     }
     apiService.get("/product/GetProductDetail/" + $stateParams.id, null, function (result) {
         $scope.product = result.data;
+        angular.element(document).ready(function () {
+            CKEDITOR.instances["DAGStoreTextArea"].setData($scope.product.FullDescription);
+        });
+        
         console.log($scope.product)
     }, function (error) {
         notificationService.displaySuccess("Không thể tải dữ liệu");
