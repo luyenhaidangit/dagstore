@@ -256,6 +256,8 @@
     <Compile Include="Controllers\SuggestController.cs" />
     <Compile Include="Controllers\SuggestProductController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
+    <Compile Include="Controllers\VariationController.cs" />
+    <Compile Include="Controllers\VariationOptionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -6754,6 +6756,8 @@
     <Folder Include="Views\SuggestProduct\" />
     <Folder Include="Views\Suggest\" />
     <Folder Include="Views\Supplier\" />
+    <Folder Include="Views\VariationOption\" />
+    <Folder Include="Views\Variation\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -39,6 +39,8 @@ namespace DAGStore.Data
         public DbSet<News> News { get; set; }
         public DbSet<Event> Event { get; set; }
         public DbSet<Page> Page { get; set; }
+        public DbSet<Variation> Variation { get; set; }
+        public DbSet<VariationOption> VariationOption { get; set; }
 
         public virtual void Commit()
         {

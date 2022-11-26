@@ -207,10 +207,16 @@
     <Compile Include="Migrations\202211251543506_Update-Table-Customer1.designer.cs">
       <DependentUpon>202211251543506_Update-Table-Customer1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202211261204267_Add-Variation-Category.cs" />
+    <Compile Include="Migrations\202211261204267_Add-Variation-Category.designer.cs">
+      <DependentUpon>202211261204267_Add-Variation-Category.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BrandRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\VariationOptionRepository.cs" />
+    <Compile Include="Repositories\VariationRepository.cs" />
     <Compile Include="Repositories\PageRepository.cs" />
     <Compile Include="Repositories\NewsRepository.cs" />
     <Compile Include="Repositories\EventRepository.cs" />
@@ -326,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202211251543506_Update-Table-Customer1.resx">
       <DependentUpon>202211251543506_Update-Table-Customer1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211261204267_Add-Variation-Category.resx">
+      <DependentUpon>202211261204267_Add-Variation-Category.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

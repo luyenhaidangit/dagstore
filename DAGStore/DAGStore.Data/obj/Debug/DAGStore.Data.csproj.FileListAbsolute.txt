@@ -62,3 +62,4 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.D
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddDataIdentity.resources
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddMigratinonAddPage.resources
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.UpdateTableCustomer1.resources
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddVariationCategory.resources
