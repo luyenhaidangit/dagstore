@@ -13,7 +13,7 @@
             </div>
         </div>
     </div>
-   
+
 </div>
 <!-- end page title -->
 
@@ -27,7 +27,7 @@
             <!-- BrandID -->
             <div class="form-group row">
                 <div class="col-md-12 p-0">
-                    <div class="ui dropdown select-product fluid search selection multiple">
+                    <div id="importbill1" class="ui dropdown select-product fluid search selection multiple">
                         <i class="dropdown icon"></i>
                         <div class="text default"> Chọn thông tin hàng hóa</div>
                         <div class="menu">
@@ -120,7 +120,7 @@
                     <!-- Suppliers -->
                     <div class="form-group row">
                         <div class="col-md-12">
-                            <div class="ui dropdown fluid search selection">
+                            <div id="supplier" class="ui dropdown fluid search selection">
                                 <i class="dropdown icon"></i>
                                 <input ng-model="importbill.SupplierID" name="supplier" type="hidden" required>
                                 <div class="default text">Lựa chọn nhà cung cấp</div>
@@ -172,15 +172,17 @@
     </div>
 </div>
 <!-- end row -->
-<script>
+<!--<script>
     $(".ui.dropdown.select-product").dropdown({
         action: 'select',
     });
 
     $(".ui.dropdown").dropdown({
-        
+
     });
-</script>
+</script>-->
+<script src="/assets/libs/UI-Transition/transition.js"></script>
+<script src="/assets/libs/UI-Dropdown-master/dropdown.js"></script>
 <script src="/assets/libs/bootstrap-editable/js/index.js"></script>
 
 

@@ -6,7 +6,6 @@ var app = angular.module('DAGStore', [
     'DAGStore.product',
     'DAGStore.discount',
     'DAGStore.importBill',
-    'DAGStore.menurecord',
     'DAGStore.slider',
     'DAGStore.event',
     'DAGStore.page',

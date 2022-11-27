@@ -38,7 +38,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Mục loại sản phẩm cha</label>
                         <div class="col-md-10">
-                            <div class="ui dropdown fluid search selection">
+                            <div id="parentCategory" class="ui dropdown fluid search selection">
                                 <input ng-model="category.ParentCategoryID" type="hidden" name="parentcategoryid" value="{{category.ParentCategoryID}}">
                                 <i class="dropdown icon"></i>
                                 <div class="default text">{{parentCategory.Name}}</div>
@@ -113,8 +113,5 @@
     </div> <!-- end col -->
 </div>
 <!-- end row -->
-<script>
-    $(".ui.dropdown").dropdown({
-
-    });
-</script>
+<script src="/assets/libs/UI-Transition/transition.js"></script>
+<script src="/assets/libs/UI-Dropdown-master/dropdown.js"></script>

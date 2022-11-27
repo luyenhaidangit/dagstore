@@ -3,7 +3,7 @@ var category = angular.module('DAGStore.category');
 category.controller('categoryAddController', categoryAddController);
 
 // Controller
-function categoryAddController($scope, apiService, notificationService, $state, ckeditorService) {
+function categoryAddController($scope, apiService, notificationService, $state, ckeditorService, dropdownService) {
     //Config
     $scope.config = {
         nameManage: "Loại Sản Phẩm",
@@ -15,6 +15,7 @@ function categoryAddController($scope, apiService, notificationService, $state, 
     $scope.categorys = [];
     apiService.get("/category/getall", null, function (result) {
         $scope.categorys = result.data;
+        dropdownService.createDefaultDropdown("#parentCategory");
     }, function (error) {
         console.log("Get data fail");
     })

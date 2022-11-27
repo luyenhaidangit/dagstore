@@ -36,7 +36,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Hãng sản phẩm</label>
                         <div class="col-md-10">
-                            <div class="ui dropdown fluid search selection">
+                            <div id="brand" class="ui dropdown fluid search selection">
                                 <input ng-model="product.BrandID" type="hidden" name="brandid" value="{{brands[0].ID}}">
                                 <i class="dropdown icon"></i>
                                 <div class="default text">{{brands[0].Name}}</div>
@@ -51,7 +51,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Loại sản phẩm</label>
                         <div class="col-md-10">
-                            <div class="ui dropdown fluid search selection">
+                            <div id="category" class="ui dropdown fluid search selection">
                                 <input ng-model="product.CategoryID" type="hidden" name="categoryid" value="{{categorys[0].ID}}">
                                 <i class="dropdown icon"></i>
                                 <div class="default text">{{categorys[0].Name}}</div>
@@ -128,7 +128,19 @@
                     <div class="page-title-box d-flex align-items-center justify-content-between">
                         <h4 class="mb-0 ng-binding">Thuộc tính</h4>
                     </div>
-                    <button type="button" class="btn btn-light waves-effect">Thêm thuộc tính<i class="fal fa-plus ml-2"></i></button>
+                    <button ng-click="AddVarialtionProduct()" type="button" class="btn btn-light waves-effect">Thêm thuộc tính<i class="fal fa-plus ml-2"></i></button>
+
+                    <div class="col-md-10" ng-repeat="item in varialtions">
+                        <div class="ui dropdown fluid search selection">
+                            <input ng-model="product.BrandID" type="hidden" name="brandid" value="{{brands[0].ID}}">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">{{brands[0].Name}}</div>
+                            <div class="menu">
+                                <div ng-repeat="item in brands" class="item" data-value="{{item.ID}}">{{item.Name}}</div>
+                            </div>
+                        </div>
+                    </div>
+
                     <hr style="height:3px;" />
                     <!-- InventoryQuantity -->
                     <div class="form-group row">
@@ -181,8 +193,5 @@
     </div>
 </div>
 <!-- end row -->
-<script>
-    $(".ui.dropdown").dropdown({
-
-    });
-</script>
+<script src="/assets/libs/UI-Transition/transition.js"></script>
+<script src="/assets/libs/UI-Dropdown-master/dropdown.js"></script>

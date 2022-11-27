@@ -3,7 +3,7 @@ var product = angular.module('DAGStore.product');
 product.controller('productEditController', productEditController);
 
 // Controller
-function productEditController($scope, apiService, notificationService, $state, $stateParams, ckeditorService,$filter) {
+function productEditController($scope, apiService, notificationService, $state, $stateParams, ckeditorService, $filter, dropdownService) {
     //Config
     $scope.config = {
         nameManage: "Sản Phẩm",
@@ -29,6 +29,7 @@ function productEditController($scope, apiService, notificationService, $state, 
     $scope.brands = [];
     apiService.get("/brand/getdata", null, function (result) {
         $scope.brands = result.data;
+        dropdownService.createDefaultDropdown("#brand");
     }, function (error) {
         console.log("Get data fail");
     })
@@ -37,6 +38,7 @@ function productEditController($scope, apiService, notificationService, $state, 
     $scope.categorys = [];
     apiService.get("/category/getdata", null, function (result) {
         $scope.categorys = result.data;
+        dropdownService.createDefaultDropdown("#category");
     }, function (error) {
         console.log("Get data fail");
     })

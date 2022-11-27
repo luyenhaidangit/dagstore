@@ -36,7 +36,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Hãng sản phẩm</label>
                         <div class="col-md-10">
-                            <div class="ui dropdown fluid search selection">
+                            <div id="brand" class="ui dropdown fluid search selection">
                                 <input ng-model="product.BrandID" type="hidden" name="brandid" value="{{product.BrandID}}">
                                 <i class="dropdown icon"></i>
                                 <div class="default text">{{product.BrandName}}</div>
@@ -51,7 +51,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Loại sản phẩm</label>
                         <div class="col-md-10">
-                            <div class="ui dropdown fluid search selection">
+                            <div id="category" class="ui dropdown fluid search selection">
                                 <input ng-model="product.CategoryID" type="hidden" name="categoryid" value="{{product.CategoryID}}">
                                 <i class="dropdown icon"></i>
                                 <div class="default text">{{product.CategoryName}}</div>
@@ -175,8 +175,5 @@
     </div>
 </div>
 <!-- end row -->
-<script>
-    $(".ui.dropdown").dropdown({
-
-    });
-</script>
+<script src="/assets/libs/UI-Transition/transition.js"></script>
+<script src="/assets/libs/UI-Dropdown-master/dropdown.js"></script>

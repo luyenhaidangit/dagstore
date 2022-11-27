@@ -3,7 +3,7 @@ var importbill = angular.module('DAGStore.importBill');
 importbill.controller('importbillAddController', importbillAddController);
 
 // Controller
-function importbillAddController($scope, apiService, notificationService, $state, ckeditorService, dataTableService) {
+function importbillAddController($scope, apiService, notificationService, $state, ckeditorService, dataTableService, dropdownService, dropdownService) {
     //Config
     $scope.config = {
         nameManage: "Hóa Đơn Nhập",
@@ -29,6 +29,11 @@ function importbillAddController($scope, apiService, notificationService, $state
     apiService.get("/product/getall", null, function (result) {
         $scope.products = result.data;
         console.log($scope.products)
+        angular.element(document).ready(function () {
+            $("#importbill1").dropdown({
+                action: 'select',
+            });
+        });
     }, function (error) {
         console.log("Get data fail");
     })
@@ -67,6 +72,7 @@ function importbillAddController($scope, apiService, notificationService, $state
     $scope.suppliers = [];
     apiService.get("/supplier/getall", null, function (result) {
         $scope.suppliers = result.data;
+        dropdownService.createDefaultDropdown("#supplier");
     }, function (error) {
         console.log("Get data fail");
     })
