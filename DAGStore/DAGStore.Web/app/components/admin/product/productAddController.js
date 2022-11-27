@@ -64,26 +64,58 @@ function productAddController($scope, apiService, notificationService, $state, c
     // Resiger Ckeditor
     ckeditorService.createDefaultCkeditor("DAGStoreTextArea");
 
-    //// Add Varialtion
-    //$scope.varialtions = [];
-    //$scope.AddVarialtionProduct = AddVarialtionProduct;
-    //function AddVarialtionProduct() {
-    //    var item = {
-    //        Name : "ok",
-    //    }
-    //    $scope.varialtions.push(item);
-    //    $(".ui.dropdown").dropdown({
+    //Get varialtions
+    $scope.varialtions = [];
+    apiService.get("/Variation/getall", null, function (result) {
+        $scope.varialtions = result.data;
+        console.log($scope.varialtions)
+    }, function (error) {
+        console.log("Get data fail");
+    })
 
-    //    });
-    //    console.log(".dropdown-varialtions-" + $scope.varialtions.indexOf(item));
-    //    console.log($scope.varialtions)
-    //}
 
-    angular.element(document).ready(function () {
-        $(".ui.dropdown").dropdown({
 
-        });
-    });
+    // Add Varialtion
+    $scope.varialtionsAdd = [];
+    $scope.AddVarialtionProduct = AddVarialtionProduct;
+    function AddVarialtionProduct() {
+        var item = {
+             
+        }
+        $scope.varialtionsAdd.push(item);
+        var index = $scope.varialtionsAdd.indexOf(item);
+        item.index = index;
+        $scope.varialtionsAdd[index] = item;
+        dropdownService.createDefaultDropdown("#varialtion-" + index);
+        dropdownService.createDefaultDropdown("#varialtionoption-" + index);
+    }
+
+    $scope.Demo = Demo;
+    function Demo() {
+        console.log($scope.varialtionsAdd);
+    }
+
+    //Option
+    $scope.varialtionClick = [];
+    $scope.GetVarialtionOption = GetVarialtionOption;
+    function GetVarialtionOption(item, index) {
+        $scope.varialtionsAdd[index].Variation = item;
+        $scope.varialtionsAdd[index].ListOption = [];
+        console.log($scope.varialtionsAdd);
+        //$scope.varialtionClick.push(item);
+        //$scope.varialtionsAdd[index].ID = item.ID;
+
+        //console.log($scope.varialtionsAdd)
+
+        //apiService.get("/Variationoption/getall", null, function (result) {
+        //    $scope.varialtions = result.data;
+
+        //}, function (error) {
+        //    console.log("Get data fail");
+        //})
+        //console.log(item)
+        //console.log(index)
+    }
 
     // Submit Add Product
     $scope.AddProduct = AddProduct;

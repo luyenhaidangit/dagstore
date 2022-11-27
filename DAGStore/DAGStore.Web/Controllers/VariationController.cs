@@ -7,16 +7,19 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 
 namespace DAGStore.Web.Controllers
 {
     public class VariationController : Controller
     {
         IVariationService _VariationService;
+        IVariationOptionService _VariationOptionService;
 
-        public VariationController(IVariationService VariationService)
+        public VariationController(IVariationService VariationService,IVariationOptionService VariationOptionService)
         {
             this._VariationService = VariationService;
+            this._VariationOptionService = VariationOptionService;
         }
 
         // GET: category
@@ -24,7 +27,16 @@ namespace DAGStore.Web.Controllers
         {
             var listVariation = _VariationService.GetAll();
 
-            return Json(listVariation, JsonRequestBehavior.AllowGet);
+            var result = from l in listVariation
+                         select new
+                         {
+                             CategoryID = l.CategoryID,
+                             ID = l.ID,
+                             Name = l.Name,
+                             Option = _VariationOptionService.GetVariationOptionByVariation(l.ID),
+                         };
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult GetByID(int id)

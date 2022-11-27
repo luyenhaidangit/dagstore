@@ -14,9 +14,11 @@ namespace DAGStore.Service
 
         bool Delete(int id);
 
-        IEnumerable<VariationOption> GetAll();
+        IEnumerable<VariationOption> GetVariationOptionByVariation(int id);
 
         VariationOption GetByID(int id);
+
+        IEnumerable<VariationOption> GetAll();
 
         void SaveChanges();
     }
@@ -62,6 +64,11 @@ namespace DAGStore.Service
         public bool Update(VariationOption VariationOption)
         {
             return _VariationOptionRepository.Update(VariationOption);
+        }
+
+        public IEnumerable<VariationOption> GetVariationOptionByVariation(int id)
+        {
+            return _VariationOptionRepository.GetAll().Where(x=>x.VariationID==id).ToList();
         }
     }
 }

@@ -130,16 +130,72 @@
                     </div>
                     <button ng-click="AddVarialtionProduct()" type="button" class="btn btn-light waves-effect">Thêm thuộc tính<i class="fal fa-plus ml-2"></i></button>
 
-                    <div class="col-md-10" ng-repeat="item in varialtions">
-                        <div class="ui dropdown fluid search selection">
-                            <input ng-model="product.BrandID" type="hidden" name="brandid" value="{{brands[0].ID}}">
-                            <i class="dropdown icon"></i>
-                            <div class="default text">{{brands[0].Name}}</div>
-                            <div class="menu">
-                                <div ng-repeat="item in brands" class="item" data-value="{{item.ID}}">{{item.Name}}</div>
+                    <div ng-repeat="item in varialtionsAdd" class="d-flex">
+                        <div class="col-md-10 mt-3 p-0 mr-4" style="max-width:240px;">
+                            <div id="varialtion-{{$index}}" class="ui dropdown fluid selection">
+                                <input ng-model="varialtionsAdd[$index].ID" type="hidden" name="varialtion-{{$index}}">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Chọn thuộc tính...</div>
+                                <div class="menu">
+                                    <div ng-click="AddVariation()" class="item-option d-flex justify-content-between btn-primary">Thêm thuộc tính <i class="fal fa-plus ml-2"></i></div>
+                                    <div ng-repeat="var in varialtions" ng-click="GetVarialtionOption(var,item.index)" class="item" data-value="{{var.ID}}">{{var.Name}}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-10 mt-3 p-0" style="max-width:640px;">
+
+                            <div id="varialtionoption-{{$index}}" class="ui fluid multiple search selection dropdown">
+                                <input ng-model="varialtionsAdd[index].ListOption" type="hidden" name="varialtionoption">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Chọn giá trị</div>
+                                <div class="menu">
+                                    <div class="item-option d-flex justify-content-between btn-primary">Thêm giá trị <i class="fal fa-plus ml-2"></i></div>
+                                    <div ng-repeat="option in varialtionsAdd[$index].Variation.Option" class="item" data-value="{{option.ID}}">{{option.Value}}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    
+
+                    
+
+                    <style>
+                        .item-option {
+                            border-top: 1px solid #FAFAFA;
+                            padding: 0.78571429rem 1.14285714rem !important;
+                            white-space: normal;
+                            word-wrap: normal;
+                            position: relative;
+                            cursor: pointer;
+                            display: block;
+                            border: none;
+                            height: auto;
+                            text-align: left;
+                            border-top: none;
+                            line-height: 1em;
+                            padding: 0.78571429rem 1.14285714rem !important;
+                            font-size: 1rem;
+                            text-transform: none;
+                            font-weight: normal;
+                            -webkit-box-shadow: none;
+                            box-shadow: none;
+                            -webkit-touch-callout: none;
+                        }
+                    </style>
+                    <!--<div class="col-md-10 mt-3 p-0" ng-repeat="item in varialtionsAdd" style="max-width:240px;">
+        <select id="varialtion-{{$index}}" class="ui dropdown">
+            <option value="">Chọn thuộc tính...</option>
+            <div class="header">
+                Search Issues
+            </div>
+            <option class="item d-flex justify-content-between" value="0">Thêm thuộc tính</option>
+            <option ng-click="AddVarialtonOption(item)" ng-repeat="item in varialtions" value="{{item.ID}}">{{item.Name}}</option>
+        </select>
+    </div>-->
+
+
 
                     <hr style="height:3px;" />
                     <!-- InventoryQuantity -->
