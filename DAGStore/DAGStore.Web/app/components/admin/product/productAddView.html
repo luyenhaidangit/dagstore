@@ -137,7 +137,7 @@
                                 <i class="dropdown icon"></i>
                                 <div class="default text">Chọn thuộc tính...</div>
                                 <div class="menu">
-                                    <div ng-click="AddVariation()" class="item-option d-flex justify-content-between btn-primary">Thêm thuộc tính <i class="fal fa-plus ml-2"></i></div>
+                                    <div data-toggle="modal" data-target="#staticBackdrop" class="item-option d-flex justify-content-between btn-primary">Thêm thuộc tính <i class="fal fa-plus ml-2"></i></div>
                                     <div ng-repeat="var in varialtions" ng-click="GetVarialtionOption(var,item.index)" class="item" data-value="{{var.ID}}">{{var.Name}}</div>
                                 </div>
                             </div>
@@ -157,9 +157,9 @@
                         </div>
                     </div>
 
-                    
 
-                    
+
+
 
                     <style>
                         .item-option {
@@ -184,18 +184,39 @@
                             -webkit-touch-callout: none;
                         }
                     </style>
-                    <!--<div class="col-md-10 mt-3 p-0" ng-repeat="item in varialtionsAdd" style="max-width:240px;">
-        <select id="varialtion-{{$index}}" class="ui dropdown">
-            <option value="">Chọn thuộc tính...</option>
-            <div class="header">
-                Search Issues
-            </div>
-            <option class="item d-flex justify-content-between" value="0">Thêm thuộc tính</option>
-            <option ng-click="AddVarialtonOption(item)" ng-repeat="item in varialtions" value="{{item.ID}}">{{item.Name}}</option>
-        </select>
-    </div>-->
+                  
+                    <!--<div class="my-4 text-center">
+                        <p class="text-muted">Static backdrop modal</p>-->
+                        <!-- Small modal -->
+                        <!--<button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#staticBackdrop">Static backdrop</button>
+                    </div>-->
 
-
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h6 class="modal-title" id="staticBackdropLabel">Thêm thông tin thuộc tính</h6>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- InventoryQuantity -->
+                                    <div class="form-group row">
+                                        <label for="example-number-input" class="col-md-3 col-form-label">Tên thuộc tính</label>
+                                        <div class="col-md-9">
+                                            <input ng-model="variation.Name" name="variationName" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">Đóng</button>
+                                    <button ng-click="AddVariation()" data-dismiss="modal" type="button" class="btn btn-primary waves-effect waves-light">Xác nhận</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <hr style="height:3px;" />
                     <!-- InventoryQuantity -->

@@ -12,7 +12,7 @@ namespace DAGStore.Model.Models
         public int ID { get; set; }
 
         [ForeignKey("Category")]
-        public int CategoryID { get; set; }
+        public int? CategoryID { get; set; }
         public Category Category { get; set; }
 
         [Required]

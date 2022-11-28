@@ -95,6 +95,25 @@ function productAddController($scope, apiService, notificationService, $state, c
         console.log($scope.varialtionsAdd);
     }
 
+    $scope.variation = {}
+    $scope.AddVariation = AddVariation;
+    function AddVariation() {
+        apiService.post("/variation/create", $scope.variation, function (result) {
+            apiService.get("/Variation/getall", null, function (result) {
+                $scope.varialtions = result.data;
+                console.log($scope.varialtions)
+            }, function (error) {
+                console.log("Get data fail");
+            })
+            $scope.variation = {}
+
+            notificationService.displaySuccess("Thêm thông tin thành công!");
+        }, function (error) {
+            notificationService.displaySuccess("Thêm mới không thành công!");
+            console.log($scope.product.Name);
+        });
+    }
+
     //Option
     $scope.varialtionClick = [];
     $scope.GetVarialtionOption = GetVarialtionOption;
