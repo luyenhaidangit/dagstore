@@ -114,6 +114,34 @@ function productAddController($scope, apiService, notificationService, $state, c
         });
     }
 
+    //option
+    $scope.indexOption = 0;
+    $scope.AddVariationOption = AddVariationOption;
+    function AddVariationOption(index) {
+        $scope.indexOption = index;
+    }
+
+    $scope.variationOption = {}
+    $scope.AddVariationOptionContinue = AddVariationOptionContinue;
+    function AddVariationOptionContinue(){
+        $scope.variationOption.VariationID = $scope.varialtionsAdd[$scope.indexOption].Variation.ID;
+        apiService.post("/variationoption/create", $scope.variationOption, function (result) {
+            apiService.get("/VariationOption/GetVariationOptionByVariation?id=" + $scope.variationOption.VariationID, null, function (result) {
+                $scope.varialtionsAdd[$scope.indexOption].Variation.Option = result.data;
+                console.log($scope.varialtions)
+            }, function (error) {
+                console.log("Get data fail");
+            })
+            console.log($scope.varialtionsAdd[$scope.indexOption].Variation.Option);
+            $scope.variationOption = {}
+
+            notificationService.displaySuccess("Thêm thông tin thành công!");
+        }, function (error) {
+            notificationService.displaySuccess("Thêm mới không thành công!");
+            console.log($scope.product.Name);
+        });
+    }
+
     //Option
     $scope.varialtionClick = [];
     $scope.GetVarialtionOption = GetVarialtionOption;

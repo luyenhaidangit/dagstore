@@ -27,6 +27,12 @@ namespace DAGStore.Web.Controllers
             return Json(listVariationOption, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult GetVariationOptionByVariation(int id)
+        {
+            var result = _VariationOptionService.GetVariationOptionByVariation(id);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
         public JsonResult GetByID(int id)
         {
             var VariationOption = _VariationOptionService.GetByID(id);
