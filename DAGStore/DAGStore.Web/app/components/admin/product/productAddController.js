@@ -24,7 +24,6 @@ function productAddController($scope, apiService, notificationService, $state, c
     // Load List Brand
     apiService.get("/brand/getdata", null, function (result) {
         $scope.brands = result.data;
-        console.log($scope.brands[0].ID);
         dropdownService.createDefaultDropdown("#brand");
     }, function (error) {
         console.log("Get data fail");
@@ -68,7 +67,6 @@ function productAddController($scope, apiService, notificationService, $state, c
     $scope.varialtions = [];
     apiService.get("/Variation/getall", null, function (result) {
         $scope.varialtions = result.data;
-        console.log($scope.varialtions)
     }, function (error) {
         console.log("Get data fail");
     })
@@ -149,19 +147,87 @@ function productAddController($scope, apiService, notificationService, $state, c
         $scope.varialtionsAdd[index].Variation = item;
         $scope.varialtionsAdd[index].ListOption = [];
         console.log($scope.varialtionsAdd);
-        //$scope.varialtionClick.push(item);
-        //$scope.varialtionsAdd[index].ID = item.ID;
+    }
 
-        //console.log($scope.varialtionsAdd)
+    $scope.productItems = [];
+    $scope.result = [];
+    $scope.VariationOptionItem = [];
+    $scope.AddProductItem = AddProductItem;
+    function AddProductItem(item, index) {
 
-        //apiService.get("/Variationoption/getall", null, function (result) {
-        //    $scope.varialtions = result.data;
+        $scope.varialtionsAdd[index].ListOption.push(item);
+
+        let attributes = {};
+
+        attributes = $scope.varialtionsAdd.map((x) => {
+            return x.ListOption;
+        })
+
+         let attrs = [];
+
+        for (const [attr, values] of Object.entries(attributes))
+            attrs.push(values.map(v => ({ [v.VariationID]: v.Value })));
+        
+        attrs = attrs.reduce((a, b) => a.flatMap(d => b.map(e => ({ ...d, ...e }))));
+        
+        $scope.productItems = attrs;
+        //var test = [];
+        //attrs= attrs.map((x) => {
+        //    for (var propName in x) {
+        //        console.log("Iterating through prop with name", propName, " its value is ", x[propName])
+        //    }
+        //    var item = {
+        //        Name : "ok"
+        //    }
+        //    return item;
+        //})
+
+        //console.log(attrs)
+
+        /*$scope.productItems = attrs;*/
+      /*  var name = "";*/
+        //for (const [attr, value] of Object.entries(attrs)) {
+        //    name += attr;
+        //}
+
+        //console.log(name)
+
+        //var test = [];
+        //for (const [attr, values] of Object.entries(attrs))
+        //    test.push(values.map(v => ({
+        //        "Name" : "ok",
+        //        [v.VariationID]: v.Value
+        //    })));
+        
+        //$scope.productItems = attrs.map((x) => {
+        //    console.log(x)
+        //})
+      /*  console.log($scope.productItems)*/
+        //console.log(attributes)
+
+        //console.log($scope.varialtionsAdd[index].ListOption)
+
+        //var itemOption = {
+        //    item
+        //}
+
+        
+        //apiService.get("/variationoption/getall", null, function (result) {
+        //    //result = result.data;
+        //    //console.log(result)
+        //    //result = result.filter(x => x.VariationID === item.VariationID)
+
+        //    //result = $scope.varialtionsAdd[index].ListOption.filter(item => !result.includes(item));
+            
+           
+        //    //console.log(result)
+
+            
 
         //}, function (error) {
         //    console.log("Get data fail");
         //})
-        //console.log(item)
-        //console.log(index)
+     
     }
 
     // Submit Add Product

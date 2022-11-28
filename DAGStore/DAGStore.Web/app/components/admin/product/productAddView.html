@@ -143,7 +143,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-10 mt-3 p-0" style="max-width:640px;">
+                        <div class="col-md-10 mt-3 p-0" style="max-width:360px;">
 
                             <div id="varialtionoption-{{$index}}" class="ui fluid multiple search selection dropdown">
                                 <input ng-model="varialtionsAdd[index].ListOption" type="hidden" name="varialtionoption">
@@ -151,15 +151,11 @@
                                 <div class="default text">Chọn giá trị</div>
                                 <div class="menu">
                                     <div data-toggle="modal" data-target="#staticBackdrop1" ng-click="AddVariationOption($index)" class="item-option d-flex justify-content-between btn-primary">Thêm giá trị <i class="fal fa-plus ml-2"></i></div>
-                                    <div ng-repeat="option in varialtionsAdd[$index].Variation.Option" class="item" data-value="{{option.ID}}">{{option.Value}}</div>
+                                    <div ng-repeat="option in varialtionsAdd[$index].Variation.Option" ng-click="AddProductItem(option,item.index)" class="item" data-value="{{option.ID}}">{{option.Value}}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-
-
 
                     <style>
                         .item-option {
@@ -185,12 +181,7 @@
                         }
                     </style>
 
-                    <!--<div class="my-4 text-center">
-        <p class="text-muted">Static backdrop modal</p>-->
-                    <!-- Small modal -->
-                    <!--<button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#staticBackdrop">Static backdrop</button>
-    </div>-->
-                    <!-- Modal -->
+                     <!--Modal--> 
                     <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -201,7 +192,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <!-- InventoryQuantity -->
+                                     <!--InventoryQuantity--> 
                                     <div class="form-group row">
                                         <label for="example-number-input" class="col-md-3 col-form-label">Tên thuộc tính</label>
                                         <div class="col-md-9">
@@ -227,7 +218,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <!-- InventoryQuantity -->
+                                     <!--InventoryQuantity--> 
                                     <div class="form-group row">
                                         <label for="example-number-input" class="col-md-3 col-form-label">Giá trị</label>
                                         <div class="col-md-9">
@@ -242,6 +233,41 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="page-title-box d-flex align-items-center justify-content-between">
+                        <h4 class="mb-0 mt-4 ng-binding">Danh sách sản phẩm</h4>
+                    </div>
+
+                    <div ng-repeat="item in productItems" class="d-flex">
+                        <div ng-repeat="(key, value) in item">
+                            {{value}} /&nbsp
+                        </div>
+                        <!--<div class="col-md-10 mt-3 p-0 mr-4" style="max-width:240px;">
+                            <div id="varialtion-{{$index}}" class="ui dropdown fluid selection">
+                                <input ng-model="varialtionsAdd[$index].Variation.ID" type="hidden" name="varialtion-{{$index}}">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Chọn thuộc tính...</div>
+                                <div class="menu">
+                                    <div data-toggle="modal" data-target="#staticBackdrop" class="item-option d-flex justify-content-between btn-primary">Thêm thuộc tính <i class="fal fa-plus ml-2"></i></div>
+                                    <div ng-repeat="var in varialtions" ng-click="GetVarialtionOption(var,item.index)" class="item" data-value="{{var.ID}}">{{var.Name}}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-10 mt-3 p-0" style="max-width:360px;">
+
+                            <div id="varialtionoption-{{$index}}" class="ui fluid multiple search selection dropdown">
+                                <input ng-model="varialtionsAdd[index].ListOption" type="hidden" name="varialtionoption">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Chọn giá trị</div>
+                                <div class="menu">
+                                    <div data-toggle="modal" data-target="#staticBackdrop1" ng-click="AddVariationOption($index)" class="item-option d-flex justify-content-between btn-primary">Thêm giá trị <i class="fal fa-plus ml-2"></i></div>
+                                    <div ng-repeat="option in varialtionsAdd[$index].Variation.Option" class="item" data-value="{{option.ID}}">{{option.Value}}</div>
+                                </div>
+                            </div>
+                        </div>-->
+                    </div>
+
 
                     <hr style="height:3px;" />
                     <!-- InventoryQuantity -->
