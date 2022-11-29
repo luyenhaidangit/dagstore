@@ -144,6 +144,7 @@ namespace DAGStore.Web.Controllers
                              DisplayOrder = p.DisplayOrder,
                              Published = p.Published,
                              Deleted = p.Deleted,
+                             ImageProducts = _imageProductService.GetImageProductByProduct(p.ID),
                          }).FirstOrDefault();
             return Json(result, JsonRequestBehavior.AllowGet);
         }

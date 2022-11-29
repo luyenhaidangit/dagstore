@@ -18,6 +18,8 @@ namespace DAGStore.Service
 
         bool Delete(int id);
 
+        IEnumerable<ImageProduct> GetImageProductByProduct(int id);
+
         void SaveChanges();
     }
 
@@ -51,6 +53,15 @@ namespace DAGStore.Service
         public ImageProduct GetByID(int id)
         {
             return _ImageProductRepository.GetSingleByID(id);
+        }
+
+        public IEnumerable<ImageProduct> GetImageProductByProduct(int id)
+        {
+            var imageProducts = _ImageProductRepository.GetAll().ToList();
+            var result = from i in imageProducts
+                         where i.ProductID == id
+                         select i;
+            return result;
         }
 
         public void SaveChanges()

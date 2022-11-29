@@ -76,6 +76,23 @@
                         </div>
                     </div>
 
+                    <!-- Product Image -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Danh sách ảnh</label>
+                        <div class="col-md-10">
+                            <div class="input-control d-flex align-items-center">
+                                <button ng-click="ChooseImageProduct(true)" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Chọn ảnh</button>
+                                <i ng-click="ChooseImageProduct(false)" style="cursor:pointer" ng-show="statusChooseImageProduct" class="fal fa-times-circle text-danger ml-3"></i>
+                                <input type="hidden" name="picturepath" ng-model="product.ImageProduct">
+                            </div>
+                            <div class="p-2 border-1">
+                                <img ng-repeat="item in product.ImageProducts" value="{{item.PicturePath}}" style="width:60px;margin-right:8px;" class="animate__fadeInDown img-fluid mt-3 rounded" ng-show="true" name="imageproduct-{{$index}}" src="{{item.ImagePath}}">
+                                
+                            </div>
+
+                        </div>
+                    </div>
+
                     <!-- Description -->
                     <div class="form-group row">
                         <label for="example-text-input" class="col-md-2 col-form-label">Mô tả</label>

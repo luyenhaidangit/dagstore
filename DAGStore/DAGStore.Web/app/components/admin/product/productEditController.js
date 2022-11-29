@@ -65,6 +65,32 @@ function productEditController($scope, apiService, notificationService, $state, 
         }
     }
 
+    // Choose Image Product
+    $scope.statusChooseImageProduct = true;
+    $scope.ChooseImageProduct = ChooseImageProduct;
+    function ChooseImageProduct(status) {
+        if (status === true) {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                var item = {
+                    Index: $scope.product.ImageProducts.length,
+                    PicturePath: fileUrl,
+                }
+                $scope.product.ImageProducts.push(item);
+                $scope.statusChooseImageProduct = true;
+                $scope.$apply();
+                console.log($scope.product.ImageProducts)
+            }
+
+            finder.popup();
+        }
+        if (status === false) {
+            $scope.product.ImageProducts = [];
+            $scope.statusChooseImageProduct = false;
+            $scope.$apply();
+        }
+    }
+
     // Regster Ckeditor
     ckeditorService.createDefaultCkeditor("DAGStoreTextArea");
 

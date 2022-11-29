@@ -61,5 +61,10 @@ namespace DAGStore.Web.Controllers
             return Json(true, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult GetImageProductByProduct(int id)
+        {
+            return Json(_ImageProductService.GetImageProductByProduct(id).ToList(), JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

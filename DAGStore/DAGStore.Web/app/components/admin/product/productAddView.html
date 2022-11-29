@@ -85,7 +85,7 @@
                                 <input type="hidden" name="picturepath" ng-model="product.ImageProduct">
                             </div>
                             <div class="p-2 border-1">
-                                <img ng-repeat="item in product.ImageProducts" style="width:60px;margin-right:8px;" class="animate__fadeInDown img-fluid mt-3 rounded" ng-show="statusChooseImageProduct" name="imageproduct-{{item.Index}}" src="{{product.ImageProducts[item.Index].PicturePath}}">
+                                <img ng-repeat="item in product.ImageProducts" style="width:60px;margin-right:8px;" class="animate__fadeInDown img-fluid mt-3 rounded" ng-show="statusChooseImageProduct" name="imageproduct-{{item.Index}}" src="{{product.ImageProducts[item.Index].ImagePath}}">
                             </div>
                             
                         </div>

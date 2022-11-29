@@ -73,7 +73,7 @@ function productAddController($scope, apiService, notificationService, $state, c
             finder.selectActionFunction = function (fileUrl) {
                 var item = {
                     Index: $scope.product.ImageProducts.length,
-                    PicturePath: fileUrl,
+                    ImagePath: fileUrl,
                 }
                 $scope.product.ImageProducts.push(item);
                 $scope.statusChooseImageProduct = true;
