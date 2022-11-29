@@ -37,33 +37,8 @@
                                 <div class="product-preview px-0 pt-4 pb-1">
                                     <div class="swiper product-preview__list-img-product">
                                         <div class="swiper-wrapper">
-                                            <div class="swiper-slide slide-img-core">
-                                                <img class="img-fluid rounded" src="{{product.PicturePath}}" />
-                                                
-                                            </div>
-
-                                            <div class="swiper-slide slide-img-core">
-                                                <img class="img-fluid rounded" src="/Content/client/img/product/vi-vn-oppo-reno8-z-5g--(4).jpg" />
-                                            </div>
-
-                                            <div class="swiper-slide slide-img-core">
-                                                <img class="img-fluid rounded" src="/Content/client/img/product/vi-vn-oppo-reno8-z-5g--(2).jpg" />
-                                            </div>
-
-                                            <div class="swiper-slide slide-img-core">
-                                                <img class="img-fluid rounded" src="/Content/client/img/product/vi-vn-oppo-reno8-z-5g--(5).jpg" />
-                                            </div>
-
-                                            <div class="swiper-slide slide-img-core">
-                                                <img class="img-fluid rounded" src="/Content/client/img/product/vi-vn-oppo-reno8-z-5g--(3).jpg" />
-                                            </div>
-
-                                            <div class="swiper-slide slide-img-core">
-                                                <img class="img-fluid rounded" src="/Content/client/img/product/vi-vn-oppo-reno8-z-5g--(6).jpg" />
-                                            </div>
-
-                                            <div class="swiper-slide slide-img-core">
-                                                <img class="img-fluid rounded" src="/Content/client/img/product/bg_csmh_tgdd-min.png" />
+                                            <div ng-repeat="item in product.ImageProducts" class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="{{item.ImagePath}}" />
                                             </div>
                                         </div>
                                         <div class="swiper-button-next slide-button-next-core product-preview__list-img-product__button-next"><i class="far fa-angle-right"></i></div>

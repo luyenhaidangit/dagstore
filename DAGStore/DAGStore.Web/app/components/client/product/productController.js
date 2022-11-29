@@ -21,6 +21,7 @@ function productController($scope, apiService, $stateParams, $filter, notificati
    /* $scope.category =*/
     apiService.get("/product/getproductdetail/" + $stateParams.id, null, function (result) {
         $scope.product = result.data;
+        console.log($scope.product)
         $scope.Message = $sce.trustAsHtml($scope.product.FullDescription);
     }, function (error) {
         console.log("Không thể tải dữ liệu");
