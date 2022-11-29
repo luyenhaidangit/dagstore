@@ -223,10 +223,15 @@
     <Compile Include="Migrations\202211280325243_Allow-Null-CategoryID.designer.cs">
       <DependentUpon>202211280325243_Allow-Null-CategoryID.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202211290747141_Add-Image-Product.cs" />
+    <Compile Include="Migrations\202211290747141_Add-Image-Product.designer.cs">
+      <DependentUpon>202211290747141_Add-Image-Product.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BrandRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\ImageProductRepository.cs" />
     <Compile Include="Repositories\VariationOptionRepository.cs" />
     <Compile Include="Repositories\VariationRepository.cs" />
     <Compile Include="Repositories\PageRepository.cs" />
@@ -356,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202211280325243_Allow-Null-CategoryID.resx">
       <DependentUpon>202211280325243_Allow-Null-CategoryID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211290747141_Add-Image-Product.resx">
+      <DependentUpon>202211290747141_Add-Image-Product.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

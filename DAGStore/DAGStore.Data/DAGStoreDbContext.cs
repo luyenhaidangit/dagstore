@@ -44,6 +44,7 @@ namespace DAGStore.Data
         public DbSet<VariationOption> VariationOption { get; set; }
         public DbSet<ProductItem> ProductItem { get; set; }
         public DbSet<ProductConfiguration> ProductConfiguration { get; set; }
+        public DbSet<ImageProduct> ImageProduct { get; set; }
 
         public virtual void Commit()
         {

@@ -241,6 +241,7 @@
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HistoryOrderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageProductController.cs" />
     <Compile Include="Controllers\ImportBillController.cs" />
     <Compile Include="Controllers\ImportBillDetailController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
@@ -6779,6 +6780,7 @@
     <Folder Include="Views\Discount\" />
     <Folder Include="Views\Event\" />
     <Folder Include="Views\HistoryOrder\" />
+    <Folder Include="Views\ImageProduct\" />
     <Folder Include="Views\ImportBillDetail\" />
     <Folder Include="Views\ImportBill\" />
     <Folder Include="Views\MenuRecord\" />

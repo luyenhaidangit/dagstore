@@ -11,7 +11,6 @@
                     <li class="breadcrumb-item active"><a ui-sref="add-product"></a>{{config.namePage}}</li>
                 </ol>
             </div>
-
         </div>
     </div>
 </div>
@@ -130,7 +129,7 @@
                     </div>
                     <button ng-click="AddVarialtionProduct()" type="button" class="btn btn-light waves-effect">Thêm thuộc tính<i class="fal fa-plus ml-2"></i></button>
 
-                    <div ng-repeat="item in varialtionsAdd" class="d-flex">
+                    <!--<div ng-repeat="item in varialtionsAdd" class="d-flex">
                         <div class="col-md-10 mt-3 p-0 mr-4" style="max-width:240px;">
                             <div id="varialtion-{{$index}}" class="ui dropdown fluid selection">
                                 <input ng-model="varialtionsAdd[$index].Variation.ID" type="hidden" name="varialtion-{{$index}}">
@@ -179,10 +178,10 @@
                             box-shadow: none;
                             -webkit-touch-callout: none;
                         }
-                    </style>
+                    </style>-->
 
                      <!--Modal--> 
-                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <!--<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -191,9 +190,9 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
+                                <div class="modal-body">-->
                                      <!--InventoryQuantity--> 
-                                    <div class="form-group row">
+                                    <!--<div class="form-group row">
                                         <label for="example-number-input" class="col-md-3 col-form-label">Tên thuộc tính</label>
                                         <div class="col-md-9">
                                             <input ng-model="variation.Name" name="variationName" class="form-control" type="text">
@@ -217,9 +216,9 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
+                                <div class="modal-body">-->
                                      <!--InventoryQuantity--> 
-                                    <div class="form-group row">
+                                    <!--<div class="form-group row">
                                         <label for="example-number-input" class="col-md-3 col-form-label">Giá trị</label>
                                         <div class="col-md-9">
                                             <input ng-model="variationOption.Value" name="variationOptionName" class="form-control" type="text">
@@ -239,34 +238,32 @@
                     </div>
 
                     <div ng-repeat="item in productItems" class="d-flex">
-                        <div ng-repeat="(key, value) in item">
-                            {{value}} /&nbsp
-                        </div>
-                        <!--<div class="col-md-10 mt-3 p-0 mr-4" style="max-width:240px;">
-                            <div id="varialtion-{{$index}}" class="ui dropdown fluid selection">
-                                <input ng-model="varialtionsAdd[$index].Variation.ID" type="hidden" name="varialtion-{{$index}}">
-                                <i class="dropdown icon"></i>
-                                <div class="default text">Chọn thuộc tính...</div>
-                                <div class="menu">
-                                    <div data-toggle="modal" data-target="#staticBackdrop" class="item-option d-flex justify-content-between btn-primary">Thêm thuộc tính <i class="fal fa-plus ml-2"></i></div>
-                                    <div ng-repeat="var in varialtions" ng-click="GetVarialtionOption(var,item.index)" class="item" data-value="{{var.ID}}">{{var.Name}}</div>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
 
-                        <div class="col-md-10 mt-3 p-0" style="max-width:360px;">
-
-                            <div id="varialtionoption-{{$index}}" class="ui fluid multiple search selection dropdown">
-                                <input ng-model="varialtionsAdd[index].ListOption" type="hidden" name="varialtionoption">
-                                <i class="dropdown icon"></i>
-                                <div class="default text">Chọn giá trị</div>
-                                <div class="menu">
-                                    <div data-toggle="modal" data-target="#staticBackdrop1" ng-click="AddVariationOption($index)" class="item-option d-flex justify-content-between btn-primary">Thêm giá trị <i class="fal fa-plus ml-2"></i></div>
-                                    <div ng-repeat="option in varialtionsAdd[$index].Variation.Option" class="item" data-value="{{option.ID}}">{{option.Value}}</div>
-                                </div>
-                            </div>
-                        </div>-->
-                    </div>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Tên</th>
+                                        <th>Giá vốn</th>
+                                        <th>Giá bán</th>
+                                        <th>Giá thực tế</th>
+                                        <th>Tồn kho</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="(key, value) in item">
+                                        <th scope="row">{{$index+1}}</th>
+                                        <td>{{value}} /&nbsp</td>
+                                        <td><input ng-model="product.CostPrice" name="costprice" class="form-control form-control-sm" type="number" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : 0"></td>
+                                        <td><input ng-model="product.SellPrice" name="sellprice" class="form-control form-control-sm" type="number" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : 0"></td>
+                                        <td><input ng-model="product.SellPriceActual" name="sellpriceactual" class="form-control form-control-sm" type="number" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? (this.value = !!this.value && Math.abs(this.value) <= sellprice.value ? Math.abs(this.value):sellprice.value) : 0"></td>
+                                        <td><input ng-model="product.SellPriceActual" name="sellpriceactual" class="form-control form-control-sm" type="number" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? (this.value = !!this.value && Math.abs(this.value) <= sellprice.value ? Math.abs(this.value):sellprice.value) : 0"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>-->
 
 
                     <hr style="height:3px;" />

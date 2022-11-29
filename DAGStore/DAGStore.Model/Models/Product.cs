@@ -64,5 +64,7 @@ namespace DAGStore.Model.Models
         public bool Deleted { get; set; }
 
         public virtual IEnumerable<ProductItem> ProductItems { set; get; }
+
+        public virtual IEnumerable<ImageProduct> ImageProducts { set; get; }
     }
 }
