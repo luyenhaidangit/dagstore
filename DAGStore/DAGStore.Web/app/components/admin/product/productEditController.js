@@ -102,12 +102,12 @@ function productEditController($scope, apiService, notificationService, $state, 
         $scope.product.CategoryID = document.getElementsByName("categoryid")[0].value;
         $scope.product.FullDescription = CKEDITOR.instances['DAGStoreTextArea'].getData();
         
-        //apiService.put("/product/update", $scope.product, function (result) {
-        //    notificationService.displaySuccess("Cập nhật thông tin thành công!");
-        //    console.log($scope.product)
-        //    $state.go("product");
-        //}, function (error) {
-        //    notificationService.displaySuccess("Cập nhật thông tin không thành công!");
-        //});
+        apiService.put("/product/update", $scope.product, function (result) {
+            notificationService.displaySuccess("Cập nhật thông tin thành công!");
+            console.log($scope.product)
+            $state.go("product");
+        }, function (error) {
+            notificationService.displaySuccess("Cập nhật thông tin không thành công!");
+        });
     }
 }

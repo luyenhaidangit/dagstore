@@ -94,6 +94,27 @@ namespace DAGStore.Web.Controllers
             _productService.Update(product);
             _productService.SaveChanges();
 
+            var imageProduct = _imageProductService.GetImageProductByProduct(product.ID);
+            imageProduct = imageProduct ?? new List<ImageProduct>();
+            foreach (var item in imageProduct)
+            {
+                _imageProductService.Delete(item.ID);
+            }
+            _imageProductService.SaveChanges();
+
+            product.ImageProducts = product.ImageProducts ?? new List<ImageProduct>();
+            foreach (var item in product.ImageProducts)
+            {
+                item.Product = null;
+            }
+            foreach (var item in product.ImageProducts)
+            {
+                item.ProductID = product.ID;
+                _imageProductService.Add(item);
+            }
+            _imageProductService.SaveChanges();
+
+
             return Json(true, JsonRequestBehavior.AllowGet);
         }
 
@@ -144,6 +165,7 @@ namespace DAGStore.Web.Controllers
                              DisplayOrder = p.DisplayOrder,
                              Published = p.Published,
                              Deleted = p.Deleted,
+                             ViewCount = p.ViewCount,
                              ImageProducts = _imageProductService.GetImageProductByProduct(p.ID),
                          }).FirstOrDefault();
             return Json(result, JsonRequestBehavior.AllowGet);
