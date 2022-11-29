@@ -3,7 +3,9 @@ var product = angular.module('DAGStoreHome.cart');
 product.controller('cartController', cartController);
 
 // Controller
-function cartController($scope, apiService, $stateParams, $filter, notificationService) {
+function cartController($scope, apiService, $stateParams, $filter, $rootScope, notificationService) {
+    //Load Page
+    $rootScope.LoadPageSuccess = true;
     // Get Data
     $scope.cart = [];
     $scope.order = {
@@ -59,9 +61,15 @@ function cartController($scope, apiService, $stateParams, $filter, notificationS
     function LoadTotalOrder() {
         var total = 0;
         $scope.cart.map((item) => {
-            total += item.Product.SellPrice * item.Quantity;
+            total += item.Product.SellPriceActual * item.Quantity;
             console.log($scope.order)
         })
         $scope.order.OrderTotal = total;
     }
+    //Load Page
+    //angular.element(function () {
+    //    $timeout(function () {
+    //        $rootScope.LoadPageSuccess = true;
+    //    }, 600);
+    //});
 }

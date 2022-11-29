@@ -38,8 +38,8 @@
 
                         </div>
                         <div class="loading-cart__product-item__price d-flex flex-column ms-auto text-end">
-                            <span class="modal__add-cart__header-text"> {{item.Product.SellPrice | formatCurrencyVND}} </span>
-                            <strike class="modal__add-cart__header-text">6.490.000₫</strike>
+                            <span class="modal__add-cart__header-text"> {{item.Product.SellPriceActual | formatCurrencyVND}} </span>
+                            <strike class="modal__add-cart__header-text">{{item.Product.SellPrice | formatCurrencyVND}}</strike>
                             <div class="input-group input-group-sm mb-3">
                                 <span ng-click="ChangeQuantity(item,'-')" class="input-group-text" id="inputGroup-sizing-sm" style="cursor:pointer;">-</span>
                                 <input ng-change="ChangeQuantity(item,'change')" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" style="max-width:40px;" ng-model="item.Quantity" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : 0">

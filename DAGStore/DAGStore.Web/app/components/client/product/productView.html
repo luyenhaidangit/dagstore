@@ -759,7 +759,7 @@
                             <div class="product-item-core__text">Giá tại <a href="#">Hà Nội<i class="fas fa-caret-down"></i></a></div>
                             <div class="product-item-core__row">
                                 <strong class="product-item-core__price me-2">
-                                    <span>{{product.SellPrice | formatCurrencyVND}}</span>
+                                    <span>{{product.SellPriceActual | formatCurrencyVND}}</span>
                                 </strong>
                                 <div class="product-item-core__label">
                                     <span class="lalel-product-core label-installment">Trả góp 0%</span>
@@ -843,7 +843,7 @@
                                     <div class="modal-content modal__add-cart">
                                         <div class="modal-header modal__add-cart__header">
                                             <span class="modal__add-cart__header-text">{{product.Category.Name}} {{product.Name}}</span>
-                                            <span class="modal__add-cart__header-text"> {{product.SellPrice | formatCurrencyVND}} <strike>6.490.000₫</strike></span>
+                                            <span class="modal__add-cart__header-text"> {{product.SellPriceActual | formatCurrencyVND}} <strike>6.490.000₫</strike></span>
                                         </div>
                                         <div class="modal-body modal__add-cart__body">
                                             <div class="choose-custom-product">
