@@ -17,14 +17,16 @@ namespace DAGStore.Web.Controllers
         IBrandService _brandService;
         IDiscountService _discountService;
         IProductDiscountService _productDiscountService;
+        IImageProductService _imageProductService;
 
-        public ProductController(IProductDiscountService productDiscountService,IDiscountService discountService,IProductService menuRecordService,ICategoryService categoryService,IBrandService brandService)
+        public ProductController(IImageProductService imageProductService,IProductDiscountService productDiscountService,IDiscountService discountService,IProductService menuRecordService,ICategoryService categoryService,IBrandService brandService)
         {
             this._productService = menuRecordService;
             this._categoryService = categoryService;
             this._brandService = brandService;
             this._discountService = discountService;
             this._productDiscountService = productDiscountService;
+            this._imageProductService = imageProductService;
         }
         // GET: MenuRecord
         public JsonResult GetAll()
@@ -56,13 +58,35 @@ namespace DAGStore.Web.Controllers
         }
 
         [HttpPost]
-        public JsonResult Create(Product menuRecord)
+        public JsonResult Create(Product product)
         {
-            _productService.Add(menuRecord);
+            _productService.Add(product);
             _productService.SaveChanges();
+            product.ImageProducts = product.ImageProducts ?? new List<ImageProduct>();
+            foreach (var imageProduct in product.ImageProducts)
+            {
+                imageProduct.ProductID = product.ID;
+                _imageProductService.Add(imageProduct);
+            }
+            _imageProductService.SaveChanges();
 
-            return Json(menuRecord, JsonRequestBehavior.AllowGet);
+            return Json(true, JsonRequestBehavior.AllowGet);
         }
+
+        //[HttpPost]
+        //public JsonResult Create(Product menuRecord)
+        //{ 
+        //    _productService.Add(menuRecord);
+        //    _productService.SaveChanges();
+        //    foreach(var item in menuRecord.ImageProducts)
+        //    {
+        //        item.ProductID = menuRecord.ID;
+        //        _imageProductService.Add(item);
+        //    }
+        //    _imageProductService.SaveChanges();
+
+        //    return Json(menuRecord, JsonRequestBehavior.AllowGet);
+        //}
 
         [HttpPut]
         public JsonResult Update(Product product)

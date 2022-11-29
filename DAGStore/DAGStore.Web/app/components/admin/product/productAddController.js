@@ -17,9 +17,13 @@ function productAddController($scope, apiService, notificationService, $state, c
         MinimumInventoryQuantity: 0,
         MaximumInventoryQuantity: 99999,
         DisplayOrder: -1,
+        ImageProducts: [
+
+        ],
         Published: true,
         CreateOn: new Date().toJSON().slice(0, 10),
         UpdateOn: new Date().toJSON().slice(0, 10),
+        
     }
     // Load List Brand
     apiService.get("/brand/getdata", null, function (result) {
@@ -56,6 +60,32 @@ function productAddController($scope, apiService, notificationService, $state, c
         if (status === false) {
             $scope.product.PicturePath = "";
             $scope.statusChooseAvatar = false;
+            $scope.$apply();
+        }
+    }
+
+    // Choose Image Product
+    $scope.statusChooseImageProduct = false;
+    $scope.ChooseImageProduct = ChooseImageProduct;
+    function ChooseImageProduct(status) {
+        if (status === true) {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                var item = {
+                    Index: $scope.product.ImageProducts.length,
+                    PicturePath: fileUrl,
+                }
+                $scope.product.ImageProducts.push(item);
+                $scope.statusChooseImageProduct = true;
+                $scope.$apply();
+                console.log($scope.product.ImageProducts)
+            }
+
+            finder.popup();
+        }
+        if (status === false) {
+            $scope.product.ImageProducts = [];
+            $scope.statusChooseImageProduct = false;
             $scope.$apply();
         }
     }
