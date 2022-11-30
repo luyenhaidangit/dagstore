@@ -9,6 +9,7 @@ var app = angular.module('DAGStore', [
     'DAGStore.slider',
     'DAGStore.event',
     'DAGStore.page',
+    'DAGStore.customer',
     'DAGStore.common',
 ]);
 

@@ -54,13 +54,13 @@
                     <span class="modal__add-cart__header-text">Thông tin khách hàng</span>
                     <div class="form-check-sex">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sex" id="exampleRadios1" value="option1" checked>
+                            <input ng-model="form.Sex" ng-value="'Nam'" class="form-check-input" type="radio" name="sex" id="exampleRadios1" value="option1" checked>
                             <label class="form-check-label" for="exampleRadios1">
                                 Anh
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sex" id="exampleRadios2" value="option2">
+                            <input ng-model="form.Sex" ng-value="'Nữ'" class="form-check-input" type="radio" name="sex" id="exampleRadios2" value="option2">
                             <label class="form-check-label" for="exampleRadios2">
                                 Chị
                             </label>
@@ -68,40 +68,69 @@
                     </div>
                     <div class="form-check-info d-flex gap-3 mt-2">
                         <div class="form-check col p-0">
-                            <input type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Họ và tên">
+                            <input ng-model="form.Name" type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Họ và tên">
                         </div>
                         <div class="form-check col p-0">
-                            <input type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Số điện thoại">
+                            <input ng-model="form.NumberPhone" type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Số điện thoại">
+                        </div>
+                        <div class="form-check col p-0">
+                            <input ng-model="form.Email" type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
                         </div>
                     </div>
+
                     <span class="modal__add-cart__header-text mt-2">Cách thức nhận hàng</span>
                     <div class="form-check-format">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="format" id="exampleRadios1" value="option1" checked>
+                            <input ng-model="form.Delivery" ng-value="'0'" class="form-check-input" type="radio" name="format" id="exampleRadios1" value="option1" checked>
                             <label class="form-check-label" for="exampleRadios1">
                                 Giao hàng tận nơi
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="format" id="exampleRadios2" value="option2">
+                            <input ng-model="form.Delivery" ng-value="'1'" class="form-check-input" type="radio" name="format" id="exampleRadios2" value="option2">
                             <label class="form-check-label" for="exampleRadios2">
                                 Nhận hàng tại siêu thị
                             </label>
                         </div>
                     </div>
+
+                    <div ng-show="form.Delivery=='0'? true : false " class="form-check-info d-flex gap-3 mt-2">
+                        <div class="form-check col p-0">
+                            <input type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Địa chỉ nhận hàng">
+                        </div>
+                    </div>
                     <div class="form-check-info d-flex gap-3 mt-2">
                         <div class="form-check col p-0">
-                            <input type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ghi chú">
+                            <input ng-model="form.Description" type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ghi chú">
                         </div>
 
                     </div>
                 </div>
+
+                <div class="loading-cart__info-customer border-bottom py-4">
+                    <span class="modal__add-cart__header-text">Hình thức thanh toán</span>
+                    <div class="form-check-payments">
+                        <div class="form-check form-check-inline">
+                            <input ng-model="form.Payments" ng-value="'0'" class="form-check-input" type="radio" name="format1" id="exampleRadios3" value="option1" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                                Trả tiền khi nhân hàng
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input ng-model="form.Payments" ng-value="'1'" class="form-check-input" type="radio" name="format1" id="exampleRadios3" value="option2">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Thanh toán Momo
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="loading-cart__summary py-4">
                     <div class="loading-cart__summary-value d-flex justify-content-between">
                         <b class="modal__add-cart__header-text">Tổng tiền</b>
                         <b class="modal__add-cart__header-text text-end text-danger">{{order.OrderTotal | formatCurrencyVND}}</b>
                     </div>
-                    <button type="button" class="btn btn-primary w-100 my-2">Xác nhận</button>
+                    <button ng-click="SubmitForm()" type="button" class="btn btn-primary w-100 my-2">Xác nhận</button>
                 </div>
             </div>
 

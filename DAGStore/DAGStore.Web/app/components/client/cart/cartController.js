@@ -39,6 +39,12 @@ function cartController($scope, apiService, $stateParams, $filter, $rootScope, n
         })
     }
 
+    $scope.form = {
+        Sex: "Nam",
+        Delivery: "0",
+        Payments: "0",
+    }
+
     $scope.ChangeQuantity = ChangeQuantity;
     function ChangeQuantity(item, activiti) {
         console.log(item)
@@ -66,6 +72,12 @@ function cartController($scope, apiService, $stateParams, $filter, $rootScope, n
         })
         $scope.order.OrderTotal = total;
     }
+
+    $scope.SubmitForm = SubmitForm;
+    function SubmitForm() {
+        console.log($scope.form)
+    }
+
     //Load Page
     //angular.element(function () {
     //    $timeout(function () {

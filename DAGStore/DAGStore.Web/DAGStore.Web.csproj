@@ -237,6 +237,7 @@
     <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\DiscountController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HistoryOrderController.cs" />
@@ -292,6 +293,15 @@
     <Content Include="app\components\admin\category\categoryAddView.html" />
     <Content Include="app\components\admin\category\categoryEditController.js" />
     <Content Include="app\components\admin\category\categoryEditView.html" />
+    <Content Include="app\components\admin\customer\customer.module.js" />
+    <Content Include="app\components\admin\customer\customerAddController.js" />
+    <Content Include="app\components\admin\customer\customerAddView.html" />
+    <Content Include="app\components\admin\customer\customerEditController.js" />
+    <Content Include="app\components\admin\customer\customerEditView.html" />
+    <Content Include="app\components\admin\customer\customerInfoController.js" />
+    <Content Include="app\components\admin\customer\customerInfoView.html" />
+    <Content Include="app\components\admin\customer\customerListController.js" />
+    <Content Include="app\components\admin\customer\customerListView.html" />
     <Content Include="app\components\admin\discount\discount.module.js" />
     <Content Include="app\components\admin\discount\discountAddController.js" />
     <Content Include="app\components\admin\discount\discountAddView.html" />
@@ -6777,6 +6787,7 @@
     <Folder Include="Content\client\ico\" />
     <Folder Include="Upload\" />
     <Folder Include="Views\Brand\" />
+    <Folder Include="Views\Customer\" />
     <Folder Include="Views\Discount\" />
     <Folder Include="Views\Event\" />
     <Folder Include="Views\HistoryOrder\" />
