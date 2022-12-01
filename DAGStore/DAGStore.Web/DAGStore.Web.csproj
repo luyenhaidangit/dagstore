@@ -330,6 +330,15 @@
     <Content Include="app\components\admin\importbill\importBillListView.html" />
     <Content Include="app\components\admin\login\loginController.js" />
     <Content Include="app\components\admin\login\loginView.html" />
+    <Content Include="app\components\admin\order\order.module.js" />
+    <Content Include="app\components\admin\order\orderAddController.js" />
+    <Content Include="app\components\admin\order\orderAddView.html" />
+    <Content Include="app\components\admin\order\orderEditController.js" />
+    <Content Include="app\components\admin\order\orderEditView.html" />
+    <Content Include="app\components\admin\order\orderInfoController.js" />
+    <Content Include="app\components\admin\order\orderInfoView.html" />
+    <Content Include="app\components\admin\order\orderListController.js" />
+    <Content Include="app\components\admin\order\orderListView.html" />
     <Content Include="app\components\admin\page\page.module.js" />
     <Content Include="app\components\admin\page\pageAddController.js" />
     <Content Include="app\components\admin\page\pageAddView.html" />
