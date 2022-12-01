@@ -39,10 +39,27 @@ function cartController($scope, apiService, $stateParams, $filter, $rootScope, n
         })
     }
 
+    $scope.ShippingAddress = "";
+
     $scope.form = {
-        Sex: "Nam",
-        Delivery: "0",
-        Payments: "0",
+        Customer: {
+            Sex: "Nam",
+            Andress: "",
+            DeliveryAndress: "",
+            Deleted: false,
+        },
+        Order: {
+            ShippingFormat: "0",
+            OrderStatus: "0",
+            PaymentFormat: "0",
+            PaymentStatus: "0",
+            OrderDiscount: 0,
+            OrderTotal: $scope.order.OrderTotal,
+            CreateOn: "02-12-2022",
+        }
+
+
+        
     }
 
     $scope.ChangeQuantity = ChangeQuantity;

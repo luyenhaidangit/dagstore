@@ -37,6 +37,8 @@ namespace DAGStore.Web.Controllers
         [HttpPost]
         public JsonResult Create(Customer Customer)
         {
+            Customer.Deleted = false;
+            Customer.Andress = "Yên Mỹ - Hưng Yên";
             _CustomerService.Add(Customer);
             _CustomerService.SaveChanges();
 

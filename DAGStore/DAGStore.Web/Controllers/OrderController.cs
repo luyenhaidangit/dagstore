@@ -1,5 +1,6 @@
 ﻿using DAGStore.Model.Models;
 using DAGStore.Service;
+using DAGStore.Web.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,9 +36,10 @@ namespace DAGStore.Web.Controllers
         }
 
         [HttpPost]
-        public JsonResult Create(Order Order)
+        public JsonResult Create(OrderViewModels orderViewModel)
         {
-            _OrderService.Add(Order);
+
+            _OrderService.Add(orderViewModel.Order);
             _OrderService.SaveChanges();
             return Json(true, JsonRequestBehavior.AllowGet);
         }
