@@ -10,20 +10,19 @@ namespace DAGStore.Model.Models
         [Key]
         public int ID { get; set; }
 
-        [Required]
+        [ForeignKey("Order")]
         public int OrderID { get; set; }
+        public Order Order { get; set; }
 
-        [Required]
+        [ForeignKey("Product")]
         public int ProductID { get; set; }
+        public Product Product { get; set; }
 
         [Required]
         public int Quantity { get; set; }
 
         [Required]
-        public decimal TotalTax { get; set; }
-
-        [Required]
-        public decimal TotalShipping { get; set; }
+        public decimal TotalMoney { get; set; }
 
         [Required]
         public decimal TotalDiscount { get; set; }

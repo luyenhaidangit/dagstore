@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DAGStore.Data.Infrastructure;
+using DAGStore.Model.Models;
 
 namespace DAGStore.Data.Repositories
 {
-    internal class OrderItemRepository
+    public interface IOrderItemRepository : IRepository<OrderItem>
     {
+    }
+
+    public class OrderItemRepository : RepositoryBase<OrderItem>, IOrderItemRepository
+    {
+        public OrderItemRepository(IDbFactory dbFactory) : base(dbFactory)
+        {
+        }
     }
 }

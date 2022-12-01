@@ -227,6 +227,10 @@
     <Compile Include="Migrations\202211290747141_Add-Image-Product.designer.cs">
       <DependentUpon>202211290747141_Add-Image-Product.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202212011336342_Edit-Order-Bill.cs" />
+    <Compile Include="Migrations\202212011336342_Edit-Order-Bill.designer.cs">
+      <DependentUpon>202212011336342_Edit-Order-Bill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BrandRepository.cs" />
@@ -365,6 +369,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202211290747141_Add-Image-Product.resx">
       <DependentUpon>202211290747141_Add-Image-Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212011336342_Edit-Order-Bill.resx">
+      <DependentUpon>202212011336342_Edit-Order-Bill.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

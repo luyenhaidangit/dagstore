@@ -250,6 +250,8 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuRecordController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\OrderItemController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductDiscontController.cs" />
@@ -6796,6 +6798,8 @@
     <Folder Include="Views\ImportBill\" />
     <Folder Include="Views\MenuRecord\" />
     <Folder Include="Views\News\" />
+    <Folder Include="Views\OrderItem\" />
+    <Folder Include="Views\Order\" />
     <Folder Include="Views\Page\" />
     <Folder Include="Views\ProductDiscont\" />
     <Folder Include="Views\Product\" />

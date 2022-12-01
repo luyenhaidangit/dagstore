@@ -10,26 +10,24 @@ namespace DAGStore.Model.Models
         [Key]
         public int ID { get; set; }
 
-        [Required]
+        [ForeignKey("Customer")]
         public int CustomerID { get; set; }
+        public Customer Customer { get; set; }
+
+        [Required]
+        public string ShippingFormat { get; set; }
 
         [MaxLength(4000)]
         public string ShippingAddress { get; set; }
 
         [Required]
-        public bool OrderStatus { get; set; }
+        public int OrderStatus { get; set; }
 
         [Required]
-        public bool ShippingStatus { get; set; }
+        public int PaymentFormat { get; set; }
 
         [Required]
-        public bool PaymentStatus { get; set; }
-
-        [Required]
-        public decimal OrderTax { get; set; }
-
-        [Required]
-        public decimal OrderShipping { get; set; }
+        public int PaymentStatus { get; set; }
 
         [Required]
         public decimal OrderDiscount { get; set; }
@@ -42,7 +40,6 @@ namespace DAGStore.Model.Models
         [Required]
         public DateTime CreateOn { get; set; }
 
-        [Required]
-        public DateTime UpdateOn { get; set; }
+        public virtual IEnumerable<OrderItem> OrderItems { set; get; }
     }
 }
