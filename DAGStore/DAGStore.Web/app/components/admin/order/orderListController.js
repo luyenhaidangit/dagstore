@@ -12,18 +12,17 @@ function orderListController($scope, apiService, dataTableService, notificationS
         data: "/order/getall",
         columnDefs: [
             { targets: 0, name: "STT" },
-            { targets: 1, name: "ID"},
+            { targets: 1, name: "ID", visible: false },
             { targets: 2, name: "Mã đơn hàng" },
-            { targets: 3, name: "Khách hàng"},
-            { targets: 4, name: "Giao hàng"},
+            { targets: 3, name: "Khách hàng" },
+            { targets: 4, name: "Địa chỉ" },
             { targets: 5, name: "Thanh toán" },
-            { targets: 6, name: "Địa chỉ" },
-            { targets: 7, name: "Trạng thái đơn"},
-            { targets: 8, name: "Tổng tiền" },
-            { targets: 9, name: "Thao tác" },
+            { targets: 6, name: "Trạng thái đơn"},
+            { targets: 7, name: "Tổng tiền" },
+            { targets: 8, name: "Thao tác" },
         ],
         exportOptions: {
-            columns: [1, 2, 3, 4, 5, 6, 7,8],
+            columns: [1, 2, 3, 4, 5, 6, 7],
             orthogonal: 'export'
         },
     }
@@ -32,8 +31,8 @@ function orderListController($scope, apiService, dataTableService, notificationS
     $scope.orders = [];
     apiService.get("/order/getall", null, function (result) {
         $scope.orders = result.data;
-        dataTableService.createDataTable($scope.config);
-
+        dataTableService.createDataTable($scope.config)
+        console.log($scope.orders)
     }, function (error) {
         console.log("Get data fail");
     })

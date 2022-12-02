@@ -39,11 +39,16 @@
                             <td>{{item.ID}}</td>
                             <td>HDB{{item.ID}}</td>
                             <td>{{item.Customer.Name}}</td>
-                            <td>{{item.ShippingFormat}}</td>
-                            <td>{{item.PaymentFormat}}</td>
                             <td>{{item.ShippingAddress}}</td>
-                            <td>{{item.OrderStatus}}</td>
-                            <td>{{item.OrderTotal}}</td>
+                            <td>
+                                <button ng-if="item.PaymentFormat==0" type="button" ng-class="{'btn btn-success waves-effect waves-light btn-sm':item.PaymentFormat==0,'btn btn-danger waves-effect waves-light btn-sm':item.PaymentFormat!=0}">{{item.PaymentFormat | paymentFormat}}</button>
+                                <button ng-if="item.PaymentFormat==1" type="button" ng-class="{'btn btn-danger waves-effect waves-light btn-sm':item.PaymentStatus==0,'btn btn-success waves-effect waves-light btn-sm':item.PaymentStatus==1}">{{item.PaymentFormat | paymentFormat}}</button>
+                            </td>
+                            <td>
+                                <button ng-if="item.OrderStatus==0" type="button" class="btn btn-warning waves-effect waves-light btn-sm">{{item.OrderStatus | statusOrderFormat}}</button>
+                                <button ng-if="item.OrderStatus==1" type="button" class="btn btn-success waves-effect waves-light btn-sm">{{item.OrderStatus | statusOrderFormat}}</button>
+                            </td>
+                            <td>{{item.OrderTotal | formatCurrencyVND}}</td>
                             <td>
                                 <span ui-sref="info-product({id:item.ID})" class="badge badge-info" style="cursor: pointer;padding: 8px;"> <i class="fas fa-info-circle"></i></span>
                                 <span ui-sref="edit-product({id:item.ID})" class="badge badge-primary" style="cursor: pointer;padding: 8px;"> <i class="far fa-edit"></i></span>

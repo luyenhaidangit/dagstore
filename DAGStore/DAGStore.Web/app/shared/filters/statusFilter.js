@@ -51,4 +51,25 @@
             return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(input);
         }
     });
+
+    app.filter("paymentFormat", function () {
+        return function (input) {
+            if (input === 0) {
+                return "Trả tiền khi nhận hàng";
+            } else {
+                return "Thanh toán Momo";
+            }
+        }
+    });
+    app.filter("statusOrderFormat", function () {
+        return function (input) {
+            if (input === 0) {
+                return "Chưa xử lý";
+            } else if (input === 1) {
+                return "Đã xử lý";
+            } else {
+                return "Đã nhận hàng"
+            }
+        }
+    });
 })(angular.module('DAGStore.common'));

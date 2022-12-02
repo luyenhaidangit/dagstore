@@ -54,7 +54,7 @@ function cartController($scope, apiService, $stateParams, $filter, $rootScope, n
             PaymentFormat: "0",
             PaymentStatus: "0",
             OrderDiscount: 0,
-            OrderTotal: $scope.order.OrderTotal,
+            OrderTotal: 0,
             CreateOn: "02-12-2022",
         }
 
@@ -92,7 +92,19 @@ function cartController($scope, apiService, $stateParams, $filter, $rootScope, n
 
     $scope.SubmitForm = SubmitForm;
     function SubmitForm() {
+        $scope.form.Order.OrderTotal = $scope.order.OrderTotal;
         console.log($scope.form)
+        apiService.post("/order/create", $scope.form, function (result) {
+            console.log("Thanh cong");
+           
+            /* $state.go("category");*/
+        }, function (error) {
+            console.log("that bai")
+            /* notificationService.displaySuccess("Thêm mới không thành công!");*/
+            /* console.log($scope.category);*/
+        });
+
+        //console.log($scope.form)
     }
 
     //Load Page

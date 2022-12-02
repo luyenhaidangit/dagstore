@@ -14,16 +14,22 @@ namespace DAGStore.Web.Controllers
     public class OrderController : Controller
     {
         IOrderService _OrderService;
+        ICustomerService _CustomerService;
 
-        public OrderController(IOrderService OrderService)
+        public OrderController(IOrderService OrderService,ICustomerService customerService)
         {
             this._OrderService = OrderService;
+            this._CustomerService = customerService;
         }
 
         // GET: category
         public JsonResult GetAll()
         {
             var listOrder = _OrderService.GetAll();
+            foreach(var item in listOrder)
+            {
+                item.Customer = _CustomerService.GetByID(item.CustomerID);
+            }
 
             return Json(listOrder, JsonRequestBehavior.AllowGet);
         }
@@ -38,8 +44,24 @@ namespace DAGStore.Web.Controllers
         [HttpPost]
         public JsonResult Create(OrderViewModels orderViewModel)
         {
+            var customers = _CustomerService.GetAll().ToList();
 
+            var customer = customers.Any(x => x.NumberPhone == orderViewModel.Customer.NumberPhone);
+            var customerID = 0;
+            if (customer)
+            {
+                customerID = (customers.Where(x => x.NumberPhone == orderViewModel.Customer.NumberPhone)).FirstOrDefault().ID;
+            }
+            else
+            {
+                _CustomerService.Add(orderViewModel.Customer);
+                _CustomerService.SaveChanges();
+                customerID = orderViewModel.Customer.ID;
+            }
+
+            orderViewModel.Order.CustomerID = customerID;
             _OrderService.Add(orderViewModel.Order);
+            
             _OrderService.SaveChanges();
             return Json(true, JsonRequestBehavior.AllowGet);
         }
