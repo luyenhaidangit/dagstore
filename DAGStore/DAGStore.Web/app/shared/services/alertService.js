@@ -30,6 +30,15 @@
             return alertDeleteSuccess;
         }
 
+        function alertOrderSuccess() {
+            var alertOrderSuccess = Swal.fire(
+                'Thành công!',
+                'Chúng tôi đã xác nhận đơn hàng của bạn!',
+                'success'
+            )
+            return alertOrderSuccess;
+        }
+
         function alertDeleteError(message) {
             var alertDeleteError = Swal.fire(
                 'Xóa thất bại!',
@@ -43,6 +52,7 @@
             alertSubmitDelete: alertSubmitDelete,
             alertDeleteSuccess: alertDeleteSuccess,
             alertDeleteError: alertDeleteError,
+            alertOrderSuccess: alertOrderSuccess,
         }
     }
 })(angular.module('DAGStore.common'));

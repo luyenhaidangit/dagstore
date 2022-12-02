@@ -4,7 +4,7 @@
 
 <!-- begin: content -->
 <div class="content">
-    <div class="container-sm d-flex justify-content-center" ng-show="cart.length != 0">
+    <div ng-if="cart.length != 0" class="container-sm d-flex justify-content-center">
         <div class="loading-cart d-flex flex-column py-2">
             <div class="loading-cart__top w-100">
                 <div class="loading-cart__top-buy-more d-flex justify-content-between">
@@ -12,7 +12,7 @@
                     <span>Giỏ hàng của bạn</span>
                 </div>
             </div>
-            <div class="loading-cart__body w-100 py-2">
+            <div name="form" class="loading-cart__body w-100 py-2">
                 <div class="loading-cart__list-product border-bottom" ng-repeat="item in cart">
                     <div class="loading-cart__product-item d-flex">
                         <div class="loading-cart__product-item__img">
@@ -54,7 +54,7 @@
                     <span class="modal__add-cart__header-text">Thông tin khách hàng</span>
                     <div class="form-check-sex">
                         <div class="form-check form-check-inline">
-                            <input ng-model="form.Customer.Sex" ng-value="'Nam'" class="form-check-input" type="radio" name="sex" id="exampleRadios1" value="option1" checked>
+                            <input ng-model="form.Customer.Sex" ng-value="'Nam'" class="form-check-input" type="radio" name="sex" id="exampleRadios1" value="option1" ng-checked="true">
                             <label class="form-check-label" for="exampleRadios1">
                                 Anh
                             </label>
@@ -68,15 +68,20 @@
                     </div>
                     <div class="form-check-info d-flex gap-3 mt-2">
                         <div class="form-check col p-0">
-                            <input ng-model="form.Customer.Name" type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Họ và tên">
+                            <input ng-model="form.Customer.Name" name="name" required type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Họ và tên">
+
                         </div>
                         <div class="form-check col p-0">
-                            <input ng-model="form.Customer.NumberPhone" type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Số điện thoại">
+                            <input ng-model="form.Customer.NumberPhone" required name="phone" type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Số điện thoại">
                         </div>
                         <div class="form-check col p-0">
-                            <input ng-model="form.Customer.Email" type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+                            <input ng-model="form.Customer.Email" required name="email" type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
                         </div>
                     </div>
+
+                    <span class="text-danger" ng-show="form.name.$error.required && form.name.$touched">Tên khách hàng không được để trống!</span>
+                    <span class="text-danger" ng-show="form.phone.$error.required && form.phone.$touched">Số điện thoại không được để trống!</span>
+                    <span class="text-danger" ng-show="form.email.$error.required && form.email.$touched">Email không được để trống!</span>
 
                     <span class="modal__add-cart__header-text mt-2">Cách thức nhận hàng</span>
                     <div class="form-check-format">
@@ -138,7 +143,7 @@
 
     </div>
 
-    <div class="container-sm d-flex justify-content-center" ng-show="cart.length == 0" style="min-height:540px;padding:0px 0">
+    <div ng-if="cart.length == 0" class="container-sm d-flex justify-content-center" style="min-height:540px;padding:0px 0">
         <div class="cartempty d-flex flex-column align-items-center justify-content-center">
             <i class="fal fa-cart-plus text-danger" style="font-size:60px;"></i>
             <span class="my-1">Không có sản phẩm nào trong giỏ hàng</span>
@@ -148,7 +153,4 @@
     </div>
 
 </div>
-<script>
-   
-</script>
 <!-- end: content -->

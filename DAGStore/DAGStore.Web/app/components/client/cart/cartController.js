@@ -3,7 +3,7 @@ var product = angular.module('DAGStoreHome.cart');
 product.controller('cartController', cartController);
 
 // Controller
-function cartController($scope, apiService, $stateParams, $filter, $rootScope, notificationService) {
+function cartController($scope, apiService, $stateParams, $filter, $rootScope, notificationService, alertService) {
     //Load Page
     $rootScope.LoadPageSuccess = true;
     // Get Data
@@ -90,14 +90,22 @@ function cartController($scope, apiService, $stateParams, $filter, $rootScope, n
         $scope.order.OrderTotal = total;
     }
 
+    console.log($scope.form)
+
     $scope.SubmitForm = SubmitForm;
+
+    
     function SubmitForm() {
         $scope.form.Order.OrderTotal = $scope.order.OrderTotal;
         $scope.form.Order.OrderItems = $scope.cart;
         console.log($scope.form)
         apiService.post("/order/create", $scope.form, function (result) {
             console.log("Thanh cong");
-           
+            alertService.alertOrderSuccess().then((result) => {
+                if (result.isConfirmed) {
+
+                }
+            });
             /* $state.go("category");*/
         }, function (error) {
             console.log("that bai")
