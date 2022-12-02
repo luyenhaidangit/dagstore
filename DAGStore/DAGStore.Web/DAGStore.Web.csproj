@@ -3559,6 +3559,7 @@
     <Content Include="Content\client\font\nazox-icon\fonts\remixicon.svg" />
     <Content Include="Content\client\font\nazox-icon\fonts\remixicon.symbol.svg" />
     <Content Include="Content\client\img\dien-thoai-nao-chup-anh-dep-nhat-hien-nay-1-1583513768935567337952.jpg" />
+    <Content Include="Content\client\img\ico\i1.png" />
     <Content Include="Content\client\img\resource\preload.gif" />
     <Content Include="Content\client\img\resource\favicon-dagstore.ico" />
     <Content Include="Content\client\img\avatar\ban-phim-128x129.png" />

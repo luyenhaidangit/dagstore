@@ -75,5 +75,12 @@ namespace DAGStore.Web.Controllers
             Session["SessionCart"] = cart;
             return Json(true, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPut]
+        public JsonResult ClearCart()
+        {
+            Session["SessionCart"] = new List<Cart>();
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
     }
 }

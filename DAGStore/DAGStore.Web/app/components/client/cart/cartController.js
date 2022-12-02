@@ -57,9 +57,6 @@ function cartController($scope, apiService, $stateParams, $filter, $rootScope, n
             OrderTotal: 0,
             CreateOn: "02-12-2022",
         }
-
-
-        
     }
 
     $scope.ChangeQuantity = ChangeQuantity;
@@ -90,8 +87,6 @@ function cartController($scope, apiService, $stateParams, $filter, $rootScope, n
         $scope.order.OrderTotal = total;
     }
 
-    console.log($scope.form)
-
     $scope.SubmitForm = SubmitForm;
 
     
@@ -103,17 +98,16 @@ function cartController($scope, apiService, $stateParams, $filter, $rootScope, n
             console.log("Thanh cong");
             alertService.alertOrderSuccess().then((result) => {
                 if (result.isConfirmed) {
-
+                    apiService.put("/cart/clearcart", $scope.form, function (result) {
+                        $scope.cart = [];
+                    }, function (error) {
+                        console.log("that bai")
+                    });
                 }
             });
-            /* $state.go("category");*/
         }, function (error) {
             console.log("that bai")
-            /* notificationService.displaySuccess("Thêm mới không thành công!");*/
-            /* console.log($scope.category);*/
         });
-
-        //console.log($scope.form)
     }
 
     //Load Page
