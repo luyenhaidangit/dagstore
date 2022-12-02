@@ -18,6 +18,8 @@ namespace DAGStore.Service
 
         OrderItem GetByID(int id);
 
+        IEnumerable<OrderItem> GetOrderItemsByOrder(int id);
+
         void SaveChanges();
     }
 
@@ -37,8 +39,13 @@ namespace DAGStore.Service
             return _OrderItemRepository.GetAll();
         }
 
+        public IEnumerable<OrderItem> GetOrderItemsByOrder(int id)
+        {
+            var listOrderItem = _OrderItemRepository.GetAll().Where(x => x.OrderID == id);
+            return listOrderItem;
+        }
 
-        public bool Add(OrderItem OrderItem)
+            public bool Add(OrderItem OrderItem)
         {
             return _OrderItemRepository.Add(OrderItem);
         }

@@ -27,6 +27,13 @@ namespace DAGStore.Web.Controllers
             return Json(listOrderItem, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult GetOrderItemsByOrder(int id)
+        {
+            var listOrderItem = _OrderItemService.GetAll().Where(x=>x.OrderID==id);
+
+            return Json(listOrderItem, JsonRequestBehavior.AllowGet);
+        }
+
         public JsonResult GetByID(int id)
         {
             var OrderItem = _OrderItemService.GetByID(id);
