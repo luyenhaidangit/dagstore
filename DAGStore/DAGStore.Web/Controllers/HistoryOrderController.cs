@@ -16,10 +16,17 @@ namespace DAGStore.Web.Controllers
     public class HistoryOrderController : Controller
     {
         IProductService _productService;
+        ICustomerService _customerService;
+        IOrderService _orderService;
+        IOrderItemService _orderItemService;
 
-        public HistoryOrderController(IProductService productService)
+
+        public HistoryOrderController(IOrderItemService orderItemService,IOrderService orderService,ICustomerService customerService,IProductService productService)
         {
             this._productService = productService;
+            this._orderService = orderService;
+            this._customerService = customerService;
+            this._orderItemService = orderItemService;
         }
 
         // GET: category
@@ -125,6 +132,27 @@ namespace DAGStore.Web.Controllers
                 smtp.Send(mail);
             }
             return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetOrderCustomer(string email)
+        {
+            //var customer = _customerService.GetAll().Where(x=>x.Equals(email)).FirstOrDefault();
+
+            var customer = _customerService.GetAll();
+
+            var order = _orderService.GetAll();
+
+            var result = from o in order
+                         join c in customer on o.CustomerID equals c.ID
+                         where c.Email == email
+                         select new
+                         {
+                             ID = o.ID,
+                             OrderItems = _orderItemService.GetOrderItemsByOrder(o.ID),
+                             Title = _orderItemService.GetOrderItemsByOrder(o.ID).ToList().Count ==1? (_productService.GetByID(_orderItemService.GetOrderItemsByOrder(o.ID).First().ProductID).Name) : (_productService.GetByID(_orderItemService.GetOrderItemsByOrder(o.ID).First().ProductID).Name) + " và " + (_orderItemService.GetOrderItemsByOrder(o.ID).ToList().Count-1)+ " sản phẩm khác",
+                         };
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }
