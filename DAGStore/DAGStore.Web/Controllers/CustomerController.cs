@@ -34,6 +34,13 @@ namespace DAGStore.Web.Controllers
             return Json(Customer, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult FindCustomerExist(string email)
+        {
+            var Customer = _CustomerService.GetAll().Any(x=>x.Email== email);
+
+            return Json(Customer, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public JsonResult Create(Customer Customer)
         {

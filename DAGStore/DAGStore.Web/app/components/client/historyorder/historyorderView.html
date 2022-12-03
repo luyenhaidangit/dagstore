@@ -19,23 +19,24 @@
 
 <div class="container-sm d-flex justify-content-center">
     <section class="wrapper login border rounded p-4" style="margin: 80px 0;">
-         <!--<div class="d-flex flex-column align-items-center">
+         <div ng-if="statusForm==1" class="d-flex flex-column align-items-center">
             <img src="/Content/client/img/ico/i1.png" class="img-fluid">
             <span class="login__text pt-4">Tra cứu thông tin đơn hàng</span>
             <form class="login__form-email d-flex flex-column">
-                <input class="login__email" type="tel" name="txtPhoneNumber" id="txtPhoneNumber" placeholder="Nhập email mua hàng" autocomplete="off" maxlength="10">
+                <input ng-model="emailverifi.email" class="login__email" type="tel" name="txtPhoneNumber" id="txtPhoneNumber" placeholder="Nhập email mua hàng">
                 <label class="hide"></label>
-                <button class="btn-continue">Tiếp tục</button>
+                <button ng-click="SendCode()" class="btn-continue">Tiếp tục</button>
+                <a ng-show="notFindExist" class="text-danger text-center">Email không tồn tại, thử lại!</a>
             </form>
-        </div>--> 
-         <div class="d2 step2 hide d-flex flex-column align-items-center" style="min-height: 400px;padding: 40px 0;">
-            <span class="login__text text-center">Mã xác nhận đã được gửi đến email <b>luyenhaidangit@gmail.com</b></span>
+        </div> 
+         <div ng-if="statusForm==2" class="d2 step2 hide d-flex flex-column align-items-center" style="min-height: 400px;padding: 40px 0;">
+            <span class="login__text text-center">Mã xác nhận đã được gửi đến email <b>{{emailverifi.email}}</b></span>
             <form class="login__form-email d-flex flex-column">
-                <input class="login__email" name="txtOTP" placeholder="Nhập mã xác nhận gồm 4 chữ số" maxlength="4" autocomplete="one-time-code">
+                <input ng-model="emailverifi.code" class="login__email" name="txtOTP" placeholder="Nhập mã xác nhận gồm 4 chữ số" maxlength="4" autocomplete="one-time-code">
                 <label class="hide"></label>
                 <button class="btn-continue" type="submit" class="btn">Tiếp tục</button>
             </form>
-            <a class="resend-sms" href="javascript:"></a>
+            <a class="resend-sms" ng-click="ReturnEmailForm()">Trở lại</a>
 
         </div> 
     </section>
