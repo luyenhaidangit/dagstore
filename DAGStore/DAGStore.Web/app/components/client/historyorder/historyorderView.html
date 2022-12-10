@@ -1,23 +1,4 @@
-
-<!--<div class="container">
-    <form>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email</label>
-            <input ng-model="emailverifi.email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" style="max-width: 200px;">
-        </div>
-
-        <button ng-click="SendCode()" type="button" class="btn btn-outline-primary">Gửi code</button>
-        <span ng-show="SendCodeSuccess" class="text-danger">Mã xác nhận đã gửi tới email của bạn</span>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Mã xác nhận</label>
-            <input ng-model="emailverifi.code" type="text" class="form-control" id="exampleInputEmail1" placeholder="Mã xác nhận" style="max-width: 200px;">
-        </div>
-
-        <button class="btn btn-primary">Xác nhận</button>
-    </form>
-</div>-->
-
-<div ng-show="false" class="container-sm d-flex justify-content-center">
+<!--<div ng-if="statusForm==2 || statusForm==1" class="container-sm d-flex justify-content-center">
     <section class="wrapper login border rounded p-4" style="margin: 80px 0;">
          <div ng-if="statusForm==1" class="d-flex flex-column align-items-center">
             <img src="/Content/client/img/ico/i1.png" class="img-fluid">
@@ -28,123 +9,20 @@
                 <button ng-click="SendCode()" class="btn-continue">Tiếp tục</button>
                 <a ng-show="notFindExist" class="text-danger text-center">Email không tồn tại, thử lại!</a>
             </form>
-        </div> 
+        </div>
          <div ng-if="statusForm==2" class="d2 step2 hide d-flex flex-column align-items-center" style="min-height: 400px;padding: 40px 0;">
             <span class="login__text text-center">Mã xác nhận đã được gửi đến email <b>{{emailverifi.email}}</b></span>
             <form class="login__form-email d-flex flex-column">
-                <input ng-model="emailverifi.code" class="login__email" name="txtOTP" placeholder="Nhập mã xác nhận gồm 4 chữ số" maxlength="4" autocomplete="one-time-code">
+                <input ng-model="emailverifi.code" class="login__email" name="txtOTP" placeholder="Nhập mã xác nhận gồm 6 chữ số" maxlength="6" autocomplete="one-time-code">
                 <label class="hide"></label>
-                <button class="btn-continue" type="submit" class="btn">Tiếp tục</button>
+                <button class="btn-continue" ng-click="SubmitForm()" class="btn">Tiếp tục</button>
+                <a ng-show="notCodeExist" class="text-danger text-center">Mã xác nhận không hợp lệ, thử lại!</a>
             </form>
             <a class="resend-sms" ng-click="ReturnEmailForm()">Trở lại</a>
 
-        </div> 
+        </div>
     </section>
 </div>
-
-<div ng-show="true" class="container">
-    <div class="d-flex align-items-start my-4">
-        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Danh sách đơn hàng đã mua</button>
-            <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Thông tin cá nhân và sổ địa chỉ</button>
-        </div>
-        <div class="tab-content" id="v-pills-tabContent">
-            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                <div class="list" id="list_order">
-                    <b>Đơn hàng đã mua gần đây</b>
-                    <table class="table" cellpadding="0" cellspacing="0">
-                        <tbody>
-                            <tr>
-                                <th>Mã đơn hàng</th>
-                                <th>Sản phẩm</th>
-                                <th>Giá</th>
-                                <th>Ngày đặt mua</th>
-                                <th>Trạng thái</th>
-                            </tr>
-
-
-                            <tr class="">
-                                <td>
-                                    <a href="/lich-su-mua-hang/don-hang-56420616" data-id="56420616" class="order_item">#56420616</a>
-                                </td>
-
-                                <td>
-                                    <a href="/lich-su-mua-hang/don-hang-56420616" data-id="56420616" class="order_item ordertypeweb_1">
-                                        <img class="img-fluid" src="https://cdn.tgdd.vn/Products/Images/86/74784/chuot-co-day-genius-dx-125-den01-400x400.jpg">
-                                    </a>
-                                    <div>
-                                        <a href="/lich-su-mua-hang/don-hang-56420616" data-id="56420616" class="order_item">Chuột có dây Genius DX-125 Đen</a>
-
-                                        <div class="link">
-                                            <a href="/lich-su-mua-hang/don-hang-56420616" data-id="56420616" class="order_item">Xem chi tiết</a>
-                                        </div>
-                                    </div>
-                                </td>
-
-                                <td>
-                                    <b>100.000₫</b>
-                                </td>
-
-                                <td>
-                                    <span>24/04/2022</span>
-                                </td>
-
-                                <td>
-                                    <i class="success" data-status="Success">Đã nhận hàng</i>
-                                </td>
-                            </tr>
-
-                            <tr class="" data-id="01363SO2108182926">
-                                <td>
-                                    <a href="/lich-su-mua-hang/don-hang-erp-01363SO2108182926" data-id="01363SO2108182926   " class="order_item">#01363SO2108182926   </a>
-                                </td>
-
-                                <td>
-                                    <a href="/lich-su-mua-hang/don-hang-erp-01363SO2108182926" data-id="01363SO2108182926   " class="order_item ordertypeweb_5">
-                                        <img src="https://cdn.tgdd.vn/Products/Images/54/230363/tai-nghe-bluetooth-true-wireless-mozard-ts13-den-1-180x125.jpg">
-                                    </a>
-                                    <div>
-                                        <a href="/lich-su-mua-hang/don-hang-erp-01363SO2108182926" data-id="01363SO2108182926   " class="order_item">Tai nghe Bluetooth TWS Mozard TS13 Đen và <b>1 s.phẩm</b> khác</a>
-
-
-
-
-                                        <div class="link">
-                                            <a href="/lich-su-mua-hang/don-hang-erp-01363SO2108182926" data-id="01363SO2108182926   " class="order_item">Xem chi tiết</a>
-                                        </div>
-                                    </div>
-                                </td>
-
-                                <td>
-                                    <b>550.000₫</b>
-                                </td>
-
-                                <td>
-                                    <span>08/08/2021</span>
-                                </td>
-
-                                <td>
-
-
-                                    <i class="success" data-status="Success">Đã nhận hàng</i>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
-            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
-        </div>
-    </div>
-
-</div>
-
-
-
 
 
 <style>
@@ -242,4 +120,199 @@
                 .table td:nth-child(2) img {
                     max-width: 60px;
                 }
+</style>-->
+
+<div ng-if="true" class="container mt-4">
+    <div class="row">
+        <dic class="col-3">
+            <ul class="nav nav-pills" role="tablist">
+                <li class="">
+                    <a class="nav-link active nav-link-tab" data-bs-toggle="pill" href="#menu1"><i class="fad fa-book-alt me-1"></i> Danh sách đơn hàng đã mua</a>
+                </li>
+                <li class="">
+                    <a class="nav-link nav-link-tab" data-bs-toggle="pill" href="#menu2"><i class="fas fa-user-circle me-1"></i> Thông tin cá nhân và số địa chỉ</a>
+                </li>
+            </ul>
+        </dic>
+
+        <dic class="col-9">
+            <div class="tab-content">
+                <div class="tab-pane container active" id="menu1">
+                    <div class="d-flex justify-content-between">
+                        <div>Chào anh <strong>Luyện Hải Đăng - 0922002360</strong></div>
+                        <div>
+                            <a href="" class="text-decoration-none"><i class="fad fa-question me-1"></i> Phản hồi, góp ý</a>
+                            <span class="text-decoration-none mx-2 text-primary">|</span>
+                            <a href="" class="text-decoration-none">Thoát tài khoản</a>
+                        </div>
+                    </div>
+
+                    <div class="border rounded-1 p-4 mt-3">
+                        <h5 class="fw-bold">Đơn hàng đã mua gần đây</h5>
+                        <aside>
+                            <i class="fad fa-info-circle text-primary"></i>
+                            <span class="ms-1">Đây là danh sách đơn hàng bạn đã mua từ ngày <strong>07/12/2020</strong> đến <strong>07/12/2022</strong></span>
+                        </aside>
+                        <table class="table mt-2 w-100">
+                            <tbody>
+                                <tr class="text-secondary pb-3">
+                                    <th class="fw-normal">Mã đơn hàng</th>
+                                    <th class="fw-normal">Sản phẩm</th>
+                                    <th class="fw-normal">Giá</th>
+                                    <th class="fw-normal">Ngày đặt mua</th>
+                                    <th class="fw-normal">Trạng thái</th>
+                                </tr>
+
+                                <tr>
+                                    <td><a href="" class="text-decoration-none">#56420616</a></td>
+                                    <td>
+                                        <a href=""><img src="/Upload/images/Product/250262.jpg" style="width: 50px; float: left;" alt=""></a>
+                                        <div>
+                                            <a href="" class="text-decoration-none text-dark">Chuột có dây Genius DX-125 Đen</a>
+                                        </div>
+                                        <div>
+                                            <a href="" class="text-decoration-none">Xem chi tiết</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-danger">100.000<sup class="text-decoration-underline">đ</sup></p>
+                                    </td>
+                                    <td>
+                                        <span>24/04/2022</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-success">Đã nhận hàng</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><a href="" class="text-decoration-none">#01363SO2</a></td>
+                                    <td>
+                                        <a href=""><img src="./images/hotdeal/hotdeal1.jpg" style="width: 50px; float: left;" alt=""></a>
+                                        <div>
+                                            <a href="" class="text-decoration-none text-dark">Tai nghe Bluetooth TWS Mozard TS13 Đen và <strong>1 s.phẩm</strong> khác</a>
+                                        </div>
+                                        <div>
+                                            <a href="" class="text-decoration-none">Xem chi tiết</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-danger">550.000<sup class="text-decoration-underline">đ</sup></p>
+                                    </td>
+                                    <td>
+                                        <span>08/08/2021</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-success">Đã nhận hàng</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane container" id="menu2">
+                    <div class="border rounded-1 p-4 mt-4">
+                        <div class="border-bottom pb-4">
+                            <h5 class="fw-normal">Thông tin cá nhân</h5>
+                            <div class="mt-3">
+                                <input type="radio" name="sex" value="Anh" id="man">
+                                <label for="man">Anh</label>
+                                <input type="radio" name="sex" value="Chị" id="woman">
+                                <label for="woman">Chị</label>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col"><input class="form-control" type="text" name="" value="Luyện Hải Đăng" id=""></div>
+                                <div class="col"><input class="form-control" type="tel" name="" value="0922002360" disabled id=""></div>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <p class="text-primary"><i class="fa-light fa-circle-plus"></i> Thêm địa chỉ nhận hàng</p>
+                            <div class="bg-light p-2">
+                                <div class="row row-cols-2 gy-2 gx-1">
+                                    <div class="col">
+                                        <select class="form-select">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <select class="form-select">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <select class="form-select">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <select class="form-select">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <input type="checkbox" name="" id="defaultAddress">
+                                    <label for="defaultAddress">Đặt làm địa chỉ mặc định</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center mt-3">
+                            <a href="" class="btn btn-primary px-5">CẬP NHẬT</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </dic>
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif !important;
+        font-size:15px;
+    }
+
+    .nav-link-tab.active {
+        background-color: #e8f0ff !important;
+        color: #288ad6 !important;
+        /*font-weight: bold;*/
+        border-radius: 0 20px 20px 0 !important;
+    }
+
+    .nav-link-tab {
+        display: block;
+        margin-bottom: 10px;
+        color: #333;
+        font-size: 14px;
+        padding: 10px;
+        line-height: 22px;
+        font-weight: unset;
+        font-family: Helvetica, Arial, sans-serif !important
+    }
+
+        .nav-link-tab:hover {
+            color: unset;
+        }
+
+        table{
+            font-size:14px !important;
+        }
+
+        .tab-content{
+            min-height: 420px;
+        }
+
 </style>

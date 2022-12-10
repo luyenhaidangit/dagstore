@@ -13,6 +13,7 @@ function historyorderController($scope, apiService, sliderService, $rootScope, $
     $scope.SendCodeSuccess = false;
     $scope.customerExist = false;
     $scope.notFindExist = false;
+    $scope.notCodeExist = false;
 
     $scope.SendCode = SendCode;
     function SendCode() {
@@ -42,6 +43,29 @@ function historyorderController($scope, apiService, sliderService, $rootScope, $
     function ReturnEmailForm() {
         $scope.statusForm = 1;
         $scope.notFindExist = false;
+    }
+
+    $scope.SubmitForm = SubmitForm;
+    function SubmitForm() {
+        apiService.get("/historyorder/getall", null, function (result) {
+            var data = result.data.data;
+            console.log(data)
+            
+
+            var resultCode = data.filter((obj) => {
+                return obj.Email === $scope.emailverifi.email && obj.Otp === $scope.emailverifi.code;
+            })
+
+           
+
+            if (resultCode.length > 0) {
+                $scope.statusForm = 3;
+            } else {
+                $scope.notCodeExist = true;
+            }
+        }, function (error) {
+            console.log("Get data fail");
+        })
     }
     
 
