@@ -7,6 +7,8 @@ function historyorderController($scope, apiService, sliderService, $rootScope, $
     //Load Page
     $rootScope.LoadPageSuccess = false;
 
+    
+
     $scope.statusForm = 1;
 
     $scope.emailverifi = {}
@@ -14,6 +16,27 @@ function historyorderController($scope, apiService, sliderService, $rootScope, $
     $scope.customerExist = false;
     $scope.notFindExist = false;
     $scope.notCodeExist = false;
+
+    apiService.get("/historyorder/GetLogin", null, function (success) {
+        var login = success.data;
+
+        console.log(login)
+        if (login.email == "") {
+            $scope.statusForm = 1;
+        } else {
+            $scope.emailverifi.email = login.email
+            apiService.get("/historyorder/GetOrderCustomer?email=" + $scope.emailverifi.email, null, function (result) {
+                $scope.OrderCustomer = result.data;
+                console.log($scope.OrderCustomer)
+            }, function (error) {
+                console.log("Get data fail");
+            })
+            $scope.statusForm = 3;
+        }
+    }, function (error) {
+        console.log("không thành công!")
+    })
+
 
    
     $scope.SendCode = SendCode;
@@ -44,11 +67,24 @@ function historyorderController($scope, apiService, sliderService, $rootScope, $
         })
     }
 
+    
+
+    
+
     $scope.ReturnEmailForm = ReturnEmailForm;
     function ReturnEmailForm() {
         $scope.statusForm = 1;
         $scope.notFindExist = false;
     }
+
+    apiService.get("/historyorder/GetLogin", null, function (result) {
+
+        console.log(result.data)
+
+
+    }, function (error) {
+        console.log("Get data fail");
+    })
 
     $scope.OrderCustomer = [];
     $scope.SubmitForm = SubmitForm;
@@ -63,14 +99,26 @@ function historyorderController($scope, apiService, sliderService, $rootScope, $
             })
 
             if (resultCode.length > 0) {
-                $scope.statusForm = 3;
-                
+
+                apiService.get("/historyorder/CreateLogin?email=" + $scope.emailverifi.email, null, function (result) {
+                    console.log("crate thanh cong")
+                   
+                }, function (error) {
+                    console.log(error)
+                });
+
                 apiService.get("/historyorder/GetOrderCustomer?email=" + $scope.emailverifi.email, null, function (result) {
                     $scope.OrderCustomer = result.data;
                     console.log($scope.OrderCustomer)
                 }, function (error) {
                     console.log("Get data fail");
                 })
+
+                
+
+                $scope.statusForm = 3;
+                
+                
             } else {
                 $scope.notCodeExist = true;
             }

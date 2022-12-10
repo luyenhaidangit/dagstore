@@ -91,6 +91,35 @@ namespace DAGStore.Web.Controllers
             return Json(new { data = cart }, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult CreateLogin(string email)
+        {
+            var cart = (EmailVerifiViewModels)Session["SessionHistoryOrder"] ?? new EmailVerifiViewModels();
+
+            EmailVerifiViewModels newItem = new EmailVerifiViewModels();
+            newItem.Email = email;
+            newItem.Otp = "";
+           
+            cart = newItem;
+
+            Session["SessionHistoryOrder"] = cart;
+            return Json("ok", JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetLogin()
+        {
+            var cart = (EmailVerifiViewModels)Session["SessionHistoryOrder"] ?? new EmailVerifiViewModels();
+            string email = "";
+            if (cart.Email != null)
+            {
+                email = cart.Email;
+            }
+            
+            return Json(new
+            {
+                email = email,
+            }, JsonRequestBehavior.AllowGet);
+        }
+
         public JsonResult SendCode(string email)
         {
             Random r = new Random();
@@ -150,6 +179,8 @@ namespace DAGStore.Web.Controllers
                              ID = o.ID,
                              OrderItems = _orderItemService.GetOrderItemsByOrder(o.ID),
                              Title = _orderItemService.GetOrderItemsByOrder(o.ID).ToList().Count ==1? (_productService.GetByID(_orderItemService.GetOrderItemsByOrder(o.ID).First().ProductID).Name) : (_productService.GetByID(_orderItemService.GetOrderItemsByOrder(o.ID).First().ProductID).Name) + " và " + (_orderItemService.GetOrderItemsByOrder(o.ID).ToList().Count-1)+ " sản phẩm khác",
+                             TotalBill = o.OrderTotal,
+                             Date = o.CreateOn,
                          };
 
             return Json(result, JsonRequestBehavior.AllowGet);
