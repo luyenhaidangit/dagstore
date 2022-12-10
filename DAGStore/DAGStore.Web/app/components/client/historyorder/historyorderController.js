@@ -15,6 +15,7 @@ function historyorderController($scope, apiService, sliderService, $rootScope, $
     $scope.notFindExist = false;
     $scope.notCodeExist = false;
 
+   
     $scope.SendCode = SendCode;
     function SendCode() {
         apiService.get("/customer/FindCustomerExist?email=" + $scope.emailverifi.email, null, function (success) {
@@ -24,12 +25,16 @@ function historyorderController($scope, apiService, sliderService, $rootScope, $
                 $scope.statusForm = 2;
                 apiService.get("/historyorder/sendcode?email=" + $scope.emailverifi.email, null, function (success) {
                     $scope.SendCodeSuccess = true;
-
                     apiService.get("/historyorder/getall", null, function (result) {
-                        console.log(result.data)
+                        var data = result.data.data;
+                        console.log(data)
+
+
+                        
                     }, function (error) {
                         console.log("Get data fail");
                     })
+                    
                 }, function (error) {
                     console.log("không thành công!")
                 })
@@ -45,6 +50,7 @@ function historyorderController($scope, apiService, sliderService, $rootScope, $
         $scope.notFindExist = false;
     }
 
+    $scope.OrderCustomer = [];
     $scope.SubmitForm = SubmitForm;
     function SubmitForm() {
         apiService.get("/historyorder/getall", null, function (result) {
@@ -56,10 +62,15 @@ function historyorderController($scope, apiService, sliderService, $rootScope, $
                 return obj.Email === $scope.emailverifi.email && obj.Otp === $scope.emailverifi.code;
             })
 
-           
-
             if (resultCode.length > 0) {
                 $scope.statusForm = 3;
+                
+                apiService.get("/historyorder/GetOrderCustomer?email=" + $scope.emailverifi.email, null, function (result) {
+                    $scope.OrderCustomer = result.data;
+                    console.log($scope.OrderCustomer)
+                }, function (error) {
+                    console.log("Get data fail");
+                })
             } else {
                 $scope.notCodeExist = true;
             }

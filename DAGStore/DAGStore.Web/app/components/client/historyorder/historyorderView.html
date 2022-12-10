@@ -1,4 +1,4 @@
-<!--<div ng-if="statusForm==2 || statusForm==1" class="container-sm d-flex justify-content-center">
+<div ng-if="statusForm==2 || statusForm==1" class="container-sm d-flex justify-content-center">
     <section class="wrapper login border rounded p-4" style="margin: 80px 0;">
          <div ng-if="statusForm==1" class="d-flex flex-column align-items-center">
             <img src="/Content/client/img/ico/i1.png" class="img-fluid">
@@ -120,9 +120,9 @@
                 .table td:nth-child(2) img {
                     max-width: 60px;
                 }
-</style>-->
+</style>
 
-<div ng-if="true" class="container mt-4">
+<div ng-if="statusForm==3" class="container mt-4">
     <div class="row">
         <dic class="col-3">
             <ul class="nav nav-pills" role="tablist">
@@ -139,7 +139,7 @@
             <div class="tab-content">
                 <div class="tab-pane container active" id="menu1">
                     <div class="d-flex justify-content-between">
-                        <div>Chào anh <strong>Luyện Hải Đăng - 0922002360</strong></div>
+                        <div>Chào anh <strong>{{OrderCustomer[0].OrderItems[0].Order.Customer.Name}} - {{OrderCustomer[0].OrderItems[0].Order.Customer.Email}}</strong></div>
                         <div>
                             <a href="" class="text-decoration-none"><i class="fad fa-question me-1"></i> Phản hồi, góp ý</a>
                             <span class="text-decoration-none mx-2 text-primary">|</span>
@@ -147,7 +147,7 @@
                         </div>
                     </div>
 
-                    <div class="border rounded-1 p-4 mt-3">
+                    <div class="border rounded-1 p-4 my-3">
                         <h5 class="fw-bold">Đơn hàng đã mua gần đây</h5>
                         <aside>
                             <i class="fad fa-info-circle text-primary"></i>
@@ -163,44 +163,27 @@
                                     <th class="fw-normal">Trạng thái</th>
                                 </tr>
 
-                                <tr>
-                                    <td><a href="" class="text-decoration-none">#56420616</a></td>
-                                    <td>
-                                        <a href=""><img src="/Upload/images/Product/250262.jpg" style="width: 50px; float: left;" alt=""></a>
+                                <tr ng-repeat="item in OrderCustomer">
+                                    <td><a href="" class="text-decoration-none">#HDD{{item.ID}}</a></td>
+                                    <td class="d-flex">
                                         <div>
-                                            <a href="" class="text-decoration-none text-dark">Chuột có dây Genius DX-125 Đen</a>
+                                            <a href=""><img src="{{item.OrderItems[0].Product.PicturePath}}" style="width: 50px;" alt=""></a>
                                         </div>
-                                        <div>
-                                            <a href="" class="text-decoration-none">Xem chi tiết</a>
+                                        <div class="d-flex flex-column">
+                                            <div>
+                                                <a href="" class="text-decoration-none text-dark">{{item.Title}}</a>
+                                            </div>
+                                            <div>
+                                                <a href="" class="text-decoration-none">Xem chi tiết</a>
+                                            </div>
                                         </div>
+                                        
                                     </td>
                                     <td>
                                         <p class="text-danger">100.000<sup class="text-decoration-underline">đ</sup></p>
                                     </td>
                                     <td>
                                         <span>24/04/2022</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-success">Đã nhận hàng</span>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><a href="" class="text-decoration-none">#01363SO2</a></td>
-                                    <td>
-                                        <a href=""><img src="./images/hotdeal/hotdeal1.jpg" style="width: 50px; float: left;" alt=""></a>
-                                        <div>
-                                            <a href="" class="text-decoration-none text-dark">Tai nghe Bluetooth TWS Mozard TS13 Đen và <strong>1 s.phẩm</strong> khác</a>
-                                        </div>
-                                        <div>
-                                            <a href="" class="text-decoration-none">Xem chi tiết</a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p class="text-danger">550.000<sup class="text-decoration-underline">đ</sup></p>
-                                    </td>
-                                    <td>
-                                        <span>08/08/2021</span>
                                     </td>
                                     <td>
                                         <span class="text-success">Đã nhận hàng</span>
