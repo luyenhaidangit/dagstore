@@ -10,6 +10,7 @@ function productController($scope, apiService, $stateParams, $filter, notificati
     // Load Product Detail
     $scope.product = {
     }
+    $scope.productSuggestCategory = [];
 
     // Increase Views Product
     apiService.put("/product/IncreaseViewCount/" + $stateParams.id,null, function (success) {
@@ -23,6 +24,18 @@ function productController($scope, apiService, $stateParams, $filter, notificati
         $scope.product = result.data;
         console.log($scope.product)
         $scope.Message = $sce.trustAsHtml($scope.product.FullDescription);
+
+        //Get Suggest Product Category
+        // Get Product Suggest Category
+        apiService.get("/product/GetProductsByCategory?id=" + $scope.product.CategoryID, null, function (result) {
+            $scope.productSuggestCategory = result.data.filter((obj) => {
+                return obj.IDProduct !== $scope.product.ID;
+            });
+            console.log($scope.productSuggestCategory)
+            
+        }, function (error) {
+            console.log("Không thể tải dữ liệu");
+        })
     }, function (error) {
         console.log("Không thể tải dữ liệu");
     })
@@ -47,6 +60,8 @@ function productController($scope, apiService, $stateParams, $filter, notificati
            /* console.log($scope.category);*/
         });
     }
+
+    
 
     //Load Page
     angular.element(function () {
