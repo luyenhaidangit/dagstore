@@ -14,6 +14,15 @@ product.config(function ($stateProvider, $urlRouterProvider) {
                 $('html, body').animate({ scrollTop: -10000 }, 0);
             }
         },
+        {
+            name: 'payment',
+            url: '/payment',
+            templateUrl: '/app/components/client/cart/paymentView.html',
+            controller: "paymentController",
+            onEnter: function () {
+                $('html, body').animate({ scrollTop: -10000 }, 0);
+            }
+        },
     ];
     states.forEach((state) => $stateProvider.state(state));
 });

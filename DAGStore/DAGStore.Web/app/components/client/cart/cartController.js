@@ -3,7 +3,7 @@ var product = angular.module('DAGStoreHome.cart');
 product.controller('cartController', cartController);
 
 // Controller
-function cartController($scope, apiService, $stateParams, $filter, $rootScope, notificationService, alertService) {
+function cartController($scope, apiService, $stateParams, $filter, $rootScope, notificationService, alertService, $window) {
     //Load Page
     $rootScope.LoadPageSuccess = true;
     // Get Data
@@ -94,20 +94,30 @@ function cartController($scope, apiService, $stateParams, $filter, $rootScope, n
         $scope.form.Order.OrderTotal = $scope.order.OrderTotal;
         $scope.form.Order.OrderItems = $scope.cart;
         console.log($scope.form)
-        apiService.post("/order/create", $scope.form, function (result) {
-            console.log("Thanh cong");
-            alertService.alertOrderSuccess().then((result) => {
-                if (result.isConfirmed) {
-                    apiService.put("/cart/clearcart", $scope.form, function (result) {
-                        $scope.cart = [];
-                    }, function (error) {
-                        console.log("that bai")
-                    });
-                }
+        if ($scope.form.Order.PaymentFormat == "0") {
+            apiService.post("/order/create", $scope.form, function (result) {
+                console.log("Thanh cong");
+                alertService.alertOrderSuccess().then((result) => {
+                    if (result.isConfirmed) {
+                        apiService.put("/cart/clearcart", $scope.form, function (result) {
+                            $scope.cart = [];
+                        }, function (error) {
+                            console.log("that bai")
+                        });
+                    }
+                });
+            }, function (error) {
+                console.log("that bai")
             });
-        }, function (error) {
-            console.log("that bai")
-        });
+        } else {
+            apiService.post("/payment/payment", $scope.form, function (result) {
+                $window.open(result.data, '_blank');
+                console.log(result.data)
+            }, function (error) {
+                console.log("that bai")
+            });
+        }
+        
     }
 
     //Load Page

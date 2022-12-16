@@ -72,4 +72,14 @@
             }
         }
     });
+
+    app.filter("nullImage", function () {
+        return function (input) {
+            if (input) {
+                return input;
+            } else {
+                return "/Upload/images/Slider/IndexMain/null-va-mot-so-nghia-thong-dung.png";
+            }
+        }
+    });
 })(angular.module('DAGStore.common'));

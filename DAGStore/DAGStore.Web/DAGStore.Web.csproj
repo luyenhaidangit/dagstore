@@ -253,6 +253,7 @@
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\OrderItemController.cs" />
     <Compile Include="Controllers\PageController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductDiscontController.cs" />
     <Compile Include="Controllers\SliderController.cs" />
@@ -271,6 +272,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
+    <Compile Include="ViewModels\PayViewModels.cs" />
     <Compile Include="ViewModels\OrderViewModels.cs" />
     <Compile Include="ViewModels\EmailVerifiViewModels.cs" />
     <Compile Include="ViewModels\IdentityModels.cs" />
@@ -378,7 +380,9 @@
     <Content Include="app\components\admin\supplier\supplierListController.js" />
     <Content Include="app\components\admin\supplier\supplierListView.html" />
     <Content Include="app\components\client\cart\cart.module.js" />
+    <Content Include="app\components\client\cart\paymentController.js" />
     <Content Include="app\components\client\cart\cartController.js" />
+    <Content Include="app\components\client\cart\paymentView.html" />
     <Content Include="app\components\client\cart\cartView.html" />
     <Content Include="app\components\client\category\category.module.js" />
     <Content Include="app\components\client\category\categoryController.js" />
@@ -6795,6 +6799,7 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\viewss.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Payment\PaymentConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\client\ico\" />

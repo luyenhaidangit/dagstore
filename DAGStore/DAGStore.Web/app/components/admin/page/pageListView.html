@@ -37,7 +37,7 @@
                         <tr ng-repeat="item in pages track by $index" data-show="????">
                             <td>{{$index+1}}</td>
                             <td>{{item.ID}}</td>
-                            <td class="d-flex justify-content-center">{{item.PictureAvatar}}"</td>
+                            <td class="d-flex justify-content-center">{{item.PictureAvatar|nullImage}}"</td>
                             <td>{{item.Title}}</td>
                             <td>{{item.Content | existDataFilter}}</td>
                             <td>{{item.Alias}}</td>
