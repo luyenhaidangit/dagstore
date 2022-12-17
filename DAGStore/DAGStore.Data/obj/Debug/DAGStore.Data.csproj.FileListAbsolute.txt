@@ -61,10 +61,10 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.D
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddProductItem.resources
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddTableProductConfig.resources
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AllowNullCategoryID.resources
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddImageProduct.resources
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.EditOrderBill.resources
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.csproj.GenerateResource.cache
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.csproj.CoreCompileInputs.cache
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.csproj.CopyComplete
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.pdb
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddImageProduct.resources
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.EditOrderBill.resources

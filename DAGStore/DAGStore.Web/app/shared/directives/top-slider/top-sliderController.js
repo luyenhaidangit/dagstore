@@ -8,6 +8,13 @@ function topSliderController($scope, apiService) {
     $scope.sliders = [];
     apiService.get("/index/showslider", null, function (result) {
         $scope.sliders = result.data;
+        console.log($scope.sliders)
+        var swiper = new Swiper(".mySwiper", {
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
     }, function (error) {
         console.log("Get data fail");
     })
