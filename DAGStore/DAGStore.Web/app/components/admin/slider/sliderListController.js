@@ -44,31 +44,60 @@ function sliderListController($scope, apiService, dataTableService, notification
     };
     $scope.getItems();
 
-    // Delete Object
-    $scope.DeleteSlider = DeleteSlider;
-    function DeleteSlider(e, id) {
-        alertService.alertSubmitDelete().then((result) => {
-            if (result.isConfirmed) {
-                var config = {
-                    params: {
-                        id: id
-                    }
-                }
-                apiService.del("/slider/delete", config, function (success) {
-                    notificationService.displaySuccess("Xóa thành công bản ghi!");
-                    let pageIndex = $("#DAGStoreDatatable").DataTable().page.info().page;
-                    let recordOfPage = $("#DAGStoreDatatable").DataTable().page.info().length;
-                    let recordIndexOfPage = $(e.currentTarget).parents('tr').index();
-                    let index = pageIndex * recordOfPage + recordIndexOfPage;
-                    console.log($(e.currentTarget).parents('tr').index());
-                    $("#DAGStoreDatatable").DataTable().row(index).remove().draw();
-               
-                }, function (error) {
-                    console.log("Xóa không thành công!")
-                })
+    $scope.AddSliderItemTop = AddSliderItemTop;
+    function AddSliderItemTop() {
+        console.log("om")
+        var item = {
+            SliderID: 1,
+            ImagePath: "",
+            URL: "#",
+            DisplayOrder: -1,
+        }
+        $scope.sliders[0].SliderItems.push(item); 
+    }
 
-                alertService.alertDeleteSuccess();
-            }
-        });
+    $scope.ChangeImage = ChangeImage;
+    function ChangeImage(item) {
+        var finder = new CKFinder();
+        finder.selectActionFunction = function (fileUrl) {
+            item.ImagePath = fileUrl;
+            $scope.$apply();
+        }
+        finder.popup();
+      
+    }
+
+    $scope.DeleteImage = DeleteImage;
+    function DeleteImage(value) {
+        $scope.sliders[0].SliderItems = $scope.sliders[0].SliderItems.filter(function (item) {
+            return item !== value
+        })
+        
+    }
+
+    $scope.RemoveDetailBill = RemoveDetailBill;
+    function RemoveDetailBill(value) {
+        $scope.products.push(value.ProductDetail);
+        
+        InvoiceTotalProcessing();
+    }
+
+    $scope.UpdateSlider = UpdateSlider;
+    function UpdateSlider() {
+        console.log($scope.sliders)
+        for (let i = 0; i < $scope.sliders.length; i++) {
+            apiService.put("/slider/update", $scope.sliders[i], function (result) {
+               
+            }, function (error) {
+          
+            });
+        }
+        console.log("ok")
+        notificationService.displaySuccess("Cập nhật thông tin thành công!");
+        //apiService.put("/slider/update", $scope.sliders, function (result) {
+        //    notificationService.displaySuccess("Cập nhật thông tin thành công!");
+        //}, function (error) {
+        //    notificationService.displaySuccess("Cập nhật thông tin không thành công!");
+        //});
     }
 }
