@@ -11,6 +11,7 @@ var app = angular.module('DAGStore', [
     'DAGStore.page',
     'DAGStore.customer',
     'DAGStore.order',
+    'DAGStore.suggest',
     'DAGStore.common',
 ]);
 

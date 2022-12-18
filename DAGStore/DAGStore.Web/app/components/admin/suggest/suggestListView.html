@@ -1,0 +1,308 @@
+﻿<!-- Begin: Page Title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0">{{config.namePage}}</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a ui-sref="dashboard">DAGStore</a></li>
+                    <li class="breadcrumb-item active"><a ui-sref="{{config.urlPage}}">{{config.namePage}}</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Begin: Page Title -->
+<!-- Begin: Table -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-md-2 col-form-label">Đề xuất tùy chỉnh</label>
+                </div>
+                <div class="form-group row option-promo d-flex flex-column" style="padding:0 40px 0 40px;">
+                    <div ng-repeat="suggest in suggests | filter: { Type: 0 } | limitTo:4:0" ui-sref="suggest({id:item.ID})" class="option-promo__item d-flex flex-column w-100 mb-4 mt-2" style="background-color:{{suggest.BackgroundColor}};cursor:pointer;">
+                        <div class="option-promo__item-link">
+                            <img class="{{suggest.Title == null ? 'd-none' : 'img-fluid' }}" src="{{suggest.ImagePath}}" alt="">
+                            <p class="{{suggest.Title == '' ? 'd-none' : 'suggest__title' }} mb-1">{{suggest.Title}}</p>
+
+                        </div>
+                        <div class="option-promo__item-action">
+                            <i class="fas fa-wrench text-dark mr-2" ng-click="EditSuggest(suggest)" data-toggle="modal" data-target=".bs-example-modal-center"></i>
+                            <i class="fas fa-eye text-primary mr-2"></i>
+                            <i class="far fa-times-circle text-danger"></i>
+                        </div>
+
+                        <div class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header py-1">
+                                        <h6 class="modal-title mt-0">Đề xuất tùy chỉnh</h6>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group row">
+                                            <label for="example-text-input" class="col-md-2 col-form-label">Tiêu đề</label>
+                                            <div class="col-md-10">
+                                                <input ng-model="dataModal.Title" ng-change="Update(dataModal)" class="form-control form-control-sm" type="text">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="example-text-input" class="col-md-2 col-form-label">Màu chữ</label>
+                                            <div class="col-md-10">
+                                                <input ng-model="dataModal.TextColor" ng-change="Update(dataModal)" name="shortdescriptionendow" class="form-control form-control-sm" type="text" value="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="example-text-input" class="col-md-2 col-form-label">Màu nền</label>
+                                            <div class="col-md-10">
+                                                <input ng-model="dataModal.BackgroundColor" ng-change="Update(dataModal)" name="shortdescriptionendow" class="form-control form-control-sm" type="text" value="">
+                                            </div>
+                                        </div>
+                                        <!-- ImagePath -->
+                                        <div class="form-group row">
+                                            <label for="example-text-input" class="col-md-2 col-form-label">Ảnh</label>
+                                            <div class="col-md-10">
+                                                <div class="input-control d-flex align-items-center">
+                                                    <button ng-click="ChooseImage(true)" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Chọn ảnh</button>
+                                                    <i ng-click="ChooseImage(false)" style="cursor:pointer" ng-show="true" class="fal fa-times-circle text-danger ml-3"></i>
+                                                    <input type="hidden" name="picturepath" ng-model="dataModal.ImagePath">
+                                                </div>
+
+                                                <img style="width:160px" class="animate__fadeInDown img-fluid mt-3 rounded" ng-show="true" name="picturepath" src="{{dataModal.ImagePath}}">
+                                            </div>
+                                        </div>
+                                        <!--<div class="add-btn mb-0 d-flex mt-4 justify-content-end" style="gap:12px">
+                                            <button ng-click="Update(dataModal)" class="btn btn-primary waves-effect waves-light" data-dismiss="modal" aria-label="Close">Xác nhận</button>
+                                        </div>-->
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+
+                    </div>
+                    <button type="button" class="btn btn-primary waves-effect waves-light mt-2" ng-click="AddSliderItemTop()">
+                        Thêm <i class="ri-arrow-right-line align-middle ml-2"></i>
+                    </button>
+                </div>
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-md-2 col-form-label">Đề xuất đầu trang</label>
+                </div>
+                <div class="form-group row option-promo" style="padding:0 40px 0 40px;">
+                    <div ng-repeat="suggest in suggests | filter: { Type: 1 } | limitTo:4:0" ui-sref="suggest({id:item.ID})" class="option-promo__item d-flex flex-column">
+                        <div class="option-promo__item-link">
+                            <img src="{{suggest.ImagePath}}" ng-click="ChangeImage(suggest)" alt="" class="option-promo__item-icon" style="cursor:pointer">
+                            <input ng-model="suggest.Title" style="min-width:40px;" ng-maxlength="500" class="form-control form-control-sm ml-2" type="text" />
+                        </div>
+                        <div class="option-promo__item-action">
+                            <i class="fas fa-eye text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="example-text-input" style="margin-top: 16px;" class="col-md-2 col-form-label">Đề xuất banner</label>
+                </div>
+                <div class="form-group row" ng-repeat="item in suggests | filter:{Type:2}" style="padding:0 40px 0 40px;">
+                    <div class="mb-3">
+                        <div class="img-slider-top rounded d-flex align-items-center row">
+                            <div class="col-8" style="cursor:pointer;">
+                                <img src="{{item.ImagePath | nullImage}}" ng-click="ChangeImage(item)" style="cursor:pointer" class="img-fluid rounded" alt="Responsive image">
+                            </div>
+                            <i class="fas fa-eye text-primary" style="cursor:pointer"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-btn mb-0 d-flex mt-4 justify-content-end" style="gap:12px">
+                    <button ng-click="UpdateSuggest()" class="btn btn-success waves-effect waves-light">Lưu thông tin</button>
+                </div>
+
+                <!--<button type="button" class="btn btn-primary waves-effect waves-light" ng-click="AddSliderItemTop()">
+        Thêm <i class="ri-arrow-right-line align-middle ml-2"></i>
+    </button>
+
+    <div class="form-group row">
+        <label for="example-text-input" class="col-md-2 col-form-label">Ảnh background chính</label>
+    </div>
+    <div class="form-group row" ng-repeat="item in sliders | filter:{Position:'index_main'}">
+        <div class="mb-3" ng-repeat="image in item.SliderItems">
+            <div class="img-slider-top rounded d-flex align-items-center row">
+                <div class="col-8" style="cursor:pointer;" ng-click="ChangeImage(image)">
+                    <img src="{{image.ImagePath | nullImage}}" class="img-fluid rounded" alt="Responsive image">
+                </div>
+            </div>
+        </div>
+    </div>-->
+                <!--<div class="add-btn mb-4 d-flex justify-content-end" style="gap:12px">
+        <button ng-click="UpdateSlider()" class="btn btn-primary waves-effect waves-light">Xác nhận</button>
+    </div>-->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End: Table -->
+
+<!-- CSS -->
+<style>
+    /* #region : Option Promo*/
+    .option-promo {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .option-promo__item {
+        display: flex;
+        align-items: center;
+        min-height: 100px;
+        flex: 1;
+        height: auto;
+        padding: 16px 0;
+        border-radius: 12px;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        position: relative;
+    }
+
+    .option-promo__item-action{
+        position: absolute;
+        bottom: -40px;
+        cursor:pointer;
+    }
+
+    .option-promo__item-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .option-promo__item-icon {
+        height: 72px;
+    }
+
+    .option-promo__item-link > span {
+        margin-left: 12px;
+        color: #222;
+        font-size: 22px;
+        line-height: 28px;
+        max-width: 70%;
+    }
+    .suggest__title {
+        display: block;
+        padding: 0px 0;
+        font-size: 44px;
+        color: #fff;
+        overflow: hidden;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    @media only screen and (max-width: 1200px) {
+        .option-promo__item {
+            /* padding: 0; */
+            box-shadow: none;
+            min-height: 120px;
+        }
+
+        .option-promo__item-link {
+            flex-direction: column;
+            flex: 1;
+            padding: 0;
+        }
+
+            .option-promo__item-link > span {
+                min-width: 100%;
+                margin-left: 0px;
+                margin-top: 4px;
+                font-size: 20px;
+                line-height: 20px;
+                text-align: center;
+            }
+    }
+
+    @media only screen and (max-width: 992px) {
+        .option-promo {
+            align-items: flex-start;
+        }
+
+        .option-promo__item-link {
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100px;
+        }
+
+            .option-promo__item-link > span {
+                min-width: 100%;
+                margin-left: 0px;
+                margin-top: 8px;
+                font-size: 18px;
+                line-height: 20px;
+            }
+    }
+
+    @media only screen and (max-width: 576px) {
+        .option-promo {
+            gap: 12px;
+        }
+
+        .option-promo__item {
+            min-width: 20%;
+            padding: 0;
+            background-color: unset;
+        }
+
+        .option-promo__item-icon {
+            height: 60px;
+        }
+
+        .option-promo__item-link {
+            justify-content: flex-start;
+        }
+
+            .option-promo__item-link > span {
+                font-size: 12px;
+                line-height: 16px;
+            }
+    }
+    /* #endregion */
+</style>
+
+<link href="/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+<link href="/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+<link href="/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+<link href="/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" />
+<!-- JS -->
+
+<script src="/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+<script src="/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="/assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+<script src="/assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+<script src="/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="/assets/libs/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="/assets/libs/datatables.net/html5/buttons.html5.min.js"></script>
+
+<script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="assets/libs/jszip/jszip.min.js"></script>
+<script src="assets/libs/pdfmake/build/pdfmake.min.js"></script>
+<script src="assets/libs/pdfmake/build/vfs_fonts.js"></script>
+<script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+<script src="/assets/libs/datatables.net/searchpanes/dataTables.searchPanes.min.js"></script>
+<script src="/assets/libs/datatables.net/select/dataTables.select.min.js"></script>
