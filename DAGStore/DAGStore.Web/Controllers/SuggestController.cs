@@ -58,12 +58,16 @@ namespace DAGStore.Web.Controllers
         {
             _SuggestService.Add(Suggest);
             _SuggestService.SaveChanges();
-            foreach (var SuggestProduct in Suggest.SuggestProducts)
-            {
-                SuggestProduct.SuggestID = Suggest.ID;
-                _SuggestProductService.Add(SuggestProduct);
-            }
-            _SuggestProductService.SaveChanges();
+            //if (Suggest.SuggestProducts.Count() > 0)
+            //{
+            //    foreach (var SuggestProduct in Suggest.SuggestProducts)
+            //    {
+            //        SuggestProduct.SuggestID = Suggest.ID;
+            //        _SuggestProductService.Add(SuggestProduct);
+            //    }
+            //    _SuggestProductService.SaveChanges();
+            //}
+            
             return Json(true, JsonRequestBehavior.AllowGet);
         }
 

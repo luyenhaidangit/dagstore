@@ -33,7 +33,7 @@
                         <div class="option-promo__item-action">
                             <i class="fas fa-wrench text-dark mr-2" ng-click="EditSuggest(suggest)" data-toggle="modal" data-target=".bs-example-modal-center"></i>
                             <i class="fas fa-eye text-primary mr-2"></i>
-                            <i class="far fa-times-circle text-danger"></i>
+                            <i class="far fa-times-circle text-danger" ng-click="DeleteSuggest(suggest.ID)"></i>
                         </div>
 
                         <div class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -87,7 +87,7 @@
                         </div><!-- /.modal -->
 
                     </div>
-                    <button type="button" class="btn btn-primary waves-effect waves-light mt-2" ng-click="AddSliderItemTop()">
+                    <button type="button" class="btn btn-primary waves-effect waves-light mt-2" ng-click="AddCustomSuggest()">
                         Thêm <i class="ri-arrow-right-line align-middle ml-2"></i>
                     </button>
                 </div>
@@ -98,7 +98,7 @@
                     <div ng-repeat="suggest in suggests | filter: { Type: 1 } | limitTo:4:0" ui-sref="suggest({id:item.ID})" class="option-promo__item d-flex flex-column">
                         <div class="option-promo__item-link">
                             <img src="{{suggest.ImagePath}}" ng-click="ChangeImage(suggest)" alt="" class="option-promo__item-icon" style="cursor:pointer">
-                            <input ng-model="suggest.Title" style="min-width:40px;" ng-maxlength="500" class="form-control form-control-sm ml-2" type="text" />
+                            <input ng-model="suggest.Title" ng-change="Update(dataModal)" style="min-width:40px;" ng-maxlength="500" class="form-control form-control-sm ml-2" type="text" />
                         </div>
                         <div class="option-promo__item-action">
                             <i class="fas fa-eye text-primary"></i>
