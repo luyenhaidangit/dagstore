@@ -363,12 +363,8 @@
     <Content Include="app\components\admin\slider\sliderListController.js" />
     <Content Include="app\components\admin\slider\sliderListView.html" />
     <Content Include="app\components\admin\suggest\suggest.module.js" />
-    <Content Include="app\components\admin\suggest\suggestAddController.js" />
-    <Content Include="app\components\admin\suggest\suggestAddView.html" />
     <Content Include="app\components\admin\suggest\suggestEditController.js" />
     <Content Include="app\components\admin\suggest\suggestEditView.html" />
-    <Content Include="app\components\admin\suggest\suggestInfoController.js" />
-    <Content Include="app\components\admin\suggest\suggestInfoView.html" />
     <Content Include="app\components\admin\suggest\suggestListController.js" />
     <Content Include="app\components\admin\suggest\suggestListView.html" />
     <Content Include="app\components\admin\supplier\supplier.module.js" />

@@ -13,12 +13,12 @@ suggest.config(function ($stateProvider, $urlRouterProvider) {
             parent: 'base',
         },
         {
-            name: 'add-suggest',
-            url: '/suggest/add',
-            templateUrl: '/app/components/admin/suggest/suggestAddView.html',
-            controller: "suggestAddController",
+            name: 'edit-suggest',
+            url: '/suggest/edit/:id',
+            templateUrl: '/app/components/admin/suggest/suggestEditView.html',
+            controller: "suggestEditController",
             parent: 'base',
-        },
+        }
         ];
     states.forEach((state) => $stateProvider.state(state));
 });
