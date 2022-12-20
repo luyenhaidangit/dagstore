@@ -47,13 +47,14 @@
                                     <input type="checkbox" class="custom-control-input" id="ordercheck">
                                     <label class="custom-control-label" for="ordercheck">&nbsp;</label>
                                 </div>
-                                <th>Mã đơn</th>
-                                <th>Ngày đặt</th>
-                                <th>Khách hàng</th>
-                                <th>Tổng tiền</th>
-                                <th>Trạng thái</th>
-                                <th>Thanh toán</th>
-                                <th style="width: 120px;">Hành động</th>
+                            <th>Mã đơn</th>
+                            <th>Ngày đặt</th>
+                            <th>Khách hàng</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                            <th>Thanh toán</th>
+                            <th>Xử lý</th>
+                            <th style="width: 120px;">Hành động</th>
                         </tr>
                     </thead>
 
@@ -72,29 +73,38 @@
                             <td>{{item.Customer.Name}}</td>
                             <td align="right">{{item.OrderTotal | formatCurrencyVND}}</td>
                             <!--<td>{{item.ShippingAddress}}</td>-->
-                        <td>
-                            <div ng-if="item.PaymentFormat==1" class="badge badge-soft-success font-size-12">Thanh toán</div>
-                            <div ng-if="item.PaymentFormat==0" class="badge badge-soft-warning font-size-12">Chưa thanh toán</div>
-                            <!--<div class="badge badge-soft-danger font-size-12">Chargeback</div>-->
-                            <!--<button ng-if="item.PaymentFormat==0" type="button" ng-class="{'btn btn-success waves-effect waves-light btn-sm':item.PaymentFormat==0,'btn btn-danger waves-effect waves-light btn-sm':item.PaymentFormat!=0}">{{item.PaymentFormat | paymentFormat}}</button>
-                            <button ng-if="item.PaymentFormat==1" type="button" ng-class="{'btn btn-danger waves-effect waves-light btn-sm':item.PaymentStatus==0,'btn btn-success waves-effect waves-light btn-sm':item.PaymentStatus==1}">{{item.PaymentFormat | paymentFormat}}</button>-->
-                        </td>
-                        <td>
-                            <!--<button ng-if="item.OrderStatus==0" type="button" class="btn btn-warning waves-effect waves-light btn-sm">{{item.OrderStatus | statusOrderFormat}}</button>
+                            <td>
+                                <div ng-if="item.OrderStatus==1" class="badge badge-soft-warning font-size-12">Đang giao hàng</div>
+                                <div ng-if="item.OrderStatus==0" class="badge badge-soft-danger font-size-12">Đang chờ duyệt</div>
+                                <!--<div class="badge badge-soft-danger font-size-12">Chargeback</div>-->
+                                <!--<button ng-if="item.PaymentFormat==0" type="button" ng-class="{'btn btn-success waves-effect waves-light btn-sm':item.PaymentFormat==0,'btn btn-danger waves-effect waves-light btn-sm':item.PaymentFormat!=0}">{{item.PaymentFormat | paymentFormat}}</button>
+        <button ng-if="item.PaymentFormat==1" type="button" ng-class="{'btn btn-danger waves-effect waves-light btn-sm':item.PaymentStatus==0,'btn btn-success waves-effect waves-light btn-sm':item.PaymentStatus==1}">{{item.PaymentFormat | paymentFormat}}</button>-->
+                            </td>
+                            <td>
+                                <div ng-if="item.PaymentStatus==0" class="badge badge-soft-danger font-size-12">Chưa thanh toán</div>
+                            </td>
+                            <td>
+                                <!--<button ng-if="item.OrderStatus==0" type="button" class="btn btn-danger waves-effect waves-light btn-sm">{{item.OrderStatus | statusOrderFormat}}</button>
     <button ng-if="item.OrderStatus==1" type="button" class="btn btn-success waves-effect waves-light btn-sm">{{item.OrderStatus | statusOrderFormat}}</button>-->
-                            <div ng-if="item.PaymentFormat==1" class="badge badge-soft-success font-size-12">Thanh toán</div>
-                            <div ng-if="item.PaymentFormat==0" class="badge badge-soft-warning font-size-12">Chưa thanh toán</div>
-                        </td>
+                                <!--<div ng-if="item.PaymentFormat==1" class="badge badge-soft-success font-size-12">Thanh toán</div>
+    <div ng-if="item.PaymentFormat==0" class="badge badge-soft-danger font-size-12">Chưa thanh toán</div>-->
+                                <button ng-if="item.PaymentStatus==0 && item.OrderStatus==1" ng-click="ProcessingPaymentOrder(item,2)" type="button" class="btn btn-primary waves-effect waves-light btn-sm mr-2">Thanh toán</button>
+                                <button ng-if="item.OrderStatus==1" ng-click="ProcessingOrder(item,2)" type="button" class="btn btn-success waves-effect waves-light btn-sm mr-2">Giao hàng</button>
+
+                                <button ng-if="item.OrderStatus==0" ng-click="ProcessingOrder(item,1)" type="button" class="btn btn-light waves-effect waves-light btn-sm mr-2">Duyệt đơn</button>
+                                <button ng-if="item.OrderStatus==0 " type="button" class="btn btn-danger waves-effect waves-light btn-sm">Hủy đơn</button>
+                            </td>
                             <!--<td>{{item.OrderTotal | formatCurrencyVND}}</td>-->
-                        <td>
-                            <!--<span ui-sref="info-order({id:item.ID})" class="badge badge-info" style="cursor: pointer;padding: 8px;"> <i class="fas fa-eye"></i></span>
-    <span ui-sref="edit-product({id:item.ID})" class="badge badge-primary" style="cursor: pointer;padding: 8px;"> <i class="far fa-edit"></i></span>
-    <span ng-click="DeleteOrder($event,item.ID);" class="badge badge-danger" style="cursor: pointer;padding: 8px;"> <i class="fas fa-trash-alt"></i></span>-->
-                            <div class="custom-control custom-checkbox">
-                                <a href="javascript:void(0);" class="mr-3 text-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="mdi mdi-pencil font-size-18"></i></a>
-                                <a href="javascript:void(0);" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="mdi mdi-trash-can font-size-18"></i></a>
-                            </div>
-                        </td>
+                            <td>
+                                <!--<span ui-sref="info-order({id:item.ID})" class="badge badge-info" style="cursor: pointer;padding: 8px;"> <i class="fas fa-eye"></i></span>
+        <span ui-sref="edit-product({id:item.ID})" class="badge badge-primary" style="cursor: pointer;padding: 8px;"> <i class="far fa-edit"></i></span>
+        <span ng-click="DeleteOrder($event,item.ID);" class="badge badge-danger" style="cursor: pointer;padding: 8px;"> <i class="fas fa-trash-alt"></i></span>-->
+                                <div class="custom-control custom-checkbox">
+                                    <a href="javascript:void(0);" ui-sref="info-order({id:item.ID})" class="mr-3 text-info" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fas fa-eye"></i></a>
+                                    <a href="javascript:void(0);" class="mr-3 text-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="mdi mdi-pencil font-size-18"></i></a>
+                                    <a href="javascript:void(0);" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="mdi mdi-trash-can font-size-18"></i></a>
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

@@ -63,6 +63,29 @@ function orderListController($scope, apiService, dataTableService, notificationS
         console.log("Get data fail");
     })
 
+    $scope.ProcessingOrder = ProcessingOrder;
+    function ProcessingOrder(order,status) {
+        console.log(order)
+        order.OrderStatus = status;
+        order.CreateOn = "20-12-2022";
+
+        alertService.alertSubmitDelete().then((result) => {
+            if (result.isConfirmed) {
+               
+                apiService.put("/order/update", order, function (result) {
+                    notificationService.displaySuccess("Cập nhật thông tin thành công!");
+
+                }, function (error) {
+                    notificationService.displaySuccess("Cập nhật thông tin không thành công!");
+
+                });
+
+            }
+        });
+
+        
+    }
+
     // Delete Object
     $scope.Deleteorder = Deleteorder;
     function Deleteorder(e, id) {
