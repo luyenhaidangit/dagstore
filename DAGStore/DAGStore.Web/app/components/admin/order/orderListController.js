@@ -31,8 +31,34 @@ function orderListController($scope, apiService, dataTableService, notificationS
     $scope.orders = [];
     apiService.get("/order/getall", null, function (result) {
         $scope.orders = result.data;
-        dataTableService.createDataTable($scope.config)
-        console.log($scope.orders)
+
+        angular.element(document).ready(function () {
+            $.fn.dataTable.ext.errMode = 'none';
+
+            $("#DAGStoreDatatable").DataTable({
+                
+                order: [
+                    [1, "asc"]
+                ],
+                language: {
+                    paginate: {
+                        previous: "<i class='mdi mdi-chevron-left'>",
+                        next: "<i class='mdi mdi-chevron-right'>"
+                    },
+                    info: "Hiển thị từ _START_ đến _END_ trong _TOTAL_ bản ghi",
+                    search: "Tìm kiếm",
+                    infoEmpty: "Không tìm thấy bản ghi",
+                    infoFiltered: "(Trong tổng số _MAX_ bản ghi)",
+                    lengthMenu: "Hiển thị _MENU_ bản ghi",
+                },
+                drawCallback: function () {
+                    $(".dataTables_paginate > .pagination").addClass("pagination-rounded")
+                },
+               /* columnDefs: $scope.config.columnDefs,*/
+            })
+        });
+
+        
     }, function (error) {
         console.log("Get data fail");
     })
