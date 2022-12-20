@@ -30,6 +30,20 @@
             return alertDeleteSuccess;
         }
 
+        function alertStatusOrder(content) {
+            var alertSubmitDelete = Swal.fire({
+                title: content
+                , text: "Bạn sẽ không thể khôi phục thông tin bản ghi sau khi xác nhận!"
+                , icon: "warning"
+                , showCancelButton: !0
+                , confirmButtonColor: "#34c38f"
+                , cancelButtonColor: "#ff3d60"
+                , confirmButtonText: "Xác nhận"
+                , cancelButtonText: "Bỏ qua"
+            })
+            return alertSubmitDelete;
+        }
+
         function alertOrderSuccess() {
             var alertOrderSuccess = Swal.fire(
                 'Thành công!',
@@ -48,11 +62,22 @@
             return alertDeleteError;
         }
 
+        function alertChangeStatusOrderError(message) {
+            var alertDeleteError = Swal.fire(
+                'Thất bại!',
+                message,
+                'error'
+            )
+            return alertDeleteError;
+        }
+
         return {
             alertSubmitDelete: alertSubmitDelete,
             alertDeleteSuccess: alertDeleteSuccess,
             alertDeleteError: alertDeleteError,
             alertOrderSuccess: alertOrderSuccess,
+            alertStatusOrder: alertStatusOrder,
+            alertChangeStatusOrderError: alertChangeStatusOrderError,
         }
     }
 })(angular.module('DAGStore.common'));

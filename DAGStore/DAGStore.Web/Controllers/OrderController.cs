@@ -27,8 +27,9 @@ namespace DAGStore.Web.Controllers
         // GET: category
         public JsonResult GetAll()
         {
-            var listOrder = _OrderService.GetAll();
-            foreach(var item in listOrder)
+            var listOrder = _OrderService.GetAll().ToList();
+            listOrder = listOrder.OrderByDescending(x => x.ID).ToList();
+            foreach (var item in listOrder)
             {
                 item.Customer = _CustomerService.GetByID(item.CustomerID);
             }

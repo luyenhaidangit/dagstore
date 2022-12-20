@@ -36,9 +36,12 @@ function orderListController($scope, apiService, dataTableService, notificationS
             $.fn.dataTable.ext.errMode = 'none';
 
             $("#DAGStoreDatatable").DataTable({
-                
+                /*ordering: false,*/
                 order: [
-                    [1, "asc"]
+                    [0, "asc"]
+                ],
+                columnDefs: [
+                    { targets: 0, name: "STT", visible: false },
                 ],
                 language: {
                     paginate: {
@@ -64,14 +67,54 @@ function orderListController($scope, apiService, dataTableService, notificationS
     })
 
     $scope.ProcessingOrder = ProcessingOrder;
-    function ProcessingOrder(order,status) {
-        console.log(order)
-        order.OrderStatus = status;
-        order.CreateOn = "20-12-2022";
+    function ProcessingOrder(order, status) {
+        if (order.PaymentStatus != 1 && order.OrderStatus == 1) {
+            alertService.alertChangeStatusOrderError("Vui lòng xác nhận thanh toán trước khi giao hàng!").then((result) => {
 
-        alertService.alertSubmitDelete().then((result) => {
+            });
+        } else {
+            order.CreateOn = "20-12-2022";
+            $scope.message = "";
+            if (status == 1) {
+                $scope.message = "Bạn có muốn xác nhận duyệt đơn hàng?";
+            } else if (status == 2) {
+                $scope.message = "Bạn có muốn xác nhận đã giao hàng đơn hàng?";
+            }
+
+            alertService.alertStatusOrder($scope.message).then((result) => {
+                if (result.isConfirmed) {
+                    order.OrderStatus = status;
+                    apiService.put("/order/update", order, function (result) {
+                        notificationService.displaySuccess("Cập nhật thông tin thành công!");
+
+                    }, function (error) {
+                        notificationService.displaySuccess("Cập nhật thông tin không thành công!");
+
+                    });
+
+                }
+            });  
+        }
+        
+       
+        
+    }
+
+
+    $scope.ProcessingPaymentOrder = ProcessingPaymentOrder;
+    function ProcessingPaymentOrder(order, status) {
+        
+        $scope.message = "";
+        if (status == 1) {
+            $scope.message = "Bạn có muốn xác nhận đã nhận tiền thanh toán?";
+        } else if (status == 2) {
+            $scope.message = "Bạn có muốn xác nhận đã giao hàng đơn hàng?";
+        }
+
+        alertService.alertStatusOrder($scope.message).then((result) => {
             if (result.isConfirmed) {
-               
+                order.CreateOn = "20-12-2022";
+                order.PaymentStatus = status;
                 apiService.put("/order/update", order, function (result) {
                     notificationService.displaySuccess("Cập nhật thông tin thành công!");
 
@@ -82,9 +125,30 @@ function orderListController($scope, apiService, dataTableService, notificationS
 
             }
         });
-
-        
     }
+
+    $scope.CancelOrder = CancelOrder;
+    function CancelOrder(order, status) {
+        alertService.alertStatusOrder("Bạn có muốn hủy đơn đặt hàng?").then((result) => {
+            if (result.isConfirmed) {
+                order.OrderStatus = status;
+                order.CreateOn = "20-12-2022";
+                apiService.put("/order/update", order, function (result) {
+                    notificationService.displaySuccess("Cập nhật thông tin thành công!");
+
+                }, function (error) {
+                    notificationService.displaySuccess("Cập nhật thông tin không thành công!");
+
+                });
+
+            }
+        })
+    }
+    
+
+
+
+    
 
     // Delete Object
     $scope.Deleteorder = Deleteorder;

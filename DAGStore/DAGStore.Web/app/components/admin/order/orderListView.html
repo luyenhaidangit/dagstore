@@ -31,16 +31,17 @@
                         <a class="nav-link font-weight-bold p-3 active" href="#">Tất cả</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link p-3 font-weight-bold" href="#">Xác nhận</a>
+                        <a class="nav-link p-3 font-weight-bold">Xác nhận</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link p-3 font-weight-bold" href="#">Chưa xác nhận</a>
+                        <a class="nav-link p-3 font-weight-bold">Chưa xác nhận</a>
                     </li>
                 </ul>
 
                 <table id="DAGStoreDatatable" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                         <tr>
+                            <th>STT</th>
                             <!--<th ng-repeat="item in config.columnDefs">{{item.name}}</th>-->
                             <th style="width: 20px;">
                                 <div class="custom-control custom-checkbox">
@@ -60,7 +61,7 @@
 
                     <tbody>
                         <tr ng-repeat="item in orders track by $index" data-show="????">
-                            <!--<td>{{$index+1}}</td>-->
+                            <td>{{$index+1}}</td>
                             <td>
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="ordercheck1">
@@ -68,31 +69,36 @@
                                 </div>
                             </td>
                             <!--<td>{{item.ID}}</td>-->
-                            <td>#DAGHDB{{item.ID}}</td>
+                            <td>DAGHDB{{item.ID}}</td>
                             <td>20-12-2022</td>
                             <td>{{item.Customer.Name}}</td>
                             <td align="right">{{item.OrderTotal | formatCurrencyVND}}</td>
                             <!--<td>{{item.ShippingAddress}}</td>-->
-                            <td>
-                                <div ng-if="item.OrderStatus==1" class="badge badge-soft-warning font-size-12">Đang giao hàng</div>
-                                <div ng-if="item.OrderStatus==0" class="badge badge-soft-danger font-size-12">Đang chờ duyệt</div>
-                                <!--<div class="badge badge-soft-danger font-size-12">Chargeback</div>-->
-                                <!--<button ng-if="item.PaymentFormat==0" type="button" ng-class="{'btn btn-success waves-effect waves-light btn-sm':item.PaymentFormat==0,'btn btn-danger waves-effect waves-light btn-sm':item.PaymentFormat!=0}">{{item.PaymentFormat | paymentFormat}}</button>
-        <button ng-if="item.PaymentFormat==1" type="button" ng-class="{'btn btn-danger waves-effect waves-light btn-sm':item.PaymentStatus==0,'btn btn-success waves-effect waves-light btn-sm':item.PaymentStatus==1}">{{item.PaymentFormat | paymentFormat}}</button>-->
-                            </td>
-                            <td>
-                                <div ng-if="item.PaymentStatus==0" class="badge badge-soft-danger font-size-12">Chưa thanh toán</div>
-                            </td>
+                        <td>
+                            <div ng-if="item.OrderStatus==-1" class="badge badge-soft-primary font-size-12">Đã hủy</div>
+                            <div ng-if="item.OrderStatus==2" class="badge badge-soft-success font-size-12">Đã giao</div>
+                            <div ng-if="item.OrderStatus==1" class="badge badge-soft-warning font-size-12">Đang giao hàng</div>
+                            <div ng-if="item.OrderStatus==0" class="badge badge-soft-danger font-size-12">Đang chờ duyệt</div>
+
+                            <!--<div class="badge badge-soft-danger font-size-12">Chargeback</div>-->
+                            <!--<button ng-if="item.PaymentFormat==0" type="button" ng-class="{'btn btn-success waves-effect waves-light btn-sm':item.PaymentFormat==0,'btn btn-danger waves-effect waves-light btn-sm':item.PaymentFormat!=0}">{{item.PaymentFormat | paymentFormat}}</button>
+    <button ng-if="item.PaymentFormat==1" type="button" ng-class="{'btn btn-danger waves-effect waves-light btn-sm':item.PaymentStatus==0,'btn btn-success waves-effect waves-light btn-sm':item.PaymentStatus==1}">{{item.PaymentFormat | paymentFormat}}</button>-->
+                        </td>
+                        <td>
+                            <div ng-if="item.OrderStatus==-1" class="badge badge-soft-primary font-size-12">Đã hủy</div>
+                            <div ng-if="item.PaymentStatus==0 && item.OrderStatus!=-1" class="badge badge-soft-danger font-size-12">Chưa thanh toán</div>
+                            <div ng-if="item.PaymentStatus==1" class="badge badge-soft-success font-size-12">Thanh toán</div>
+                        </td>
                             <td>
                                 <!--<button ng-if="item.OrderStatus==0" type="button" class="btn btn-danger waves-effect waves-light btn-sm">{{item.OrderStatus | statusOrderFormat}}</button>
     <button ng-if="item.OrderStatus==1" type="button" class="btn btn-success waves-effect waves-light btn-sm">{{item.OrderStatus | statusOrderFormat}}</button>-->
                                 <!--<div ng-if="item.PaymentFormat==1" class="badge badge-soft-success font-size-12">Thanh toán</div>
     <div ng-if="item.PaymentFormat==0" class="badge badge-soft-danger font-size-12">Chưa thanh toán</div>-->
-                                <button ng-if="item.PaymentStatus==0 && item.OrderStatus==1" ng-click="ProcessingPaymentOrder(item,2)" type="button" class="btn btn-primary waves-effect waves-light btn-sm mr-2">Thanh toán</button>
+                                <button ng-if="item.PaymentStatus==0 && item.OrderStatus==1" ng-click="ProcessingPaymentOrder(item,1)" type="button" class="btn btn-info waves-effect waves-light btn-sm mr-2">Thanh toán</button>
                                 <button ng-if="item.OrderStatus==1" ng-click="ProcessingOrder(item,2)" type="button" class="btn btn-success waves-effect waves-light btn-sm mr-2">Giao hàng</button>
 
                                 <button ng-if="item.OrderStatus==0" ng-click="ProcessingOrder(item,1)" type="button" class="btn btn-light waves-effect waves-light btn-sm mr-2">Duyệt đơn</button>
-                                <button ng-if="item.OrderStatus==0 " type="button" class="btn btn-danger waves-effect waves-light btn-sm">Hủy đơn</button>
+                                <button ng-if="item.OrderStatus==0" ng-click="CancelOrder(item,-1)" type="button" class="btn btn-danger waves-effect waves-light btn-sm">Hủy đơn</button>
                             </td>
                             <!--<td>{{item.OrderTotal | formatCurrencyVND}}</td>-->
                             <td>
@@ -101,8 +107,8 @@
         <span ng-click="DeleteOrder($event,item.ID);" class="badge badge-danger" style="cursor: pointer;padding: 8px;"> <i class="fas fa-trash-alt"></i></span>-->
                                 <div class="custom-control custom-checkbox">
                                     <a href="javascript:void(0);" ui-sref="info-order({id:item.ID})" class="mr-3 text-info" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fas fa-eye"></i></a>
-                                    <a href="javascript:void(0);" class="mr-3 text-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="mdi mdi-pencil font-size-18"></i></a>
-                                    <a href="javascript:void(0);" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="mdi mdi-trash-can font-size-18"></i></a>
+                                    <!--<a href="javascript:void(0);" class="mr-3 text-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="mdi mdi-pencil font-size-18"></i></a>
+                                    <a href="javascript:void(0);" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="mdi mdi-trash-can font-size-18"></i></a>-->
                                 </div>
                             </td>
                         </tr>
