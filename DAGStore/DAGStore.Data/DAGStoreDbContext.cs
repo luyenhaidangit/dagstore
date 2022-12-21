@@ -45,6 +45,8 @@ namespace DAGStore.Data
         public DbSet<ProductItem> ProductItem { get; set; }
         public DbSet<ProductConfiguration> ProductConfiguration { get; set; }
         public DbSet<ImageProduct> ImageProduct { get; set; }
+        public DbSet<Tag> Tag { get; set; }
+        public DbSet<NewsTag> NewsTag { get; set; }
 
         public virtual void Commit()
         {

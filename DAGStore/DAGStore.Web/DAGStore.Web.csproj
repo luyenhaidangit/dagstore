@@ -250,6 +250,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuRecordController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\NewsTagController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\OrderItemController.cs" />
     <Compile Include="Controllers\PageController.cs" />
@@ -261,6 +262,7 @@
     <Compile Include="Controllers\SuggestController.cs" />
     <Compile Include="Controllers\SuggestProductController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
+    <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Controllers\VariationController.cs" />
     <Compile Include="Controllers\VariationOptionController.cs" />
     <Compile Include="Global.asax.cs">
@@ -6811,6 +6813,7 @@
     <Folder Include="Views\ImportBillDetail\" />
     <Folder Include="Views\ImportBill\" />
     <Folder Include="Views\MenuRecord\" />
+    <Folder Include="Views\NewsTag\" />
     <Folder Include="Views\News\" />
     <Folder Include="Views\OrderItem\" />
     <Folder Include="Views\Order\" />
@@ -6822,6 +6825,7 @@
     <Folder Include="Views\SuggestProduct\" />
     <Folder Include="Views\Suggest\" />
     <Folder Include="Views\Supplier\" />
+    <Folder Include="Views\Tag\" />
     <Folder Include="Views\VariationOption\" />
     <Folder Include="Views\Variation\" />
   </ItemGroup>

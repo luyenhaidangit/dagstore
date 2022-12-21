@@ -231,10 +231,16 @@
     <Compile Include="Migrations\202212011336342_Edit-Order-Bill.designer.cs">
       <DependentUpon>202212011336342_Edit-Order-Bill.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202212212005339_Build-Table-News-Tag.cs" />
+    <Compile Include="Migrations\202212212005339_Build-Table-News-Tag.designer.cs">
+      <DependentUpon>202212212005339_Build-Table-News-Tag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BrandRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\NewsTagRepository.cs" />
+    <Compile Include="Repositories\TagRepository.cs" />
     <Compile Include="Repositories\CustomerRepository.cs" />
     <Compile Include="Repositories\ImageProductRepository.cs" />
     <Compile Include="Repositories\VariationOptionRepository.cs" />
@@ -372,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202212011336342_Edit-Order-Bill.resx">
       <DependentUpon>202212011336342_Edit-Order-Bill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212212005339_Build-Table-News-Tag.resx">
+      <DependentUpon>202212212005339_Build-Table-News-Tag.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

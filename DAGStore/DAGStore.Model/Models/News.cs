@@ -20,6 +20,10 @@ namespace DAGStore.Model.Models
 
         public string Content { get; set; }
 
+        public int ViewCount { get; set; }
+
         public DateTime? CreateOn { get; set; }
+
+        public virtual IEnumerable<NewsTag> NewsTags { set; get; }
     }
 }
