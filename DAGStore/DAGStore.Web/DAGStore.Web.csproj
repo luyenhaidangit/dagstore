@@ -335,6 +335,15 @@
     <Content Include="app\components\admin\importbill\importBillListView.html" />
     <Content Include="app\components\admin\login\loginController.js" />
     <Content Include="app\components\admin\login\loginView.html" />
+    <Content Include="app\components\admin\news\news.module.js" />
+    <Content Include="app\components\admin\news\newsAddController.js" />
+    <Content Include="app\components\admin\news\newsAddView.html" />
+    <Content Include="app\components\admin\news\newsEditController.js" />
+    <Content Include="app\components\admin\news\newsEditView.html" />
+    <Content Include="app\components\admin\news\newsInfoController.js" />
+    <Content Include="app\components\admin\news\newsnfoView.html" />
+    <Content Include="app\components\admin\news\newsListController.js" />
+    <Content Include="app\components\admin\news\newsListView.html" />
     <Content Include="app\components\admin\order\order.module.js" />
     <Content Include="app\components\admin\order\orderAddController.js" />
     <Content Include="app\components\admin\order\orderAddView.html" />

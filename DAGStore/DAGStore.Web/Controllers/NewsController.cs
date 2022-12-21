@@ -37,6 +37,7 @@ namespace DAGStore.Web.Controllers
         [HttpPost]
         public JsonResult Create(News News)
         {
+            News.CreateOn = DateTime.Now;
             _NewsService.Add(News);
             _NewsService.SaveChanges();
             return Json(true, JsonRequestBehavior.AllowGet);
