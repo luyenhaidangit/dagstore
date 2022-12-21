@@ -17,7 +17,8 @@ product.config(function ($stateProvider, $urlRouterProvider) {
         {
             name: 'payment',
             url: '/payment',
-            templateUrl: '/app/components/client/cart/paymentView.html',
+             templateUrl: '/app/components/client/cart/paymentView.html',
+          /*  templateUrl: '/Views/Payment/PaymentConfirm.cshtml',*/
             controller: "paymentController",
             onEnter: function () {
                 $('html, body').animate({ scrollTop: -10000 }, 0);

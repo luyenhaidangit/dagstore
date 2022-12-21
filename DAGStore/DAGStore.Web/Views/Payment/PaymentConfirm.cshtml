@@ -1,97 +1,211 @@
-﻿@*@{
-        Layout = null;
-    }
+﻿
 
-    <!DOCTYPE html>
+<section class="firts-section">
 
-    <html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>PaymentConfirm</title>
-    </head>
-    <body>
-        <div>
-            Trang thanh toan
-            @ViewBag.Message
-        </div>
-    </body>
-    </html>*@
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 mx-auto mt-5">
-            <div class="payment">
-                <div class="payment_header">
-                    <div class="check"><i class="fa fa-check" aria-hidden="true"></i></div>
-                </div>
-                <div class="content">
-                    <h1>Thanh toán thành công !</h1>
-                    <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. </p>
-                    <a href="https://localhost:44324/">Trở về trang chủ</a>
+    <div class="sign-in">
+        Ok nh luyen hai dng
+        <div class="sign-in__form">
+            <div class="sign-in__form-content">
+                <div class="sign-in__header">
+                    <img class="img-cover-center" src="/Content/client/img/resource/logo-fit.png" alt="">
                 </div>
 
+                <div class="sign-in__body">
+                    <div class="form-input__wrap d-flex">
+                        <span style="min-width:160px;">Mã đơn hàng: </span>
+                        <h6 class="m-0">#HDBDAG001</h6>
+                    </div>
+
+                    <div class="form-input__wrap d-flex">
+                        <span style="min-width:160px;">Khách hàng: </span>
+                        <h6 class="m-0">Luyện Hải Đăng</h6>
+                    </div>
+
+                    <div class="form-input__wrap d-flex">
+                        <span style="min-width:160px;">Tổng thanh toán: </span>
+                        <h6 class="m-0">123.000.000đ</h6>
+                    </div>
+
+                    <div class="form-input__wrap d-flex">
+                        <span style="min-width:160px;">Trạng thái: </span>
+                        <h6 class="-0 text-success">Thành công</h6>
+                    </div>
+
+                    <div class="form-action__wrap d-flex justify-content-center">
+                        <a href="../admin/dashboard.html" class="btn btn-primary"> <span></span>Tiếp tục mua hàng</a>
+                    </div>
+
+
+                    <p id="mes"></p>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<style type="text/css">
-
-    body {
-        background: #f2f2f2;
+<style>
+    h6 {
+        padding-bottom: 0 !important;
+        line-height: 24px;
     }
 
-    .payment {
-        border: 1px solid #f2f2f2;
-        height: 280px;
-        border-radius: 20px;
-        background: #fff;
+    .img-cover-center {
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    /* #region : sign-in*/
+
+    .firts-section {
+        position: relative;
+        padding: 32px 5%;
+        background: #ecf0f3;
     }
 
-    .payment_header {
-        background: #379237;
-        padding: 20px;
-        border-radius: 20px 20px 0px 0px;
+    .sign-in__shape {
+        /* position: absolute; */
     }
 
-    .check {
-        margin: 0px auto;
-        width: 50px;
-        height: 50px;
-        border-radius: 100%;
-        background: #fff;
-        text-align: center;
-    }
-
-        .check i {
-            vertical-align: middle;
-            line-height: 50px;
-            font-size: 30px;
+        .sign-in__shape > img {
+            position: absolute;
+            z-index: 0;
         }
 
-    .content {
-        text-align: center;
-    }
-
-        .content h1 {
-            font-size: 25px;
-            padding-top: 25px;
-        }
-
-        .content a {
-            width: 200px;
-            height: 35px;
-            color: #fff;
-            border-radius: 30px;
-            padding: 5px 10px;
-            background: #379237;
-            transition: all ease-in-out 0.3s;
-        }
-
-            .content a:hover {
-                text-decoration: none;
-                background: #000;
+            .sign-in__shape > img:first-child {
+                top: 30%;
+                left: 10%;
             }
+
+            .sign-in__shape > img:nth-child(2) {
+                top: 20%;
+                right: 20%;
+            }
+
+            .sign-in__shape > img:nth-child(3) {
+                height: 120px;
+                width: 120px;
+                top: 60%;
+                right: 10%;
+            }
+
+    .sign-in__title {
+        margin-bottom: 32px;
+    }
+
+        .sign-in__title > h3:first-child {
+            color: #0e1133;
+            font-size: 28px;
+            margin-bottom: 24px;
+        }
+
+        .sign-in__title > h3:nth-child(2) {
+            color: #0e1133;
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .sign-in__title > p {
+            font-size: 16px;
+            color: #53545b;
+        }
+
+        .sign-in__title a {
+            color: #2b4eff;
+        }
+
+    .sign-in__form {
+        margin: 32px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .sign-in__form-content {
+        width: 440px;
+        min-height: 400px;
+        padding: 32px 64px;
+        background: #ecf0f3;
+        box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+        border-radius: 16px;
+        z-index: 1;
+    }
+
+    .sign-in__header {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+        margin: auto;
+    }
+
+    .sign-in__body {
+        margin-top: 40px;
+    }
+
+    .form-input__wrap > h5 {
+        font-size: 16px;
+        font-weight: 700;
+        color: #0e1133;
+        margin-bottom: 12px;
+    }
+
+    .form-input__wrap {
+        margin: 8px 0 28px 0;
+    }
+
+    .sign-input {
+        position: relative;
+    }
+
+        .sign-input > select,
+        .sign-input > input {
+            width: 100%;
+            height: 60px;
+            line-height: 52px;
+            padding: 0 50px;
+            font-size: 14px;
+            border: 2px solid transparent;
+            background: #f6f6f7;
+            color: #0e1133;
+            border-radius: 6px;
+        }
+
+        .sign-input > i {
+            position: absolute;
+            top: 51%;
+            transform: translateY(-50%);
+            left: 25px;
+            font-size: 14px;
+            color: #8e8c94;
+        }
+
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
+    }
+
+    .sign__forgot > a {
+        color: #2b4eff;
+    }
+
+    .form-action__wrap {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .sign-in__btn {
+        margin-top: 32px;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    #mes {
+        color: red;
+        margin-top: 16px;
+    }
+
+
+    /* #endregion */
 </style>

@@ -14,7 +14,7 @@
                 <div class="sign-in__body">
                     <div class="form-input__wrap d-flex">
                         <span style="min-width:160px;">Mã đơn hàng: </span>
-                        <h6 class="m-0">#HDBDAG001</h6>
+                        <h6 class="m-0">#DAGHDB{{payment.orderId}}</h6>
                     </div>
 
                     <div class="form-input__wrap d-flex">
@@ -24,16 +24,17 @@
 
                     <div class="form-input__wrap d-flex">
                         <span style="min-width:160px;">Tổng thanh toán: </span>
-                        <h6 class="m-0">123.000.000đ</h6>
+                        <h6 class="m-0">{{payment.amount / 100 | formatCurrencyVND}}</h6>
                     </div>
 
                     <div class="form-input__wrap d-flex">
                         <span style="min-width:160px;">Trạng thái: </span>
-                        <h6 class="-0 text-success">Thành công</h6>
+                        <h6 ng-if="payment.vnp_ResponseCode == '00'" class="text-success">Thành công</h6>
+                        <!--<h6 ng-if="payment.vnp_ResponseCode != '00'" class="text-danger">Thất bại</h6>-->
                     </div>
 
                     <div class="form-action__wrap d-flex justify-content-center">
-                        <a href="../admin/dashboard.html" class="btn btn-primary"> <span></span>Tiếp tục mua hàng</a>
+                        <a ui-sref="index" class="btn btn-primary"> <span></span>Tiếp tục mua hàng</a>
                     </div>
 
 
