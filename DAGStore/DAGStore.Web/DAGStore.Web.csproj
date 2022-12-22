@@ -237,6 +237,7 @@
     <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CustomerAndressController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\DiscountController.cs" />
     <Compile Include="Controllers\EventController.cs" />
@@ -6820,6 +6821,7 @@
     <Folder Include="Content\client\ico\" />
     <Folder Include="Upload\" />
     <Folder Include="Views\Brand\" />
+    <Folder Include="Views\CustomerAndress\" />
     <Folder Include="Views\Customer\" />
     <Folder Include="Views\Discount\" />
     <Folder Include="Views\Event\" />

@@ -63,6 +63,7 @@
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\CustomerAndress.cs" />
     <Compile Include="Models\NewsTag.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\ImageProduct.cs" />
