@@ -1,238 +1,51 @@
-﻿<!-- #region : breadcrumb-->
-<div class="breadcrumb">
-    <div class="breadcrumb__col">
-        <a href="../index.html" class="breadcrumb__item">Trang chủ</a>
-        <i class="far fa-angle-right"></i>
-    </div>
-    <div class="breadcrumb__col">
-        <a href="#" class="breadcrumb__item">Tin tức</a>
-    </div>
-</div>
-<!-- #endregion -->
-<!-- begin: contact -->
+﻿<!-- begin: contact -->
 <div class="news">
     <section class="firts-section">
-        <div class="news__list-item">
-            <div class="news__item">
-                <div class="news__img">
-                    <img class="img-cover-center" src="../assets/image/news/news1.jpg" alt="">
+        <div class="news__content">
+            <div class="news__tag-header">
+                <a ng-repeat="x in news.NewsTags" href="#">{{x.Tag.Name}}</a>
+                <!--<a href="#">Chi đoàn</a>
+                <a href="#">FIT.UTEHY</a>-->
+            </div>
+
+            <h5 class="news-detail__title">{{news.Title}}</h5>
+
+            <div class="news-detail__meta">
+                <div class="news-detail__author">
+                    <div class="news-detail__author-thumbnail">
+                        <img src="/Content/client/img/resource/fit-utehy.png" alt="">
+                    </div>
+
+                    <div class="news-detail__info">
+                        <h5>Giáo viên</h5>
+                        <p>Luyện Hải Đăng</p>
+                    </div>
                 </div>
-                <div class="news__content">
-                    <div class="news__tag">
-                        <a href="../page/404.html">Tin tức</a>
-                        <a href="../page/404.html">Utehy</a>
-                        <a href="../page/404.html">Lễ kỷ niệm</a>
-                    </div>
-                    <h3 class="news__title">
-                        <a href="../page/404.html">Trường ĐH SPKT Hưng Yên tổ chức kỷ niệm chương vì sự nghiệp giáo dục năm 2020.</a>
-                    </h3>
-                    <div class="news__meta">
-                        <div class="news__author">
-                            <div class="news__author-thumbnail">
-                                <img src="../assets/image/user/user1.jpg" alt="">
-                            </div>
 
-                            <div class="news__author-info">
-                                <p>Luyện Hải Đăng</p>
-                            </div>
-                        </div>
+                <div class="news-detail__info">
+                    <h5>Ngày đăng:</h5>
+                    <p>17/05/2022</p>
+                </div>
 
-                        <div class="news__date">
-                            <i class="fal fa-clock"></i>
-                            <span>Ngày 16/05/2022</span>
-                        </div>
-                    </div>
+                <div class="news-detail__info">
+                    <h5>Reivew:</h5>
+                    <p>
+                        <i class="fas fa-star icon--yellow"></i>
+                        <i class="fas fa-star icon--yellow"></i>
+                        <i class="fas fa-star icon--yellow"></i>
+                        <i class="fas fa-star icon--yellow"></i>
+                        <i class="fas fa-star icon--gray"></i>
+                    </p>
                 </div>
             </div>
 
-            <div class="news__item">
-                <div class="news__img">
-                    <img class="img-cover-center" src="../assets/image/news/news2.jpg" alt="">
+            <div class="news-detail__wrap-content" ng-bind-html = "Message">
+                <!--<div class="news-detail__wrap">
+                    <img class="img-cover-center" src="{{news.PictureAvatar}}" alt="">
                 </div>
-                <div class="news__content">
-                    <div class="news__tag">
-                        <a href="../page/404.html">Tin tức</a>
-                        <a href="../page/404.html">Utehy</a>
-                        <a href="../page/404.html">Hướng nghiệp</a>
-                    </div>
-                    <h3 class="news__title">
-                        <a href="../page/404.html">Hội thảo về hiệu quả nâng cao công tác hướng nghiệp.</a>
-                    </h3>
-                    <div class="news__meta">
-                        <div class="news__author">
-                            <div class="news__author-thumbnail">
-                                <img src="../assets/image/user/user1.jpg" alt="">
-                            </div>
 
-                            <div class="news__author-info">
-                                <p>Luyện Hải Đăng</p>
-                            </div>
-                        </div>
-
-                        <div class="news__date">
-                            <i class="fal fa-clock"></i>
-                            <span>Ngày 16/05/2022</span>
-                        </div>
-                    </div>
-                </div>
+                <h3 class="news__detail-sub-title">{{news.Content}}</h3>-->
             </div>
-
-            <div class="news__item">
-                <div class="news__img">
-                    <img class="img-cover-center" src="../assets/image/news/news3.jpg" alt="">
-                </div>
-                <div class="news__content">
-                    <div class="news__tag">
-                        <a href="../page/404.html">Tin tức</a>
-                        <a href="../page/404.html">Thể thao</a>
-                        <a href="../page/404.html">Chung kết bóng đá</a>
-                    </div>
-                    <h3 class="news__title">
-                        <a href="../page/404.html">Khoa CNTT tổ chức trận chung kết giải bóng đá nam truyền thống.</a>
-                    </h3>
-                    <div class="news__meta">
-                        <div class="news__author">
-                            <div class="news__author-thumbnail">
-                                <img src="../assets/image/user/user1.jpg" alt="">
-                            </div>
-
-                            <div class="news__author-info">
-                                <p>Luyện Hải Đăng</p>
-                            </div>
-                        </div>
-
-                        <div class="news__date">
-                            <i class="fal fa-clock"></i>
-                            <span>Ngày 16/05/2022</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="news__item">
-                <div class="news__img">
-                    <img class="img-cover-center" src="../assets/image/news/news4.jpg" alt="">
-                </div>
-                <div class="news__content">
-                    <div class="news__tag">
-                        <a href="../page/404.html">Tin tức</a>
-                        <a href="../page/404.html">Utehy</a>
-                        <a href="../page/404.html">Khởi nghiệp</a>
-                    </div>
-                    <h3 class="news__title">
-                        <a href="../page/404.html">Sinh viên khoa CNTT đạt giải nhất cuộc thi “Sinh viên với ý tưởng khởi nghiệp” Trường ĐHSPKTHY năm 2021.</a>
-                    </h3>
-                    <div class="news__meta">
-                        <div class="news__author">
-                            <div class="news__author-thumbnail">
-                                <img src="../assets/image/user/user1.jpg" alt="">
-                            </div>
-
-                            <div class="news__author-info">
-                                <p>Luyện Hải Đăng</p>
-                            </div>
-                        </div>
-
-                        <div class="news__date">
-                            <i class="fal fa-clock"></i>
-                            <span>Ngày 16/05/2022</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="news__item">
-                <div class="news__img">
-                    <img class="img-cover-center" src="../assets/image/news/news7.jpg" alt="">
-                </div>
-                <div class="news__content">
-                    <div class="news__tag">
-                        <a href="../page/404.html">Tin tức</a>
-                        <a href="../page/404.html">Utehy</a>
-                        <a href="../page/404.html">FPT Software</a>
-                    </div>
-                    <h3 class="news__title">
-                        <a href="../page/404.html">Sinh viên khoa CNTT tham gia chương trình nhận thức thực tập công nghệ tại công ty FPT Software</a>
-                    </h3>
-                    <div class="news__meta">
-                        <div class="news__author">
-                            <div class="news__author-thumbnail">
-                                <img src="../assets/image/user/user1.jpg" alt="">
-                            </div>
-
-                            <div class="news__author-info">
-                                <p>Luyện Hải Đăng</p>
-                            </div>
-                        </div>
-
-                        <div class="news__date">
-                            <i class="fal fa-clock"></i>
-                            <span>Ngày 16/05/2022</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="news__item">
-                <div class="news__img">
-                    <img class="img-cover-center" src="../assets/image/news/news6.jpg" alt="">
-                </div>
-                <div class="news__content">
-                    <div class="news__tag">
-                        <a href="../page/404.html">Tin tức</a>
-                        <a href="../page/404.html">Utehy</a>
-                        <a href="../page/404.html">Đại hội</a>
-                    </div>
-                    <h3 class="news__title">
-                        <a href="../page/news-detail-01.html">Khoa CNTT tổ chức Đại hội liên chi đoàn CNTT nhiệm kỳ 2020 - 2024</a>
-                    </h3>
-                    <div class="news__meta">
-                        <div class="news__author">
-                            <div class="news__author-thumbnail">
-                                <img src="../assets/image/user/user1.jpg" alt="">
-                            </div>
-
-                            <div class="news__author-info">
-                                <p>Luyện Hải Đăng</p>
-                            </div>
-                        </div>
-
-                        <div class="news__date">
-                            <i class="fal fa-clock"></i>
-                            <span>Ngày 16/05/2022</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <ul class="paging">
-                <li class="prev">
-                    <a href="../page/404.html" class="link-btn link-prev">
-                        <i class="fal fa-arrow-left"></i>Trước
-                    </a>
-                </li>
-                <li class="paging__item">
-                    <a href="#">
-                        <span>1</span>
-                    </a>
-                </li>
-                <li class="paging__item active">
-                    <a href="../page/404.html">
-                        <span>2</span>
-                    </a>
-                </li>
-                <li class="paging__item">
-                    <a href="../page/404.html">
-                        <span>3</span>
-                    </a>
-                </li>
-                <li class="next">
-                    <a href="../page/404.html" class="link-btn">
-                        Sau
-                        <i class="fal fa-arrow-right"></i>
-                    </a>
-                </li>
-            </ul>
         </div>
 
         <div class="news__side-bar">
@@ -377,6 +190,12 @@
 
 <style>
     .contact {
+    }
+
+    .img-cover-center {
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 
     .firts-section {
@@ -742,4 +561,102 @@
 
 
     /* #endregion */
+
+    .news__content {
+        width: 70%;
+        margin-right: 40px;
+    }
+
+
+    /* tag */
+
+    .news__tag-header {
+    }
+
+        .news__tag-header a {
+            display: inline-block;
+            height: 36px;
+            line-height: 38px;
+            padding: 0 15px;
+            font-size: 15px;
+            font-weight: 500;
+            background-color: #2b4eff;
+            color: #eef0f6;
+            border-radius: 4px;
+            margin-right: 8px;
+            margin-bottom: 10px;
+        }
+
+    .news-detail__title {
+        font-size: 40px;
+        line-height: 1.1;
+        margin-top: 12px;
+    }
+
+    .news-detail__meta {
+        margin: 20px 0 40px 0;
+        display: flex;
+        align-items: center;
+    }
+
+        .news-detail__meta > * {
+            margin-right: 48px;
+        }
+
+    .news-detail__author {
+        display: flex;
+        align-items: center;
+    }
+
+    .news-detail__author-thumbnail {
+        margin-right: 12px;
+    }
+
+        .news-detail__author-thumbnail > img {
+            width: 48px;
+            height: 48px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            box-shadow: 0px 10px 14px 0px rgb(1 11 60 / 10%);
+        }
+
+    .news-detail__info {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+        .news-detail__info > h5 {
+            font-size: 14px;
+            color: #53545b;
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        .news-detail__info > p {
+            font-size: 15px;
+            color: #0e1133;
+            font-weight: 600;
+        }
+
+    .news-detail__wrap-content img {
+        max-height: 400px;
+        border-radius: 12px;
+    }
+
+    .news__detail-sub-title {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 20px 0;
+    }
+
+    .news-detail__wrap-content p {
+        margin: 16px 0;
+    }
+
+    @media only screen and (max-width: 1160px) {
+        .news__content {
+            min-width: 100%;
+        }
+    }
 </style>

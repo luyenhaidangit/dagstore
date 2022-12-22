@@ -3,10 +3,34 @@ var news = angular.module('DAGStoreHome.news');
 news.controller('newsController', newsController);
 
 // Controller
-function newsController($scope, apiService, $stateParams, $filter, $rootScope, $timeout) {
+function newsController($scope, apiService, $stateParams, $filter, $sce, $rootScope, $timeout) {
     //Load Page
     $rootScope.LoadPageSuccess = false;
-    
+
+    // Load Product Detail
+    $scope.news = {
+    }
+
+    /* $scope.category =*/
+    apiService.get("/news/getbyid/" + $stateParams.id, null, function (result) {
+        $scope.news = result.data;
+        console.log($scope.news)
+        $scope.Message = $sce.trustAsHtml($scope.news.Content);
+
+        ////Get Suggest Product Category
+        //// Get Product Suggest Category
+        //apiService.get("/product/GetProductsByCategory?id=" + $scope.product.CategoryID, null, function (result) {
+        //    $scope.productSuggestCategory = result.data.filter((obj) => {
+        //        return obj.IDProduct !== $scope.product.ID;
+        //    });
+        //    console.log($scope.productSuggestCategory)
+
+        //}, function (error) {
+        //    console.log("Không thể tải dữ liệu");
+        //})
+    }, function (error) {
+        console.log("Không thể tải dữ liệu");
+    })
 
     //// Load news Detail
     //$scope.news = {

@@ -48,9 +48,21 @@ namespace DAGStore.Web.Controllers
 
         public JsonResult GetByID(int id)
         {
-            var News = _NewsService.GetByID(id);
+            var listNews = _NewsService.GetAll();
+            var result = (from x in listNews
+                          where x.ID == id
+                         select new
+                         {
+                             ID = x.ID,
+                             Title = x.Title,
+                             PictureAvatar = x.PictureAvatar,
+                             Content = x.Content,
+                             ViewCount = x.ViewCount,
+                             CreateOn = x.CreateOn,
+                             NewsTags = _NewsTagService.GetAll().ToList().Where(a => a.NewsID == x.ID),
+                         }).FirstOrDefault();
 
-            return Json(News, JsonRequestBehavior.AllowGet);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         public string ToUnsignString(string input)
