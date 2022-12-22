@@ -2829,6 +2829,8 @@
     <Content Include="assets\libs\pdfmake\build\pdfmake.min.js" />
     <Content Include="assets\libs\pdfmake\build\vfs_fonts.js" />
     <Content Include="assets\libs\pdfmake\webpack-standardfonts.config.js" />
+    <Content Include="assets\libs\printjs\print.min.css" />
+    <Content Include="assets\libs\printjs\print.min.js" />
     <Content Include="assets\libs\round-slider\roundslider.min.css" />
     <Content Include="assets\libs\round-slider\roundslider.min.js" />
     <Content Include="assets\libs\select-ui-angularjs\bootstrap\choices.tpl.html" />

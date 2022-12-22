@@ -11,6 +11,13 @@ function newsController($scope, apiService, $stateParams, $filter, $sce, $rootSc
     $scope.news = {
     }
 
+        
+    apiService.put("/news/IncreaseViewCount?id=" + $stateParams.id, null, function (success) {
+        console.log("Tang view");
+    }, function (error) {
+        console.log("Xóa không thành công!")
+    })
+
     /* $scope.category =*/
     apiService.get("/news/getbyid/" + $stateParams.id, null, function (result) {
         $scope.news = result.data;
@@ -58,6 +65,46 @@ function newsController($scope, apiService, $stateParams, $filter, $sce, $rootSc
     //    })
     //};
     //$scope.GetProductsOfnews();
+
+    $scope.newsAll = []
+    /* $scope.category =*/
+    apiService.get("/news/getall", null, function (result) {
+        $scope.newsAll = result.data;
+       
+
+        ////Get Suggest Product Category
+        //// Get Product Suggest Category
+        //apiService.get("/product/GetProductsByCategory?id=" + $scope.product.CategoryID, null, function (result) {
+        //    $scope.productSuggestCategory = result.data.filter((obj) => {
+        //        return obj.IDProduct !== $scope.product.ID;
+        //    });
+        //    console.log($scope.productSuggestCategory)
+
+        //}, function (error) {
+        //    console.log("Không thể tải dữ liệu");
+        //})
+    }, function (error) {
+        console.log("Không thể tải dữ liệu");
+    })
+
+    apiService.get("/news/GetProductOrderByViewCount", null, function (result) {
+        $scope.newsCount = result.data;
+      
+
+        ////Get Suggest Product Category
+        //// Get Product Suggest Category
+        //apiService.get("/product/GetProductsByCategory?id=" + $scope.product.CategoryID, null, function (result) {
+        //    $scope.productSuggestCategory = result.data.filter((obj) => {
+        //        return obj.IDProduct !== $scope.product.ID;
+        //    });
+        //    console.log($scope.productSuggestCategory)
+
+        //}, function (error) {
+        //    console.log("Không thể tải dữ liệu");
+        //})
+    }, function (error) {
+        console.log("Không thể tải dữ liệu");
+    })
 
     angular.element(function () {
         $timeout(function () {

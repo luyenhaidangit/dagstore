@@ -31,7 +31,27 @@ namespace DAGStore.Web.Controllers
         {
             var listNews = _NewsService.GetAll();
 
-            var result = from x in listNews
+            var result = (from x in listNews
+                          select new
+                          {
+                              ID = x.ID,
+                              Title = x.Title,
+                              PictureAvatar = x.PictureAvatar,
+                              Content = x.Content,
+                              ViewCount = x.ViewCount,
+                              CreateOn = x.CreateOn,
+                              NewsTags = _NewsTagService.GetAll().ToList().Where(a => a.NewsID == x.ID),
+                          });
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        // GET: category
+        public JsonResult GetProductOrderByViewCount()
+        {
+            var listNews = _NewsService.GetAll();
+
+            var result = (from x in listNews
                          select new
                          {
                              ID = x.ID,
@@ -41,7 +61,7 @@ namespace DAGStore.Web.Controllers
                              ViewCount = x.ViewCount,
                              CreateOn = x.CreateOn,
                              NewsTags = _NewsTagService.GetAll().ToList().Where(a => a.NewsID == x.ID),
-                         };
+                         }).ToList().OrderByDescending(x => x.ViewCount);
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
@@ -63,6 +83,17 @@ namespace DAGStore.Web.Controllers
                          }).FirstOrDefault();
 
             return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPut]
+        public JsonResult IncreaseViewCount(int id)
+        {
+            var product = _NewsService.GetByID(id);
+            product.ViewCount += 1;
+            _NewsService.Update(product);
+            _NewsService.SaveChanges();
+
+            return Json(true, JsonRequestBehavior.AllowGet);
         }
 
         public string ToUnsignString(string input)

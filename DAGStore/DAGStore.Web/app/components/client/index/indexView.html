@@ -433,7 +433,7 @@
                         </div>
                         <div class="news-tech__body">
                             <div class="row row-cols-1 row-cols-sm-3">
-                                <div ng-repeat="item in news" class="col">
+                                <div ng-repeat="item in news | limitTo:3" class="col">
                                     <div class="news-tech__item">
                                         <a ui-sref="news({id:item.ID})" href="">
                                             <div class="row row-cols-2 row-cols-sm-1 gy-2">

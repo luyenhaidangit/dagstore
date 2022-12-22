@@ -27,6 +27,7 @@ function orderListController($scope, apiService, dataTableService, notificationS
         },
     }
 
+
     // Get data
     $scope.orders = [];
     apiService.get("/order/getall", null, function (result) {
@@ -100,7 +101,6 @@ function orderListController($scope, apiService, dataTableService, notificationS
         
     }
 
-
     $scope.ProcessingPaymentOrder = ProcessingPaymentOrder;
     function ProcessingPaymentOrder(order, status) {
         
@@ -145,8 +145,13 @@ function orderListController($scope, apiService, dataTableService, notificationS
         })
     }
     
-
-
+    $scope.bill = {}
+    $scope.printBill = printBill;
+    function printBill(order) {
+        $scope.bill = order;
+        console.log($scope.bill)
+        printJS('Bill', 'html');
+    }
 
     
 

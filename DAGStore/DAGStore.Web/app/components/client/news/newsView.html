@@ -17,14 +17,14 @@
                     </div>
 
                     <div class="news-detail__info">
-                        <h5>Giáo viên</h5>
+                        <h5>Người đăng</h5>
                         <p>Luyện Hải Đăng</p>
                     </div>
                 </div>
 
                 <div class="news-detail__info">
                     <h5>Ngày đăng:</h5>
-                    <p>17/05/2022</p>
+                    <p>21/12/2022</p>
                 </div>
 
                 <div class="news-detail__info">
@@ -40,11 +40,7 @@
             </div>
 
             <div class="news-detail__wrap-content" ng-bind-html = "Message">
-                <!--<div class="news-detail__wrap">
-                    <img class="img-cover-center" src="{{news.PictureAvatar}}" alt="">
-                </div>
-
-                <h3 class="news__detail-sub-title">{{news.Content}}</h3>-->
+               
             </div>
         </div>
 
@@ -66,47 +62,17 @@
                     </div>
 
                     <div class="news__recent-body">
-                        <div class="news__recent-item">
+                        <div class="news__recent-item" ng-repeat="item in newsCount | limitTo: 3" ui-sref="news({id:item.ID})">
                             <div class="news__recent-thumbnail">
-                                <img class="img-cover-center" src="../assets/image/introduct/introduct.jpg" alt="">
+                                <img class="img-cover-center" src="{{item.PictureAvatar}}" alt="">
                             </div>
 
                             <div class="news__recent-content">
                                 <div class="news__recent-date">
-                                    <span>Ngày 20/06/2022</span>
+                                    <span>Ngày 20/12/2022</span>
                                 </div>
                                 <h6 class="news__recent-title">
-                                    <a href="../page/404.html">Công trình của cựu sinh viên CE tặng khoa.</a>
-                                </h6>
-                            </div>
-                        </div>
-
-                        <div class="news__recent-item">
-                            <div class="news__recent-thumbnail">
-                                <img class="img-cover-center" src="../assets/image/introduct/introduct2.jpg" alt="">
-                            </div>
-
-                            <div class="news__recent-content">
-                                <div class="news__recent-date">
-                                    <span>Ngày 20/06/2022</span>
-                                </div>
-                                <h6 class="news__recent-title">
-                                    <a href="../page/404.html">Chung kết cuộc thi tìm kiếm tài năng UTEHY</a>
-                                </h6>
-                            </div>
-                        </div>
-
-                        <div class="news__recent-item">
-                            <div class="news__recent-thumbnail">
-                                <img class="img-cover-center" src="../assets/image/introduct/introduct3.jpg" alt="">
-                            </div>
-
-                            <div class="news__recent-content">
-                                <div class="news__recent-date">
-                                    <span>Ngày 20/06/2022</span>
-                                </div>
-                                <h6 class="news__recent-title">
-                                    <a href="../page/404.html">Sôi động chung kết bóng đá nam truyền thống khoa CNTT.</a>
+                                    <a href="../page/404.html">{{item.Title}}</a>
                                 </h6>
                             </div>
                         </div>
@@ -119,47 +85,17 @@
                     </div>
 
                     <div class="news__recent-body">
-                        <div class="news__recent-item">
+                        <div class="news__recent-item" ng-repeat="item in newsAll | limitTo: 3" ui-sref="news({id:item.ID})">
                             <div class="news__recent-thumbnail">
-                                <img class="img-cover-center" src="../assets/image/introduct/introduct.jpg" alt="">
+                                <img class="img-cover-center" src="{{item.PictureAvatar}}" alt="">
                             </div>
 
                             <div class="news__recent-content">
                                 <div class="news__recent-date">
-                                    <span>Ngày 20/06/2022</span>
+                                    <span>Ngày 20/12/2022</span>
                                 </div>
                                 <h6 class="news__recent-title">
-                                    <a href="../page/404.html">Công trình của cựu sinh viên CE tặng khoa.</a>
-                                </h6>
-                            </div>
-                        </div>
-
-                        <div class="news__recent-item">
-                            <div class="news__recent-thumbnail">
-                                <img class="img-cover-center" src="../assets/image/introduct/introduct2.jpg" alt="">
-                            </div>
-
-                            <div class="news__recent-content">
-                                <div class="news__recent-date">
-                                    <span>Ngày 20/06/2022</span>
-                                </div>
-                                <h6 class="news__recent-title">
-                                    <a href="../page/404.html">Chung kết cuộc thi tìm kiếm tài năng UTEHY</a>
-                                </h6>
-                            </div>
-                        </div>
-
-                        <div class="news__recent-item">
-                            <div class="news__recent-thumbnail">
-                                <img class="img-cover-center" src="../assets/image/introduct/introduct3.jpg" alt="">
-                            </div>
-
-                            <div class="news__recent-content">
-                                <div class="news__recent-date">
-                                    <span>Ngày 20/06/2022</span>
-                                </div>
-                                <h6 class="news__recent-title">
-                                    <a href="../page/404.html">Sôi động chung kết bóng đá nam truyền thống khoa CNTT.</a>
+                                    <a href="../page/404.html">{{item.Title}}</a>
                                 </h6>
                             </div>
                         </div>
