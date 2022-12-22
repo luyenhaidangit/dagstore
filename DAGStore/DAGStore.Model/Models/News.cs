@@ -22,6 +22,8 @@ namespace DAGStore.Model.Models
 
         public int ViewCount { get; set; }
 
+        public string Tag { get; set; }
+
         public DateTime? CreateOn { get; set; }
 
         public virtual IEnumerable<NewsTag> NewsTags { set; get; }
