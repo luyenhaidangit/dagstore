@@ -161,6 +161,7 @@
                                     <th class="fw-normal">Tổng tiền</th>
                                     <th class="fw-normal">Ngày đặt mua</th>
                                     <th class="fw-normal">Trạng thái</th>
+                                    <th class="fw-normal">Thao tác</th>
                                 </tr>
 
                                 <tr ng-repeat="item in OrderCustomer">
@@ -177,7 +178,7 @@
                                                 <a href="" class="text-decoration-none">Xem chi tiết</a>
                                             </div>
                                         </div>
-                                        
+
                                     </td>
                                     <td>
                                         <p class="text-danger">{{item.TotalBill | formatCurrencyVND}}<sup class="text-decoration-underline">đ</sup></p>
@@ -186,7 +187,15 @@
                                         <span>10/12/2022</span>
                                     </td>
                                     <td>
-                                        <span class="text-success">Đã nhận hàng</span>
+                                        <div ng-if="item.Order.OrderStatus==-1" class="text-primary font-size-12">Đã hủy</div>
+                                        <div ng-if="item.Order.OrderStatus==2" class="text-success font-size-12">Đã giao</div>
+                                        <div ng-if="item.Order.OrderStatus==1" class="text-warning">Đang giao hàng</div>
+                                        <div ng-if="item.Order.OrderStatus==0" class="text-danger font-size-12">Đang chờ duyệt</div>
+                                    </td>
+                                    <td>
+                                        <span>
+                                            <button ng-click="CancelOrder(item.Order,-1)" ng-if="item.Order.OrderStatus==0" type="button" class="btn btn-sm btn-danger">Hủy đơn</button>
+                                        </span>
                                     </td>
                                 </tr>
                             </tbody>

@@ -3,7 +3,7 @@ var historyorder = angular.module('DAGStoreHome.historyorder');
 historyorder.controller('historyorderController', historyorderController);
 
 // Controller
-function historyorderController($scope, apiService, sliderService, $rootScope, $timeout, $state) {
+function historyorderController($scope, apiService, sliderService, $rootScope, $timeout, $state, alertService) {
     //Load Page
     $rootScope.LoadPageSuccess = false;
 
@@ -124,6 +124,24 @@ function historyorderController($scope, apiService, sliderService, $rootScope, $
             }
         }, function (error) {
             console.log("Get data fail");
+        })
+    }
+
+    $scope.CancelOrder = CancelOrder;
+    function CancelOrder(order, status) {
+        alertService.alertStatusOrder("B?n có mu?n h?y ??n ??t hàng?").then((result) => {
+            if (result.isConfirmed) {
+                order.OrderStatus = status;
+                order.CreateOn = "20-12-2022";
+                apiService.put("/order/update", order, function (result) {
+                 
+
+                }, function (error) {
+                   
+
+                });
+
+            }
         })
     }
     

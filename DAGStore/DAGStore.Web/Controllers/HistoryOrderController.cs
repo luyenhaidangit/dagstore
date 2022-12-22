@@ -171,7 +171,7 @@ namespace DAGStore.Web.Controllers
 
             var order = _orderService.GetAll();
 
-            var result = from o in order
+            var result = (from o in order
                          join c in customer on o.CustomerID equals c.ID
                          where c.Email == email
                          select new
@@ -180,8 +180,9 @@ namespace DAGStore.Web.Controllers
                              OrderItems = _orderItemService.GetOrderItemsByOrder(o.ID),
                              Title = _orderItemService.GetOrderItemsByOrder(o.ID).ToList().Count ==1? (_productService.GetByID(_orderItemService.GetOrderItemsByOrder(o.ID).First().ProductID).Name) : (_productService.GetByID(_orderItemService.GetOrderItemsByOrder(o.ID).First().ProductID).Name) + " và " + (_orderItemService.GetOrderItemsByOrder(o.ID).ToList().Count-1)+ " sản phẩm khác",
                              TotalBill = o.OrderTotal,
+                             Order = _orderService.GetByID(o.ID),
                              Date = o.CreateOn,
-                         };
+                         }).ToList().OrderByDescending(x=>x.ID);
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
