@@ -31,7 +31,19 @@ namespace DAGStore.Web.Controllers
         {
             var listNews = _NewsService.GetAll();
 
-            return Json(listNews, JsonRequestBehavior.AllowGet);
+            var result = from x in listNews
+                         select new
+                         {
+                             ID = x.ID,
+                             Title = x.Title,
+                             PictureAvatar = x.PictureAvatar,
+                             Content = x.Content,
+                             ViewCount = x.ViewCount,
+                             CreateOn = x.CreateOn,
+                             NewsTags = _NewsTagService.GetAll().ToList().Where(a => a.NewsID == x.ID),
+                         };
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult GetByID(int id)

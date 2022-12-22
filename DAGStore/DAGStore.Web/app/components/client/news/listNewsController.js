@@ -8,18 +8,19 @@ function listNewsController($scope, apiService, $stateParams, $filter, $rootScop
     $rootScope.LoadPageSuccess = false;
 
 
-    //// Load news Detail
-    //$scope.news = {
-    //}
-    //$scope.LoadnewsDetail = LoadnewsDetail;
-    //function LoadnewsDetail() {
-    //    apiService.get("/news/getbyid/" + $stateParams.id, null, function (result) {
-    //        $scope.news = result.data;
-    //    }, function (error) {
-    //        notificationService.displaySuccess("Không thể tải dữ liệu");
-    //    })
-    //}
-    //$scope.LoadnewsDetail();
+    // Load news Detail
+    $scope.news = {
+    }
+    $scope.LoadnewsDetail = LoadnewsDetail;
+    function LoadnewsDetail() {
+        apiService.get("/news/getall", null, function (result) {
+            $scope.news = result.data;
+            console.log($scope.news)
+        }, function (error) {
+            notificationService.displaySuccess("Không thể tải dữ liệu");
+        })
+    }
+    $scope.LoadnewsDetail();
 
     //// Load List Product Of news
     //$scope.products = [];
