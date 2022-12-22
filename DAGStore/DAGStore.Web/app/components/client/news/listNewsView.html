@@ -11,7 +11,7 @@
                     <div class="news__tag">
                         <a ng-repeat="tag in item.NewsTags" class="me-2" href="../page/404.html">{{tag.Tag.Name}}</a>
                         <!--<a href="../page/404.html">Utehy</a>
-                        <a href="../page/404.html">Lễ kỷ niệm</a>-->
+            <a href="../page/404.html">Lễ kỷ niệm</a>-->
                     </div>
                     <h3 class="news__title">
                         <a ui-sref="news({id:item.ID})">{{item.Title}}</a>
@@ -34,19 +34,20 @@
                     </div>
                 </div>
             </div>
+            
 
-            <ul class="paging">
+            <ul class="paging list-unstyled">
                 <li class="prev">
                     <a href="../page/404.html" class="link-btn link-prev">
                         <i class="fal fa-arrow-left"></i>Trước
                     </a>
                 </li>
-                <li class="paging__item">
+                <li class="paging__item active">
                     <a href="#">
                         <span>1</span>
                     </a>
                 </li>
-                <li class="paging__item active">
+                <li class="paging__item">
                     <a href="../page/404.html">
                         <span>2</span>
                     </a>
