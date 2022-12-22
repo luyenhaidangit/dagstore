@@ -344,6 +344,8 @@
     <Content Include="app\components\admin\news\newsnfoView.html" />
     <Content Include="app\components\admin\news\newsListController.js" />
     <Content Include="app\components\admin\news\newsListView.html" />
+    <Content Include="app\components\admin\order\orderPrintContrller.js" />
+    <Content Include="app\components\admin\order\orderPrintView.html" />
     <Content Include="app\components\admin\order\order.module.js" />
     <Content Include="app\components\admin\order\orderAddController.js" />
     <Content Include="app\components\admin\order\orderAddView.html" />

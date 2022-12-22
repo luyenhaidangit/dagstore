@@ -16,7 +16,7 @@
  <!--Begin: Page Title 
  Begin: Table--> 
 <div class="row">
-    <div class="col-12" ng-show="false">
+    <div class="col-12">
         <div class="card">
             <div class="card-body pt-0">
                 <!--<div class="mb-4 d-flex align-items-center">
@@ -107,7 +107,7 @@
                                 <span ng-click="DeleteOrder($event,item.ID);" class="badge badge-danger" style="cursor: pointer;padding: 8px;"> <i class="fas fa-trash-alt"></i></span>-->
                                 <div class="custom-control custom-checkbox">
                                     <a href="javascript:void(0);" ui-sref="info-order({id:item.ID})" class="mr-3 text-info" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fas fa-eye"></i></a>
-                                    <a href="javascript:void(0);" ng-click="printBill(item)" class="mr-3 text-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fas fa-print"></i></a>
+                                    <a href="javascript:void(0);" ui-sref="orderprint({id:item.ID})" class="mr-3 text-warning" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fas fa-print"></i></a>
                                     <!--<a href="javascript:void(0);" class="mr-3 text-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="mdi mdi-pencil font-size-18"></i></a>
                                     <a href="javascript:void(0);" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="mdi mdi-trash-can font-size-18"></i></a>-->
                                 </div>
@@ -120,144 +120,13 @@
         </div>
     </div>
 
-    <div class="col-12">
-        <div>
-            <div class="row gutters">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="card">
-                        <div class="card-body p-0">
-                            <div class="invoice-container">
-                                <div class="invoice-header">
-                                    <!-- Row start -->
-                                
-                                    <!-- Row end -->
-                                    <!-- Row start -->
-                                    <div class="row gutters">
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                            <a href="index.html" class="invoice-logo">
-                                                <img src="/Content/client/img/resource/fit-utehy.png" alt="" class="img-fluid ms-2" style="width:60px;">
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-6">
-                                            <address class="text-right">
-                                                Luyện Hải Đăng.<br>
-                                                Khoa CNTT Trường ĐH SPKT Hưng Yên<br>
-                                                125201 - 12520063
-                                            </address>
-                                        </div>
-                                    </div>
-                                    <!-- Row end -->
-                                    <!-- Row start -->
-                                    <div class="row gutters">
-                                        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-                                            <div class="invoice-details">
-                                                <address>
-                                                    Alex Maxwell<br>
-                                                    150-600 Church Street, Florida, USA
-                                                </address>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-                                            <div class="invoice-details">
-                                                <div class="invoice-num">
-                                                    <div>Invoice - #009</div>
-                                                    <div>January 10th 2020</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Row end -->
-                                </div>
-                                <div class="invoice-body">
-                                    <!-- Row start -->
-                                    <div class="row gutters">
-                                        <div class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="table-responsive">
-                                                <table class="table custom-table m-0">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Items</th>
-                                                            <th>Product ID</th>
-                                                            <th>Quantity</th>
-                                                            <th>Sub Total</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                Wordpress Template
-                                                                <p class="m-0 text-muted">
-                                                                    Reference site about Lorem Ipsum, giving information on its origins.
-                                                                </p>
-                                                            </td>
-                                                            <td>#50000981</td>
-                                                            <td>9</td>
-                                                            <td>$5000.00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                Maxwell Admin Template
-                                                                <p class="m-0 text-muted">
-                                                                    As well as a random Lipsum generator.
-                                                                </p>
-                                                            </td>
-                                                            <td>#50000126</td>
-                                                            <td>5</td>
-                                                            <td>$100.00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                Unify Admin Template
-                                                                <p class="m-0 text-muted">
-                                                                    Lorem ipsum has become the industry standard.
-                                                                </p>
-                                                            </td>
-                                                            <td>#50000821</td>
-                                                            <td>6</td>
-                                                            <td>$49.99</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>&nbsp;</td>
-                                                            <td colspan="2">
-                                                                <p>
-                                                                    Subtotal<br>
-                                                                    Shipping &amp; Handling<br>
-                                                                    Tax<br>
-                                                                </p>
-                                                                <h5 class="text-success"><strong>Grand Total</strong></h5>
-                                                            </td>
-                                                            <td>
-                                                                <p>
-                                                                    $5000.00<br>
-                                                                    $100.00<br>
-                                                                    $49.00<br>
-                                                                </p>
-                                                                <h5 class="text-success"><strong>$5150.99</strong></h5>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Row end -->
-                                </div>
-                                <div class="invoice-footer">
-                                    Thank you for your Business.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  
 </div>
 
 
 <script src="/assets/libs/printjs/print.min.js"></script>
 <link href="/assets/libs/printjs/print.min.css" rel="stylesheet"/>
-<style>
+<!--<style>
     body {
         margin-top: 20px;
         color: #2e323c;
@@ -409,7 +278,7 @@
         .custom-actions-btns .btn {
             margin: .3rem 0 .3rem .3rem;
         }
-</style>
+</style>-->
 <!--<div class="row">
     <div class="col-lg-12">
         <div class="card">

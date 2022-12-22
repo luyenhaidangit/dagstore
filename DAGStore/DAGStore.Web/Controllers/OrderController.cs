@@ -16,12 +16,14 @@ namespace DAGStore.Web.Controllers
         IOrderService _OrderService;
         ICustomerService _CustomerService;
         IOrderItemService _OrderItemService;
+        IProductService _ProductService;
 
-        public OrderController(IOrderItemService orderItemService,IOrderService OrderService,ICustomerService customerService)
+        public OrderController(IProductService ProductService,IOrderItemService orderItemService,IOrderService OrderService,ICustomerService customerService)
         {
             this._OrderService = OrderService;
             this._CustomerService = customerService;
             this._OrderItemService = orderItemService;
+            this._ProductService = ProductService;
         }
 
         // GET: category
@@ -29,12 +31,80 @@ namespace DAGStore.Web.Controllers
         {
             var listOrder = _OrderService.GetAll().ToList();
             listOrder = listOrder.OrderByDescending(x => x.ID).ToList();
-            foreach (var item in listOrder)
-            {
-                item.Customer = _CustomerService.GetByID(item.CustomerID);
-            }
+            //foreach (var item in listOrder)
+            //{
+            //    item.Customer = _CustomerService.GetByID(item.CustomerID);
+            //}
+            var result = from x in listOrder
+                         select new
+                         {
+                             ID = x.ID,
+                             CustomerID = x.CustomerID,
+                             ShippingFormat = x.ShippingFormat,
+                             ShippingAddress = x.ShippingAddress,
+                             OrderStatus = x.OrderStatus,
+                             PaymentFormat = x.PaymentFormat,
+                             PaymentStatus = x.PaymentStatus,
+                             OrderDiscount = x.OrderDiscount,
+                             OrderTotal = x.OrderTotal,
+                             CustomerOrderComment = x.CustomerOrderComment,
+                             CreateOn = x.CreateOn,
+                             Customer = _CustomerService.GetAll().ToList().Where(a => a.ID == x.CustomerID).FirstOrDefault(),
+                             OrderItems = from a in _OrderItemService.GetAll().ToList().Where(a => a.OrderID == x.ID)
+                                          select new
+                                          {
+                                              ID = a.ID,
+                                              OrderID = a.OrderID,
+                                              ProductID = a.ProductID,
+                                              Quantity = a.Quantity,
+                                              TotalDiscount = a.TotalDiscount,
+                                              TotalMoney = a.TotalMoney,
+                                              Order = a.Order,
+                                              Product = _ProductService.GetAll().ToList().Where(b => b.ID == a.ProductID).FirstOrDefault(),
+                                          },
+                         };
 
-            return Json(listOrder, JsonRequestBehavior.AllowGet);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetOrderPrint(int id)
+        {
+            var listOrder = _OrderService.GetAll().ToList();
+            listOrder = listOrder.OrderByDescending(x => x.ID).ToList();
+            //foreach (var item in listOrder)
+            //{
+            //    item.Customer = _CustomerService.GetByID(item.CustomerID);
+            //}
+            var result = (from x in listOrder
+                         where x.ID == id
+                         select new
+                         {
+                             ID = x.ID,
+                             CustomerID = x.CustomerID,
+                             ShippingFormat = x.ShippingFormat,
+                             ShippingAddress = x.ShippingAddress,
+                             OrderStatus = x.OrderStatus,
+                             PaymentFormat = x.PaymentFormat,
+                             PaymentStatus = x.PaymentStatus,
+                             OrderDiscount = x.OrderDiscount,
+                             OrderTotal = x.OrderTotal,
+                             CustomerOrderComment = x.CustomerOrderComment,
+                             CreateOn = x.CreateOn,
+                             Customer = _CustomerService.GetAll().ToList().Where(a => a.ID == x.CustomerID).FirstOrDefault(),
+                             OrderItems = from a in _OrderItemService.GetAll().ToList().Where(a => a.OrderID == x.ID)
+                                          select new
+                                          {
+                                              ID = a.ID,
+                                              OrderID = a.OrderID,
+                                              ProductID = a.ProductID,
+                                              Quantity = a.Quantity,
+                                              TotalDiscount = a.TotalDiscount,
+                                              TotalMoney = a.TotalMoney,
+                                              Order = a.Order,
+                                              Product = _ProductService.GetAll().ToList().Where(b => b.ID == a.ProductID).FirstOrDefault(),
+                                          },
+                         }).ToList().FirstOrDefault();
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult GetByID(int id)

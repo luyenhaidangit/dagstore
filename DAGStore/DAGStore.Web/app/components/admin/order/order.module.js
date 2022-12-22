@@ -13,6 +13,13 @@ order.config(function ($stateProvider, $urlRouterProvider) {
             parent: 'base',
         },
         {
+            name: 'orderprint',
+            url: '/orderprint/:id',
+            templateUrl: '/app/components/admin/order/orderPrintView.html',
+            controller: "orderPrintController",
+            parent: 'base',
+        },
+        {
             name: 'info-order',
             url: '/order/info/:id',
             templateUrl: '/app/components/admin/order/orderInfoView.html',

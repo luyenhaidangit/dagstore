@@ -27,11 +27,14 @@ function orderListController($scope, apiService, dataTableService, notificationS
         },
     }
 
+    $scope.print = false;
+
 
     // Get data
     $scope.orders = [];
     apiService.get("/order/getall", null, function (result) {
         $scope.orders = result.data;
+        console.log($scope.orders)
 
         angular.element(document).ready(function () {
             $.fn.dataTable.ext.errMode = 'none';
@@ -149,10 +152,11 @@ function orderListController($scope, apiService, dataTableService, notificationS
     $scope.printBill = printBill;
     function printBill(order) {
         $scope.bill = order;
+        $scope.print = true;
         console.log($scope.bill)
-        printJS('Bill', 'html');
+        printJS('demo', 'html');
     }
-
+   /* printJS('bill', 'html');*/
     
 
     // Delete Object
