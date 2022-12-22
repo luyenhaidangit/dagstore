@@ -401,6 +401,8 @@
     <Content Include="app\components\client\historyorder\historyorder.module.js" />
     <Content Include="app\components\client\historyorder\historyorderController.js" />
     <Content Include="app\components\client\historyorder\historyorderView.html" />
+    <Content Include="app\components\client\news\listNewsView.html" />
+    <Content Include="app\components\client\news\listNewsController.js" />
     <Content Include="app\components\client\news\news.module.js" />
     <Content Include="app\components\client\news\newsController.js" />
     <Content Include="app\components\client\news\newsView.html" />
