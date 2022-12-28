@@ -11,6 +11,10 @@ namespace DAGStore.Model.Models
         [Key]
         public int ID { get; set; }
 
+        [ForeignKey("Customer")]
+        public int CustomerID { get; set; }
+        public Customer Customer { get; set; }
+
         [Required]
         [MaxLength(500)]
         public string Name { get; set; }

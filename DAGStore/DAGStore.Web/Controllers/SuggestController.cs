@@ -48,9 +48,27 @@ namespace DAGStore.Web.Controllers
 
         public JsonResult GetByID(int id)
         {
-            var Suggest = _SuggestService.GetByID(id);
+            var listSuggest = _SuggestService.GetAll();
 
-            return Json(Suggest, JsonRequestBehavior.AllowGet);
+            var result = (from s in listSuggest
+                         where s.ID == id
+                         select new
+                         {
+                             ID = s.ID,
+                             Title = s.Title,
+                             Description = s.Description,
+                             Type = s.Type,
+                             ImagePath = s.ImagePath,
+                             TextColor = s.TextColor,
+                             BackgroundColor = s.BackgroundColor,
+                             SliderID = s.SliderID,
+                             DisplayOrder = s.DisplayOrder,
+                             Status = s.Status,
+                             ShowOnHomePage = s.ShowOnHomePage,
+                             SuggestProducts = _SuggestProductService.GetAll().ToList().Where(x => x.SuggestID == s.ID),
+                         }).FirstOrDefault();
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

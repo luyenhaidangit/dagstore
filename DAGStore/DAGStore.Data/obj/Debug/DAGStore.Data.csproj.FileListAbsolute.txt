@@ -64,10 +64,12 @@ C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.D
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddImageProduct.resources
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.EditOrderBill.resources
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.BuildTableNewsTag.resources
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.UpdateTableNews.resources
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddTableAndressCustomer.resources
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.FixTableAndress.resources
+C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddAttCustomer.resources
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.csproj.GenerateResource.cache
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.csproj.CoreCompileInputs.cache
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.csproj.CopyComplete
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.dll
 C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.pdb
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.UpdateTableNews.resources
-C:\luyenhaidangit.github.io\DAGStore\DAGStore\DAGStore.Data\obj\Debug\DAGStore.Data.Migrations.AddTableAndressCustomer.resources

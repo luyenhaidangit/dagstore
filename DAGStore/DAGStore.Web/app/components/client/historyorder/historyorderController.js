@@ -17,6 +17,8 @@ function historyorderController($scope, apiService, sliderService, $rootScope, $
     $scope.notFindExist = false;
     $scope.notCodeExist = false;
 
+    $scope.login = {}
+
     apiService.get("/historyorder/GetLogin", null, function (success) {
         var login = success.data;
 
@@ -24,6 +26,14 @@ function historyorderController($scope, apiService, sliderService, $rootScope, $
         if (login.email == "") {
             $scope.statusForm = 1;
         } else {
+
+            apiService.get("/customer/GetCustomerByEmail?email=" + login.email, null, function (success) {
+                $scope.login = success.data;
+                console.log($scope.login)
+            }, function (error) {
+                console.log("không thành công!")
+            })
+
             $scope.emailverifi.email = login.email
             apiService.get("/historyorder/GetOrderCustomer?email=" + $scope.emailverifi.email, null, function (result) {
                 $scope.OrderCustomer = result.data;
@@ -129,7 +139,7 @@ function historyorderController($scope, apiService, sliderService, $rootScope, $
 
     $scope.CancelOrder = CancelOrder;
     function CancelOrder(order, status) {
-        alertService.alertStatusOrder("B?n có mu?n h?y ??n ??t hàng?").then((result) => {
+        alertService.alertStatusOrder("B?n có mu?n h?y ??n hàng?").then((result) => {
             if (result.isConfirmed) {
                 order.OrderStatus = status;
                 order.CreateOn = "20-12-2022";
@@ -140,6 +150,40 @@ function historyorderController($scope, apiService, sliderService, $rootScope, $
                    
 
                 });
+
+            }
+        })
+    }
+
+
+    $scope.CustomerAndress = {
+        Name: "",
+        NumberPhone: "",
+        Andress: "",
+        CustomerID:0,
+    }
+
+    $scope.AddCustomerAndress = AddCustomerAndress;
+    function AddCustomerAndress() {
+        $scope.CustomerAndress.CustomerID = $scope.login.ID;
+
+        console.log($scope.CustomerAndress)
+
+        apiService.post("/customerandress/create", $scope.CustomerAndress, function (success) {
+            console.log("thanhcong")
+        }, function (error) {
+            console.log("không thành công!")
+        })
+
+        $scope.login.CustomerAndresss.push($scope.CustomerAndress)
+    }
+
+    $scope.Default = 0;
+    $scope.SetDefault = SetDefault;
+    function SetDefault(index) {
+        alertService.alertStatusOrder("B?n có mu?n h?y ??n ??t hàng?").then((result) => {
+            if (result.isConfirmed) {
+                $scope.Default = 3;
 
             }
         })

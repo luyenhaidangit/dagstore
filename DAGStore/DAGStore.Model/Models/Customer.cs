@@ -29,5 +29,7 @@ namespace DAGStore.Model.Models
 
         [Required]
         public bool Deleted { get; set; }
+
+        public virtual IEnumerable<CustomerAndress> CustomerAndresss { set; get; }
     }
 }

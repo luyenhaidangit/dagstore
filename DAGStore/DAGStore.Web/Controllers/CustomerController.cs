@@ -13,10 +13,12 @@ namespace DAGStore.Web.Controllers
     public class CustomerController : Controller
     {
         ICustomerService _CustomerService;
+        ICustomerAndressService _CustomerAndressService;
 
-        public CustomerController(ICustomerService CustomerService)
+        public CustomerController(ICustomerService CustomerService, ICustomerAndressService customerAndressService)
         {
             this._CustomerService = CustomerService;
+            this._CustomerAndressService = customerAndressService;
         }
 
         // GET: category
@@ -39,6 +41,27 @@ namespace DAGStore.Web.Controllers
             var Customer = _CustomerService.GetAll().Any(x=>x.Email== email);
 
             return Json(Customer, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetCustomerByEmail(string email)
+        {
+            var Customers = _CustomerService.GetAll().ToList();
+
+            var result = (from x in Customers
+                         where x.Email == email
+                         select new
+                         {
+                             ID = x.ID,
+                             Name = x.Name,
+                             Email = x.Email,
+                             NumberPhone = x.NumberPhone,
+                             Andress = x.Andress,
+                             DeliveryAndress = x.DeliveryAndress,
+                             Deleted = x.Deleted,
+                             CustomerAndresss = _CustomerAndressService.GetAll().ToList().Where(a=>a.CustomerID == x.ID),
+                         }).FirstOrDefault();
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

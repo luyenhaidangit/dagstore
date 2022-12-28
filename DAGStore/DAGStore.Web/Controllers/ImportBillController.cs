@@ -80,6 +80,7 @@ namespace DAGStore.Web.Controllers
             foreach (var importBillDetail in importBill.ImportBillDetails)
             {
                 importBillDetail.ImportBillID = importBill.ID;
+                importBillDetail.ImportBill = null;
                 _importBillDetailService.Add(importBillDetail);
             }
             _importBillDetailService.SaveChanges();

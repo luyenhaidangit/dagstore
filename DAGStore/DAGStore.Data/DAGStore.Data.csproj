@@ -243,6 +243,14 @@
     <Compile Include="Migrations\202212222017584_Add-Table-Andress-Customer.designer.cs">
       <DependentUpon>202212222017584_Add-Table-Andress-Customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202212222104308_Fix-Table-Andress.cs" />
+    <Compile Include="Migrations\202212222104308_Fix-Table-Andress.designer.cs">
+      <DependentUpon>202212222104308_Fix-Table-Andress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212222108352_Add-Att-Customer.cs" />
+    <Compile Include="Migrations\202212222108352_Add-Att-Customer.designer.cs">
+      <DependentUpon>202212222108352_Add-Att-Customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BrandRepository.cs" />
@@ -396,6 +404,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202212222017584_Add-Table-Andress-Customer.resx">
       <DependentUpon>202212222017584_Add-Table-Andress-Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212222104308_Fix-Table-Andress.resx">
+      <DependentUpon>202212222104308_Fix-Table-Andress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212222108352_Add-Att-Customer.resx">
+      <DependentUpon>202212222108352_Add-Att-Customer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
