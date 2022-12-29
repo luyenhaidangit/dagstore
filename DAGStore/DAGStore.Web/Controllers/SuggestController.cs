@@ -95,6 +95,26 @@ namespace DAGStore.Web.Controllers
             _SuggestService.Update(Suggest);
             _SuggestService.SaveChanges();
 
+            var suggestProducts = _SuggestProductService.GetAll().ToList().Where(x=>x.SuggestID==Suggest.ID);
+            suggestProducts = suggestProducts ?? new List<SuggestProduct>();
+            foreach (var item in suggestProducts)
+            {
+                _SuggestProductService.DeleteSuggest(x => x.ProductID == item.ProductID && x.SuggestID == item.SuggestID);
+            }
+            _SuggestProductService.SaveChanges();
+
+            Suggest.SuggestProducts = Suggest.SuggestProducts ?? new List<SuggestProduct>();
+            foreach (var item in Suggest.SuggestProducts)
+            {
+                item.Product = null;
+                item.Suggest = null;
+            }
+            foreach (var item in Suggest.SuggestProducts)
+            {
+                _SuggestProductService.Add(item);
+            }
+            _SuggestProductService.SaveChanges();
+
             return Json(true, JsonRequestBehavior.AllowGet);
         }
 

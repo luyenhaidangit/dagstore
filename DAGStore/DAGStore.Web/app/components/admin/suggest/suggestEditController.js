@@ -137,9 +137,9 @@ function suggestEditController($scope, apiService, notificationService, $state, 
     $scope.FilterSuggest = FilterSuggest;
     function FilterSuggest(item, status) {
         if (status == 1) {
-            $scope.FilterCategory = item.ID;
+            $scope.FilterCategory = item;
         } else if (status == 2) {
-            $scope.FilterBrand = item.ID;
+            $scope.FilterBrand = item;
         }
         Filter();
     }
@@ -167,13 +167,45 @@ function suggestEditController($scope, apiService, notificationService, $state, 
                     }
                 });
 
-                $scope.SuggestProduct = $filter('filter')($scope.SuggestProduct, { CategoryID: $scope.FilterCategory });
+                if ($scope.FilterCategory != '') {
+                    $scope.SuggestProduct = $filter('filter')($scope.SuggestProduct, { CategoryID: $scope.FilterCategory });
+                }
 
-                //console.log($scope.SuggestProduct);
+                if ($scope.FilterBrand != '') {
+                    $scope.SuggestProduct = $filter('filter')($scope.SuggestProduct, { BrandID: $scope.FilterBrand });
+                }
 
             }, function (error) {
 
             });
         })
+    }
+
+    $scope.UpdateSuggest = UpdateSuggest;
+    function UpdateSuggest() {
+        console.log("ok")
+        $scope.Suggest.SuggestProducts = [];
+        $scope.SuggestProduct.map((x) => {
+            if (x.SelectSuggest == 1) {
+                var item = {
+                    SuggestID: $scope.Suggest.ID,
+                    ProductID: x.ID,
+                    Suggest: null,
+                    Product: null,
+                }
+
+                $scope.Suggest.SuggestProducts.push(item);
+            }
+        })
+
+        apiService.put("/suggest/update", $scope.Suggest, function (result) {
+            notificationService.displaySuccess("Cập nhật thông tin thành công!");
+            $state.go("suggest");
+        }, function (error) {
+            notificationService.displaySuccess("Cập nhật thông tin không thành công!");
+            console.log($scope.category)
+        });
+
+        console.log($scope.Suggest)
     }
 }

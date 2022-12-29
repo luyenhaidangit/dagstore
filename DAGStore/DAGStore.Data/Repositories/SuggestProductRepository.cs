@@ -12,5 +12,10 @@ namespace DAGStore.Data.Repositories
         public SuggestProductRepository(IDbFactory dbFactory) : base(dbFactory)
         {
         }
+
+        //public bool DeleteSuggestProduct(int idSuggest,int idProduct)
+        //{
+
+        //}
     }
 }

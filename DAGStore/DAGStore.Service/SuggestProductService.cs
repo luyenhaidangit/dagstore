@@ -1,8 +1,10 @@
 ﻿using DAGStore.Data.Infrastructure;
 using DAGStore.Data.Repositories;
 using DAGStore.Model.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace DAGStore.Service
 {
@@ -17,6 +19,8 @@ namespace DAGStore.Service
         IEnumerable<SuggestProduct> GetAll();
 
         SuggestProduct GetByID(int id);
+
+        bool DeleteSuggest(Expression<Func<SuggestProduct, bool>> where);
 
         void SaveChanges();
     }
@@ -41,6 +45,11 @@ namespace DAGStore.Service
         public bool Add(SuggestProduct SuggestProduct)
         {
             return _SuggestProductRepository.Add(SuggestProduct);
+        }
+
+        public bool DeleteSuggest(Expression<Func<SuggestProduct, bool>> where)
+        {
+            return _SuggestProductRepository.DeleteMulti(where);
         }
 
         public bool Delete(int id)
