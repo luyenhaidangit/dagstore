@@ -28,80 +28,38 @@
                 <h5 class="font-size-14 mb-3">Loại sản phẩm</h5>
 
                 <div id="accordion" class="custom-accordion categories-accordion mb-3">
-                    <div ng-repeat="item in categories" class="categories-group-card">
-                        <a href="#collapseOne" class="categories-group-list collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="collapseOne">
-                            <!--<img src="{{item.PicturePath}}" class="img-fluid" style="width:20px;" />--> {{item.Name}}
-                            <i class="mdi mdi-minus float-right accor-plus-icon"></i>
-
+                    <div ng-repeat="item in categories track by $index" class="categories-group-card">
+                        <a ng-click="FilterSuggest(item,1)" style="cursor:pointer" class="categories-group-list collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="collapseOne">
+                            {{item.Name}}
+                            <i ng-if="item.ChildCategory.length > 0" ng-click="ShowListChild($index)" style="cursor:pointer" class="mdi mdi-minus float-right accor-plus-icon"></i>
                         </a>
 
-                        <div id="collapseOne" class="collapse" data-parent="#accordion">
+                        <div ng-if="ListChildOpen == $index">
                             <div>
                                 <ul class="list-unstyled categories-list mb-0">
-                                    <li><a href="#"><i class="mdi mdi-circle-medium mr-1"></i> Mobile</a></li>
-                                    <li><a href="#"><i class="mdi mdi-circle-medium mr-1"></i> Mobile accessories</a></li>
-                                    <li><a href="#"><i class="mdi mdi-circle-medium mr-1"></i> Computers</a></li>
-                                    <li><a href="#"><i class="mdi mdi-circle-medium mr-1"></i> Laptops</a></li>
-                                    <li><a href="#"><i class="mdi mdi-circle-medium mr-1"></i> Speakers</a></li>
+                                    <li style="cursor:pointer" ng-repeat="x in item.ChildCategory"><a href="#"><i class="mdi mdi-circle-medium mr-1"></i>{{x.Name}}</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-
-                    <!--<div class="categories-group-card">
-                        <a href="#collapseTwo" class="categories-group-list" data-toggle="collapse" aria-expanded="true" aria-controls="collapseTwo">
-                            <i class="mdi mdi-hanger font-size-16 align-middle mr-2"></i> Fashion
-                            <i class="mdi mdi-minus float-right accor-plus-icon"></i>
-                        </a>
-                        <div id="collapseTwo" class="collapse show" data-parent="#accordion">
-                            <div>
-                                <ul class="list-unstyled categories-list mb-0">
-                                    <li class="active"><a href="#"><i class="mdi mdi-circle-medium mr-1"></i> Clothing</a></li>
-                                    <li><a href="#"><i class="mdi mdi-circle-medium mr-1"></i> Footwear</a></li>
-                                    <li><a href="#"><i class="mdi mdi-circle-medium mr-1"></i> Watches</a></li>
-                                    <li><a href="#"><i class="mdi mdi-circle-medium mr-1"></i> Sportswear</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="categories-group-card">
-                        <a href="#collapseThree" class="categories-group-list collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="collapseThree">
-                            <i class="mdi mdi-pinwheel-outline font-size-16 align-middle mr-2"></i> Baby & Kids
-                            <i class="mdi mdi-minus float-right accor-plus-icon"></i>
-                        </a>
-                        <div id="collapseThree" class="collapse" data-parent="#accordion">
-                            <div>
-                                <ul class="list-unstyled categories-list mb-0">
-                                    <li><a href="#"><i class="mdi mdi-circle-medium mr-1"></i> Clothing</a></li>
-                                    <li><a href="#"><i class="mdi mdi-circle-medium mr-1"></i> Footwear</a></li>
-                                    <li><a href="#"><i class="mdi mdi-circle-medium mr-1"></i> Toys</a></li>
-                                    <li><a href="#"><i class="mdi mdi-circle-medium mr-1"></i> Baby care</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="categories-group-card">
-                        <a href="#collapseFour" class="categories-group-list collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="collapseFour">
-                            <i class="mdi mdi-dumbbell font-size-16 align-middle mr-2"></i> Fitness
-                            <i class="mdi mdi-minus float-right accor-plus-icon"></i>
-                        </a>
-                        <div id="collapseFour" class="collapse" data-parent="#accordion">
-                            <div>
-                                <ul class="list-unstyled categories-list mb-0">
-                                    <li><a href="#"><i class="mdi mdi-circle-medium mr-1"></i> Gym equipment</a></li>
-                                    <li><a href="#"><i class="mdi mdi-circle-medium mr-1"></i> Yoga mat</a></li>
-                                    <li><a href="#"><i class="mdi mdi-circle-medium mr-1"></i> Dumbbells</a></li>
-                                    <li><a href="#"><i class="mdi mdi-circle-medium mr-1"></i> Protein supplements</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>-->
                 </div>
+                <span ng-click="LoadMoreCategory()" class="text-primary" style="cursor:pointer">Xem thêm</span>
             </div>
 
             <div class="card-body border-top">
+                <h5 class="font-size-14 mb-3">Hãng sản phẩm</h5>
+
+                <div id="accordion" class="custom-accordion categories-accordion mb-3">
+                    <div ng-repeat="item in brands track by $index" class="categories-group-card">
+                        <a style="cursor:pointer" class="categories-group-list collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="collapseOne">
+                             {{item.Name}}
+                        </a>
+                    </div>
+                </div>
+                <span ng-click="LoadMoreBrand()" class="text-primary" style="cursor:pointer">Xem thêm</span>
+            </div>
+
+            <!--<div class="card-body border-top">
                 <div>
                     <h5 class="font-size-14 mb-4">Price</h5>
 
@@ -203,7 +161,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
     <div class="col-lg-9">

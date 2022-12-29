@@ -31,7 +31,22 @@ namespace DAGStore.Web.Controllers
         {
             var listCategory = _categoryService.GetAll();
 
-            return Json(listCategory, JsonRequestBehavior.AllowGet);
+            var result = from x in listCategory
+                         select new
+                         {
+                             ID = x.ID,
+                             ParentCategoryID = x.ParentCategoryID,
+                             Name = x.Name,
+                             PicturePath = x.PicturePath,
+                             PictureAvatar = x.PictureAvatar,
+                             Description = x.Description,
+                             DisplayOrder = x.DisplayOrder,
+                             Published = x.Published,
+                             Deleted = x.Deleted,
+                             ChildCategory = _categoryService.GetAll().ToList().Where(a => a.ParentCategoryID == x.ID),
+                         };
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult GetByID(int id)
