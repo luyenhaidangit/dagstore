@@ -36,8 +36,8 @@
                     <div class="card-body">
                         <div class="media">
                             <div class="media-body overflow-hidden">
-                                <p class="text-truncate font-size-14 mb-2">Sản phẩm bán ra</p>
-                                <h4 class="mb-0">1452</h4>
+                                <p class="text-truncate font-size-14 mb-2">Sản phẩm</p>
+                                <h4 class="mb-0">{{products.length}}</h4>
                             </div>
                             <div class="text-primary">
                                 <i class="ri-stack-line font-size-24"></i>
@@ -62,7 +62,7 @@
                         <div class="media">
                             <div class="media-body overflow-hidden">
                                 <p class="text-truncate font-size-14 mb-2">Doanh thu</p>
-                                <h4 class="mb-0">106.245.987đ</h4>
+                                <h4 class="mb-0">{{total.Total | formatCurrencyVND}}</h4>
                             </div>
                             <div class="text-primary">
                                 <i class="ri-store-2-line font-size-24"></i>
@@ -85,7 +85,7 @@
                         <div class="media">
                             <div class="media-body overflow-hidden">
                                 <p class="text-truncate font-size-14 mb-2">Khách hàng mua hàng</p>
-                                <h4 class="mb-0">302</h4>
+                                <h4 class="mb-0">{{customers.length}}</h4>
                             </div>
                             <div class="text-primary">
                                 <i class="ri-briefcase-4-line font-size-24"></i>

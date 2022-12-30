@@ -188,6 +188,27 @@ function historyorderController($scope, apiService, sliderService, $rootScope, $
             }
         })
     }
+
+    $scope.Detail = []
+    $scope.SeeDetailBill = SeeDetailBill;
+    function SeeDetailBill(item) {
+        console.log("ok")
+        $scope.Detail = item;
+    }
+
+    $scope.Insurance = Insurance;
+    function Insurance(item) {
+        var submit = confirm('B?n có ch?c mu?n b?o hành s?n ph?m này?')
+        if (submit) {
+            item.TotalMoney = -1;
+            apiService.put("/orderitem/update", item, function (success) {
+                console.log("thanhcong")
+            }, function (error) {
+                console.log("không thành công!")
+            })
+        }
+       
+    }
     
 
     //Load Page

@@ -14,11 +14,13 @@ namespace DAGStore.Web.Controllers
     {
         IOrderItemService _OrderItemService;
         IProductService _ProductService;
+        IOrderService _OrderService;
 
-        public OrderItemController(IProductService productService,IOrderItemService OrderItemService)
+        public OrderItemController(IProductService productService,IOrderItemService OrderItemService,IOrderService OrderService)
         {
             this._OrderItemService = OrderItemService;
             this._ProductService = productService;
+            this._OrderService = OrderService;
         }
 
         // GET: category
@@ -72,6 +74,27 @@ namespace DAGStore.Web.Controllers
             _OrderItemService.SaveChanges();
 
             return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
+        // GET: category
+        public JsonResult GetOrderItem()
+        {
+            var listOrderItem = _OrderItemService.GetAll();
+
+            var result = from x in listOrderItem
+                         select new
+                         {
+                             ID = x.ID,
+                             OrderID = x.OrderID,
+                             Order = _OrderService.GetAll().ToList().Where(a => a.ID == x.OrderID).FirstOrDefault(),
+                             ProductID = x.ProductID,
+                             Product = _ProductService.GetAll().Where(a => a.ID == x.ProductID).FirstOrDefault(),
+                             Quantity = x.Quantity,
+                             TotalMoney = x.TotalMoney,
+                             TotalDiscount = x.TotalDiscount,
+                         };
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
     }

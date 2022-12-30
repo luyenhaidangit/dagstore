@@ -175,7 +175,53 @@
                                                 <a href="" class="text-decoration-none text-dark">{{item.Title}}</a>
                                             </div>
                                             <div>
-                                                <a href="" class="text-decoration-none">Xem chi tiết</a>
+                                                <!--<a ata-bs-toggle="modal" data-bs-target="#staticBackdrop1" class="text-decoration-none cursor-pointer">Xem chi tiết</a>-->
+                                                <!-- Button  modal -->
+                                                <a ng-click="SeeDetailBill(item)" type="button" class="text-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                                    Xem chi tiết
+                                                </a>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="staticBackdropLabel">Chi tiết</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <table class="table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th scope="col">#</th>
+                                                                            <th scope="col">Tên</th>
+                                                                            <th scope="col">Ảnh</th>
+                                                                            <th scope="col">Giá</th>
+
+                                                                            <th scope="col">Thao tác</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr ng-repeat="x in Detail.OrderItems">
+                                                                            <th scope="row">{{$index+1}}</th>
+                                                                            <td>{{x.Product.Name}}</td>
+                                                                            <td><img src="{{x.Product.PicturePath}}" class="img-fluid" style="width:32px;" /></td>
+                                                                            <td>{{x.TotalMoney}}</td>
+                                                                            <td>
+                                                                                <button ng-click="Insurance(x)" ng-if="Detail.Order.OrderStatus==2" type="button" class="btn btn-primary btn-sm">Bảo hành</button>
+                                                                            </td>
+                                                                        </tr>
+                                                                       
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                                                <button type="button" class="btn btn-primary">Xác nhận</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -184,7 +230,7 @@
                                         <p class="text-danger">{{item.TotalBill | formatCurrencyVND}}<sup class="text-decoration-underline">đ</sup></p>
                                     </td>
                                     <td>
-                                        <span>10/12/2022</span>
+                                        <span>30/12/2022</span>
                                     </td>
                                     <td>
                                         <div ng-if="item.Order.OrderStatus==-1" class="text-primary font-size-12">Đã hủy</div>
@@ -197,6 +243,7 @@
                                             <button ng-click="CancelOrder(item.Order,-1)" ng-if="item.Order.OrderStatus==0" type="button" class="btn btn-sm btn-danger">Hủy đơn</button>
                                         </span>
                                     </td>
+                                    
                                 </tr>
                             </tbody>
                         </table>

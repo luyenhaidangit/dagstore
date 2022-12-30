@@ -166,5 +166,25 @@ namespace DAGStore.Web.Controllers
             return Json(true, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult GetRevenue()
+        {
+            var listOrder = _OrderService.GetAll().ToList();
+            listOrder = listOrder.OrderByDescending(x => x.ID).ToList();
+            decimal total = 0;
+            foreach (var item in listOrder)
+            {
+                if(item.OrderStatus == 2)
+                {
+                    total += item.OrderTotal;
+                }
+            }
+
+
+            return Json(new
+            {
+                Total = total,
+            }, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }
